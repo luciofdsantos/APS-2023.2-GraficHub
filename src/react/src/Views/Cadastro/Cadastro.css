@@ -17,10 +17,9 @@ form{
 
 }
 form .title{
-
     color: var(--Gray);
     font-size: 36px;
-    margin-bottom: 1rem;
+    margin: 10px 0 1rem;
 }
 form .message{
     color: var(--MediumGray);
@@ -90,5 +89,8 @@ input[type="file"] {
     color: var(--GrayishWhite);
     transition-duration: 1.5s;
     transition-timing-function: ease;
+}
+
+img{
 
 }
