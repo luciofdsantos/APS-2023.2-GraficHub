@@ -1,0 +1,94 @@
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Open Sans', sans-serif;
+}
+
+form{
+    background: none;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    min-width: 250px;
+    width:20%;
+    max-width:20%;
+
+}
+form .title{
+
+    color: var(--Gray);
+    font-size: 36px;
+    margin-bottom: 1rem;
+}
+form .message{
+    color: var(--MediumGray);
+    font-size: 16px;
+    margin: 28px 0 0;
+}
+form .message a{
+    color: var(--Gray);
+    text-decoration: none;
+}
+
+form input{
+    outline: 0;
+    background: var(--SoftGray);
+    width: 100%;
+    margin: 0 0 1rem;
+    padding: 15px;
+    font-size: 14px;
+    border-radius: 10px;
+    border-color: transparent;
+    transition: all 0.3s;
+}
+form input:focus{
+    border-color: var(--Gray);
+}
+
+form button{
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: var(--Gray);
+    border: 0;
+    text-decoration: none;
+    padding: 15px;
+    color: var(--GrayishWhite);
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+    width: 40%;
+    max-width: 50%;
+    min-width: 120px;
+}
+
+form button:hover {
+    background: var(--Black);
+    color: var(--GrayishWhite);
+    transition-duration: 1.5s;
+    transition-timing-function: ease;
+}
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    outline: 0;
+    background: var(--SoftGray);
+    width: 100%;
+    margin: 0 0 1rem;
+    padding: 15px;
+    font-size: 14px;
+    border-radius: 10px;
+    border-color: transparent;
+    text-align: center;
+    cursor: pointer;
+}
+
+.custom-file-upload:hover {
+    background: var(--Gray);
+    color: var(--GrayishWhite);
+    transition-duration: 1.5s;
+    transition-timing-function: ease;
+
+}
