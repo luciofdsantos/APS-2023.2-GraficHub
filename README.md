@@ -25,7 +25,7 @@ A área de Design Gráfico é conhecida pela dificuldade de divulgar os detalhes
 | <img src="https://github.com/pedrogabdias.png" width="60px;"/><br /> | Pedro Gabriel | https://github.com/pedrogabdias | Gerente de Desenvolvimento, Desenvolvedor Back-End |
 
 ## Documentação do Projeto
-1. <a href=""> Visão do Negócio </a>
+1. <a href="https://github.com/luciofdsantos/APS-2023.2-GraficHub/blob/main/docs/_ModeloVisaoDoNegocioGraficHub_V2.0.pdf" target="_blank"> Visão do Negócio </a>
 2. <a href=""> Casos de Uso </a>
 3. <a href=""> Diagrama de Domínio </a>
 4. <a href=""> Diagrama de Sequência de Sistema </a>
