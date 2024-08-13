@@ -21,7 +21,7 @@ class AuthController extends Controller
             return redirect()->route('auth.index')->with('sucess', 'logado com sucesso!');
         }
 
-        return redirect()->route('auth.index')->withErrors(['error' => 'Email ou senha invalido.']);
+        return redirect()->route('auth.index')->withErrors(['error' => 'Credenciais Inválidas.']);
     }
 
     public function logout()

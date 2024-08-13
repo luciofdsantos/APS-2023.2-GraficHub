@@ -31,11 +31,11 @@ class UserRequest extends FormRequest
     {
         return [
             'email' => [
-                'required' => 'não pode ficar vazio',
-                'email' => 'ensira um email valido',
+                'required' => 'Preencha este campo',
+                'email' => 'Insira um email válido',
             ],
             'password' => [
-                'required' => 'não pode ficar vazio',
+                'required' => 'Preencha este campo',
             ]
         ];
     }
