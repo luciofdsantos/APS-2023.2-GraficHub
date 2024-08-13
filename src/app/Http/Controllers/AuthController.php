@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
@@ -12,17 +12,9 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
-    public function login(Request $request)
+    public function login(UserRequest $request)
     {
-        $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required'],
-        ], [
-            'email.required' => 'não pode ficar vazio',
-            'email.email' => 'ensira um email valido',
-            'password.required' => 'não pode ficar vazio',
-        ]);
-
+        $request->validated();
 
         if (Auth::attempt($request->only('email', 'password'))) {
             $request->session()->regenerate();
