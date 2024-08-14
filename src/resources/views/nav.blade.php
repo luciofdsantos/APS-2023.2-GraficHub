@@ -20,7 +20,15 @@
        <a href="{{ route('home') }}"> <img class="logo-text-img" src="/img/logo_text.png" alt="grafic hub logo"/> </a>
     </div>
     <div class="picture-wrapper">
-        <a href="{{ route('auth.loginForm') }}" class = "text"><img class="profile-ima" src="/img/profile-img.png" alt="profile pic" /> <div>Entrar/Cadastrar</div></a>
+        <a href="{{ route('auth.loginForm') }}" class = "text"><img class="profile-ima" src="/img/profile-img.png" alt="profile pic" />
+            <div>
+                @if(auth()->check())
+                    {{ auth()->user()->apelido }}
+                @else
+                    Entrar/Cadastrar
+                @endif
+            </div>
+        </a>
     </div>
 </header>
     @stack('styles')
