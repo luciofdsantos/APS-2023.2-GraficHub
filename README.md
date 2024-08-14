@@ -3,9 +3,11 @@
     GraficHub
     <br />
   </h1>
+ <img src="https://skillicons.dev/icons?i=html" alt=""> &nbsp;
+ <img src="https://skillicons.dev/icons?i=css" alt=""> &nbsp;
  <img src="https://skillicons.dev/icons?i=laravel" alt=""> &nbsp;
- <img src="https://skillicons.dev/icons?i=react" alt=""> &nbsp;
  <img src="https://skillicons.dev/icons?i=tailwind" alt=""> &nbsp;
+ <img src="https://skillicons.dev/icons?i=mysql" alt=""> &nbsp;
  <img src="https://skillicons.dev/icons?i=phpstorm" alt="">
 </div>
 
@@ -25,12 +27,13 @@ A área de Design Gráfico é conhecida pela dificuldade de divulgar os detalhes
 | <img src="https://github.com/pedrogabdias.png" width="60px;"/><br /> | Pedro Gabriel | https://github.com/pedrogabdias | Gerente de Desenvolvimento, Desenvolvedor Back-End |
 
 ## Documentação do Projeto
-1. <a href="https://github.com/luciofdsantos/APS-2023.2-GraficHub/blob/main/docs/_ModeloVisaoDoNegocioGraficHub_V2.0.pdf" target="_blank"> Visão do Negócio </a>
-2. <a href=""> Casos de Uso </a>
-3. <a href=""> Diagrama de Domínio </a>
-4. <a href=""> Diagrama de Sequência de Sistema </a>
-5. <a href=""> Projeto de Arquitetura </a>
-6. <a href=""> FeedBack sobre o Desenvolvimento </a>
+1. <a href="https://docs.google.com/document/d/1PlEQYaeul0vm0naU0efukbDX6RXrKjH6YkeQtvBHkSY/edit?usp=sharing" target="_blank"> Visão do Negócio </a>
+2. <a href="https://docs.google.com/document/d/1Hl1V8HrG8Z8NbU92I1VqovJoKRE7iZ2xrTpzSeK9Hw0/edit?usp=sharing">Casos de Uso </a>
+3. <a href="https://docs.google.com/document/d/17SqFzyOD9erfW_8He9kcQobQ0V8AnZIIg9ckyQhJQBU/edit?usp=sharing"> Diagrama de Domínio </a>
+4. <a href="https://docs.google.com/document/d/1DNy_7pAnJPs-LWXipJ6v3Uy5yrLpgcQsqJuvoads3JA/edit?usp=sharing"> Diagrama de Sequência de Sistema </a>
+5. <a href="https://docs.google.com/document/d/1NjF7zlD2AvE4ktO4_VolI5ZyxTQtzE0iEfYrboMrtBM/edit?usp=sharing"> Diagrama de Classe </a>
+6. <a href=""> Projeto de Arquitetura </a>
+7. <a href=""> FeedBack sobre o Desenvolvimento </a>
 
 
 
