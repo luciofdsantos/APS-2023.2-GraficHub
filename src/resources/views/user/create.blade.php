@@ -2,9 +2,6 @@
 
 @section('content')
 
-    <a href="{{ route('home') }}"> Home </a>
-
-    <h2> Cadastrar </h2>
 
     @if (session()->has('success'))
         {{ session()->get('sucess') }}
@@ -17,41 +14,47 @@
         @error('error')
         <span>{{ $message }}</span>
         @enderror
-
+        <div class ="main">
         <form action="{{ route('user.store') }}" method="post">
+            <a href="{{ route('home')}}"> <img class="logo-img" alt="logo" src="/img/logo.png"/> </a>
+            <p class="title"> Cadastrar</p>
             @csrf
-            <input type="text" placeholder="nome" name="nome" value="{{ old('nome') }}">
+            <input class="mainshadowdown" type="text" placeholder="nome" name="nome" value="{{ old('nome') }}">
             @error('nome')
             <span>
                 {{ $message }}
             </span>
             @enderror
-            <input type="text" placeholder="apelido" name="apelido" value="{{ old('apelido') }}" >
+            <input class="mainshadowdown" type="text" placeholder="apelido" name="apelido" value="{{ old('apelido') }}" >
             @error('apelido')
             <span>
                 {{ $message }}
             </span>
             @enderror
-            <input type="text" placeholder="número de telefone" name="numero_telefone" value="{{ old('numero_telefone') }}">
+            <input class="mainshadowdown" type="text" placeholder="número de telefone" name="numero_telefone" value="{{ old('numero_telefone') }}">
             @error('numero_telefone')
             <span>
                 {{ $message }}
             </span>
             @enderror
-            <input type="text" placeholder="email" name="email" value="{{ old('email') }}">
+            <input class="mainshadowdown" type="text" placeholder="email" name="email" value="{{ old('email') }}">
             @error('email')
             <span>
                 {{ $message }}
             </span>
             @enderror
-            <input type="password" placeholder="senha" name="password">
+            <input class="mainshadowdown" type="password" placeholder="senha" name="password">
             @error('password')
             <span>
                 {{ $message }}
             </span>
             @enderror
-            <input type="password" placeholder="confirme a senha" name="password_confirmation">
-            <button type="submit">Cadastrar</button>
+            <input  class="mainshadowdown" type="password" placeholder="confirme a senha" name="password_confirmation">
+            <label class="mainshadowdown  custom-file-upload" for="file-upload">Foto de Perfil</label>
+            <input id ="file-upload" type="file" placeholder="Foto de Perfil" />
+            <button  class="mainshadowdown" type="submit">Cadastrar</button>
+            <p class="message">Já possui conta?  <a href="{{ route('auth.loginForm') }}">Faça login</a></p>
         </form>
+        </div>
     @endif
 @endsection

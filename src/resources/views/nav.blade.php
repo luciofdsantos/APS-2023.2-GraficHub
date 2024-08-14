@@ -14,7 +14,7 @@
 
 </head>
 <body>
-<header class="nav-bar-wrapper">
+<header class="nav-bar-wrapper mainshadowdown">
     <div class="logo-wrapper">
         <a href="{{ route('home') }}"> <img class="logo-img" src="/img/logo.png" alt="grafic hub logo"/> </a>
        <a href="{{ route('home') }}"> <img class="logo-text-img" src="/img/logo_text.png" alt="grafic hub logo"/> </a>
