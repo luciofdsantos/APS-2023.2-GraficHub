@@ -21,19 +21,19 @@
                 <a href="{{ route('home')}}"> <img class="logo-img" alt="logo" src="/img/logo.png"/> </a>
                 <p class="title"> Login </p>
                 @csrf
-                <input type="text"  placeholder="Email" name="email">
+                <input class="mainshadowdown" type="text"  placeholder="Email" name="email">
                 @error('email')
                 <span>
                {{ $message }}
            </span>
                 @enderror
-                <input type="password" placeholder="Senha" name="password">
+                <input class="mainshadowdown" type="password" placeholder="Senha" name="password">
                 @error('password')
                 <span>
               {{ $message }}
           </span>
                 @enderror
-                <button type="submit">Login</button>
+                <button class="mainshadowdown" type="submit">Login</button>
                 <p class="message">Não possui uma conta? <a href="{{ route('user.create') }}"> Cadastre-se</a></p>
 
             </form>
