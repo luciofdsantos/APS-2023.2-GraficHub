@@ -1,6 +1,6 @@
-@extends('loginsingin')
+@extends('nonav')
 @push('styles')
-    <link rel="stylesheet" type="text/css" href="{{ asset('auth/login.css') }}" >
+    <link rel="stylesheet" type="text/css" href="{{ asset('auth/login.css') }}">
 @endpush
 
 @section('content')
@@ -18,16 +18,16 @@
         @enderror
         <div class="main">
             <form action="{{ route('auth.login') }}" method="post">
-                <a href ="{{ route('home')}}" > <img class="logo-img"  alt="logo" src="/logo.png" /> </a>
+                <a href="{{ route('home')}}"> <img class="logo-img" alt="logo" src="/img/logo.png"/> </a>
                 <p class="title"> Login </p>
                 @csrf
-                <input type="text" name="email">
+                <input type="text"  placeholder="Email" name="email">
                 @error('email')
                 <span>
                {{ $message }}
            </span>
                 @enderror
-                <input type="password" name="password">
+                <input type="password" placeholder="Senha" name="password">
                 @error('password')
                 <span>
               {{ $message }}

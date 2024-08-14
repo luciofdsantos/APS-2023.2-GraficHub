@@ -4,7 +4,7 @@ export default function Cadastro(){
     return (
         <div className="main">
             <form action="">
-                <Link to="/"><img className="logo-img" src="/logo.png" /></Link>
+                <Link to="/"><img className="logo-img" src="/img/logo.png" /></Link>
                 <p className="title"> Cadastro </p>
                 <input className="mainshadowdown" type="text" placeholder="Nome" required/>
                 <input className="mainshadowdown" type="text" placeholder="Apelido" required/>

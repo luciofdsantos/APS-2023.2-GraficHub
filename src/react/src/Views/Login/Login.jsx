@@ -5,7 +5,7 @@ export default function Login(){
     return (
     <div className="main">
         <form action="">
-            <Link to="/"><img className="logo-img" src="/logo.png" /></Link>
+            <Link to="/"><img className="logo-img" src="/img/logo.png" /></Link>
             <p className="title"> Login </p>
             <input className="mainshadowdown" type="email" placeholder="Email" required/>
             <input className="mainshadowdown" type="password" placeholder="Password" required/>
