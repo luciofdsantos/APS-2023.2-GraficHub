@@ -112,3 +112,10 @@ input[type="file"] {
 .logo-img{
     height: 60px;
 }
+
+.error-message{
+    margin: 0 0 10px 0;
+}
+
+
+

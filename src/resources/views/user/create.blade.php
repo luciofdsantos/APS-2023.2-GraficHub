@@ -11,9 +11,6 @@
         Usuario logado, {{ auth()->user()->nome }} <a href="{{ route('auth.logout') }}"> Logout </a>
     @else
 
-        @error('error')
-        <span>{{ $message }}</span>
-        @enderror
         <div class ="main">
         <form action="{{ route('user.store') }}" method="post">
             <a href="{{ route('home')}}"> <img class="logo-img" alt="logo" src="/img/logo.png"/> </a>
@@ -21,33 +18,36 @@
             @csrf
             <input class="mainshadowdown" type="text" placeholder="nome" name="nome" value="{{ old('nome') }}">
             @error('nome')
-            <span>
+            <span class="error-message">
                 {{ $message }}
             </span>
             @enderror
             <input class="mainshadowdown" type="text" placeholder="apelido" name="apelido" value="{{ old('apelido') }}" >
             @error('apelido')
-            <span>
+            <span class="error-message">
                 {{ $message }}
             </span>
             @enderror
             <input class="mainshadowdown" type="text" placeholder="número de telefone" name="numero_telefone" value="{{ old('numero_telefone') }}">
             @error('numero_telefone')
-            <span>
+            <span class="error-message">
                 {{ $message }}
             </span>
             @enderror
             <input class="mainshadowdown" type="text" placeholder="email" name="email" value="{{ old('email') }}">
             @error('email')
-            <span>
+            <span class="error-message">
                 {{ $message }}
             </span>
             @enderror
             <input class="mainshadowdown" type="password" placeholder="senha" name="password">
             @error('password')
-            <span>
+            <span class="error-message">
                 {{ $message }}
             </span>
+            @enderror
+            @error('error')
+            <span class="error-message">{{ $message }}</span>
             @enderror
             <input  class="mainshadowdown" type="password" placeholder="confirme a senha" name="password_confirmation">
             <label class="mainshadowdown  custom-file-upload" for="file-upload">Foto de Perfil</label>
