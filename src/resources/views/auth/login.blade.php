@@ -10,7 +10,7 @@
     @endif
 
     @if (auth()->check())
-        Usuario logado, {{ auth()->user()->name }} <a href="{{ route('auth.logout') }}"> Logout </a>
+        Usuario logado, {{ auth()->user()->nome }} <a href="{{ route('auth.logout') }}"> Logout </a>
     @else
 
         @error('error')
@@ -34,7 +34,7 @@
           </span>
                 @enderror
                 <button type="submit">Login</button>
-                <p class="message">Não possui uma conta? <a href="{{ route('home') }}"> Cadastre-se</a></p>
+                <p class="message">Não possui uma conta? <a href="{{ route('user.create') }}"> Cadastre-se</a></p>
 
             </form>
         </div>

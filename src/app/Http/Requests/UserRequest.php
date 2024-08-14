@@ -22,8 +22,11 @@ class UserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => ['required', 'email'],
-            'password' => ['required'],
+            'email' => ['required', 'email', 'unique:users'],
+            'password' => ['required', 'confirmed', 'min:8'],
+            'apelido' => ['required', 'string', 'max:255', 'unique:users'],
+            'nome' => ['required', 'string', 'max:255'],
+            'numero_telefone' => ['required', 'unique:users', 'regex:/^(\+?\d{1,4}[\s-]?)?\(?\d{1,4}\)?[\s-]?\d{1,4}[\s-]?\d{1,9}$/'],
         ];
     }
 
@@ -31,11 +34,26 @@ class UserRequest extends FormRequest
     {
         return [
             'email' => [
-                'required' => 'Preencha este campo',
-                'email' => 'Insira um email válido',
+                'required' => 'Preencha este campo.',
+                'email' => 'Insira um e-mail válido.',
+                'unique' => 'E-mail já cadastrado.'
+            ],
+            'nome' => [
+                'required' => 'Preencha este campo.',
             ],
             'password' => [
-                'required' => 'Preencha este campo',
+                'required' => 'Preencha este campo.',
+                'min' => 'A senha deve ter no mínimo :min caracteres.',
+                'confirmed' => 'A confirmação de senha deve ser idêntica a senha.',
+            ],
+            'apelido' => [
+                'required' => 'Preencha este campo.',
+                'unique' => 'Apelido já cadastrado.',
+            ],
+            'numero_telefone' => [
+                'required' => 'Preencha este campo.',
+                'unique' => 'Número de telefone já cadastrado.',
+                'regex' => 'Formato do número de telefone inválido.'
             ]
         ];
     }
