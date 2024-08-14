@@ -20,25 +20,25 @@
 
         <form action="{{ route('user.store') }}" method="post">
             @csrf
-            <input type="text" placeholder="nome" name="nome">
+            <input type="text" placeholder="nome" name="nome" value="{{ old('nome') }}">
             @error('nome')
             <span>
                 {{ $message }}
             </span>
             @enderror
-            <input type="text" placeholder="apelido" name="apelido">
+            <input type="text" placeholder="apelido" name="apelido" value="{{ old('apelido') }}" >
             @error('apelido')
             <span>
                 {{ $message }}
             </span>
             @enderror
-            <input type="text" placeholder="número de telefone" name="numero_telefone">
+            <input type="text" placeholder="número de telefone" name="numero_telefone" value="{{ old('numero_telefone') }}">
             @error('numero_telefone')
             <span>
                 {{ $message }}
             </span>
             @enderror
-            <input type="text" placeholder="email" name="email">
+            <input type="text" placeholder="email" name="email" value="{{ old('email') }}">
             @error('email')
             <span>
                 {{ $message }}
