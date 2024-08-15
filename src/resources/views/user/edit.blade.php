@@ -1,0 +1,53 @@
+@extends('nonav')
+
+@section('content')
+
+    <div class="main">
+        <form action="{{ route('user.update', $user['apelido']) }}" method="post" enctype="multipart/form-data">
+            <a href="{{ route('home')}}"> <img class="logo-img" alt="logo" src="/img/logo.png"/> </a>
+            <p class="title"> Atualizar Dados</p>
+            @csrf
+            @method('PUT')
+            <input class="mainshadowdown" type="text" placeholder="nome" name="nome"
+                   value="{{ old('nome', $user['nome']) }}">
+            @error('nome')
+            <span class="error-message">
+                {{ $message }}
+            </span>
+            @enderror
+            <input class="mainshadowdown" type="text" placeholder="apelido" name="apelido"
+                   value="{{ old('apelido', $user['apelido']) }}">
+            @error('apelido')
+            <span class="error-message">
+                {{ $message }}
+            </span>
+            @enderror
+            <input class="mainshadowdown" type="text" placeholder="número de telefone" name="numero_telefone"
+                   value="{{ old('numero_telefone', $user['numero_telefone']) }}">
+            @error('numero_telefone')
+            <span class="error-message">
+                {{ $message }}
+            </span>
+            @enderror
+            <input class="mainshadowdown" type="text" placeholder="email" name="email"
+                   value="{{ old('email', $user['email']) }}">
+            @error('email')
+            <span class="error-message">
+                {{ $message }}
+            </span>
+            @enderror
+            <input class="mainshadowdown" type="password" placeholder="Nova senha" name="password">
+            @error('password')
+            <span class="error-message">
+                {{ $message }}
+            </span>
+            @enderror
+            <input class="mainshadowdown" type="password" placeholder="confirme a nova senha" name="password_confirmation">
+            <label class="mainshadowdown custom-file-upload" for="file-upload">Foto de Perfil</label>
+            <input id="file-upload" type="file" name="profile_picture" placeholder="Foto de Perfil">
+            <button class="mainshadowdown" type="submit">Atualizar</button>
+            <p class="message">Voltar para o <a href="{{ route('user.perfil', $user['apelido']) }}">Perfil</a></p>
+        </form>
+    </div>
+
+@endsection

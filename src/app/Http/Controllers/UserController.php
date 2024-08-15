@@ -3,17 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
+use App\Http\Requests\UserUpdateRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+
+    public function showPerfil(string $apelido)
     {
-        //
+        $user = User::where('apelido', $apelido)->first();
+        if ($user == null) {
+            return view('home');
+        }
+        return view('user.perfil', compact('user'));
+
     }
 
     /**
@@ -45,17 +49,31 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(string $apelido)
     {
-        //
+        $user = User::where('apelido', $apelido)->first()->toArray();
+        if ($user == null || $user['id'] != auth()->id()) {
+            return view('home');
+        }
+        return view('user.edit', compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UserUpdateRequest $request, string $apelido)
     {
-        //
+        $user = User::where('apelido', $apelido)->first();
+
+        $request->validated();
+
+        $user->fill($request->only('nome', 'apelido', 'email', 'numero_telefone'));
+        if ($request->password != null) {
+            $user->fill($request->only('password'));
+        }
+
+        $user->save();
+        return redirect()->route('user.perfil', $user->apelido);
     }
 
     /**

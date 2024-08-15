@@ -21,7 +21,7 @@
     </div>
     <div class="picture-wrapper">
         <img class="search-icon" src="/img/search-img.png" alt="search-icon" />
-        <a href="{{ route('auth.loginForm') }}" class = "text"><img class="profile-ima" src="/img/profile-img.png" alt="profile pic" />
+        <a href="{{ auth()->check() ? route('user.perfil', auth()->user()->apelido) : route('auth.loginForm') }}" class = "text"><img class="profile-ima" src="/img/profile-img.png" alt="profile pic" />
             <div>
                 @if(auth()->check())
                     {{ auth()->user()->apelido }}
@@ -34,7 +34,6 @@
 </header>
     @stack('styles')
     <div>
-
 
         @yield('content')
 
