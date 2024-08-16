@@ -63,6 +63,10 @@
         <div class="editBox mainshadowdown"><a class="edit" href="{{ route('user.edit', $user['apelido']) }}" >Editar Perfil</a></div>
         <div class="logoutBox mainshadowdown"><a class="logout" >LogOut</a></div>
     </div>
+    <div class="portifolio main mainshadowdown">
+            <div class="portBox"> <a>Criar Projeto</a></div>
+            <div class="portBox"> <a>Gerir Projetos</a></div>
+    </div>
     </body>
 
 </html>

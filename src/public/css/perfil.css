@@ -92,11 +92,21 @@ body{
     color: var(--GrayishWhite);
     align-self: center;
 }
+@media screen and (min-width: 1921px) {
+    .mail p{
+        font-size: 15px;
+    }
+}
+@media screen and (max-width: 1920px) {
+    .mail p{
+        font-size: 10px;
+    }
+}
+
+
+
 .mail p{
     align-self: center;
-    min-font-size: 7px;
-    font-size: 60%;
-    max-font-size: 80%;
 }
 
 .options{
@@ -171,4 +181,30 @@ body{
 .disponibilidade p{
     align-self: center;
     color: var(--GrayishWhite);
+}
+
+.portifolio{
+    margin-left: 25px;
+    position: absolute;
+    left: 30vh;
+    height: 100vh;
+    width: 100%;
+    background-color: var(--SoftGray);
+    display: flex;
+}
+.portBox{
+    margin-left: 15px;
+    background-color: var(--Gray);
+    display: flex;
+    width: 10%;
+    height: 25px;
+    justify-content: center;
+    margin-top: 10px;
+    border-radius: 20px;
+    min-width: 190px;
+}
+.portBox a{
+    color: var(--GrayishWhite);
+    font-size: 90%;
+    align-self: center;
 }
