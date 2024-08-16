@@ -54,9 +54,9 @@
         <form action="{{route('user.updateDisp', $user['id'])}}" method="post">
             @csrf
             @if($user['disponivel'])
-                <button type="submit" class="disp-btn green-disp-btn">Disponível <img class="disp-info-icon" src="/img/info-icon.png"></img></button>
+                <button type="submit" class="disp-btn green-disp-btn">Disponível <img class="disp-info-icon" src="/img/info-icon.png" onmouseover="showMessage()" onmouseout="hideMessage()"></img></button>
             @else
-                <button type="submit" class="disp-btn red-disp-btn">Indisponível <img class="disp-info-icon" src="/img/info-icon.png"></button>
+                <button type="submit" class="disp-btn red-disp-btn">Indisponível <img class="disp-info-icon" src="/img/info-icon.png" onmouseover="showMessage()" onmouseout="hideMessage()"></button>
             @endif
             <div id="disp-info-text">
 
@@ -79,6 +79,7 @@
             <div class="portBox"> <a>Criar Projeto</a></div>
             <div class="portBox"> <a>Gerir Projetos</a></div>
     </div>
+    <script src="/js/functions.js"></script>
     </body>
 
 </html>

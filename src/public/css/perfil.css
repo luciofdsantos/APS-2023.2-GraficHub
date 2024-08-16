@@ -229,3 +229,11 @@ body{
     right: 26px;
     height: 20px;
 }
+
+#disp-info-text{
+    position: absolute;
+    background-color: #d1d1d1;
+    top: 200px;
+    border-radius: 20px;
+    text-align: justify;
+}
