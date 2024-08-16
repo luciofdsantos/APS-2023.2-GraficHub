@@ -1,3 +1,17 @@
+:root{
+    --GrayishWhite: #f6f6f6;
+    --Black: #202020;
+    --Gray:  #514f4f;
+    --SoftGray: #D9D9D9;
+    --MediumGray: #7a7979;
+}
+.mainshadowdown{
+    box-shadow:  0 3px 5px 0 rgba(0,0,0,0.35);
+}
+body{
+    margin: 0;
+    background-color: var(--GrayishWhite);
+}
 .nav-bar-wrapper{
     display: flex;
     justify-content: space-between;
