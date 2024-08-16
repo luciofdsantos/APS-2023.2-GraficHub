@@ -10,7 +10,7 @@ body{
     font-family: 'Open Sans', sans-serif;
 }
 .userImg{
-    width: 54px;
+    width: 78px;
     border-radius: 10%;
     border: 1px solid var(--GrayishWhite);
 }
@@ -37,11 +37,11 @@ body{
     font-family: 'Open Sans', sans-serif;
 }
 .user .userInfo .name{
-    font-size: 110%;
+    font-size: 120%;
     color: var(--Black);
 }
 .user .userInfo .apelido{
-    font-size: 90%;
+    font-size: 100%;
     color: var(--Gray);
 }
 
@@ -62,7 +62,48 @@ body{
 .userFollowers .tag{
     color: var(--SoftGray)
 }
+.contact{
+    justify-content: center;
+    display: flex;
+}
+.title{
+    display: flex;
+    font-size: 140%;
+    color: var(--MediumGray);
+}
 .contactBox{
+    background-color: var(--Gray);
+    display: flex;
+    width: 100%;
+    height: 50px;
+    justify-content: center;
+    border-radius: 10px;
+    min-width: 190px;
+}
+.mail{
+    margin-top: -8px;
+}
+
+.fone{
+    margin-top: 10px;
+}
+
+.contactBox p{
+    color: var(--GrayishWhite);
+    align-self: center;
+}
+.mail p{
+    align-self: center;
+    min-font-size: 7px;
+    font-size: 60%;
+    max-font-size: 80%;
+}
+
+.options{
+    margin-top: 60%;
+
+}
+.editBox{
     background-color: var(--Gray);
     display: flex;
     width: 100%;
@@ -72,21 +113,62 @@ body{
     border-radius: 10px;
     min-width: 190px;
 }
-.contactBox p{
+.logoutBox{
+    background-color: var(--Gray);
+    display: flex;
+    width: 100%;
+    height: 50px;
+    justify-content: center;
+    margin-top: 10px;
+    border-radius: 10px;
+    min-width: 190px;
+}
+.editBox:hover {
+    background: var(--Black);
+    color: var(--GrayishWhite);
+    transition-duration: 1.5s;
+    transition-timing-function: ease;
+}
+.logoutBox:hover {
+    background: darkred;
+    color: var(--GrayishWhite);
+    transition-duration: 1.5s;
+    transition-timing-function: ease;
+}
+
+.logout{
+    text-decoration: none;
+    color: var(--GrayishWhite);
+    align-self: center;
+}
+.edit{
+    text-decoration: none;
+    color: var(--GrayishWhite);
+    align-self: center;
+}
+
+.disponibilidade{
+    background-color: darkred ;
+    display: flex;
+    width: 100%;
+    height: 20px;
+    justify-content: center;
+    margin-top: 10px;
+    border-radius: 20px;
+    min-width: 190px;
+}
+.circulo{
+    background-color: var(--GrayishWhite) ;
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    min-width: 12px;
+    max-width: 12px;
+    position: absolute;
+    left: 20px;
+    align-self: center;
+}
+.disponibilidade p{
+    align-self: center;
     color: var(--GrayishWhite);
 }
-.mail p{
-    margin-top: 20px;
-    font-size: 60%;
-}
-
-.options{
-    width: 100%;
-    margin-top: 100px;
-    display: flex;
-    justify-content: center;
-}
-
-
-
-

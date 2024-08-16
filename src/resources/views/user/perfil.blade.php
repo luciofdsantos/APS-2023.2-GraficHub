@@ -41,19 +41,27 @@
                 <p class="apelido main">{{ $user['apelido']}}</p>
             </div>
         </div>
+
         <div class = "userFollowers main mainshadowdown">
             <p class = "tag"> Seguidores </p>  <p class="count"> 0000</p>
         </div>
-        <div class="main">
-            <div class="contactBox mail"> <p>{{ $user['email'] }} </p></div>
-            <div class="contactBox fone"> <p>{{ $user['numero_telefone'] }}</p></div>
+        <div class="disponibilidade">
+            <div class="circulo">
+            </div>
+            <p>Indisponível</p>
         </div>
+        <div class="main contact">
+            <p class="title">Contato</p>
+        </div>
+
+        <div class="contactBox mail mainshadowdown"> <p>{{ $user['email'] }} </p></div>
+        <div class="contactBox fone mainshadowdown"> <p>{{ $user['numero_telefone'] }}</p></div>
+
         <div class="main options">
-            <a class="edit" href="{{ route('user.edit', $user['apelido']) }}" >Editar Perfil</a>
-            <a class="logout" >logout</a>
         </div>
 
-
+        <div class="editBox mainshadowdown"><a class="edit" href="{{ route('user.edit', $user['apelido']) }}" >Editar Perfil</a></div>
+        <div class="logoutBox mainshadowdown"><a class="logout" >LogOut</a></div>
     </div>
     </body>
 
