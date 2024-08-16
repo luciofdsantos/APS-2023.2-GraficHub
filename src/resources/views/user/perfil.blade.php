@@ -39,27 +39,25 @@
             <div class="userInfo main">
                 <p class="name main">{{ $user['nome'] }} </p>
                 <p class="apelido main">{{ $user['apelido']}}</p>
-                <form action="{{route('user.updateDisp', $user['id'])}}" method="post">
-                    @csrf
-                    <button type="submit">
-                        @if($user['disponivel'])
-                            Disponível
-                        @else
-                            Indisponível
-                        @endif
-                    </button>
-                </form>
             </div>
         </div>
 
         <div class = "userFollowers main mainshadowdown">
             <p class = "tag"> Seguidores </p>  <p class="count"> 0000</p>
         </div>
-        <div class="disponibilidade">
-            <div class="circulo">
-            </div>
-            <p>Indisponível</p>
-        </div>
+{{--            <div class="circulo">--}}
+{{--            </div>--}}
+{{--            <p>Indisponível</p>--}}
+        <form action="{{route('user.updateDisp', $user['id'])}}" method="post">
+            @csrf
+
+            @if($user['disponivel'])
+                <button type="submit" class="disp-btn green-disp-btn">Disponível</button>
+            @else
+                <button type="submit" class="disp-btn red-disp-btn">Indisponível</button>
+            @endif
+
+        </form>
         <div class="main contact">
             <p class="title">Contato</p>
         </div>

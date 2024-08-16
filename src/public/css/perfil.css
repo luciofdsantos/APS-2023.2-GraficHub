@@ -38,6 +38,7 @@ body{
 }
 .user .userInfo .name{
     font-size: 120%;
+    font-weight: bold;
     color: var(--Black);
 }
 .user .userInfo .apelido{
@@ -103,8 +104,6 @@ body{
     }
 }
 
-
-
 .mail p{
     align-self: center;
 }
@@ -122,6 +121,7 @@ body{
     margin-top: 10px;
     border-radius: 10px;
     min-width: 190px;
+    cursor: pointer;
 }
 .logoutBox{
     background-color: var(--Gray);
@@ -132,6 +132,7 @@ body{
     margin-top: 10px;
     border-radius: 10px;
     min-width: 190px;
+    cursor: pointer;
 }
 .editBox:hover {
     background: var(--Black);
@@ -157,31 +158,7 @@ body{
     align-self: center;
 }
 
-.disponibilidade{
-    background-color: darkred ;
-    display: flex;
-    width: 100%;
-    height: 20px;
-    justify-content: center;
-    margin-top: 10px;
-    border-radius: 20px;
-    min-width: 190px;
-}
-.circulo{
-    background-color: var(--GrayishWhite) ;
-    width: 12px;
-    height: 12px;
-    border-radius: 100%;
-    min-width: 12px;
-    max-width: 12px;
-    position: absolute;
-    left: 20px;
-    align-self: center;
-}
-.disponibilidade p{
-    align-self: center;
-    color: var(--GrayishWhite);
-}
+
 
 .portifolio{
     margin-left: 25px;
@@ -207,4 +184,42 @@ body{
     color: var(--GrayishWhite);
     font-size: 90%;
     align-self: center;
+}
+
+.disp-btn{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 20px;
+    justify-content: center;
+    margin-top: 10px;
+    border-radius: 20px;
+    min-width: 190px;
+    color: var(--GrayishWhite);
+    padding: 20px 0 20px 0;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.green-disp-btn{
+    background-color: #03A814;
+}
+
+.red-disp-btn{
+    background-color: #FF0000;
+}
+
+.green-disp-btn:hover{
+    background: #028e0d;
+    color: var(--GrayishWhite);
+    transition-duration: 1.5s;
+    transition-timing-function: ease;
+}
+
+.red-disp-btn:hover{
+    background-color: #c60101;
+    color: var(--GrayishWhite);
+    transition-duration: 1.5s;
+    transition-timing-function: ease;
 }
