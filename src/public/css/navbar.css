@@ -42,32 +42,44 @@ body{
     padding-left: 10px;
 }
 
-.picture-wrapper .text{
+.profile-wrapper .text{
     color: var(--GrayishWhite);
 }
 
-.picture-wrapper .text{
+.profile-wrapper .text{
     text-decoration: none;
-    color: var(--Gray);
+    color: #222222;
     font-weight: bold;
 }
 
-.picture-wrapper a{
+.profile-wrapper a{
     display: flex;
     align-items: center;
 }
 
-.picture-wrapper{
+.profile-wrapper{
     display: flex;
     align-items: center;
-    padding: 10px;
-}
-
-.search-icon{
-    height: 30px;
     margin-right: 30px;
 }
 
+.search-icon{
+    height: 20px;
+    margin-right: 20px;
+}
+
 .profile-ima{
-    height: 70px;
+    height: 20px;
+    padding: 20px;
+}
+
+.profile-pic-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--GrayishWhite);
+    border-radius: 100px;
+    margin: 10px 12px 10px 10px;
+    height: 40px;
+    width: 40px;
 }

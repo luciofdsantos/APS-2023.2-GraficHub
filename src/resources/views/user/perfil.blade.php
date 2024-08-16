@@ -18,9 +18,12 @@
         <a href="{{ route('home') }}"> <img class="logo-img" src="/img/logo.png" alt="grafic hub logo"/> </a>
         <a href="{{ route('home') }}"> <img class="logo-text-img" src="/img/logo_text.png" alt="grafic hub logo"/> </a>
     </div>
-    <div class="picture-wrapper">
+    <div class="profile-wrapper">
         <img class="search-icon" src="/img/search-img.png" alt="search-icon" />
-        <a href="{{ auth()->check() ? route('user.perfil', auth()->user()->apelido) : route('auth.loginForm') }}" class = "text"><img class="profile-ima" src="/img/profile-img.png" alt="profile pic" />
+        <a href="{{ auth()->check() ? route('user.perfil', auth()->user()->apelido) : route('auth.loginForm') }}" class = "text">
+            <div class="profile-pic-wrapper">
+                <img class="profile-ima" src="/img/profile-img.png" alt="profile pic" />
+            </div>
             <div>
                 @if(auth()->check())
                     {{ auth()->user()->apelido }}
@@ -50,13 +53,14 @@
 {{--            <p>Indisponível</p>--}}
         <form action="{{route('user.updateDisp', $user['id'])}}" method="post">
             @csrf
-
             @if($user['disponivel'])
-                <button type="submit" class="disp-btn green-disp-btn">Disponível</button>
+                <button type="submit" class="disp-btn green-disp-btn">Disponível <img class="disp-info-icon" src="/img/info-icon.png"></img></button>
             @else
-                <button type="submit" class="disp-btn red-disp-btn">Indisponível</button>
+                <button type="submit" class="disp-btn red-disp-btn">Indisponível <img class="disp-info-icon" src="/img/info-icon.png"></button>
             @endif
+            <div id="disp-info-text">
 
+            </div>
         </form>
         <div class="main contact">
             <p class="title">Contato</p>
