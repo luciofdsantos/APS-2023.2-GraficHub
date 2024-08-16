@@ -9,11 +9,12 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link href="/css/perfil.css" rel ="stylesheet">
     <link href="/css/navbar.css" rel ="stylesheet">
     <link href="/css/login.css" rel ="stylesheet">
 
 </head>
-<body>
+
 <header class="nav-bar-wrapper mainshadowdown">
     <div class="logo-wrapper">
         <a href="{{ route('home') }}"> <img class="logo-img" src="/img/logo.png" alt="grafic hub logo"/> </a>
@@ -39,7 +40,6 @@
 
     </div>
     @stack('styles')
-</body>
 
 </html>
 

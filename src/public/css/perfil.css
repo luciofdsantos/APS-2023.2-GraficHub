@@ -1,0 +1,92 @@
+
+body{
+    margin: 0;
+    background-color: var(--GrayishWhite);
+}
+.main{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+.userImg{
+    width: 54px;
+    border-radius: 10%;
+    border: 1px solid var(--GrayishWhite);
+}
+
+.sideBar {
+    position: absolute;
+    top: 95px;
+    left: 0;
+    height: 100vh;
+    width: 30vh;
+    padding: .8rem .8rem;
+    transition: all 0.5s ease;
+
+}
+
+.user{
+    display: flex;
+    align-items: center;
+}
+.user .userInfo{
+
+    opacity: 1;
+    margin-left: 1rem;
+    font-family: 'Open Sans', sans-serif;
+}
+.user .userInfo .name{
+    font-size: 110%;
+    color: var(--Black);
+}
+.user .userInfo .apelido{
+    font-size: 90%;
+    color: var(--Gray);
+}
+
+.userFollowers{
+    background-color: var(--Gray);
+    display: flex;
+    width: 100%;
+    height: 50px;
+    justify-content: center;
+    margin-top: 10px;
+    border-radius: 10px;
+    min-width: 190px;
+}
+.userFollowers .count{
+    padding-left: 1rem;
+    color: var(--GrayishWhite);
+}
+.userFollowers .tag{
+    color: var(--SoftGray)
+}
+.contactBox{
+    background-color: var(--Gray);
+    display: flex;
+    width: 100%;
+    height: 50px;
+    justify-content: center;
+    margin-top: 10px;
+    border-radius: 10px;
+    min-width: 190px;
+}
+.contactBox p{
+    color: var(--GrayishWhite);
+}
+.mail p{
+    margin-top: 20px;
+    font-size: 60%;
+}
+
+.options{
+    width: 100%;
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+

@@ -1,26 +1,63 @@
-@extends('nav')
 
-@section('content')
+<!doctype html>
+<html lang="en">
 
-    <div class="container">
-        <div class="row">
-            <!-- Barra lateral à esquerda -->
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="card-header">
-                        Informações do Usuário
-                    </div>
-                    <div class="card-body">
-                        <p><strong>Foto:</strong> </p>
-                        <p><strong>Nome:</strong> {{ $user['nome'] }} </p>
-                        <p><strong>Email:</strong> {{ $user['email'] }} </p>
-                        <p><strong>Telefone:</strong> {{ $user['numero_telefone'] }} </p>
-                        <a href="{{ route('user.edit', $user['apelido']) }}" class="btn btn-primary">Editar Perfil</a>
-                    </div>
-                </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="/css/navbar.css" rel ="stylesheet">
+    <link href="/css/perfil.css" rel ="stylesheet">
+
+</head>
+
+<header class="nav-bar-wrapper mainshadowdown">
+    <div class="logo-wrapper">
+        <a href="{{ route('home') }}"> <img class="logo-img" src="/img/logo.png" alt="grafic hub logo"/> </a>
+        <a href="{{ route('home') }}"> <img class="logo-text-img" src="/img/logo_text.png" alt="grafic hub logo"/> </a>
+    </div>
+    <div class="picture-wrapper">
+        <img class="search-icon" src="/img/search-img.png" alt="search-icon" />
+        <a href="{{ auth()->check() ? route('user.perfil', auth()->user()->apelido) : route('auth.loginForm') }}" class = "text"><img class="profile-ima" src="/img/profile-img.png" alt="profile pic" />
+            <div>
+                @if(auth()->check())
+                    {{ auth()->user()->apelido }}
+                @else
+                    Entrar/Cadastrar
+                @endif
+            </div>
+        </a>
+    </div>
+</header>
+
+    <body>
+    <div class = "sideBar main">
+        <div class = "user main">
+            <img class="userImg main" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRF1IwK6-SxM83UpFVY6WtUZxXx-phss_gAUfdKbkTfau6VWVkt">
+            <div class="userInfo main">
+                <p class="name main">{{ $user['nome'] }} </p>
+                <p class="apelido main">{{ $user['apelido']}}</p>
             </div>
         </div>
-    </div>
+        <div class = "userFollowers main mainshadowdown">
+            <p class = "tag"> Seguidores </p>  <p class="count"> 0000</p>
+        </div>
+        <div class="main">
+            <div class="contactBox mail"> <p>{{ $user['email'] }} </p></div>
+            <div class="contactBox fone"> <p>{{ $user['numero_telefone'] }}</p></div>
+        </div>
+        <div class="main options">
+            <a class="edit" href="{{ route('user.edit', $user['apelido']) }}" >Editar Perfil</a>
+            <a class="logout" >logout</a>
+        </div>
 
-@endsection
+
+    </div>
+    </body>
+
+</html>
+
+
 
