@@ -20,4 +20,5 @@ Route::controller(UserController::class)->group(function () {
     Route::get('/user/{apelido}', 'showPerfil')->name('user.perfil');
     Route::get('/user/{apelido}/edit', 'edit')->name('user.edit');
     Route::put('/user/{apelido}', 'update')->name('user.update');
+    Route::post('/user/{id}', 'updateDisponibility')->name('user.updateDisp');
 });

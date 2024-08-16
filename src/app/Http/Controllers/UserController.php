@@ -6,18 +6,39 @@ use App\Http\Requests\UserRequest;
 use App\Http\Requests\UserUpdateRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use function PHPUnit\Framework\throwException;
 
 class UserController extends Controller
 {
 
     public function showPerfil(string $apelido)
     {
+
         $user = User::where('apelido', $apelido)->first();
         if ($user == null) {
             return view('home');
         }
         return view('user.perfil', compact('user'));
+    }
 
+    /*
+     * atualizar disponibilidade
+     * */
+    public function updateDisponibility(int $id)
+    {
+
+        $user = User::find($id);
+
+        if(auth()->id() != $id){
+            return redirect()->route('home');
+        }
+
+        $disponivel = $user->disponivel;
+
+        $user->disponivel = !$disponivel;
+
+        $user->save();
+        return redirect()->route('user.perfil', $user->apelido);
     }
 
     /**

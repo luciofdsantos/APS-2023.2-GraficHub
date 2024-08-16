@@ -15,6 +15,16 @@
                         <p><strong>Nome:</strong> {{ $user['nome'] }} </p>
                         <p><strong>Email:</strong> {{ $user['email'] }} </p>
                         <p><strong>Telefone:</strong> {{ $user['numero_telefone'] }} </p>
+                        <form action="{{route('user.updateDisp', $user['id'])}}" method="post">
+                            @csrf
+                            <button type="submit">
+                                @if($user['disponivel'])
+                                    Disponível
+                                @else
+                                    Indisponível
+                                @endif
+                            </button>
+                        </form>
                         <a href="{{ route('user.edit', $user['apelido']) }}" class="btn btn-primary">Editar Perfil</a>
                     </div>
                 </div>
