@@ -49,6 +49,9 @@
         <div class = "userFollowers main mainshadowdown">
             <p class = "tag"> Seguidores </p>  <p class="count"> 0000</p>
         </div>
+        <div class = "userFollowers main mainshadowdown">
+            <p class = "tag"> Seguindo</p>  <p class="count"> 0000</p>
+        </div>
 {{--            <div class="circulo">--}}
 {{--            </div>--}}
 {{--            <p>Indisponível</p>--}}
@@ -81,7 +84,7 @@
         <div class="logoutBox mainshadowdown"><a class="logout" href ="{{route('auth.logout')}}">LogOut</a></div>
     </div>
     <div class="portifolio main mainshadowdown">
-            <div class=" mainshadowdown portBox"> <a>+</a></div>
+            <div class="shadowbtn portBox"> <a>+</a></div>
 
     </div>
     <script src="/js/functions.js"></script>
