@@ -26,7 +26,7 @@
         <a href="{{ auth()->check() ? route('user.perfil', auth()->user()->apelido) : route('auth.loginForm') }}" class = "text">
             <div class="profile-pic-wrapper">
                 @if(auth()->check() && auth()->user()->foto != null)
-                    <img class="profile-pic" src="{{ asset('storage/fotos/' . auth()->user()->foto) }}" alt="profile pic" />
+                    <img class="profile-pic" src="{{ asset('storage/fotos/'. auth()->user()->apelido . '/' . auth()->user()->foto) }}" alt="profile pic" />
                 @else
                     <img class="profile-icon" src="/img/profile-img.png" alt="profile pic" />
                 @endif

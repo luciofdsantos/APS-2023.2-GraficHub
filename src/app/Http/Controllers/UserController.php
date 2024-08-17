@@ -6,6 +6,7 @@ use App\Http\Requests\UserRequest;
 use App\Http\Requests\UserUpdateRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use function PHPUnit\Framework\throwException;
 
 class UserController extends Controller
@@ -98,7 +99,10 @@ class UserController extends Controller
 
         if ($request->file('foto') != null) {
             $fileName = time() . '_' . $request->file('foto')->getClientOriginalName();
-            $request->file('foto')->move(public_path('storage/fotos'), $fileName);
+            $request->file('foto')->move(public_path('storage/fotos/' . $user->apelido), $fileName);
+            if($user->foto != null){
+                File::delete(public_path('storage/fotos/'. $user->apelido . '/' . $user->foto));
+            }
             $user->foto = $fileName;
         }
 
