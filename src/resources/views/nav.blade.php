@@ -25,7 +25,11 @@
         <img class="search-icon" src="/img/search-img.png" alt="search-icon" />
         <a href="{{ auth()->check() ? route('user.perfil', auth()->user()->apelido) : route('auth.loginForm') }}" class = "text">
             <div class="profile-pic-wrapper">
-                <img class="profile-ima" src="/img/profile-img.png" alt="profile pic" />
+                @if(auth()->check())
+                    <img class="profile-ima" src="{{ asset('storage/fotos/' . auth()->user()->foto) }}" alt="profile pic" />
+                @else
+                    <img class="profile-ima" src="/img/profile-img.png" alt="profile pic" />
+                @endif
             </div>
             <div>
                 @if(auth()->check())

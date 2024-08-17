@@ -48,12 +48,20 @@ class UserController extends Controller
     {
         $request->validated();
 
+        $fileName = null;
+
+        if ($request->file('foto') != null) {
+            $fileName = time() . '_' . $request->file('foto')->getClientOriginalName();
+            $request->file('foto')->move(public_path('storage/fotos'), $fileName);
+        }
+
         User::create([
             'nome' => $request->nome,
             'apelido' => $request->apelido,
             'email' => $request->email,
             'password' => $request->password,
-            'numero_telefone' => $request->numero_telefone
+            'numero_telefone' => $request->numero_telefone,
+            'foto' => $fileName
         ]);
 
         return redirect()->route('auth.loginForm');

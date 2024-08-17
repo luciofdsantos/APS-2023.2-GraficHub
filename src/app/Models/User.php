@@ -22,6 +22,7 @@ class User extends Authenticatable
         'numero_telefone',
         'email',
         'password',
+        'foto',
     ];
 
     use HasFactory, Notifiable;

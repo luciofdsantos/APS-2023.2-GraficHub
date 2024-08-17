@@ -27,6 +27,7 @@ class UserRequest extends FormRequest
             'apelido' => ['required', 'string', 'max:255', 'unique:users'],
             'nome' => ['required', 'string', 'max:255'],
             'numero_telefone' => ['required', 'unique:users', 'regex:/^(\+?\d{1,4}[\s-]?)?\(?\d{1,4}\)?[\s-]?\d{1,4}[\s-]?\d{1,9}$/'],
+            'foto' => ['image', 'max:2048'],
         ];
     }
 
@@ -54,6 +55,11 @@ class UserRequest extends FormRequest
                 'required' => 'Preencha este campo.',
                 'unique' => 'Número de telefone já cadastrado.',
                 'regex' => 'Formato do número de telefone inválido.'
+            ],
+            'image' => [
+                'image' => 'O arquivo deve ser uma imagem (jpg, jpeg, png, bmp, gif, svg ou webp).',
+//                'mimes' => 'O arquivo deve ser jpg, jpeg ou png.',
+                'max' => 'O tamanho máximo do arquivo é 2048 KB.'
             ]
         ];
     }

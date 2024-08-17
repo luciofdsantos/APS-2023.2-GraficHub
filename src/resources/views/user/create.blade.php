@@ -12,7 +12,7 @@
     @else
 
         <div class ="main">
-        <form action="{{ route('user.store') }}" method="post">
+        <form action="{{ route('user.store') }}" method="post" enctype="multipart/form-data">
             <a href="{{ route('home')}}"> <img class="logo-img" alt="logo" src="/img/logo.png"/> </a>
             <p class="title"> Cadastrar</p>
             @csrf
@@ -51,7 +51,12 @@
             @enderror
             <input  class="mainshadowdown" type="password" placeholder="confirme a senha" name="password_confirmation">
             <label class="mainshadowdown  custom-file-upload" for="file-upload">Foto de Perfil</label>
-            <input id ="file-upload" type="file" placeholder="Foto de Perfil" />
+            <input id ="file-upload" type="file" placeholder="Foto de Perfil" name="foto" />
+            @error('imagem')
+            <span class="error-message">
+                {{ $message }}
+            </span>
+            @enderror
             <button  class="mainshadowdown" type="submit">Cadastrar</button>
             <p class="message">Já possui conta?  <a href="{{ route('auth.loginForm') }}">Faça login</a></p>
         </form>
