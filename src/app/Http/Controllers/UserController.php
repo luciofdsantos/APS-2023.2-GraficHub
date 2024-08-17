@@ -96,6 +96,12 @@ class UserController extends Controller
 
         $request->validated();
 
+        if ($request->file('foto') != null) {
+            $fileName = time() . '_' . $request->file('foto')->getClientOriginalName();
+            $request->file('foto')->move(public_path('storage/fotos'), $fileName);
+            $user->foto = $fileName;
+        }
+
         $user->fill($request->only('nome', 'apelido', 'email', 'numero_telefone'));
         if ($request->password != null) {
             $user->fill($request->only('password'));
