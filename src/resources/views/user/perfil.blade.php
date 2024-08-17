@@ -62,22 +62,26 @@
 
             </div>
         </form>
-        <div class="main contact">
-            <p class="title">Contato</p>
+        <div class="contact">
+            <div class="button-container main">
+                <a href="mailto:{{ $user['email'] }}" class="round-button main"> <img class="logophoto" src="/img/email.png" alt="mail logo"></a>
+                <a href="https://wa.me/{{ $user['numero_telefone'] }}" class="round-button main">  <img class="logophoto" src="/img/wpp.png" alt="wpp logo"> </a>
+            </div>
         </div>
 
-        <div class="contactBox mail mainshadowdown"> <p>{{ $user['email'] }} </p></div>
-        <div class="contactBox fone mainshadowdown"> <p>{{ $user['numero_telefone'] }}</p></div>
+
+
+
 
         <div class="main options">
         </div>
 
         <div class="editBox mainshadowdown"><a class="edit" href="{{ route('user.edit', $user['apelido']) }}" >Editar Perfil</a></div>
-        <div class="logoutBox mainshadowdown"><a class="logout" >LogOut</a></div>
+        <div class="logoutBox mainshadowdown"><a class="logout" href ="{{route('auth.logout')}}">LogOut</a></div>
     </div>
     <div class="portifolio main mainshadowdown">
-            <div class="portBox"> <a>Criar Projeto</a></div>
-            <div class="portBox"> <a>Gerir Projetos</a></div>
+            <div class=" mainshadowdown portBox"> <a>+</a></div>
+
     </div>
     <script src="/js/functions.js"></script>
     </body>

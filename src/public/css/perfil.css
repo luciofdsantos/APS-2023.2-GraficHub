@@ -47,14 +47,18 @@ body{
 }
 
 .userFollowers{
-    background-color: var(--Gray);
     display: flex;
+    align-items: center;
     width: 100%;
-    height: 50px;
+    height: 20px;
     justify-content: center;
     margin-top: 10px;
-    border-radius: 10px;
+    border-radius: 20px;
     min-width: 190px;
+    padding: 20px 0 20px 0;
+    border: none;
+    font-weight: bold;
+    background-color: var(--MediumGray);
 }
 .userFollowers .count{
     padding-left: 1rem;
@@ -64,30 +68,49 @@ body{
     color: var(--SoftGray)
 }
 .contact{
+    margin-top: 20px;
     justify-content: center;
     display: flex;
+    align-items: center;
 }
+.button-container{
+    display: flex;
+   grid-gap: 20px;
+}
+
+.round-button {
+    min-width: 60px;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    border: none;
+    background-color:var(--SoftGray);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+.logophoto{
+    width: 30px;
+    height: 30px;
+    align-self: center;
+}
+.round-button:hover {
+    background: var(--MediumGray);
+    transition-duration: 1.5s;
+    transition-timing-function: ease;
+}
+
 .title{
     display: flex;
     font-size: 140%;
     color: var(--MediumGray);
 }
-.contactBox{
-    background-color: var(--Gray);
-    display: flex;
-    width: 100%;
-    height: 50px;
-    justify-content: center;
-    border-radius: 10px;
-    min-width: 190px;
-}
-.mail{
-    margin-top: -8px;
-}
 
-.fone{
-    margin-top: 10px;
-}
+
+
 
 .contactBox p{
     color: var(--GrayishWhite);
@@ -109,7 +132,7 @@ body{
 }
 
 .options{
-    margin-top: 60%;
+    margin-top: 10%;
 
 }
 .editBox{
@@ -161,30 +184,46 @@ body{
 
 
 .portifolio{
+    padding-top: 20px;
     margin-left: 25px;
     position: absolute;
     left: 30vh;
     height: 100vh;
     width: 100%;
-    background-color: var(--SoftGray);
     display: flex;
+
 }
 .portBox{
-    margin-left: 15px;
-    background-color: var(--Gray);
+    cursor: pointer;
+    border: solid 1px var(--Gray);
+    background-color: transparent;
+    margin-left: 25px;
     display: flex;
-    width: 10%;
-    height: 25px;
+    width: 50px;
+    height:50px;
     justify-content: center;
     margin-top: 10px;
-    border-radius: 20px;
-    min-width: 190px;
+    border-radius: 100%;
 }
-.portBox a{
+.portBox:hover{
+    background-color: var(--Black);
     color: var(--GrayishWhite);
-    font-size: 90%;
+    transition-duration: 1s;
+    transition-timing-function: ease;
+}
+
+.portBox a{
+    align-items: center;
+    color: var(--Gray);
+    font-size: 20px;
     align-self: center;
 }
+.portBox a:hover{
+
+    color: var(--GrayishWhite);
+
+}
+
 
 .disp-btn{
     display: flex;
@@ -226,7 +265,7 @@ body{
 
 .disp-info-icon{
     position: absolute;
-    right: 26px;
+    right: 10%;
     height: 20px;
 }
 
