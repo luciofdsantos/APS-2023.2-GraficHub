@@ -92,7 +92,14 @@
     </div>
     <div class="portifolio main mainshadowdown">
             <div class=" mainshadowdown portBox"> <a href="{{route('project.create')}}">+</a></div>
-
+            <div>
+                @foreach($projects as $project)
+                    <div>
+                        {{$project->titulo}}
+                        <img src="{{ asset('storage/fotos/'. auth()->user()->apelido . '/' . $project->id . '/' . $project->imagem_capa) }}">
+                    </div>
+                @endforeach
+            </div>
     </div>
     <script src="/js/functions.js"></script>
     </body>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
 use App\Http\Requests\UserUpdateRequest;
+use App\Models\Project;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -19,7 +20,9 @@ class UserController extends Controller
         if ($user == null) {
             return view('home');
         }
-        return view('user.perfil', compact('user'));
+
+        $projects = Project::where('user_id', $user->id)->get();
+        return view('user.perfil', compact('user', 'projects'));
     }
 
     /*

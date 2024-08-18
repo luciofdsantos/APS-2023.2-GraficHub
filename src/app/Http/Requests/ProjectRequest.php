@@ -25,7 +25,7 @@ class ProjectRequest extends FormRequest
         return [
             'titulo' => ['required', 'max:100'],
             'imagem_capa' => ['required', 'image', 'max:2048'],
-            'imagens' => ['required', 'array', 'min:1', 'max:6', 'nullable', 'mimes:jpeg,jpg,png'],
+            'imagens' => ['required', 'array', 'min:1', 'max:6', 'nullable'],
             'ferramentas' => ['required'],
             'descricao' => ['required'],
             'tags' => ['required'],
@@ -48,8 +48,7 @@ class ProjectRequest extends FormRequest
             'imagens' => [
                 'required' => 'Selecione pelo menos uma imagem',
                 'max' => 'Selecione no máximo 6 imagens',
-                'min' => 'Selecione pelo menos uma imagem',
-                'mimes' => 'Os arquivos devem ser imagens (jpg, jpeg, png, bmp, gif, svg, webp).',
+                'min' => 'Selecione pelo menos uma imagem'
             ],
             'ferramentas' => [
                 'required' => 'Preencha este campo'
