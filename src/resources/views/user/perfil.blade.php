@@ -91,8 +91,8 @@
         <div class="logoutBox mainshadowdown"><a class="logout" href ="{{route('auth.logout')}}">LogOut</a></div>
     </div>
     <div class="portifolio main mainshadowdown">
-            <div class=" mainshadowdown portBox"> <a>+</a></div>
-
+            <div class=" mainshadowdown portBox"> <a href="{{route('project.create')}}">+</a></div>
+            
     </div>
     <script src="/js/functions.js"></script>
     </body>
