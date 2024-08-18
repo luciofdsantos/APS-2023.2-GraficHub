@@ -21,6 +21,12 @@
             @enderror
             <label for="body-imgs">Imagens do corpo do projeto</label>
             <input id="body-imgs" type="file" name="imagens[]" multiple>
+
+            @error('imagens')
+            <span>
+                {{$message}}
+            </span>
+            @enderror
             <input type="text" placeholder="Ferramentas" name="ferramentas">
             @error('ferramentas')
             <span>

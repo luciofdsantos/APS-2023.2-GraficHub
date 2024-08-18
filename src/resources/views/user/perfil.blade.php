@@ -92,7 +92,7 @@
     </div>
     <div class="portifolio main mainshadowdown">
             <div class=" mainshadowdown portBox"> <a href="{{route('project.create')}}">+</a></div>
-            
+
     </div>
     <script src="/js/functions.js"></script>
     </body>
