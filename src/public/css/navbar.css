@@ -68,9 +68,15 @@ body{
     margin-right: 20px;
 }
 
-.profile-ima{
+.profile-icon{
     height: 20px;
     padding: 20px;
+}
+
+.profile-pic{
+    height: 40px;
+    width: 40px;
+    border-radius: 100px;
 }
 
 .profile-pic-wrapper{

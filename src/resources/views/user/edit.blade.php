@@ -44,7 +44,7 @@
             @enderror
             <input class="mainshadowdown" type="password" placeholder="confirme a nova senha" name="password_confirmation">
             <label class="mainshadowdown custom-file-upload" for="file-upload">Foto de Perfil</label>
-            <input id="file-upload" type="file" name="profile_picture" placeholder="Foto de Perfil">
+            <input id="file-upload" type="file" name="foto" placeholder="Foto de Perfil">
             <button class="mainshadowdown" type="submit">Atualizar</button>
             <p class="message">Voltar para o <a href="{{ route('user.perfil', $user['apelido']) }}">Perfil</a></p>
         </form>

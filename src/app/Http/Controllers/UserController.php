@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
 use App\Http\Requests\UserUpdateRequest;
+use App\Models\Project;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use function PHPUnit\Framework\throwException;
 
 class UserController extends Controller
@@ -18,7 +20,9 @@ class UserController extends Controller
         if ($user == null) {
             return view('home');
         }
-        return view('user.perfil', compact('user'));
+
+        $projects = Project::where('user_id', $user->id)->get();
+        return view('user.perfil', compact('user', 'projects'));
     }
 
     /*
@@ -48,12 +52,20 @@ class UserController extends Controller
     {
         $request->validated();
 
+        $fileName = null;
+
+        if ($request->file('foto') != null) {
+            $fileName = time() . '_' . $request->file('foto')->getClientOriginalName();
+            $request->file('foto')->move(public_path('storage/fotos'), $fileName);
+        }
+
         User::create([
             'nome' => $request->nome,
             'apelido' => $request->apelido,
             'email' => $request->email,
             'password' => $request->password,
-            'numero_telefone' => $request->numero_telefone
+            'numero_telefone' => $request->numero_telefone,
+            'foto' => $fileName
         ]);
 
         return redirect()->route('auth.loginForm');
@@ -87,6 +99,15 @@ class UserController extends Controller
         $user = User::where('apelido', $apelido)->first();
 
         $request->validated();
+
+        if ($request->file('foto') != null) {
+            $fileName = time() . '_' . $request->file('foto')->getClientOriginalName();
+            $request->file('foto')->move(public_path('storage/fotos/' . $user->apelido), $fileName);
+            if($user->foto != null){
+                File::delete(public_path('storage/fotos/'. $user->apelido . '/' . $user->foto));
+            }
+            $user->foto = $fileName;
+        }
 
         $user->fill($request->only('nome', 'apelido', 'email', 'numero_telefone'));
         if ($request->password != null) {

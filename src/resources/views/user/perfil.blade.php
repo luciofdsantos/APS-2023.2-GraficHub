@@ -23,7 +23,13 @@
         <img class="search-icon" src="/img/search-img.png" alt="search-icon" />
         <a href="{{ auth()->check() ? route('user.perfil', auth()->user()->apelido) : route('auth.loginForm') }}" class = "text">
             <div class="profile-pic-wrapper">
-                <img class="profile-ima" src="/img/profile-img.png" alt="profile pic" />
+                <div class="profile-pic-wrapper">
+                    @if(auth()->check() && auth()->user()->foto != null)
+                        <img class="profile-pic" src="{{ asset('storage/fotos/'. auth()->user()->apelido . '/' . auth()->user()->foto) }}" alt="profile pic" />
+                    @else
+                        <img class="profile-icon" src="/img/profile-img.png" alt="profile pic" />
+                    @endif
+                </div>
             </div>
             <div>
                 @if(auth()->check())
@@ -39,7 +45,11 @@
     <body>
     <div class = "sideBar main">
         <div class = "user main">
-            <img class="userImg main" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRF1IwK6-SxM83UpFVY6WtUZxXx-phss_gAUfdKbkTfau6VWVkt">
+            @if(auth()->user()->foto != null)
+                <img class="userImg main" src="{{ asset('storage/fotos/'. auth()->user()->apelido . '/' . auth()->user()->foto)}}">
+            @else
+                <img class="userImg main" src="/img/profile-img.png" alt="profile pic" />
+            @endif
             <div class="userInfo main">
                 <p class="name main">{{ $user['nome'] }} </p>
                 <p class="apelido main">{{ $user['apelido']}}</p>
@@ -84,8 +94,15 @@
         <div class="logoutBox mainshadowdown"><a class="logout" href ="{{route('auth.logout')}}">LogOut</a></div>
     </div>
     <div class="portifolio main mainshadowdown">
-            <div class="shadowbtn portBox"> <a>+</a></div>
-
+            <div class=" mainshadowdown portBox"> <a href="{{route('project.create')}}">+</a></div>
+            <div>
+                @foreach($projects as $project)
+                    <div>
+                        {{$project->titulo}}
+                        <img src="{{ asset('storage/fotos/'. auth()->user()->apelido . '/' . $project->id . '/' . $project->imagem_capa) }}">
+                    </div>
+                @endforeach
+            </div>
     </div>
     <script src="/js/functions.js"></script>
     </body>
