@@ -273,7 +273,23 @@ input[type="file"] {
 }
 
 
-
+.textar{
+    outline: 0;
+    background: var(--SoftGray);
+    width: 100%;
+    margin: 0 0 1rem;
+    padding: 15px;
+    font-size: 14px;
+    border-radius: 10px;
+    border-color: transparent;
+    transition: all 0.3s;
+    resize: none;
+    height: 64px;
+    font-family: 'Open Sans', sans-serif;
+}
+.textar:focus{
+    border-color: var(--Gray);
+}
 
 
 

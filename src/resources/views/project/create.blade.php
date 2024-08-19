@@ -5,6 +5,7 @@
 
     <div class="main">
         <form action="{{route('project.store')}}" method="post" enctype="multipart/form-data">
+            <a href="{{ route('home')}}"> <img class="logo-img" alt="logo" src="/img/logo.png"/> </a>
             @csrf
             <input type="text" placeholder="Título" name="titulo">
             @error('titulo')
@@ -33,7 +34,7 @@
                 {{$message}}
             </span>
             @enderror
-            <textarea placeholder="Descricao" name="descricao"></textarea>
+            <textarea class="textar" placeholder="Descricao" name="descricao"></textarea>
             @error('descricao')
             <span>
                 {{$message}}
