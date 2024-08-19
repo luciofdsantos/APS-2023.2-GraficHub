@@ -12,6 +12,7 @@
     <link href="/css/navbar.css" rel ="stylesheet">
     <link href="/css/perfil.css" rel ="stylesheet">
     <link href="/css/project.css" rel ="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
 
@@ -100,7 +101,7 @@
             <div class="project-box">
                 @foreach($projects as $project)
 
-                    <div class="card">
+                    <div class=" mainshadowdown card">
                         <img src="{{ asset('storage/arquivos/'. auth()->id() . '/' . $project->id . '/' . $project->imagem_capa)}}">
                         <div class="card__content">
                             <a href="#" class="card__title "> <heavy>{{$project->titulo}}</heavy> </a>
@@ -108,10 +109,10 @@
                             <div class="card__description"> <p>Curtidas 000  Salvos 000</p></div>
                            </div>
                     </div>
-
                 @endforeach
+
             </div>
-        {{ $projects->links() }}
+        <div class="empt"> {{ $projects->links() }} </div>
     </div>
     <script src="/js/functions.js"></script>
     </div>

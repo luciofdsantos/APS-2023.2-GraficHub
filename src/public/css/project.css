@@ -1,13 +1,16 @@
+
 .project-box{
-    margin-top: 60px;
     display: grid;
-    grid-template-columns: repeat(5, 310px);
+    grid-template-columns: repeat(3, 300px); /* 3 columns, each 300px wide */
+    justify-content: center; /* Center the grid horizontally (optional) */
+    gap:20px;
+
 }
 .card {
     position: relative;
     width: 300px;
     height: 200px;
-    background: linear-gradient(-45deg, #f89b29 0%, #ff0f7b 100% );
+    background: linear-gradient(-45deg, #393735 0%, #050001 100% );
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -84,5 +87,38 @@
 a{
     text-decoration: none;
 }
+.pagination .page-item .page-link.pagination{
+    position: absolute;
+}
+.pagination .page-item .page-link {
+    color: var(--Gray); /* Border color */
+    background-color: var(--GrayishWhite); /* Background color */
+    border-color: var(--Gray); /* Border color */
+}
 
+.pagination .page-item.active .page-link {
+    color:  var(--GrayishWhite); /* Background color */
+    background-color: var(--Gray);
+    border-color: var(--Gray);
+}
+
+.pagination .page-item .page-link:hover {
+    color:  var(--GrayishWhite); /* Background color */
+    background-color: var(--Gray);
+    border-color: var(--Gray);
+}
+
+.pagination .page-item.disabled .page-link {
+    color: #6c757d; /* Disabled text color */
+    background-color: #ffffff; /* Disabled background color */
+    border-color: #dddddd; /* Disabled border color */
+}
+.empt{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+.pagination{
+    margin-left: 20px;
+}
 
