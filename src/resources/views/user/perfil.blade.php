@@ -25,7 +25,7 @@
             <div class="profile-pic-wrapper">
                 <div class="profile-pic-wrapper">
                     @if(auth()->check() && auth()->user()->foto != null)
-                        <img class="profile-pic" src="{{ asset('storage/fotos/'. auth()->user()->apelido . '/' . auth()->user()->foto) }}" alt="profile pic" />
+                        <img class="profile-pic" src="{{ asset('storage/arquivos/'. auth()->id() . '/' . auth()->user()->foto) }}" alt="profile pic" />
                     @else
                         <img class="profile-icon" src="/img/profile-img.png" alt="profile pic" />
                     @endif
@@ -46,7 +46,7 @@
     <div class = "sideBar main">
         <div class = "user main">
             @if(auth()->user()->foto != null)
-                <img class="userImg main" src="{{ asset('storage/fotos/'. auth()->user()->apelido . '/' . auth()->user()->foto)}}">
+                <img class="userImg main" src="{{ asset('storage/arquivos/'. auth()->id() . '/' . auth()->user()->foto)}}">
             @else
                 <img class="userImg main" src="/img/profile-img.png" alt="profile pic" />
             @endif
@@ -99,7 +99,7 @@
                 @foreach($projects as $project)
                     <div>
                         {{$project->titulo}}
-                        <img src="{{ asset('storage/fotos/'. auth()->user()->apelido . '/' . $project->id . '/' . $project->imagem_capa) }}">
+                        <img src="{{ asset('storage/arquivos/'. auth()->id() . '/' . $project->id . '/' . $project->imagem_capa) }}">
                     </div>
                 @endforeach
             </div>
