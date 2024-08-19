@@ -38,7 +38,8 @@ class ProjectRequest extends FormRequest
     {
         return [
             'titulo' => [
-                'required' => 'Preencha este campo'
+                'required' => 'Preencha este campo',
+                'max' => 'O campo excede o limite de :max caracteres.',
             ],
             'imagem_capa' => [
                 'required' => 'Selecione a imagem da capa',
