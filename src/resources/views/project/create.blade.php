@@ -28,6 +28,11 @@
                 {{$message}}
             </span>
             @enderror
+            @error('imagens.*')
+            <span>
+                {{$message}}
+            </span>
+            @enderror
             <input type="text" placeholder="Ferramentas" name="ferramentas">
             @error('ferramentas')
             <span>

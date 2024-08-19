@@ -24,7 +24,7 @@ class ProjectRequest extends FormRequest
     {
         return [
             'titulo' => ['required', 'max:100'],
-            'imagem_capa' => ['required', 'image', 'max:2048'],
+            'imagem_capa' => ['required', 'image', 'max:5120'],
             'imagens' => ['required', 'array', 'min:1', 'max:6', 'nullable'],
             'ferramentas' => ['required'],
             'descricao' => ['required'],
@@ -44,7 +44,7 @@ class ProjectRequest extends FormRequest
             'imagem_capa' => [
                 'required' => 'Selecione a imagem da capa',
                 'image' => 'O arquivo deve ser uma imagem (jpg, jpeg, png, bmp, gif, svg ou webp).',
-                'max' => 'O tamanho máximo do arquivo é 2048 KB.'
+                'max' => 'O tamanho máximo do arquivo é :max KB.'
             ],
             'imagens' => [
                 'required' => 'Selecione pelo menos uma imagem',
