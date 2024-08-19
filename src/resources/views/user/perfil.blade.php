@@ -11,6 +11,7 @@
     <link href="/img/logo.png" rel ="icon">
     <link href="/css/navbar.css" rel ="stylesheet">
     <link href="/css/perfil.css" rel ="stylesheet">
+    <link href="/css/project.css" rel ="stylesheet">
 
 </head>
 
@@ -43,6 +44,7 @@
 </header>
 
     <body>
+    <div class="main-content">
     <div class = "sideBar main">
         <div class = "user main">
             @if(auth()->user()->foto != null)
@@ -95,16 +97,24 @@
     </div>
     <div class="portifolio main mainshadowdown">
             <div class=" mainshadowdown portBox"> <a href="{{route('project.create')}}">+</a></div>
-            <div>
+            <div class="project-box">
                 @foreach($projects as $project)
-                    <div>
-                        {{$project->titulo}}
-                        <img src="{{ asset('storage/arquivos/'. auth()->id() . '/' . $project->id . '/' . $project->imagem_capa) }}">
+
+                    <div class="card">
+                        <img src="{{ asset('storage/fotos/'. auth()->user()->apelido . '/' . $project->id . '/' . $project->imagem_capa) }}">
+                        <div class="card__content">
+                            <a href="#" class="card__title "> {{$project->titulo}} </a>
+                            <p class="card__descriptio
+                            ">{{$project->descricao}}</p>
+
+                           </div>
                     </div>
+
                 @endforeach
             </div>
     </div>
     <script src="/js/functions.js"></script>
+    </div>
     </body>
 
 </html>
