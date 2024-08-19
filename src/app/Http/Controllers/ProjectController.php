@@ -62,7 +62,7 @@ class ProjectController extends Controller
             $request->imagens[$i]->move(public_path('storage/arquivos/' . $user->id . '/' . $project->id . '/imgs'), $imgFileName);
         }
 
-        return redirect()->route('user.perfil', $user->id);
+        return redirect()->route('user.perfil', $user->apelido);
     }
 
     /**
