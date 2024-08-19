@@ -52,21 +52,23 @@ class UserController extends Controller
     {
         $request->validated();
 
-        $fileName = null;
-
-        if ($request->file('foto') != null) {
-            $fileName = time() . '_' . $request->file('foto')->getClientOriginalName();
-            $request->file('foto')->move(public_path('storage/fotos'), $fileName);
-        }
-
-        User::create([
+        $user = User::create([
             'nome' => $request->nome,
             'apelido' => $request->apelido,
             'email' => $request->email,
             'password' => $request->password,
             'numero_telefone' => $request->numero_telefone,
-            'foto' => $fileName
         ]);
+
+        $fileName = null;
+
+        if ($request->file('foto') != null) {
+            $fileName = time() . '_' . $request->file('foto')->getClientOriginalName();
+            $request->file('foto')->move(public_path('storage/arquivos/' . $user->id), $fileName);
+        }
+
+        $user->foto = $fileName;
+        $user->save();
 
         return redirect()->route('auth.loginForm');
     }
@@ -102,9 +104,9 @@ class UserController extends Controller
 
         if ($request->file('foto') != null) {
             $fileName = time() . '_' . $request->file('foto')->getClientOriginalName();
-            $request->file('foto')->move(public_path('storage/fotos/' . $user->apelido), $fileName);
+            $request->file('foto')->move(public_path('storage/arquivos/' . $user->id), $fileName);
             if($user->foto != null){
-                File::delete(public_path('storage/fotos/'. $user->apelido . '/' . $user->foto));
+                File::delete(public_path('storage/arquivos/'. $user->id . '/' . $user->foto));
             }
             $user->foto = $fileName;
         }

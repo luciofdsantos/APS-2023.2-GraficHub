@@ -52,14 +52,14 @@ class ProjectController extends Controller
             'arquivo_publico' => $request->arquivo_publico == 'on' ? 1 : 0
         ]);
 
-        $request->file('imagem_capa')->move(public_path('storage/fotos/' . $user->apelido . '/' . $project->id), $coverImgName);
+        $request->file('imagem_capa')->move(public_path('storage/arquivos/' . $user->id . '/' . $project->id), $coverImgName);
         if($request->file('arquivo') != null){
-            $request->file('arquivo')->move(public_path('storage/fotos/' . $user->apelido . '/' . $project->id), $projectFileName);
+            $request->file('arquivo')->move(public_path('storage/arquivos/' . $user->id . '/' . $project->id), $projectFileName);
         }
         $nImgs = count($request->imagens);
         for($i = 0; $i < $nImgs; $i++){
             $imgFileName = $request->imagens[$i]->getClientOriginalName();
-            $request->imagens[$i]->move(public_path('storage/fotos/' . $user->apelido . '/' . $project->id . '/imgs'), $imgFileName);
+            $request->imagens[$i]->move(public_path('storage/arquivos/' . $user->id . '/' . $project->id . '/imgs'), $imgFileName);
         }
 
         return redirect()->route('user.perfil', $user->apelido);
