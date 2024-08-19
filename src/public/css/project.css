@@ -1,5 +1,7 @@
 .project-box{
     margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(5, 310px);
 }
 .card {
     position: relative;
@@ -54,10 +56,27 @@
 .card__description {
     margin: 10px 0 0;
     font-size: 14px;
-    color: #777;
+    color: var(--GrayishWhite);;
     line-height: 1.4;
 }
 
+.block-with-text {
+    overflow: hidden;
+    position: relative;
+    line-height: 1.2em;
+    max-height: 6em; /* aqui vc controla a altura da caixa de texto */
+    text-align: justify;
+    margin-right: -1em;
+    padding-right: 1em;
+}
+
+.block-with-text:before {
+    color: white;
+    content: '...';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
 .card:hover svg {
     scale: 0;
     transform: rotate(-45deg);

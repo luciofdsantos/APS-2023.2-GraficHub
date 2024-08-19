@@ -103,9 +103,9 @@
                     <div class="card">
                         <img src="{{ asset('storage/arquivos/'. auth()->id() . '/' . $project->id . '/' . $project->imagem_capa)}}">
                         <div class="card__content">
-                            <a href="#" class="card__title "> {{$project->titulo}} </a>
-                            <p class="card__descriptio
-                            ">{{$project->descricao}}</p>
+                            <a href="#" class="card__title "> <heavy>{{$project->titulo}}</heavy> </a>
+                            <div class="block-with-text"> <p class="card__description">{{$project->descricao}}</p></div>
+                            <div class="card__description"> <p>Curtidas 000  Salvos 000</p></div>
 
                            </div>
                     </div>
