@@ -101,7 +101,7 @@
                 @foreach($projects as $project)
 
                     <div class="card">
-                        <img src="{{ asset('storage/fotos/'. auth()->user()->apelido . '/' . $project->id . '/' . $project->imagem_capa) }}">
+                        <img src="{{ asset('storage/fotos/'. auth()->user()->id . '/' . $project->id . '/' . $project->imagem_capa) }}">
                         <div class="card__content">
                             <a href="#" class="card__title "> {{$project->titulo}} </a>
                             <p class="card__descriptio
