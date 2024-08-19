@@ -3,7 +3,7 @@
 @section('content')
 
 
-    <div>
+    <div class="main">
         <form action="{{route('project.store')}}" method="post" enctype="multipart/form-data">
             @csrf
             <input type="text" placeholder="Título" name="titulo">
@@ -12,14 +12,14 @@
                 {{$message}}
             </span>
             @enderror
-            <label for="cover-file-upload">Capa do projeto</label>
+            <label class ="custom-file-upload" for="cover-file-upload">Capa do projeto</label>
             <input id="cover-file-upload" type="file" placeholder="Imagem da capa do projeto" name="imagem_capa">
             @error('imagem_capa')
             <span>
                 {{$message}}
             </span>
             @enderror
-            <label for="body-imgs">Imagens do corpo do projeto</label>
+            <label  class ="custom-file-upload" for="body-imgs">Imagens do corpo do projeto</label>
             <input id="body-imgs" type="file" name="imagens[]" multiple>
 
             @error('imagens')
@@ -45,20 +45,32 @@
                 {{$message}}
             </span>
             @enderror
-            <label for="file-upload">Arquivo do projeto</label>
+            <label class ="custom-file-upload" for="file-upload">Arquivo do projeto</label>
+            <input id="file-upload" type="file" placeholder="Arquivo do projeto" name="arquivo">
             @error('arquivo')
             <span>
                 {{$message}}
             </span>
             @enderror
-            <input id="file-upload" type="file" placeholder="Arquivo do projeto" name="arquivo">
-            <input type="checkbox" name="arquivo_publico">
+            <div class="custom-check">
+                <p>Tornar arquivo privado?</p>
+                <div class="checkbox-wrapper-55">
+                    <label class="rocker rocker-small">
+                        <input type="checkbox">
+                        <span class="switch-left">Yes</span>
+                        <span class="switch-right">No</span>
+                    </label>
+                </div>
+            </div>
+
+
+
             @error('arquivo_publico')
             <span>
                 {{$message}}
             </span>
             @enderror
-            <label>Tornar arquivo privado?</label>
+
             <button type="submit">Criar projeto</button>
         </form>
     </div>
