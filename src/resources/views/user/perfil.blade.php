@@ -111,6 +111,7 @@
 
                 @endforeach
             </div>
+        {{ $projects->links() }}
     </div>
     <script src="/js/functions.js"></script>
     </div>
