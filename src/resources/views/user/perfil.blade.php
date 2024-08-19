@@ -106,7 +106,6 @@
                             <a href="#" class="card__title "> <heavy>{{$project->titulo}}</heavy> </a>
                             <div class="block-with-text"> <p class="card__description">{{$project->descricao}}</p></div>
                             <div class="card__description"> <p>Curtidas 000  Salvos 000</p></div>
-
                            </div>
                     </div>
 
