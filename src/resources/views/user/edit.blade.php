@@ -46,7 +46,7 @@
             <label class="mainshadowdown custom-file-upload" for="file-upload">Foto de Perfil</label>
             <input id="file-upload" type="file" name="foto" placeholder="Foto de Perfil">
             <button class="mainshadowdown" type="submit">Atualizar</button>
-            <p class="message">Voltar para o <a href="{{ route('user.perfil', $user['apelido']) }}">Perfil</a></p>
+            <p class="message"><a href="{{ route('user.perfil', $user['apelido']) }}">Voltar para o Perfil</a></p>
         </form>
     </div>
 

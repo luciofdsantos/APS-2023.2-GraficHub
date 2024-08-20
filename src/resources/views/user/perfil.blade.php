@@ -71,7 +71,7 @@
         <form action="{{route('user.updateDisp', $user['id'])}}" method="post">
             @csrf
             @if($user['disponivel'])
-                <button type="submit" class="disp-btn green-disp-btn">Disponível <img class="disp-info-icon" src="/img/info-icon.png" onmouseover="showMessage()" onmouseout="hideMessage()"></img></button>
+                <button type="submit" class="disp-btn green-disp-btn">Disponível <img class="disp-info-icon" src="/img/info-icon.png" onmouseover="showMessage()" onmouseout="hideMessage()"></button>
             @else
                 <button type="submit" class="disp-btn red-disp-btn">Indisponível <img class="disp-info-icon" src="/img/info-icon.png" onmouseover="showMessage()" onmouseout="hideMessage()"></button>
             @endif
@@ -93,11 +93,11 @@
         <div class="main options">
         </div>
 
-        <div class="editBox mainshadowdown"><a class="edit" href="{{ route('user.edit', $user['apelido']) }}" >Editar Perfil</a></div>
-        <div class="logoutBox mainshadowdown"><a class="logout" href ="{{route('auth.logout')}}">LogOut</a></div>
+        <a class="edit mainshadowdown" href="{{ route('user.edit', $user['apelido']) }}" >Editar Perfil</a>
+        <a class="logout mainshadowdown" href ="{{route('auth.logout')}}">LogOut</a>
     </div>
     <div class="portifolio main mainshadowdown">
-            <div class=" mainshadowdown portBox"> <a href="{{route('project.create')}}">+</a></div>
+            <a class="mainshadowdown portBox" href="{{route('project.create')}}">+</a>
             <div class="project-box">
                 @foreach($projects as $project)
 
