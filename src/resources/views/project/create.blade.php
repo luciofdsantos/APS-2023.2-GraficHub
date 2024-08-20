@@ -71,7 +71,7 @@
                 <p>Tornar arquivo privado?</p>
                 <div class="checkbox-wrapper-55">
                     <label class="rocker rocker-small">
-                        <input type="checkbox">
+                        <input type="checkbox" name="arquivo_publico">
                         <span class="switch-left">Yes</span>
                         <span class="switch-right">No</span>
                     </label>
