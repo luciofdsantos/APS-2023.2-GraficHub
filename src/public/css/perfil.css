@@ -22,6 +22,7 @@ body{
     width: 30vh;
     padding: .8rem .8rem;
     transition: all 0.5s ease;
+    min-width: 250px;
 }
 
 .user{
@@ -45,6 +46,10 @@ body{
     color: var(--Gray);
 }
 
+.userFollowers p{
+    margin: 0;
+}
+
 .userFollowers{
     display: flex;
     align-items: center;
@@ -63,11 +68,9 @@ body{
 .userFollowers .count{
     padding-left: 1rem;
     color: var(--GrayishWhite);
-    margin-top: 5%;
 }
 .userFollowers .tag{
     color: var(--SoftGray);
-    margin-top: 5%;
 }
 .contact{
     margin-top: 20px;
@@ -304,16 +307,17 @@ body{
 }
 
 .disp-info-icon{
-    position: absolute;
-    right: 10%;
+    position: relative;
+    left: 40px;
     height: 20px;
 }
 
 #disp-info-text{
     position: absolute;
     background-color: #d1d1d1;
-    top: 200px;
-    border-radius: 20px;
+    width: 240px;
+    top: 330px;
+    border-radius: 8px;
     text-align: justify;
 }
 
@@ -324,3 +328,5 @@ body{
 .main-content{
     display: flex;
 }
+
+

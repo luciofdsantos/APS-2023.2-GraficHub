@@ -4,7 +4,7 @@
     grid-template-columns: repeat(3, 300px); /* 3 columns, each 300px wide */
     justify-content: center; /* Center the grid horizontally (optional) */
     gap:20px;
-
+    min-width: 1100px;
 }
 .card {
     position: relative;
