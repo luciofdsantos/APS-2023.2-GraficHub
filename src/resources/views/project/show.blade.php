@@ -10,7 +10,11 @@
         <img src="{{ asset('storage/arquivos/'. auth()->id() . '/' . $project->id . '/' . $project->imagem_capa) }}" alt="Logo">
 
         <a href="{{ route('project.edit', $project->id) }}">Editar</a>
-        <a href="">Excluir</a>
+        <form method="post" action="{{ route('project.delete', $project->id) }}">
+            @csrf
+            @method('DELETE')
+            <button>Excluir</button>
+        </form>
     </div>
 
 @endsection

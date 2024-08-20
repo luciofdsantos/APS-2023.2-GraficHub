@@ -30,4 +30,5 @@ Route::controller(ProjectController::class)->group(function () {
    Route::get('/project/{id}', 'show')->name('project.show');
    Route::get('/project/{id}/edit', 'edit')->name('project.edit');
    Route::put('/project/{id}', 'update')->name('project.update');
+   Route::delete('/project/{id}', 'destroy')->name('project.delete');
 });

@@ -162,8 +162,15 @@ class ProjectController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Project $projectModel)
+    public function destroy(int $id)
     {
-        //
+        $project = Project::find($id);
+        File::deleteDirectory(public_path('storage/arquivos/' . $project->user_id . '/' . $project->id));
+        foreach ($project->imagesProjects as $image) {
+            $image->delete();
+        }
+        $project->delete();
+
+        return redirect()->route('user.perfil', auth()->user()->apelido);
     }
 }
