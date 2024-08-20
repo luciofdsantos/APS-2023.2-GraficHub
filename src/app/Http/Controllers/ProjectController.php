@@ -85,8 +85,8 @@ class ProjectController extends Controller
         } elseif ($project->user_id != auth()->id()) {
             abort(403);
         }
-
-        return view('project.show', compact('project'));
+        $images = ImagesProject::where('project_id', $id)->get();
+        return view('project.show', compact('project'),compact('images'));
     }
 
     /**

@@ -19,10 +19,8 @@
     transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
 }
 
-.card svg {
-    width: 48px;
-    fill: #333;
-    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+.card img {
+    width: 300px;
 }
 
 .card:hover {
@@ -121,4 +119,6 @@ a{
 .pagination{
     margin-left: 20px;
 }
+
+
 
