@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProjectRequest;
+use App\Models\ImagesProject;
 use App\Models\Project;
 
 class ProjectController extends Controller
@@ -55,7 +56,11 @@ class ProjectController extends Controller
         }
         $nImgs = count($request->imagens);
         for ($i = 0; $i < $nImgs; $i++) {
-            $imgFileName = $request->imagens[$i]->getClientOriginalName();
+            $imgFileName = time() . '_' . $request->imagens[$i]->getClientOriginalName();
+            ImagesProject::create([
+                'project_id' => $project->id,
+                'name' => $imgFileName,
+            ]);
             $request->imagens[$i]->move(public_path('storage/arquivos/' . $user->id . '/' . $project->id . '/imgs'), $imgFileName);
         }
 

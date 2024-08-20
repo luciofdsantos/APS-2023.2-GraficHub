@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(\App\Models\User::class)->constrained();
+            $table->foreignIdFor(User::class)->constrained();
             $table->string('titulo');
             $table->string('imagem_capa');
             $table->string('ferramentas');
@@ -21,6 +22,8 @@ return new class extends Migration
             $table->string('tags');
             $table->string('arquivo')->nullable();
             $table->boolean('arquivo_publico')->default(true);
+            $table->unsignedInteger('n_curtidas')->default(0);
+            $table->unsignedInteger('n_favoritos')->default(0);
             $table->timestamps();
         });
     }
