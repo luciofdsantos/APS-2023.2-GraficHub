@@ -75,6 +75,9 @@ body{
     font-size: 24px;
 }
 
+.descript a{
+    text-decoration: none;
+}
 .imagens{
     display: flex;
     align-items: center;
@@ -143,3 +146,7 @@ body{
     transition-duration: 1.5s;
     transition-timing-function: ease;
 }
+
+
+
+

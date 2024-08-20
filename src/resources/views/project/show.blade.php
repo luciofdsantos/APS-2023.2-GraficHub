@@ -30,11 +30,10 @@
         <div class="descript">
             <p><strong>Ferramentas:</strong> {{ $project->ferramentas }}</p>
         </div>
+        <div class="descript">
+            <a href="{{ asset('storage/arquivos/'. auth()->id() . '/' . $project->id . '/' . $project->arquivo)}}" download="FileProject"> Arquivo do Projeto</a>
 
-        @if($project->arquivo_publico != 0)
-            <a href= "{{ asset('storage/arquivos/'. auth()->id() . '/' . $project->id . '/' . $project->arquivo)}}" download>
-        @else
-        @endif
+        </div>
 
         <form method="get" action="{{ route('project.edit', $project->id) }}">
             @csrf

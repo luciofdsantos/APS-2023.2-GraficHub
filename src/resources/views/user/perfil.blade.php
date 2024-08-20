@@ -65,9 +65,7 @@
         <div class = "userFollowers main mainshadowdown">
             <p class = "tag"> Seguindo</p>  <p class="count"> 0000</p>
         </div>
-{{--            <div class="circulo">--}}
-{{--            </div>--}}
-{{--            <p>Indisponível</p>--}}
+
         <form action="{{route('user.updateDisp', $user['id'])}}" method="post">
             @csrf
             @if($user['disponivel'])
