@@ -72,6 +72,10 @@ class ProjectController extends Controller
      */
     public function create()
     {
+        if (!auth()->check()) {
+            abort(403);
+        }
+
         return view('project.create');
     }
 
