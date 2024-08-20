@@ -19,9 +19,23 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     font-family: 'Open Sans', sans-serif;
     overflow: visible;
+}
+
+.project-form-container .main{
+    margin-top: 7%;
+    margin-bottom: 2%;
+}
+
+.login-form-container{
+    margin-top: 16%;
+    margin-bottom: 12%;
+}
+
+.user-form-container{
+    margin-top: 8%;
+    margin-bottom: 2%;
 }
 
 form{
