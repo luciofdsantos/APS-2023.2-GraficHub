@@ -3,19 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProjectRequest;
+use App\Http\Requests\ProjectUpdateRequest;
 use App\Models\ImagesProject;
 use App\Models\Project;
+use Illuminate\Support\Facades\File;
 
 class ProjectController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
     /**
      * Store a newly created resource in storage.
      */
@@ -81,26 +75,88 @@ class ProjectController extends Controller
 
     /**
      * Display the specified resource.
+     * @param int $id id do projeto
      */
-    public function show(Project $projectModel)
+    public function show(int $id)
     {
-        //
+        $project = Project::find($id);
+        if ($project == null) {
+            abort(404);
+        } elseif ($project->user_id != auth()->id()) {
+            abort(403);
+        }
+
+        return view('project.show', compact('project'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Project $projectModel)
+    public function edit(int $id)
     {
-        //
+        $project = Project::find($id);
+        if ($project == null) {
+            abort(404);
+        } elseif ($project->user_id != auth()->id()) {
+            abort(403);
+        }
+        return view('project.edit', compact('project'));
+
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(ProjectRequest $request, Project $projectModel)
+    public function update(ProjectUpdateRequest $request, int $id)
     {
-        //
+        $request->validated();
+
+        if ($request->file('imagens') != null) {
+            $request->validate([
+                'imagens.*' => ['mimes:jpg,png,jpeg,webp,svg', 'max:5120'],
+            ], [
+                'imagens.*.mimes' => 'O arquivo deve ser uma imagem (jpg, jpeg, webp, svg ou png).',
+                'imagens.*.max' => 'O tamanho máximo do arquivo é :max KB.'
+            ]);
+        }
+
+        $project = Project::find($id);
+
+        $project->fill($request->only('titulo', 'descricao', 'tags', 'ferramentas'));
+        $project->arquivo_publico = $request->input('arquivo_publico') ? 1 : 0;
+
+        if ($request->file('imagem_capa') != null) {
+            File::delete('storage/arquivos/' . $project->user_id . '/' . $project->id . '/' . $project->imagem_capa);
+            $imgName = time() . '_' . $request->file('imagem_capa')->getClientOriginalName();
+            $request->file('imagem_capa')->move(public_path('storage/arquivos/' . $project->user_id . '/' . $project->id), $imgName);
+            $project->imagem_capa = $imgName;
+        }
+
+        if ($request->file('arquivo') != null) {
+            File::delete('storage/arquivos/' . $project->user_id . '/' . $project->id . '/' . $project->arquivo);
+            $arqName = time() . '_' . $request->file('arquivo')->getClientOriginalName();
+            $request->file('arquivo')->move(public_path('storage/arquivos/' . $project->user_id . '/' . $project->id), $arqName);
+            $project->arquivo = $arqName;
+        }
+
+        if ($request->file('imagens') != null) {
+            foreach ($project->imagesProjects as $image) {
+                File::delete('storage/arquivos/' . $project->user_id . '/' . $project->id . '/imgs/' . $image->name);
+                $image->delete();
+            }
+            foreach ($request->imagens as $image) {
+                $imgFileName = time() . '_' . $image->getClientOriginalName();
+                ImagesProject::create([
+                    'project_id' => $project->id,
+                    'name' => $imgFileName,
+                ]);
+                $image->move(public_path('storage/arquivos/' . $project->user_id . '/' . $project->id . '/imgs'), $imgFileName);
+            }
+        }
+
+        $project->save();
+
+        return redirect()->route('project.show', $project->id);
     }
 
     /**
