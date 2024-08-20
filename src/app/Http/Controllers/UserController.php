@@ -6,9 +6,7 @@ use App\Http\Requests\UserRequest;
 use App\Http\Requests\UserUpdateRequest;
 use App\Models\Project;
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
-use function PHPUnit\Framework\throwException;
 
 class UserController extends Controller
 {
@@ -17,24 +15,25 @@ class UserController extends Controller
     {
 
         $user = User::where('apelido', $apelido)->first();
-        if ($user == null) {
-            return view('home');
+        if ($user == null || $user->id != auth()->id()) {
+            abort(403);
         }
 
         $projects = Project::where('user_id', $user->id)->orderBy('created_at', 'desc')->paginate(6);
         return view('user.perfil', compact('user', 'projects'));
     }
 
-    /*
+    /**
      * atualizar disponibilidade
-     * */
+     * @param int $id
+     */
     public function updateDisponibility(int $id)
     {
 
         $user = User::find($id);
 
-        if(auth()->id() != $id){
-            return redirect()->route('home');
+        if (auth()->id() != $id) {
+            abort(403);
         }
 
         $disponivel = $user->disponivel;
@@ -88,7 +87,7 @@ class UserController extends Controller
     {
         $user = User::where('apelido', $apelido)->first()->toArray();
         if ($user == null || $user['id'] != auth()->id()) {
-            return view('home');
+            abort(403);
         }
         return view('user.edit', compact('user'));
     }
@@ -105,8 +104,8 @@ class UserController extends Controller
         if ($request->file('foto') != null) {
             $fileName = time() . '_' . $request->file('foto')->getClientOriginalName();
             $request->file('foto')->move(public_path('storage/arquivos/' . $user->id), $fileName);
-            if($user->foto != null){
-                File::delete(public_path('storage/arquivos/'. $user->id . '/' . $user->foto));
+            if ($user->foto != null) {
+                File::delete(public_path('storage/arquivos/' . $user->id . '/' . $user->foto));
             }
             $user->foto = $fileName;
         }
