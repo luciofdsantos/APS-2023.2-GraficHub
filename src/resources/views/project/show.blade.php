@@ -11,11 +11,16 @@
     <link href="/css/projectfullview.css" rel ="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
+
 </head>
 <header>
     <div class="header-container">
+
         <img class="img-fluid" src = "{{ asset('storage/arquivos/'. auth()->id() . '/' . $project->id . '/' . $project->imagem_capa) }}" alt="Logo"  >
         <h2><strong>{{ $project->titulo }}</strong> </h2>
+        <div class="voltar" ><a  href="javascript:history.back()"> <--</a></div>
+
+
     </div>
 </header>
 
@@ -30,8 +35,8 @@
         <div class="descript">
             <p><strong>Ferramentas:</strong> {{ $project->ferramentas }}</p>
         </div>
-        <div class="descript">
-            <a href="{{ asset('storage/arquivos/'. auth()->id() . '/' . $project->id . '/' . $project->arquivo)}}" download="FileProject"> Arquivo do Projeto</a>
+        <div class="file-holder">
+            <a href="{{ asset('storage/arquivos/'. auth()->id() . '/' . $project->id . '/' . $project->arquivo)}}" download="FileProject"><img class="icon-pasta" src="/img/pasta-aberta.png" alt="pasta"></a>
 
         </div>
 

@@ -77,12 +77,7 @@
 
             </div>
         </form>
-        <div class="contact">
-            <div class="button-container main">
-                <a href="mailto:{{ $user['email'] }}" class="round-button main"> <img class="logophoto" src="/img/email.png" alt="mail logo"></a>
-                <a href="https://wa.me/{{ $user['numero_telefone'] }}" class="round-button main">  <img class="logophoto" src="/img/wpp.png" alt="wpp logo"> </a>
-            </div>
-        </div>
+
 
 
 

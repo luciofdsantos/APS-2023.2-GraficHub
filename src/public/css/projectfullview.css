@@ -75,9 +75,6 @@ body{
     font-size: 24px;
 }
 
-.descript a{
-    text-decoration: none;
-}
 .imagens{
     display: flex;
     align-items: center;
@@ -143,10 +140,48 @@ body{
     text-decoration: none;
     background: darkred;
     color: var(--GrayishWhite);
-    transition-duration: 1.5s;
+    transition-duration: 0.8s;
     transition-timing-function: ease;
 }
 
+.file-holder{
+    text-decoration: none;
+    color: var(--GrayishWhite);
+    background-color: var(--MediumGray);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 50px;
+    margin-top: 10px;
+    border-radius: 10px;
+    min-width: 190px;
+    cursor: pointer;
+}
+.icon-pasta{
+    width: 25px;
+    filter: brightness(0) invert(1);
+}
 
 
+.file-holder a{
+    text-decoration: none;
+    color: var(--GrayishWhite);
+    font-size: 15px;
+
+}
+
+.voltar{
+    position: absolute;
+    top: 5%;
+    left: 1%;
+}
+.voltar a{
+    color: var(--GrayishWhite);
+    text-decoration: none;
+}
+.voltar a:hover{
+    color: var(--GrayishWhite);
+    text-decoration: none;
+}
 
