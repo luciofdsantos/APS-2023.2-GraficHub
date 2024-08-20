@@ -15,7 +15,7 @@
         <form action="{{route('project.store')}}" method="post" enctype="multipart/form-data">
             <a href="{{ route('home')}}"> <img class="logo-img" alt="logo" src="/img/logo.png"/> </a>
             @csrf
-            <input type="text" placeholder="Título" name="titulo">
+            <input type="text" placeholder="Título" name="titulo" value="{{ old('titulo') }}">
             @error('titulo')
             <span>
                 {{$message}}
@@ -30,8 +30,6 @@
             @enderror
             <label  class ="custom-file-upload" for="body-imgs-upload">Imagens do corpo do projeto<div id="images-preview-wrapper"></div></label>
             <input id="body-imgs-upload" type="file" name="imagens[]" multiple>
-
-            </input>
             @error('imagens')
             <span>
                 {{$message}}
@@ -42,19 +40,19 @@
                 {{$message}}
             </span>
             @enderror
-            <input type="text" placeholder="Ferramentas" name="ferramentas">
+            <input type="text" placeholder="Ferramentas" name="ferramentas" value="{{ old('ferramentas') }}">
             @error('ferramentas')
             <span>
                 {{$message}}
             </span>
             @enderror
-            <textarea class="textar" placeholder="Descricao" name="descricao"></textarea>
+            <textarea class="textar" placeholder="Descricao" name="descricao" >{{ old('descricao') }}</textarea>
             @error('descricao')
             <span>
                 {{$message}}
             </span>
             @enderror
-            <input type="text" placeholder="Tags" name="tags">
+            <input type="text" placeholder="Tags" name="tags" value="{{ old('tags') }}">
             @error('tags')
             <span>
                 {{$message}}
@@ -71,7 +69,7 @@
                 <p>Tornar arquivo privado?</p>
                 <div class="checkbox-wrapper-55">
                     <label class="rocker rocker-small">
-                        <input type="checkbox" name="arquivo_publico">
+                        <input type="checkbox" name="arquivo_publico" {{ old('arquivo_publico') ? 'checked': '' }}>
                         <span class="switch-left">Yes</span>
                         <span class="switch-right">No</span>
                     </label>
