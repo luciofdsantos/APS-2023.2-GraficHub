@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProjectRequest;
 use App\Models\Project;
-use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
@@ -17,27 +16,25 @@ class ProjectController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        return view('project.create');
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
     public function store(ProjectRequest $request)
     {
-//        dd($request);
         $request->validated();
+
+        $request->validate([
+            'imagens.*' => ['mimes:jpg,png,jpeg,webp,svg', 'max:5120'],
+        ], [
+            'imagens.*.mimes' => 'O arquivo deve ser uma imagem (jpg, jpeg, webp, svg ou png).',
+            'imagens.*.max' => 'O tamanho máximo do arquivo é :max KB.'
+        ]);
 
         $user = auth()->user();
 
         $coverImgName = time() . '_' . $request->file('imagem_capa')->getClientOriginalName();
 
         $projectFileName = null;
-        if($request->file('arquivo') != null){
+        if ($request->file('arquivo') != null) {
             $projectFileName = time() . '_' . $request->file('arquivo')->getClientOriginalName();
         }
 
@@ -53,16 +50,24 @@ class ProjectController extends Controller
         ]);
 
         $request->file('imagem_capa')->move(public_path('storage/arquivos/' . $user->id . '/' . $project->id), $coverImgName);
-        if($request->file('arquivo') != null){
+        if ($request->file('arquivo') != null) {
             $request->file('arquivo')->move(public_path('storage/arquivos/' . $user->id . '/' . $project->id), $projectFileName);
         }
         $nImgs = count($request->imagens);
-        for($i = 0; $i < $nImgs; $i++){
+        for ($i = 0; $i < $nImgs; $i++) {
             $imgFileName = $request->imagens[$i]->getClientOriginalName();
             $request->imagens[$i]->move(public_path('storage/arquivos/' . $user->id . '/' . $project->id . '/imgs'), $imgFileName);
         }
 
         return redirect()->route('user.perfil', $user->apelido);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        return view('project.create');
     }
 
     /**

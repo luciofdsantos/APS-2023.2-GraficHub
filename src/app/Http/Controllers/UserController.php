@@ -21,7 +21,7 @@ class UserController extends Controller
             return view('home');
         }
 
-        $projects = Project::where('user_id', $user->id)->get();
+        $projects = Project::where('user_id', $user->id)->orderBy('created_at', 'desc')->paginate(6);
         return view('user.perfil', compact('user', 'projects'));
     }
 
