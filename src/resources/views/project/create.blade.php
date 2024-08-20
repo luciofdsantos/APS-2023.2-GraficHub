@@ -1,7 +1,15 @@
-@extends('nonav')
+<!doctype html>
+<html lang="en">
 
-@section('content')
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Grafic Hub</title>
+    <link href="/css/login.css" rel ="stylesheet">
+</head>
+<body>
 
     <div class="main">
         <form action="{{route('project.store')}}" method="post" enctype="multipart/form-data">
@@ -13,16 +21,17 @@
                 {{$message}}
             </span>
             @enderror
-            <label class ="custom-file-upload" for="cover-file-upload">Capa do projeto</label>
+            <label class ="custom-file-upload" for="cover-file-upload">Capa do projeto<div id="cover-preview-wrapper"></div></label>
             <input id="cover-file-upload" type="file" placeholder="Imagem da capa do projeto" name="imagem_capa">
             @error('imagem_capa')
             <span>
                 {{$message}}
             </span>
             @enderror
-            <label  class ="custom-file-upload" for="body-imgs">Imagens do corpo do projeto</label>
-            <input id="body-imgs" type="file" name="imagens[]" multiple>
+            <label  class ="custom-file-upload" for="body-imgs-upload">Imagens do corpo do projeto<div id="images-preview-wrapper"></div></label>
+            <input id="body-imgs-upload" type="file" name="imagens[]" multiple>
 
+            </input>
             @error('imagens')
             <span>
                 {{$message}}
@@ -63,9 +72,6 @@
                     </label>
                 </div>
             </div>
-
-
-
             @error('arquivo_publico')
             <span>
                 {{$message}}
@@ -75,4 +81,29 @@
             <button type="submit">Criar projeto</button>
         </form>
     </div>
-@endsection
+    <script >
+        let img = document.getElementById('body-imgs-upload');
+        img.addEventListener("change", () =>{
+            let imgWrapper = document.getElementById("images-preview-wrapper");
+            imgWrapper.innerHTML = "<div>";
+            for(let i = 0; i< img.files.length; ++i){
+                let url = URL.createObjectURL(img.files[i])
+                imgWrapper.innerHTML += `<img class="img-preview" src="${url}" alt="image${i}Preview">`
+            }
+            imgWrapper.innerHTML += "</div>"
+        } )
+
+        let cover = document.getElementById('cover-file-upload');
+        cover.addEventListener("change", () =>{
+            let imgWrapper = document.getElementById("cover-preview-wrapper");
+            imgWrapper.innerHTML = "<div>";
+            for(let i = 0; i< cover.files.length; ++i){
+                let url = URL.createObjectURL(cover.files[i])
+                imgWrapper.innerHTML += `<img class="img-preview" src="${url}" alt="image${i}Preview">`
+            }
+            imgWrapper.innerHTML += "</div>"
+        } )
+    </script>
+</body>
+
+</html>

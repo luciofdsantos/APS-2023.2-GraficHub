@@ -291,5 +291,16 @@ input[type="file"] {
     border-color: var(--Gray);
 }
 
+#images-preview-wrapper div{
+    margin-top: 20px;
+}
+
+#cover-preview-wrapper div{
+    margin-top: 20px;
+}
+.img-preview{
+    height:100px;
+}
+
 
 
