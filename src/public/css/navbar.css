@@ -9,7 +9,6 @@
     box-shadow:  0 3px 5px 0 rgba(0,0,0,0.35);
 }
 body{
-    margin: 0;
     background-color: var(--GrayishWhite);
 }
 .nav-bar-wrapper{
@@ -37,9 +36,7 @@ body{
 
 .logo-text-img{
     height: 20px;
-    padding-bottom: 20px;
-    padding-top: 20px;
-    padding-left: 10px;
+    margin-left: 2px;
 }
 
 .profile-wrapper .text{
@@ -70,16 +67,16 @@ body{
 
 .profile-icon{
     height: 20px;
-    padding: 20px;
 }
 
 .profile-pic{
     height: 40px;
-    width: 40px;
+    width:40px;
     border-radius: 100px;
 }
 
 .profile-pic-wrapper{
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;

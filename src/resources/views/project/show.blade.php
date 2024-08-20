@@ -30,18 +30,26 @@
         <div class="descript">
             <p><strong>Ferramentas:</strong> {{ $project->ferramentas }}</p>
         </div>
-        <p><strong>Privado:</strong> {{ $project->arquivo_publico }}</p>
-        <a href="{{ route('project.edit', $project->id) }}">Editar</a>
+
+        @if($project->arquivo_publico != 0)
+            <a href= "{{ asset('storage/arquivos/'. auth()->id() . '/' . $project->id . '/' . $project->arquivo)}}" download>
+        @else
+        @endif
+
+        <form method="get" action="{{ route('project.edit', $project->id) }}">
+            @csrf
+            <button class="edit" >Editar</button>
+        </form>
         <form method="post" action="{{ route('project.delete', $project->id) }}">
             @csrf
             @method('DELETE')
-            <button>Excluir</button>
+            <button class="delete">Excluir</button>
         </form>
     </div>
     </div>
     <div class="imagens">
         <div class="posts">
-            @foreach($images as $image)
+            @foreach($project->imagesProjects as $image)
                 <div class="photo-holder">
                     <img src="{{ asset('storage/arquivos/'. auth()->id() . '/' . $project->id . '/' .'imgs'.'/'.$image->name)}}" alt="">
                 </div>

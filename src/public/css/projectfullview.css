@@ -8,7 +8,7 @@
 body{
     box-sizing: border-box;
     display: block;
-    
+
 }
 
 .header-container{
@@ -94,4 +94,52 @@ body{
 
 .photo-holder img{
     width: 60vh;
+}
+
+.edit{
+    text-decoration: none;
+    color: var(--GrayishWhite);
+    align-self: center;
+    background-color: var(--Gray);
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    justify-content: center;
+    margin-top: 10px;
+    border-radius: 10px;
+    min-width: 190px;
+    cursor: pointer;
+}
+
+.edit:hover{
+    text-decoration: none;
+    background: var(--Black);
+    color: var(--GrayishWhite);
+    transition-duration: 1.5s;
+    transition-timing-function: ease;
+}
+
+.delete{
+    text-decoration: none;
+    color: var(--GrayishWhite);
+    align-self: center;
+    background-color: var(--Gray);
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    justify-content: center;
+    margin-top: 10px;
+    border-radius: 10px;
+    min-width: 190px;
+    cursor: pointer;
+}
+
+.delete:hover{
+    text-decoration: none;
+    background: darkred;
+    color: var(--GrayishWhite);
+    transition-duration: 1.5s;
+    transition-timing-function: ease;
 }

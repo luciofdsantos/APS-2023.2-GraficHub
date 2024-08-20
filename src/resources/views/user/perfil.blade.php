@@ -110,7 +110,6 @@
                            </div>
                     </div>
                 @endforeach
-
             </div>
         <div class="empt"> {{ $projects->links() }} </div>
     </div>
