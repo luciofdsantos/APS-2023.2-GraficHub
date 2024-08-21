@@ -97,7 +97,7 @@
                     <div class=" mainshadowdown card">
                         <img src="{{ asset('storage/arquivos/'. auth()->id() . '/' . $project->id . '/' . $project->imagem_capa)}}">
                         <div class="card__content">
-                            <a href="{{ route('project.show', $project->id) }}" class="card__title "> <heavy>{{$project->titulo}}</heavy> </a>
+                            <a href="{{ route('project.show', $project->id) }}" class="card__title "> <heavy>{{ Str::limit(Str::title($project->titulo), 25) }}</heavy> </a>
                             <div class="block-with-text"> <p class="card__description">{{$project->descricao}}</p></div>
                             <div class="card__description"> <p>Curtidas 000  Salvos 000</p></div>
                            </div>
