@@ -46,6 +46,11 @@
                 <input class="mainshadowdown" type="password" placeholder="confirme a nova senha" name="password_confirmation">
                 <label class="mainshadowdown custom-file-upload" for="file-upload">Foto de Perfil</label>
                 <input id="file-upload" type="file" name="foto" placeholder="Foto de Perfil">
+                @error('foto')
+                <span class="error-message">
+                    {{ $message }}
+                </span>
+                @enderror
                 <button class="mainshadowdown" type="submit">Atualizar</button>
                 <p class="message"><a href="{{ route('user.perfil', $user['apelido']) }}">Voltar para o Perfil</a></p>
             </form>
