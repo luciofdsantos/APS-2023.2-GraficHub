@@ -40,6 +40,9 @@ class UserUpdateRequest extends FormRequest
         if ($this->input('password') != null) {
             $rules['password'] = ['required', 'confirmed', 'min:8'];
         }
+        if ($this->file('foto') != null){
+            $rules['foto'] = ['image', 'max:2048'];
+        }
 
         return $rules;
     }
@@ -71,6 +74,10 @@ class UserUpdateRequest extends FormRequest
                 'required' => 'Preencha este campo.',
                 'unique' => 'Número de telefone já cadastrado.',
                 'regex' => 'Formato do número de telefone inválido.'
+            ],
+            'image' => [
+                'image' => 'O arquivo deve ser uma imagem (jpg, jpeg, png, bmp, gif, svg ou webp).',
+                'max' => 'O tamanho máximo do arquivo é 2048 KB.'
             ]
         ];
     }
