@@ -17,9 +17,9 @@
     <div class="header-container">
 
         <img class="img-fluid" src = "{{ asset('storage/arquivos/'. auth()->id() . '/' . $project->id . '/' . $project->imagem_capa) }}" alt="Logo"  >
-        <h2><strong>{{ $project->titulo }}</strong> </h2>
-        <p><strong> Curtidas 0000 Salvos 0000</strong </p>
-        <div class="voltar" ><a  href="javascript:history.back()"> <--</a></div>
+        <h2><strong>{{ Str::title($project->titulo) }}</strong> </h2>
+        <p><strong> Curtidas 0000 Salvos 0000</strong> </p>
+        <div class="voltar" ><a  href="{{ route('user.perfil', auth()->user()->apelido) }}"> <--</a></div>
 
 
     </div>
