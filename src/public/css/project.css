@@ -41,6 +41,9 @@
     opacity: 0;
     transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
 }
+.card__content:hover{
+  text-decoration: none;
+}
 
 .card:hover .card__content {
     transform: translate(-50%, -50%) rotate(0deg);
@@ -71,13 +74,7 @@
     padding-right: 1em;
 }
 
-.block-with-text:before {
-    color: white;
-    content: '...';
-    position: absolute;
-    right: 0;
-    bottom: 0;
-}
+
 .card:hover svg {
     scale: 0;
     transform: rotate(-45deg);
@@ -119,4 +116,5 @@ a{
 .pagination{
     margin-left: 20px;
 }
+
 

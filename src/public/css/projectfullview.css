@@ -19,6 +19,7 @@ body{
     height: 30vh;
     position: relative;
     display: flex;
+    flex-direction: column;
     background-color: black;
     align-items: center;
     justify-content: center;
@@ -36,8 +37,19 @@ body{
     Opacity:0.75;
 }
 .header-container h2{
-    font-size: 500%;
+    text-align: center;
+    font-size: 3.5vh;
     color: white;
+    min-font-size: 20px;
+    max-font-size: 40px;
+}
+.header-container p{
+    margin-top: 20px;
+    text-align: center;
+    font-size: 2.5vh;
+    color: white;
+    min-font-size: 20px;
+    max-font-size: 40px;
 }
 .voltar{
     position: absolute;
@@ -71,7 +83,7 @@ body{
     min-width: 100%;
     text-align: center;
     background-color: var(--GrayishWhite);
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 .descript h2{

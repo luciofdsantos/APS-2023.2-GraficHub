@@ -74,7 +74,6 @@
                 <button  type="submit" class="disp-btn red-disp-btn">Indisponível <img class="disp-info-icon" src="/img/info-icon.png"  onmouseover="showMessage()" onmouseout="hideMessage()"> </button>
             @endif
             <div id="disp-info-text">
-
             </div>
         </form>
 
@@ -93,8 +92,8 @@
                     <div class=" mainshadowdown card">
                         <img src="{{ asset('storage/arquivos/'. auth()->id() . '/' . $project->id . '/' . $project->imagem_capa)}}">
                         <a href="{{ route('project.show', $project->id) }}" class="card__content">
-                            <p  class="card__title "> <heavy>{{$project->titulo}}</heavy> </p>
-                            <div class="block-with-text"> <p class="card__description">{{$project->descricao}}</p></div>
+                            <p class="card__title "> <heavy>{{ Str::limit(Str::title($project->titulo), 25) }}</heavy> </p>
+                            <div class="block-with-text"> <p class="card__description">{{ Str::limit(Str::title($project->descricao), 80) }}</p></div>
                             <div class="card__description"> <p>Curtidas 000  Salvos 000</p></div>
                            </a>
                     </div>

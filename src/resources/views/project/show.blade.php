@@ -18,6 +18,7 @@
 
         <img class="img-fluid" src = "{{ asset('storage/arquivos/'. auth()->id() . '/' . $project->id . '/' . $project->imagem_capa) }}" alt="Logo"  >
         <h2><strong>{{ $project->titulo }}</strong> </h2>
+        <p><strong> Curtidas 0000 Salvos 0000</strong </p>
         <div class="voltar" ><a  href="javascript:history.back()"> <--</a></div>
 
 
@@ -29,15 +30,17 @@
     <div class = "sideBar">
     <div class = "sideContent">
         <div class="descript">
-            <h2><strong>Descricao:</strong></h2>
+            <h2><strong>Descrição:</strong></h2>
             <p> {{ $project->descricao }}</p>
         </div>
         <div class="descript">
             <p><strong>Ferramentas:</strong> {{ $project->ferramentas }}</p>
         </div>
-        <div class="file-holder">
-            <a href="{{ asset('storage/arquivos/'. auth()->id() . '/' . $project->id . '/' . $project->arquivo)}}" download="FileProject"><img class="icon-pasta" src="/img/pasta-aberta.png" alt="pasta"></a>
+        <div class="descript">
+            <p><strong>Tags:</strong> </p>
         </div>
+            <a class="file-holder" href="{{ asset('storage/arquivos/'. auth()->id() . '/' . $project->id . '/' . $project->arquivo)}}" download="FileProject"><img class="icon-pasta" src="/img/pasta-aberta.png" alt="pasta"></a>
+
 
         <form method="get" action="{{ route('project.edit', $project->id) }}">
             @csrf

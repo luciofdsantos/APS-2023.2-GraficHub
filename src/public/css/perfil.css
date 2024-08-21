@@ -247,23 +247,15 @@ body{
     color: var(--Black);
     font-size: 20px;
 }
-.portBox:hover{
+.portBox p:hover{
     text-decoration: none;
     background-color: var(--Black);
     color: var(--GrayishWhite);
     transition-duration: 1s;
     transition-timing-function: ease;
 }
-a:hover{
-    text-decoration: none;
-}
-.portBox a{
-    text-decoration: none;
-    align-items: center;
-    color: var(--Gray);
-    font-size: 20px;
-    align-self: center;
-}
+
+
 .portBox a:hover{
 
     color: var(--GrayishWhite);
