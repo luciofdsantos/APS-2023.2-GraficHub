@@ -74,11 +74,13 @@ body{
     align-items: center;
     justify-content: center;
     gap: 10px;
+    width: 100%;
 }
 
 .descript{
     margin-top: 10px;
     height: 90%;
+    width: 100%;
     max-width: 40vh;
     min-width: 100%;
     text-align: center;
@@ -92,6 +94,10 @@ body{
     min-font-size: 20px;
 }
 
+.sideContent form{
+    width: 100%;
+}
+
 .imagens{
     display: flex;
     align-items: center;
@@ -99,6 +105,7 @@ body{
     padding-top: 20px;
     margin-left: 25px;
     min-height: 100vh;
+    min-width: 800px;
     height: 100%;
     width: 100%;
 }

@@ -43,7 +43,7 @@ form{
     flex-direction: column;
     display: flex;
     align-items: center;
-    min-width: 250px;
+    min-width: 300px;
     width:20%;
     max-width:20%;
 
@@ -356,5 +356,3 @@ input[type="file"] {
 #create-project-btn{
     margin-top: 12px;
 }
-
-
