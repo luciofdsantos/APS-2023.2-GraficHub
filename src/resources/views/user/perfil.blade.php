@@ -71,15 +71,12 @@
             @if($user['disponivel'])
                 <button type="submit" class="disp-btn green-disp-btn">Disponível <img class="disp-info-icon" src="/img/info-icon.png" onmouseover="showMessage()" onmouseout="hideMessage()"></button>
             @else
-                <button type="submit" class="disp-btn red-disp-btn">Indisponível <img class="disp-info-icon" src="/img/info-icon.png" onmouseover="showMessage()" onmouseout="hideMessage()"></button>
+                <button  type="submit" class="disp-btn red-disp-btn">Indisponível <img class="disp-info-icon" src="/img/info-icon.png"  onmouseover="showMessage()" onmouseout="hideMessage()"> </button>
             @endif
             <div id="disp-info-text">
 
             </div>
         </form>
-
-
-
 
 
 
@@ -93,14 +90,13 @@
             <a class="mainshadowdown portBox" href="{{route('project.create')}}">+</a>
             <div class="project-box">
                 @foreach($projects as $project)
-
                     <div class=" mainshadowdown card">
                         <img src="{{ asset('storage/arquivos/'. auth()->id() . '/' . $project->id . '/' . $project->imagem_capa)}}">
-                        <div class="card__content">
-                            <a href="{{ route('project.show', $project->id) }}" class="card__title "> <heavy>{{$project->titulo}}</heavy> </a>
+                        <a href="{{ route('project.show', $project->id) }}" class="card__content">
+                            <p  class="card__title "> <heavy>{{$project->titulo}}</heavy> </p>
                             <div class="block-with-text"> <p class="card__description">{{$project->descricao}}</p></div>
                             <div class="card__description"> <p>Curtidas 000  Salvos 000</p></div>
-                           </div>
+                           </a>
                     </div>
                 @endforeach
             </div>

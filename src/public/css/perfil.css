@@ -254,8 +254,11 @@ body{
     transition-duration: 1s;
     transition-timing-function: ease;
 }
-
+a:hover{
+    text-decoration: none;
+}
 .portBox a{
+    text-decoration: none;
     align-items: center;
     color: var(--Gray);
     font-size: 20px;
@@ -307,16 +310,17 @@ body{
 }
 
 .disp-info-icon{
-    position: relative;
-    left: 40px;
     height: 20px;
+    left: 40px;
+    position: relative;
 }
 
 #disp-info-text{
     position: absolute;
     background-color: #d1d1d1;
     width: 240px;
-    top: 330px;
+
+    top: 370px;
     border-radius: 8px;
     text-align: justify;
 }
@@ -328,5 +332,6 @@ body{
 .main-content{
     display: flex;
 }
+
 
 

@@ -6,6 +6,8 @@
     --MediumGray: #7a7979;
 }
 body{
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
     display: block;
 
@@ -49,6 +51,7 @@ body{
 .sideBar{
     min-height: 70vh;
     width: 40vh;
+    min-width: 194px;
     padding: .8rem .8rem;
     transition: all 0.5s ease;
     background-color: var(--SoftGray);
@@ -63,8 +66,9 @@ body{
 
 .descript{
     margin-top: 10px;
-    height: 120%;
-    width: 260px;
+    height: 90%;
+    max-width: 40vh;
+    min-width: 100%;
     text-align: center;
     background-color: var(--GrayishWhite);
     border-radius: 20px;
@@ -72,7 +76,8 @@ body{
 
 .descript h2{
     margin-top: 4px;
-    font-size: 24px;
+    font-size: 20px;
+    min-font-size: 20px;
 }
 
 .imagens{
@@ -108,7 +113,7 @@ body{
     justify-content: center;
     margin-top: 10px;
     border-radius: 10px;
-    min-width: 190px;
+    min-width: 25vh;
     cursor: pointer;
 }
 
@@ -127,12 +132,13 @@ body{
     background-color: var(--Gray);
     display: flex;
     align-items: center;
-    width: 100%;
+
     height: 50px;
     justify-content: center;
     margin-top: 10px;
     border-radius: 10px;
-    min-width: 190px;
+    width: 100%;
+    min-width: 25vh;
     cursor: pointer;
 }
 
@@ -151,11 +157,11 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 90%;
     height: 50px;
     margin-top: 10px;
     border-radius: 10px;
-    min-width: 190px;
+    width: 100%;
+    min-width: 25vh;
     cursor: pointer;
 }
 .icon-pasta{
@@ -179,6 +185,7 @@ body{
 .voltar a{
     color: var(--GrayishWhite);
     text-decoration: none;
+    font-size: 20px;
 }
 .voltar a:hover{
     color: var(--GrayishWhite);
