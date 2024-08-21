@@ -19,51 +19,51 @@
             @csrf
             <input type="text" placeholder="Título" name="titulo" value="{{ old('titulo') }}">
             @error('titulo')
-            <span>
+            <span class="error-message">
                 {{$message}}
             </span>
             @enderror
             <label class ="custom-file-upload" for="cover-file-upload">Capa do projeto<div id="cover-preview-wrapper"></div></label>
             <input id="cover-file-upload" type="file" placeholder="Imagem da capa do projeto" name="imagem_capa">
             @error('imagem_capa')
-            <span>
+            <span class="error-message">
                 {{$message}}
             </span>
             @enderror
             <label  class ="custom-file-upload" for="body-imgs-upload"><div id="body-imgs-upload-label-text">Imagens do corpo do projeto</div><div id="images-preview-wrapper"></div></label>
             <input id="body-imgs-upload" type="file" name="imagens[]" multiple>
             @error('imagens')
-            <span>
+            <span class="error-message">
                 {{$message}}
             </span>
             @enderror
             @error('imagens.*')
-            <span>
+            <span class="error-message">
                 {{$message}}
             </span>
             @enderror
             <input type="text" placeholder="Ferramentas" name="ferramentas" value="{{ old('ferramentas') }}">
             @error('ferramentas')
-            <span>
+            <span class="error-message">
                 {{$message}}
             </span>
             @enderror
             <textarea class="textar" placeholder="Descricao" name="descricao" >{{ old('descricao') }}</textarea>
             @error('descricao')
-            <span>
+            <span class="error-message">
                 {{$message}}
             </span>
             @enderror
             <input type="text" placeholder="Tags" name="tags" value="{{ old('tags') }}">
             @error('tags')
-            <span>
+            <span class="error-message">
                 {{$message}}
             </span>
             @enderror
             <label id="project-file-upload-label" class ="custom-file-project-upload" for="file-upload">Arquivo do projeto</label>
             <input id="file-upload" type="file" placeholder="Arquivo do projeto" name="arquivo">
             @error('arquivo')
-            <span>
+            <span class="error-message">
                 {{$message}}
             </span>
             @enderror
@@ -78,7 +78,7 @@
                 </div>
             </div>
             @error('arquivo_publico')
-            <span>
+            <span class="error-message">
                 {{$message}}
             </span>
             @enderror
