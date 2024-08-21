@@ -309,10 +309,12 @@ input[type="file"] {
 
 #images-preview-wrapper div{
     margin-top: 20px;
+    width: 100%;
 }
 
 #cover-preview-wrapper div{
     margin-top: 20px;
+    width: 100%;
 }
 
 .img-preview-wrapper{

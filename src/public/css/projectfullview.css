@@ -16,6 +16,7 @@ body{
 .header-container{
 
     width: 100%;
+    min-width: 1040px;
     height: 30vh;
     position: relative;
     display: flex;
@@ -128,11 +129,11 @@ body{
     display: flex;
     align-items: center;
     width: 100%;
+
     height: 50px;
     justify-content: center;
     margin-top: 10px;
     border-radius: 10px;
-    min-width: 25vh;
     cursor: pointer;
 }
 
@@ -157,7 +158,6 @@ body{
     margin-top: 10px;
     border-radius: 10px;
     width: 100%;
-    min-width: 25vh;
     cursor: pointer;
 }
 
