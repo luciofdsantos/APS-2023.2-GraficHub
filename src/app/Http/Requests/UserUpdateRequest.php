@@ -26,7 +26,7 @@ class UserUpdateRequest extends FormRequest
         $rules = [];
 
         if ($this->input('email') != $oldData->email) {
-            $rules['email'] = ['required', 'string', 'max:255', 'unique:users'];
+            $rules['email'] = ['required', 'email', 'string', 'max:255', 'unique:users'];
         }
         if ($this->input('apelido') != $oldData->apelido) {
             $rules['apelido'] = ['required', 'string', 'max:255', 'unique:users'];
@@ -50,10 +50,12 @@ class UserUpdateRequest extends FormRequest
             'email' => [
                 'required' => 'Preencha este campo.',
                 'email' => 'Insira um e-mail válido.',
-                'unique' => 'E-mail já cadastrado.'
+                'unique' => 'E-mail já cadastrado.',
+                'max' => 'O campo excede o limite de :max caracteres.'
             ],
             'nome' => [
                 'required' => 'Preencha este campo.',
+                'max' => 'O campo excede o limite de :max caracteres.'
             ],
             'password' => [
                 'required' => 'Preencha este campo.',
@@ -63,6 +65,7 @@ class UserUpdateRequest extends FormRequest
             'apelido' => [
                 'required' => 'Preencha este campo.',
                 'unique' => 'Apelido já cadastrado.',
+                'max' => 'O campo excede o limite de :max caracteres.',
             ],
             'numero_telefone' => [
                 'required' => 'Preencha este campo.',
