@@ -39,8 +39,9 @@
         <div class="descript">
             <p><strong>Tags:</strong> </p>
         </div>
+        @if($project->arquivo != null)
             <a class="file-holder" href="{{ asset('storage/arquivos/'. auth()->id() . '/' . $project->id . '/' . $project->arquivo)}}" download="FileProject"><img class="icon-pasta" src="/img/pasta-aberta.png" alt="pasta"></a>
-
+        @endif
 
         <form method="get" action="{{ route('project.edit', $project->id) }}">
             @csrf
