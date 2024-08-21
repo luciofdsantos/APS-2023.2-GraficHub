@@ -180,7 +180,6 @@ body{
     margin-top: 10px;
     border-radius: 10px;
     width: 100%;
-    min-width: 25vh;
     cursor: pointer;
 }
 .icon-pasta{
