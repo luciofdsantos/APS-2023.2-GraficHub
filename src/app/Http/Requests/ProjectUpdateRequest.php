@@ -71,7 +71,7 @@ class ProjectUpdateRequest extends FormRequest
                 'required' => 'Preencha este campo'
             ],
             'tags' => [
-                'required' => 'Preencha este campo'
+                'required' => 'Digite pelo menos uma tag'
             ],
             'arquivo' => [
                 'file' => 'O upload precisa ser de um arquivo'

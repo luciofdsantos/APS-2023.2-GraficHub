@@ -131,7 +131,7 @@
     })
 
     function showDeleteAllMessage(){
-        document.getElementById("body-imgs-upload-label-text").innerText = "Clique para adicionar novas imagens (este procedimento removerá todas as imagens atuais do projeto)"
+        document.getElementById("body-imgs-upload-label-text").innerText = "Clique para adicionar novas imagens (ao confirmar este procedimento todas as imagens atuais do projeto serão substituídas)"
     }
 
     function hideDeleteAllMessage(){
