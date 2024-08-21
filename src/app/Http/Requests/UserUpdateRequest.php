@@ -31,7 +31,7 @@ class UserUpdateRequest extends FormRequest
         if ($this->input('apelido') != $oldData->apelido) {
             $rules['apelido'] = ['required', 'string', 'max:255', 'unique:users'];
         }
-        if ($this->input('nome') != $oldData->name) {
+        if ($this->input('nome') != $oldData->nome) {
             $rules['nome'] = ['required', 'string', 'max:255'];
         }
         if ($this->input('numero_telefone') != $oldData->numero_telefone) {
