@@ -73,6 +73,7 @@
                     {{$message}}
                 </span>
             @enderror
+            <input id="delete-file-project" type="hidden" name="apagar_arquivo" value=''>
             <div class="custom-check">
                 <p>Tornar arquivo privado?</p>
                 <div class="checkbox-wrapper-55">
@@ -123,6 +124,9 @@
             let dataTransfer = new DataTransfer();
             fileInput.files = dataTransfer.files;
             document.getElementById('project-file-upload-label').innerHTML = `Arquivo do projeto`
+            console.log(document.getElementById('delete-file-project').value)
+            document.getElementById('delete-file-project').value = 1
+            console.log(document.getElementById('delete-file-project').value)
         })
     })
 

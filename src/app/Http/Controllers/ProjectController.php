@@ -121,6 +121,11 @@ class ProjectController extends Controller
 
         $project = Project::find($id);
 
+        if($request->apagar_arquivo){
+            File::delete('storage/arquivos/' . $project->user_id . '/' . $project->id . '/' . $project->arquivo);
+            $project->arquivo = null;
+        }
+
         $project->fill($request->only('titulo', 'descricao', 'tags', 'ferramentas'));
         $project->arquivo_publico = $request->input('arquivo_publico') ? 1 : 0;
 
