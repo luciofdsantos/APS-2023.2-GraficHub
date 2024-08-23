@@ -256,11 +256,8 @@ body{
     transition-timing-function: ease;
 }
 
-
-.portBox a:hover{
-
-    color: var(--GrayishWhite);
-
+a.portBox:hover{
+    color: blue;
 }
 
 
