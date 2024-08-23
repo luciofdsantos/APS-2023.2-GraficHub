@@ -11,3 +11,21 @@ function hideMessage(){
 
 
 }
+
+function confirmDeletion() {
+    Swal.fire({
+        title: "Deseja excluir o projeto?",
+        text: "Você não poderá reverter isso!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Sim, excluir!",
+        cancelButtonText: "Cancelar"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            document.getElementById('deleteForm').submit();
+        }
+    });
+
+}
