@@ -10,7 +10,7 @@
     <link href="/img/logo.png" rel ="icon">
     <link href="/css/projectfullview.css" rel ="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.min.css" rel="stylesheet">
 
 </head>
 <header>
@@ -47,10 +47,10 @@
             @csrf
             <button class="edit" >Editar</button>
         </form>
-        <form method="post" action="{{ route('project.delete', $project->id) }}">
+        <form id="deleteForm" method="post" action="{{ route('project.delete', $project->id) }}" >
             @csrf
             @method('DELETE')
-            <button class="delete">Excluir</button>
+            <button type="button" class="delete" onclick="confirmDeletion()">Excluir</button>
         </form>
     </div>
     </div>
@@ -64,6 +64,8 @@
         </div>
     </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.all.min.js"></script>
+<script src="{{ asset('js/functions.js') }}"></script>
 </body>
 
 </html>
