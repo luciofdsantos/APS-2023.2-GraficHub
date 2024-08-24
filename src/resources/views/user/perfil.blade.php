@@ -13,6 +13,7 @@
     <link href="/css/perfil.css" rel ="stylesheet">
     <link href="/css/project.css" rel ="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.min.css" rel="stylesheet">
 
 </head>
 
@@ -83,7 +84,7 @@
         </div>
 
         <a class="edit mainshadowdown" href="{{ route('user.edit', $user['apelido']) }}" >Editar Perfil</a>
-        <a class="logout mainshadowdown" href ="{{route('auth.logout')}}">LogOut</a>
+        <a class="logout mainshadowdown" onclick="confirmLogout(event)" href ="{{route('auth.logout')}}">LogOut</a>
     </div>
     <div class="portifolio main mainshadowdown">
             <a class="mainshadowdown portBox" href="{{route('project.create')}}">+</a>
@@ -102,6 +103,7 @@
         <div class="empt"> {{ $projects->links() }} </div>
     </div>
     <script src="/js/functions.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.all.min.js"></script>
     </div>
     </body>
 
