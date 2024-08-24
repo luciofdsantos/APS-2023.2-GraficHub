@@ -91,7 +91,7 @@
             @enderror
 
             <button type="submit">Atualizar</button>
-
+            <p class="message"><a href="{{route("project.show", $project->id)}}">Voltar para o Projeto</a></p>
         </form>
     </div>
 </div>
