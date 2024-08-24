@@ -84,6 +84,7 @@
             @enderror
 
             <button id="create-project-btn" type="submit">Criar projeto</button>
+            <p class="message"><a href="{{ route('user.perfil', $user->apelido) }}">Voltar para o Perfil</a></p>
         </form>
     </div>
 </div>

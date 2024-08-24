@@ -6,6 +6,7 @@ use App\Http\Requests\ProjectRequest;
 use App\Http\Requests\ProjectUpdateRequest;
 use App\Models\ImagesProject;
 use App\Models\Project;
+use App\Models\User;
 use Illuminate\Support\Facades\File;
 
 class ProjectController extends Controller
@@ -66,11 +67,12 @@ class ProjectController extends Controller
      */
     public function create()
     {
+        $user = User::where('id', auth()->id())->first();
         if (!auth()->check()) {
             abort(403);
         }
 
-        return view('project.create');
+        return view('project.create', compact('user'));
     }
 
     /**
