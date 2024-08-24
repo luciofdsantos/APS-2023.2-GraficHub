@@ -29,3 +29,21 @@ function confirmDeletion() {
     });
 
 }
+
+function confirmLogout(event) {
+    event.preventDefault();
+    Swal.fire({
+        title: "Deseja deslogar?",
+        text: "Você será desconectado!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Sim, desconectar!",
+        cancelButtonText: "Cancelar"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = event.target.href;
+        }
+    });
+}
