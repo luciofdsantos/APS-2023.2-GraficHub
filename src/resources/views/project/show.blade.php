@@ -18,10 +18,14 @@
 <header>
     <div class="header-container">
 
-        <img class="img-fluid" src = "{{ asset('storage/arquivos/'. auth()->id() . '/' . $project->id . '/' . $project->imagem_capa) }}" alt="Logo"  >
+        <img class="img-fluid" src = "{{ asset('storage/arquivos/'. $project->user_id . '/' . $project->id . '/' . $project->imagem_capa) }}" alt="Logo"  >
         <h2><strong>{{ Str::title($project->titulo) }}</strong> </h2>
         <p><strong> Curtidas 0000 Salvos 0000</strong> </p>
-        <div class="voltar" ><a  href="{{ route('user.perfil', auth()->user()->apelido) }}"> <--</a></div>
+        @if(auth()->id() == $project->user_id)
+            <div class="voltar" ><a  href="{{ route('user.perfil', auth()->user()->apelido) }}"> <--</a></div>
+        @else
+            <div class="voltar" ><a  href="{{ url()->previous() }}"> <--</a></div>
+        @endif
     </div>
 </header>
 
@@ -29,6 +33,21 @@
 <div class="containerss">
     <div class = "sideBar">
     <div class = "sideContent">
+
+        @if(auth()->id() != $project->user_id)
+            <a href="{{ route('user.perfil', $project->user->apelido) }}">
+                @if($project->user->foto != null)
+                    <img class="userImg mainperfil" src="{{ asset('storage/arquivos/'. $project->user_id . '/' . $project->user->foto)}}">
+                @else
+                    <img class="userImg mainperfil" src="/img/profile-img.png" alt="profile pic" />
+                @endif
+                <div class="userInfo mainperfil">
+                    <p class="name mainperfil">{{ $project->user->nome }} </p>
+                    <p class="apelido mainperfil">{{ $project->user->apelido }}</p>
+                </div>
+            </a>
+        @endif
+
         <div class="descript">
             <h2><strong>Descrição:</strong></h2>
             <p> {{ $project->descricao }}</p>
@@ -40,25 +59,26 @@
             <p><strong>Tags:</strong> </p>
         </div>
         @if($project->arquivo != null)
-            <a class="file-holder" href="{{ asset('storage/arquivos/'. auth()->id() . '/' . $project->id . '/' . $project->arquivo)}}" download="FileProject"><img class="icon-pasta" src="/img/pasta-aberta.png" alt="pasta"></a>
+            <a class="file-holder" href="{{ asset('storage/arquivos/'. $project->user_id . '/' . $project->id . '/' . $project->arquivo)}}" download="FileProject"><img class="icon-pasta" src="/img/pasta-aberta.png" alt="pasta"></a>
         @endif
 
+        @if(auth()->id() == $project->user_id)
+            <button  id="btn-edit-project" class="edit-project" >Editar</button>
 
+            <form  id="deleteForm" method="post" action="{{ route('project.delete', $project->id) }}" >
+                @csrf
+                @method('DELETE')
+                <button type="button" class="delete" onclick="confirmDeletion()">Excluir</button>
+            </form>
+        @endif
 
-        <button  id="btn-edit-project" class="edit-project" >Editar</button>
-
-        <form  id="deleteForm" method="post" action="{{ route('project.delete', $project->id) }}" >
-            @csrf
-            @method('DELETE')
-            <button type="button" class="delete" onclick="confirmDeletion()">Excluir</button>
-        </form>
     </div>
     </div>
     <div class="imagens">
         <div class="posts">
             @foreach($project->imagesProjects as $image)
                 <div class="photo-holder">
-                    <img src="{{ asset('storage/arquivos/'. auth()->id() . '/' . $project->id . '/' .'imgs'.'/'.$image->name)}}" alt="">
+                    <img src="{{ asset('storage/arquivos/'. $project->user_id . '/' . $project->id . '/' .'imgs'.'/'.$image->name)}}" alt="">
                 </div>
             @endforeach
         </div>

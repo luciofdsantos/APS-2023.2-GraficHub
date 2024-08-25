@@ -15,8 +15,8 @@ class UserController extends Controller
     {
 
         $user = User::where('apelido', $apelido)->first();
-        if ($user == null || $user->id != auth()->id()) {
-            abort(403);
+        if ($user == null) {
+            abort(404);
         }
 
         $projects = Project::where('user_id', $user->id)->orderBy('created_at', 'desc')->paginate(6);

@@ -84,8 +84,6 @@ class ProjectController extends Controller
         $project = Project::find($id);
         if ($project == null) {
             abort(404);
-        } elseif ($project->user_id != auth()->id()) {
-            abort(403);
         }
         return view('project.show', compact('project'));
     }

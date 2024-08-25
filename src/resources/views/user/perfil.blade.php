@@ -52,8 +52,8 @@
     <div class="main-content">
     <div class = "sideBar mainperfil">
         <div class = "user mainperfil">
-            @if(auth()->user()->foto != null)
-                <img class="userImg mainperfil" src="{{ asset('storage/arquivos/'. auth()->id() . '/' . auth()->user()->foto)}}">
+            @if($user['foto'] != null)
+                <img class="userImg mainperfil" src="{{ asset('storage/arquivos/'. $user['id'] . '/' . $user['foto']) }}">
             @else
                 <img class="userImg mainperfil" src="/img/profile-img.png" alt="profile pic" />
             @endif
@@ -69,7 +69,7 @@
         <div class = "userFollowers mainperfil mainshadowdown">
             <p class = "tag"> Seguindo</p>  <p class="count"> 0000</p>
         </div>
-
+        @if(auth()->id() == $user['id'])
         <form action="{{route('user.updateDisp', $user['id'])}}" method="post">
             @csrf
             @if($user['disponivel'])
@@ -80,20 +80,26 @@
             <div id="disp-info-text">
             </div>
         </form>
+        @endif
 
 
 
         <div class="mainperfil options">
         </div>
+        @if(auth()->id() == $user['id'])
         <button id = "btn-edit-profile" class="edit mainshadowdown">Editar Perfil</button>
         <a class="logout mainshadowdown" onclick="confirmLogout(event)" href ="{{route('auth.logout')}}">LogOut</a>
+        @endif
+
     </div>
     <div class="portifolio mainperfil mainshadowdown">
+        @if(auth()->id() == $user['id'])
             <button class="mainshadowdown portBox" id="btn-create-project">+</button>
+        @endif
             <div class="project-box">
                 @foreach($projects as $project)
                     <div class=" mainshadowdown card">
-                        <img src="{{ asset('storage/arquivos/'. auth()->id() . '/' . $project->id . '/' . $project->imagem_capa)}}">
+                        <img src="{{ asset('storage/arquivos/'. $user['id'] . '/' . $project->id . '/' . $project->imagem_capa)}}">
                         <a href="{{ route('project.show', $project->id) }}" class="card__content">
                             <p class="card__title "> <heavy>{{ Str::limit(Str::title($project->titulo), 25) }}</heavy> </p>
                             <div class="block-with-text"> <p class="card__description">{{ Str::limit(Str::title($project->descricao), 80) }}</p></div>
