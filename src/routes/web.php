@@ -1,13 +1,14 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::controller(HomeController::class)->group(function () {
+    Route::get('/', 'index')->name('home');
+});
 
 Route::controller(AuthController::class)->group(function () {
     Route::get('/login', 'showLoginForm')->name('auth.loginForm');
@@ -25,10 +26,10 @@ Route::controller(UserController::class)->group(function () {
 });
 
 Route::controller(ProjectController::class)->group(function () {
-   Route::get('/project/create', 'create')->name('project.create');
-   Route::post('/project', 'store')->name('project.store');
-   Route::get('/project/{id}', 'show')->name('project.show');
-   Route::get('/project/{id}/edit', 'edit')->name('project.edit');
-   Route::put('/project/{id}', 'update')->name('project.update');
-   Route::delete('/project/{id}', 'destroy')->name('project.delete');
+    Route::get('/project/create', 'create')->name('project.create');
+    Route::post('/project', 'store')->name('project.store');
+    Route::get('/project/{id}', 'show')->name('project.show');
+    Route::get('/project/{id}/edit', 'edit')->name('project.edit');
+    Route::put('/project/{id}', 'update')->name('project.update');
+    Route::delete('/project/{id}', 'destroy')->name('project.delete');
 });

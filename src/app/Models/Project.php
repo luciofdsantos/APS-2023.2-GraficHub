@@ -10,11 +10,7 @@ class Project extends Model
 {
     use HasFactory;
 
-    public function imagesProjects():HasMany
-    {
-        return $this->hasMany(ImagesProject::class);
-    }
-
+    public $primaryKey = 'id';
     protected $fillable = [
         'id',
         'user_id',
@@ -24,6 +20,12 @@ class Project extends Model
         'descricao',
         'tags',
         'arquivo',
-        'arquivo_publico'
+        'arquivo_publico',
+        'created_at'
     ];
+
+    public function imagesProjects(): HasMany
+    {
+        return $this->hasMany(ImagesProject::class);
+    }
 }
