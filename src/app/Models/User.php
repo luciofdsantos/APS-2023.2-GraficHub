@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -42,6 +43,29 @@ class User extends Authenticatable
     {
         return $this->hasMany(Project::class);
     }
+
+    /**
+     * retorna todos os usuarios que seguem o user atual
+     */
+    public function seguidores(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'followers', 'seguindo_id', 'seguidor_id');
+
+    }
+
+    public function isSeguindo(int $seguindo_id): bool
+    {
+        return $this->seguindo()->where('seguindo_id', $seguindo_id)->exists();
+    }
+
+    /**
+     * retorna todos os usuarios que o user atual segue
+     */
+    public function seguindo(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'followers', 'seguidor_id', 'seguindo_id');
+    }
+
 
     /**
      * Get the attributes that should be cast.

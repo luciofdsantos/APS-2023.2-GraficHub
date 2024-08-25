@@ -23,6 +23,8 @@ Route::controller(UserController::class)->group(function () {
     Route::get('/user/{apelido}/edit', 'edit')->name('user.edit');
     Route::put('/user/{apelido}', 'update')->name('user.update');
     Route::post('/user/{id}', 'updateDisponibility')->name('user.updateDisp');
+    Route::post('/user/follow/{id}', 'follow')->name('user.follow');
+    Route::post('/user/unfollow/{id}', 'unfollow')->name('user.unfollow');
 });
 
 Route::controller(ProjectController::class)->group(function () {

@@ -13,7 +13,6 @@ class UserController extends Controller
 
     public function showPerfil(string $apelido)
     {
-
         $user = User::where('apelido', $apelido)->first();
         if ($user == null) {
             abort(404);
@@ -117,6 +116,20 @@ class UserController extends Controller
 
         $user->save();
         return redirect()->route('user.perfil', $user->apelido);
+    }
+
+    public function follow(int $user_id){
+        if (auth()->check() && auth()->id() != $user_id) {
+            auth()->user()->seguindo()->attach($user_id);
+        }
+        return redirect()->back();
+    }
+
+    public function unfollow(int $user_id){
+        if (auth()->check() && auth()->id() != $user_id) {
+            auth()->user()->seguindo()->detach($user_id);
+        }
+        return redirect()->back();
     }
 
     /**

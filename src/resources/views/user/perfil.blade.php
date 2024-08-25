@@ -64,10 +64,10 @@
         </div>
 
         <div class = "userFollowers mainperfil mainshadowdown">
-            <p class = "tag"> Seguidores </p>  <p class="count"> 0000</p>
+            <p class = "tag"> Seguidores </p>  <p class="count"> {{ $user->seguidores()->count() }}</p>
         </div>
         <div class = "userFollowers mainperfil mainshadowdown">
-            <p class = "tag"> Seguindo</p>  <p class="count"> 0000</p>
+            <p class = "tag"> Seguindo</p>  <p class="count"> {{ $user->seguindo()->count() }}</p>
         </div>
         @if(auth()->id() == $user['id'])
         <form action="{{route('user.updateDisp', $user['id'])}}" method="post">
@@ -89,6 +89,18 @@
         @if(auth()->id() == $user['id'])
         <button id = "btn-edit-profile" class="edit mainshadowdown">Editar Perfil</button>
         <a class="logout mainshadowdown" onclick="confirmLogout(event)" href ="{{route('auth.logout')}}">LogOut</a>
+        @else
+            @if(!auth()->user()->isSeguindo($user['id']))
+                <form id="follow" method="post" action="{{ route('user.follow', $user['id']) }}" >
+                    @csrf
+                    <button type="submit">Follow</button>
+                </form>
+            @else
+                <form id="unfollow" method="post" action="{{ route('user.unfollow', $user['id']) }}" >
+                    @csrf
+                    <button type="submit">Unfollow</button>
+                </form>
+            @endif
         @endif
 
     </div>
