@@ -38,7 +38,7 @@ body{
     margin-bottom: 2%;
 }
 
-form{
+.forms{
     background: none;
     flex-direction: column;
     display: flex;
@@ -48,22 +48,22 @@ form{
     max-width:20%;
 
 }
-form .title{
+.forms .title{
     color: var(--Gray);
     font-size: 20px;
     margin: 10px 0 1rem;
 }
-form .message{
+.forms .message{
     color: var(--MediumGray);
     font-size: 16px;
     margin: 28px 0 0;
 }
-form .message a{
+.forms .message a{
     color: var(--Gray);
     text-decoration: none;
 }
 
-form input{
+.forms input{
     outline: 0;
     background: var(--SoftGray);
     width: 100%;
@@ -74,11 +74,11 @@ form input{
     border-color: transparent;
     transition: all 0.3s;
 }
-form input:focus{
+.formsinput:focus{
     border-color: var(--Gray);
 }
 
-form button{
+.forms button{
     font-family: "Roboto", sans-serif;
     outline: 0;
     background: var(--Gray);
@@ -94,7 +94,7 @@ form button{
     min-width: 120px;
 }
 
-form button:hover {
+.forms button:hover {
     background: var(--Black);
     color: var(--GrayishWhite);
     transition-duration: 1.5s;

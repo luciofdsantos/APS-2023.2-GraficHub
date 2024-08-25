@@ -14,7 +14,7 @@
     @else
         <div class="login-form-container">
             <div class="main">
-                <form action="{{ route('auth.login') }}" method="post">
+                <form class="forms" action="{{ route('auth.login') }}" method="post">
                     <a href="{{ route('home')}}"> <img class="logo-img" alt="logo" src="/img/logo.png"/> </a>
                     <p class="title"> Login </p>
                     @csrf

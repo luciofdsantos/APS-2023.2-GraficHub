@@ -11,9 +11,9 @@
         Usuario logado, {{ auth()->user()->nome }} <a href="{{ route('auth.logout') }}"> Logout </a>
     @else
 
-        <div class="user-form-container">
+        <div  class="user-form-container">
             <div class ="main">
-            <form action="{{ route('user.store') }}" method="post" enctype="multipart/form-data">
+            <form class="forms" action="{{ route('user.store') }}" method="post" enctype="multipart/form-data">
                 <a href="{{ route('home')}}"> <img class="logo-img" alt="logo" src="/img/logo.png"/> </a>
                 <p class="title"> Cadastrar</p>
                 @csrf

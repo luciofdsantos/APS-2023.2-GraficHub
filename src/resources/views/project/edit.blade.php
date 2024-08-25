@@ -12,7 +12,7 @@
 <body>
 <div class="project-form-container">
     <div class="main">
-        <form action="{{ route('project.update', $project->id) }}" method="post" enctype="multipart/form-data">
+        <form class="forms" action="{{ route('project.update', $project->id) }}" method="post" enctype="multipart/form-data">
             <a href="{{ route('home')}}"> <img class="logo-img" alt="logo" src="/img/logo.png"/> </a>
             <p class="title"> Atualizar Projeto</p>
             @csrf

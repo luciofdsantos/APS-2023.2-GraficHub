@@ -121,7 +121,7 @@ body{
     width: 60vh;
 }
 
-.edit{
+.edit-project{
     text-decoration: none;
     color: var(--GrayishWhite);
     align-self: center;
@@ -137,7 +137,7 @@ body{
     cursor: pointer;
 }
 
-.edit:hover{
+.edit-project:hover{
     text-decoration: none;
     background: var(--Black);
     color: var(--GrayishWhite);
