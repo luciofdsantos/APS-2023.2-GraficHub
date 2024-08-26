@@ -299,7 +299,7 @@
     </script>
     </dialog>
 
-    <dialog id = "box-edit-profile">
+    <dialog id ="box-edit-profile">
         <div class="user-form-container">
             <div class="main">
                 <form class="forms" action="{{ route('user.update', $user['apelido']) }}" method="post" enctype="multipart/form-data">
@@ -342,8 +342,9 @@
                 </span>
                     @enderror
                     <input class="mainshadowdown" type="password" placeholder="confirme a nova senha" name="password_confirmation">
-                    <label class="mainshadowdown custom-file-upload" for="file-upload">Foto de Perfil</label>
-                    <input id="file-upload" type="file" name="foto" placeholder="Foto de Perfil">
+
+                    <label class="mainshadowdown custom-file-upload" for="file-upload-profile">Foto de Perfil</label>
+                    <input id="file-upload-profile" type="file" name="foto" placeholder="Foto de Perfil">
                     @error('foto')
                     <span class="error-message">
                     {{ $message }}

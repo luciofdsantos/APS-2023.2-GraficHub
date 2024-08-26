@@ -243,3 +243,6 @@ body{
     font-size: 100%;
     color: var(--Gray);
 }
+.user{
+    text-decoration: none;
+}

@@ -102,8 +102,6 @@ class UserController extends Controller
 
         $request->validated();
 
-        dd($request);
-
         if ($request->file('foto') != null) {
             $fileName = time() . '_' . $request->file('foto')->getClientOriginalName();
             $request->file('foto')->move(public_path('storage/arquivos/' . $user->id), $fileName);
