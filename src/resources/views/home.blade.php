@@ -48,7 +48,9 @@
 
 <body class="mainhome">
 <div class="feed">
+    <div><p class="title">Feed</p></div>
 <div class="project-box">
+
     @foreach($projects as $project)
         <div class=" mainshadowdown card">
             <img src="{{ asset('storage/arquivos/'. $project->user_id . '/' . $project->id . '/' . $project->imagem_capa)}}">

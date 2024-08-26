@@ -32,21 +32,24 @@
 <body>
 <div class="containerss">
     <div class = "sideBar">
+        <div class="user main-user">
+            @if(auth()->id() != $project->user_id)
+                <a class="user" href="{{ route('user.perfil', $project->user->apelido) }}">
+                    @if($project->user->foto != null)
+                        <img class="img-profile main-user" src="{{ asset('storage/arquivos/'. $project->user_id . '/' . $project->user->foto)}}">
+                    @else
+                        <img class="img-profile main-user" src="/img/profile-img.png" alt="profile pic" />
+                    @endif
+                    <div class="userInfo main-user">
+                        <p class="name main-user">{{ $project->user->nome }} </p>
+                        <p class="apelido main-user">{{ $project->user->apelido }}</p>
+                    </div>
+                </a>
+            @endif
+        </div>
     <div class = "sideContent">
 
-        @if(auth()->id() != $project->user_id)
-            <a href="{{ route('user.perfil', $project->user->apelido) }}">
-                @if($project->user->foto != null)
-                    <img class="userImg mainperfil" src="{{ asset('storage/arquivos/'. $project->user_id . '/' . $project->user->foto)}}">
-                @else
-                    <img class="userImg mainperfil" src="/img/profile-img.png" alt="profile pic" />
-                @endif
-                <div class="userInfo mainperfil">
-                    <p class="name mainperfil">{{ $project->user->nome }} </p>
-                    <p class="apelido mainperfil">{{ $project->user->apelido }}</p>
-                </div>
-            </a>
-        @endif
+
 
         <div class="descript">
             <h2><strong>Descrição:</strong></h2>

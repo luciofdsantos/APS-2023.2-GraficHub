@@ -5,15 +5,15 @@
     font-family: 'Open Sans', sans-serif;
 }
 .feed{
+    margin-top: 20px;
     padding-top: 20px;
-    height: 100vh;
     width: 100%;
     min-width: 1155px;
 }
 
 .project-box{
     display: grid;
-    grid-template-columns: repeat(1, 300px); /* 1 columns, each 300px wide */
+    grid-template-columns: repeat(3, 300px); /* 1 columns, each 300px wide */
     justify-content: center; /* Center the grid horizontally (optional) */
     gap: 20px;
     min-width: 1100px;
@@ -46,10 +46,16 @@
     border-color: #dddddd; /* Disabled border color */
 }
 .empt{
-    margin-top: 10px;
     display: flex;
     justify-content: center;
 }
 .pagination{
     margin-left: 20px;
+}
+
+.title{
+    text-align: center;
+    color: var(--Gray);
+    font-size: 40px;
+    font-family: 'Open Sans', sans-serif;
 }

@@ -80,13 +80,15 @@ body{
 
 .descript{
     margin-top: 10px;
-    height: 90%;
+    height: 100%;
     width: 100%;
     max-width: 40vh;
     min-width: 100%;
     text-align: center;
     background-color: var(--GrayishWhite);
     border-radius: 10px;
+    max-height: 250px;
+    overflow: auto;
 }
 
 .descript h2{
@@ -210,3 +212,34 @@ body{
     text-decoration: none;
 }
 
+.img-profile{
+    width: 78px;
+    border-radius: 10%;
+    border: 1px solid var(--GrayishWhite);
+}
+.main-user{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+.user{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+.user .userInfo{
+    opacity: 1;
+    margin-left: 1rem;
+    font-family: 'Open Sans', sans-serif;
+}
+.user .userInfo .name{
+
+    font-size: 120%;
+    font-weight: bold;
+    color: var(--Black);
+}
+.user .userInfo .apelido{
+    font-size: 100%;
+    color: var(--Gray);
+}
