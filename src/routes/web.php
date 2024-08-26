@@ -26,6 +26,8 @@ Route::controller(UserController::class)->group(function () {
     Route::post('/user/{id}', 'updateDisponibility')->name('user.updateDisp');
     Route::post('/user/follow/{id}', 'follow')->name('user.follow');
     Route::post('/user/unfollow/{id}', 'unfollow')->name('user.unfollow');
+    Route::get('/user/{apelido}/seguidores', 'seguidores')->name('user.seguidores');
+    Route::get('/user/{apelido}/seguindo', 'seguindo')->name('user.seguindo');
 });
 
 Route::controller(ProjectController::class)->group(function () {

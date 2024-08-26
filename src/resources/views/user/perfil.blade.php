@@ -63,12 +63,18 @@
             </div>
         </div>
 
+        <form action="{{route('user.seguidores', $user['apelido'])}}" method="get">
         <div class = "userFollowers mainperfil mainshadowdown">
-            <p class = "tag"> Seguidores </p>  <p class="count"> {{ $user->seguidores()->count() }}</p>
+            <button type="submit"> Seguidores {{ $user->seguidores()->count() }}</button>
         </div>
-        <div class = "userFollowers mainperfil mainshadowdown">
-            <p class = "tag"> Seguindo</p>  <p class="count"> {{ $user->seguindo()->count() }}</p>
-        </div>
+        </form>
+
+        <form action="{{route('user.seguindo', $user['apelido'])}}" method="get">
+            <div class = "userFollowers mainperfil mainshadowdown">
+                <button type="submit"> Seguindo {{ $user->seguindo()->count() }}</button>
+            </div>
+        </form>
+
         @if(auth()->id() == $user['id'])
         <form action="{{route('user.updateDisp', $user['id'])}}" method="post">
             @csrf

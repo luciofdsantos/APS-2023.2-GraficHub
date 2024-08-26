@@ -40,7 +40,7 @@ class UserController extends Controller
         $user->disponivel = !$disponivel;
 
         $user->save();
-        return redirect()->route('user.perfil', $user->apelido);
+        return redirect()->back();
     }
 
     /**
@@ -118,7 +118,8 @@ class UserController extends Controller
         return redirect()->route('user.perfil', $user->apelido);
     }
 
-    public function follow(int $user_id){
+    public function follow(int $user_id)
+    {
         if (auth()->check() && auth()->id() != $user_id) {
             auth()->user()->seguindo()->attach($user_id);
         } else {
@@ -127,7 +128,18 @@ class UserController extends Controller
         return redirect()->back();
     }
 
-    public function unfollow(int $user_id){
+    public function seguindo(string $apelido)
+    {
+        $user = User::where('apelido', $apelido)->first();
+        if ($user == null) {
+            abort(404);
+        }
+        $followers = $user->seguindo()->orderBy('created_at', 'desc')->paginate(2);
+        return view('user.showFollowers', compact('user', 'followers'));
+    }
+
+    public function unfollow(int $user_id)
+    {
         if (auth()->check() && auth()->id() != $user_id) {
             auth()->user()->seguindo()->detach($user_id);
         }
@@ -140,5 +152,15 @@ class UserController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function seguidores(string $apelido)
+    {
+        $user = User::where('apelido', $apelido)->first();
+        if ($user == null) {
+            abort(404);
+        }
+        $followers = $user->seguidores()->orderBy('created_at', 'desc')->paginate(2);
+        return view('user.showFollowers', compact('user', 'followers'));
     }
 }
