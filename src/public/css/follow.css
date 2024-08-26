@@ -10,23 +10,55 @@
     width: 100%;
 }
 .content-contaneir{
-    display: flex;
     justify-content: center;
-
+    margin-top: 20px;
 }
 .apelidof{
-    position: absolute;
-    left: 25px;
-    justify-self: center;
+    margin: 0 auto;
     text-align: center;
 }
 
-.content-contaneir form button{
-    position: absolute;
-    left: 360px;
-    justify-self: center;
+.content-contaneir .content form button{
     text-align: center;
+    margin: 0 auto;
+}
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.follow-img{
+    margin-left: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 35px;
 }
 .follow-btn{
+    text-decoration: none;
 
+    align-self: center;
+
+    display: flex;
+    align-items: center;
+    width: 50%;
+    height: 40px;
+    justify-content: center;
+    margin-top: 10px;
+    border-radius: 10px;
+    min-width: 85px;
+    max-width: 100px;
+    cursor: pointer;
+}
+.unfollow{
+    background-color: var(--Gray);
+    color: var(--GrayishWhite);
+}
+.follow{
+    background-color: var(--GrayishWhite);
+    color: var(--Black);
+}
+#follow,#unfollow{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
