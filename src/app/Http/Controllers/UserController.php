@@ -19,7 +19,9 @@ class UserController extends Controller
         }
 
         $projects = Project::where('user_id', $user->id)->orderBy('created_at', 'desc')->paginate(6);
-        return view('user.perfil', compact('user', 'projects'));
+        $seguidores = $user->seguidores()->orderBy('created_at', 'desc')->paginate(2);
+        $seguindo = $user->seguindo()->orderBy('created_at', 'desc')->paginate(2);
+        return view('user.perfil', compact('user', 'projects', 'seguidores', 'seguindo'));
     }
 
     /**
@@ -99,6 +101,8 @@ class UserController extends Controller
         $user = User::where('apelido', $apelido)->first();
 
         $request->validated();
+
+        dd($request);
 
         if ($request->file('foto') != null) {
             $fileName = time() . '_' . $request->file('foto')->getClientOriginalName();

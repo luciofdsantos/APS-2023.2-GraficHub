@@ -359,7 +359,7 @@
     <dialog id="box-show-followers">
         <div class=" mainshadowdown">
             <div class="follow-box">
-                @foreach($user->seguidores as $follower)
+                @foreach($seguidores as $follower)
                     <div class="content-contaneir" style="margin-bottom: 10px;">
                         <p class="apelidof">{{ $follower->apelido }}</p>
                         @if(auth()->id() != $follower->id)
@@ -377,6 +377,33 @@
                         @endif
                     </div>
                 @endforeach
+                {{ $seguidores->links() }}
+            </div>
+        </div>
+    </dialog>
+
+    <dialog id="box-show-followers">
+        <div class=" mainshadowdown">
+            <div class="follow-box">
+                @foreach($seguindo as $follower)
+                    <div class="content-contaneir" style="margin-bottom: 10px;">
+                        <p class="apelidof">{{ $follower->apelido }}</p>
+                        @if(auth()->id() != $follower->id)
+                            @if(!auth()->check() || !auth()->user()->isSeguindo($follower->id))
+                                <form action="{{ route('user.follow', $follower->id) }}" method="post">
+                                    @csrf
+                                    <button class= "follow-btn" type="submit">Follow</button>
+                                </form>
+                            @else
+                                <form action="{{ route('user.unfollow', $follower->id) }}" method="post">
+                                    @csrf
+                                    <button type="submit">Unfollow</button>
+                                </form>
+                            @endif
+                        @endif
+                    </div>
+                @endforeach
+                {{ $seguindo->links() }}
             </div>
         </div>
     </dialog>
