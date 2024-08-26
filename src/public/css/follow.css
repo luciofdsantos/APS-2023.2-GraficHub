@@ -1,0 +1,32 @@
+#box-show-followers{
+    border: none;
+    border-radius: .5rem;
+    box-shadow: 0 0 1em rgb(0 0 0 /.3);
+    width: 500px;
+    min-width: 500px;
+    height: 100%;
+}
+.follow-box{
+    width: 100%;
+}
+.content-contaneir{
+    display: flex;
+    justify-content: center;
+
+}
+.apelidof{
+    position: absolute;
+    left: 25px;
+    justify-self: center;
+    text-align: center;
+}
+
+.content-contaneir form button{
+    position: absolute;
+    left: 360px;
+    justify-self: center;
+    text-align: center;
+}
+.follow-btn{
+
+}
