@@ -85,7 +85,8 @@ class ProjectController extends Controller
         if ($project == null) {
             abort(404);
         }
-        return view('project.show', compact('project'));
+        $images = $project->imagesProjects()->paginate(1);;
+        return view('project.show', compact('project', 'images'));
     }
 
     /**

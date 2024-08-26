@@ -79,11 +79,12 @@
     </div>
     <div class="imagens">
         <div class="posts">
-            @foreach($project->imagesProjects as $image)
+            @foreach($images as $image)
                 <div class="photo-holder">
                     <img src="{{ asset('storage/arquivos/'. $project->user_id . '/' . $project->id . '/' .'imgs'.'/'.$image->name)}}" alt="">
                 </div>
             @endforeach
+            {{ $images->links() }}
         </div>
     </div>
 </div>
