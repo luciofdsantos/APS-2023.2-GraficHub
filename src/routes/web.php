@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('home');
+    Route::get('/seguindo', 'personalizado')->name('home.personalizado');
 });
 
 Route::controller(AuthController::class)->group(function () {

@@ -48,7 +48,13 @@
 
 <body class="mainhome">
 <div class="feed">
-    <div><p class="title">Feed</p></div>
+    <div>
+        <p class="title">
+            <a href="{{ route('home') }}">Feed</a>
+            <a href="{{ route('home.personalizado') }}">Seguindo</a>
+        </p>
+    </div>
+
 <div class="project-box">
 
     @foreach($projects as $project)
