@@ -79,4 +79,12 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function follow(int $id){
+        $this->seguindo()->attach($id);
+    }
+
+    public function unfollow(int $id){
+        $this->seguindo()->detach($id);
+    }
 }
