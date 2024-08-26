@@ -90,7 +90,7 @@
         <button id = "btn-edit-profile" class="edit mainshadowdown">Editar Perfil</button>
         <a class="logout mainshadowdown" onclick="confirmLogout(event)" href ="{{route('auth.logout')}}">LogOut</a>
         @else
-            @if(!auth()->user()->isSeguindo($user['id']))
+            @if(!auth()->check() || !auth()->user()->isSeguindo($user['id']))
                 <form id="follow" method="post" action="{{ route('user.follow', $user['id']) }}" >
                     @csrf
                     <button type="submit">Follow</button>

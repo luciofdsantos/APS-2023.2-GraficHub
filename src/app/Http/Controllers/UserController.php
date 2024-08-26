@@ -121,6 +121,8 @@ class UserController extends Controller
     public function follow(int $user_id){
         if (auth()->check() && auth()->id() != $user_id) {
             auth()->user()->seguindo()->attach($user_id);
+        } else {
+            return redirect()->route('auth.loginForm');
         }
         return redirect()->back();
     }
