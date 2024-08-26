@@ -63,6 +63,7 @@ body{
     border: none;
     font-weight: bold;
     background-color: var(--MediumGray);
+    color: var(--GrayishWhite);
 }
 
 .userFollowers .count{
@@ -138,8 +139,9 @@ body{
 
 .options{
     margin-top: 10%;
-
+    background-color: var(--GrayishWhite);
 }
+
 .editBox{
     background-color: var(--Gray);
     display: flex;

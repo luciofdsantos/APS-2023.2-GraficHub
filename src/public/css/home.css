@@ -5,8 +5,9 @@
     font-family: 'Open Sans', sans-serif;
 }
 .feed{
-    margin-top: 20px;
-    padding-top: 20px;
+    background-color: var(--GrayishWhite);
+    padding: 20px;
+    margin-top: 5px;
     width: 100%;
     min-width: 1155px;
 }
@@ -58,4 +59,30 @@
     color: var(--Gray);
     font-size: 40px;
     font-family: 'Open Sans', sans-serif;
+}
+.box-options{
+    display: flex;
+    justify-content: center;
+}
+.options{
+    border: 1px rgba(19, 17, 17, 0.29);
+    border-style: solid;
+    width: 120%;
+    min-width: 150px;
+    text-align: center;
+    border-radius: 20px 20px 0 0;
+}
+.options a{
+    text-decoration: none;
+    color: var(--Gray);
+    font-size: 20px;
+
+}
+.options a:hover{
+    text-decoration: none;
+    color:var(--Black);
+}
+
+.box-intern{
+    display: flex;
 }

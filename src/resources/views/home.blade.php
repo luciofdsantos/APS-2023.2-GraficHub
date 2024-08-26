@@ -16,6 +16,7 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.min.css" rel="stylesheet">
 
+
 </head>
 
 <header class="nav-bar-wrapper mainshadowdown">
@@ -46,13 +47,14 @@
     </div>
 </header>
 
-<body class="mainhome">
-<div class="feed">
-    <div>
-        <p class="title">
-            <a href="{{ route('home') }}">Feed</a>
-            <a href="{{ route('home.personalizado') }}">Seguindo</a>
-        </p>
+<body class="mainhome" style="background-color: var(--GrayishWhite)">
+<script src="/js/home.js"></script>
+<div class="feed mainhome">
+    <div class="box-options mainhome">
+    <div class="box-intern">
+            <div id ="descobrir-box" class="options"><a  id="descobrir"  href="{{ route('home') }}" onclick="discBGcolor()">Descobrir</a></div>
+            <div id="seguindo-box" class="options" ><a   id="seguindo" href="{{ route('home.personalizado') }}" onclick="followBGcolor()">Seguindo</a></div>
+    </div>
     </div>
 
 <div class="project-box">

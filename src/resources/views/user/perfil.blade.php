@@ -64,15 +64,11 @@
         </div>
 
         <form action="{{route('user.seguidores', $user['apelido'])}}" method="get">
-        <div class = "userFollowers mainperfil mainshadowdown">
-            <button type="submit"> Seguidores {{ $user->seguidores()->count() }}</button>
-        </div>
+            <button class="userFollowers" type="submit"> Seguidores {{ $user->seguidores()->count() }}</button>
         </form>
 
         <form action="{{route('user.seguindo', $user['apelido'])}}" method="get">
-            <div class = "userFollowers mainperfil mainshadowdown">
-                <button type="submit"> Seguindo {{ $user->seguindo()->count() }}</button>
-            </div>
+                <button  class="userFollowers" type="submit"> Seguindo {{ $user->seguindo()->count() }}</button>
         </form>
 
         @if(auth()->id() == $user['id'])
@@ -359,6 +355,30 @@
             </div>
         </div>
     </dialog>
+    <dialog id="box-show-followers">
+        <div class="followe-box">
+            @foreach($followers as $follower)
+                <div style="margin-bottom: 10px;">
+                    <p>{{ $follower->apelido }}</p>
+                    @if(auth()->id() != $follower->id)
+                        @if(!auth()->check() || !auth()->user()->isSeguindo($follower->id))
+                            <form action="{{ route('user.follow', $follower->id) }}" method="post">
+                                @csrf
+                                <button type="submit">Follow</button>
+                            </form>
+                        @else
+                            <form action="{{ route('user.unfollow', $follower->id) }}" method="post">
+                                @csrf
+                                <button type="submit">Unfollow</button>
+                            </form>
+                        @endif
+                    @endif
+                </div>
+            @endforeach
+            {{ $followers->links() }}
+        </div>
+    </dialog>
+
     </body>
 
 </html>
