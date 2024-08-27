@@ -347,12 +347,12 @@ body{
             cursor: pointer;
             height: 5px;
             width: 40px;
-            background-color: var(--Black);
+            background-color: var(--SoftGray);
             transition: background-color 0.2s ease;
 
             &.active,
             &:hover {
-                background-color: var(--SoftGray);
+                background-color: var(--Black);
             }
         }
     }
