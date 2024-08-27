@@ -65,11 +65,11 @@
         </div>
 
 
-        <button id="btn-show-followers" class="userFollowers" type="submit"> Seguidores {{ $user->seguidores()->count() }}</button>
+        <button id="btn-show-followeds" class="userFollowers" type="submit"> Seguidores {{ $user->seguidores()->count() }}</button>
 
-        <form action="{{route('user.seguindo', $user['apelido'])}}" method="get">
-                <button id="btn-show-follow"  class="userFollowers" type="submit"> Seguindo {{ $user->seguindo()->count() }}</button>
-        </form>
+
+        <button id="btn-show-followers"  class="userFollowers" type="submit"> Seguindo {{ $user->seguindo()->count() }}</button>
+
 
         @if(auth()->id() == $user['id'])
         <form action="{{route('user.updateDisp', $user['id'])}}" method="post">
@@ -357,13 +357,19 @@
         </div>
     </dialog>
 
-    <dialog id="box-show-followers">
+    <dialog id="box-show-followeds">
         <div>
             <div class="follow-box">
+                <p class="title-box"><heavy>Seguidores</heavy></p>
                 @foreach($seguidores as $follower)
                     <div class="content-contaneir" style="margin-bottom: 10px;">
                         <div class="content">
-                            <img class="follow-img" src="https://www.petz.com.br/blog/wp-content/uploads/2019/07/vida-de-gato.jpg" alt="profile-pix">
+                            @if($follower['foto'] != null)
+                                <img class="follow-img" src="{{ asset('storage/arquivos/'. $follower['id'] . '/' . $follower['foto']) }}" alt="profile-pic">
+                            @else
+                                <img class="follow-img" src="/img/profile-img.png" alt="profile pic" />
+                            @endif
+
                         <p class="apelidof">{{ $follower->apelido }}</p>
                         @if(auth()->id() != $follower->id)
                             @if(!auth()->check() || !auth()->user()->isSeguindo($follower->id))
@@ -387,24 +393,32 @@
     </dialog>
 
     <dialog id="box-show-followers">
-        <div class=" mainshadowdown">
+        <div>
             <div class="follow-box">
+                <p class="title-box"><heavy>Seguindo</heavy></p>
                 @foreach($seguindo as $follower)
                     <div class="content-contaneir" style="margin-bottom: 10px;">
+                        <div class="content">
+                            @if($follower['foto'] != null)
+                                <img class="follow-img" src="{{ asset('storage/arquivos/'. $follower['id'] . '/' . $follower['foto']) }}" alt="profile-pic">
+                            @else
+                                <img class="follow-img" src="/img/profile-img.png" alt="profile pic" />
+                            @endif
                         <p class="apelidof">{{ $follower->apelido }}</p>
                         @if(auth()->id() != $follower->id)
                             @if(!auth()->check() || !auth()->user()->isSeguindo($follower->id))
                                 <form action="{{ route('user.follow', $follower->id) }}" method="post">
                                     @csrf
-                                    <button class= "follow-btn" type="submit">Follow</button>
+                                    <button class= "follow-btn unfollow" type="submit">Follow</button>
                                 </form>
                             @else
                                 <form action="{{ route('user.unfollow', $follower->id) }}" method="post">
                                     @csrf
-                                    <button type="submit">Unfollow</button>
+                                    <button class="follow-btn follow" type="submit">Unfollow</button>
                                 </form>
                             @endif
                         @endif
+                    </div>
                     </div>
                 @endforeach
                 {{ $seguindo->links() }}

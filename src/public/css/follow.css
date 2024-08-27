@@ -1,4 +1,4 @@
-#box-show-followers{
+#box-show-followers, #box-show-followeds{
     border: none;
     border-radius: .5rem;
     box-shadow: 0 0 1em rgb(0 0 0 /.3);
@@ -8,6 +8,9 @@
 }
 .follow-box{
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }
 .content-contaneir{
     justify-content: center;
@@ -63,3 +66,9 @@
     justify-content: center;
 }
 
+.title{
+    align-self: center;
+    text-align: center;
+    font-size: 16px;
+    color: var(--Black);
+}
