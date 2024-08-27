@@ -65,7 +65,7 @@
         @endif
 
         @if(auth()->id() == $project->user_id)
-            <button  id="btn-edit-project" class="edit-project" >Editar</button>
+            <button onclick="openModal('box-edit-project')" id="btn-edit-project" class="edit-project" >Editar</button>
 
             <form  id="deleteForm" method="post" action="{{ route('project.delete', $project->id) }}" >
                 @csrf

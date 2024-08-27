@@ -65,11 +65,10 @@
             </div>
         </div>
 
+        <button onclick="openModal('box-show-followeds')" class="userFollowers" type="submit"> Seguidores {{ $user->seguidores()->count() }}</button>
 
-        <button id="btn-show-followeds" class="userFollowers" type="submit"> Seguidores {{ $user->seguidores()->count() }}</button>
+        <button onclick="openModal('box-show-followers')" class="userFollowers" type="submit"> Seguindo {{ $user->seguindo()->count() }}</button>
 
-
-        <button id="btn-show-followers"  class="userFollowers" type="submit"> Seguindo {{ $user->seguindo()->count() }}</button>
 
 
         @if(auth()->id() == $user['id'])
@@ -95,12 +94,12 @@
         <div class="mainperfil options">
         </div>
         @if(auth()->id() == $user['id'])
-        <button id = "btn-edit-profile" class="edit mainshadowdown">Editar Perfil</button>
+        <button id = "btn-edit-profile" onclick="openModal('box-edit-profile')" class="edit mainshadowdown">Editar Perfil</button>
         <a class="logout mainshadowdown" onclick="confirmLogout(event)" href ="{{route('auth.logout')}}">LogOut</a>
 
         @else
-            <button id="btn-telefone" class="disp-btn telefone"> Telefone </button>
-            <button id="btn-email" class="disp-btn email"> Email </button>
+            <button onclick="openModal('box-fone')" id="btn-telefone" class="disp-btn telefone"> Telefone </button>
+            <button onclick="openModal('box-email')" id="btn-email" class="disp-btn email"> Email </button>
             @if(!auth()->check() || !auth()->user()->isSeguindo($user['id']))
                 <form id="follow" method="post" action="{{ route('user.follow', $user['id']) }}" >
                     @csrf
@@ -116,7 +115,7 @@
     </div>
     <div class="portifolio mainperfil mainshadowdown">
         @if(auth()->id() == $user['id'])
-            <button class="mainshadowdown portBox" id="btn-create-project">+</button>
+            <button class="mainshadowdown portBox" onclick="openModal('box-create-project')" id="btn-create-project">+</button>
         @endif
             <div class="project-box">
                 @foreach($projects as $project)
@@ -134,8 +133,7 @@
     </div>
     <script src="/js/functions.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.all.min.js"></script>
-        <script src="/js/perfil.js"></script>
-        <script src="/js/contact.js"></script>
+
 
     </div>
     <dialog id="box-create-project">
@@ -372,7 +370,7 @@
         <div>
             <div class="follow-box">
                 <div class="header-modal">
-                    <a  class="close-modal" href="javascript:history.go(0)">Sair</a>
+                    <a onclick="closeModal('box-show-followeds')" class="close-modal" >Sair</a>
                     <p class="title-box"><heavy>Seguidores</heavy></p>
                 </div>
                 @foreach($seguidores as $follower)
@@ -411,12 +409,9 @@
         <div>
             <div class="follow-box">
                 <div class="header-modal">
-                    <a  class="close-modal" href="javascript:history.go(0)">Sair</a>
+                    <a onclick="closeModal('box-show-followers')" class="close-modal" >Sair</a>
                     <p class="title-box"><heavy>Seguindo</heavy></p>
                 </div>
-
-
-
 
                 @foreach($seguindo as $follower)
                     <div class="content-contaneir" style="margin-bottom: 10px;">
@@ -448,7 +443,7 @@
         </div>
     </dialog>
     <dialog id="box-fone">
-        <div><a  class="close-modal" href="javascript:history.go(0)">Sair</a></div>
+        <div><a  class="close-modal" onclick="closeModal('box-fone')">Sair</a></div>
         <div class="contact-container">
             <div class="content-contact">
                 <img class="icon" src="/img/fone.png" alt="fone icon">
@@ -458,7 +453,7 @@
     </dialog>
 
     <dialog id="box-email">
-        <div><a  class="close-modal" href="javascript:history.go(0)">Sair</a></div>
+        <div><a  class="close-modal" onclick="closeModal('box-email')">Sair</a></div>
         <div class="contact-container">
             <div class="content-contact">
                 <img class="icon" src="/img/email.png" alt="fone icon">

@@ -1,8 +1,3 @@
-document.getElementById("btn-edit-project").onclick = function (){
-    document.getElementById("box-edit-project").showModal();
-};
-
-
 
 function showMessage(){
 
@@ -53,6 +48,12 @@ function confirmLogout(event) {
     });
 }
 
+function openModal(name){
+    document.getElementById(name).showModal();
+}
+function closeModal(name){
+    document.getElementById(name).close();
+}
 
 
 
