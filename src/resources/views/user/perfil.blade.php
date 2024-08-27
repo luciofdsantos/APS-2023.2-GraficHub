@@ -93,6 +93,8 @@
         <a class="logout mainshadowdown" onclick="confirmLogout(event)" href ="{{route('auth.logout')}}">LogOut</a>
 
         @else
+            <button class="disp-btn telefone"> Telefone </button>
+            <button class="disp-btn email"> Email </button>
             @if(!auth()->check() || !auth()->user()->isSeguindo($user['id']))
                 <form id="follow" method="post" action="{{ route('user.follow', $user['id']) }}" >
                     @csrf
@@ -127,6 +129,7 @@
     <script src="/js/functions.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.all.min.js"></script>
         <script src="/js/perfil.js"></script>
+
     </div>
     <dialog id="box-create-project">
 
@@ -358,9 +361,13 @@
     </dialog>
 
     <dialog id="box-show-followeds">
+
         <div>
             <div class="follow-box">
-                <p class="title-box"><heavy>Seguidores</heavy></p>
+                <div class="header-modal">
+                    <a  class="close-modal" href="{{ route('user.perfil', auth()->user()->apelido) }}">Sair</a>
+                    <p class="title-box"><heavy>Seguidores</heavy></p>
+                </div>
                 @foreach($seguidores as $follower)
                     <div class="content-contaneir" style="margin-bottom: 10px;">
                         <div class="content">
@@ -378,6 +385,7 @@
                                     <button class= "follow-btn unfollow" type="submit">Follow</button>
                                 </form>
                             @else
+
                                 <form action="{{ route('user.unfollow', $follower->id) }}" method="post">
                                     @csrf
                                     <button class="follow-btn follow" type="submit">Unfollow</button>
@@ -395,7 +403,14 @@
     <dialog id="box-show-followers">
         <div>
             <div class="follow-box">
-                <p class="title-box"><heavy>Seguindo</heavy></p>
+                <div class="header-modal">
+                    <a  class="close-modal" href="{{ route('user.perfil', auth()->user()->apelido) }}">Sair</a>
+                    <p class="title-box"><heavy>Seguindo</heavy></p>
+                </div>
+
+
+
+
                 @foreach($seguindo as $follower)
                     <div class="content-contaneir" style="margin-bottom: 10px;">
                         <div class="content">

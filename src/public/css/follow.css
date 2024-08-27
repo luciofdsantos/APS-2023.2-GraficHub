@@ -72,3 +72,22 @@
     font-size: 16px;
     color: var(--Black);
 }
+.close-modal{
+    font-size: 20px;
+    position: absolute;
+    left: 30px;
+    background-color: transparent;
+    color: red;
+    text-decoration: none;
+
+}
+.close-modal:hover{
+    text-decoration: none;
+    color: red;
+}
+.header-modal{
+    display: flex;
+    justify-content: center;
+}
+
+

@@ -283,9 +283,7 @@ a.portBox:hover{
     background-color: #03A814;
 }
 
-.red-disp-btn{
-    background-color: #FF0000;
-}
+
 
 .green-disp-btn:hover{
     background: #028e0d;
@@ -293,7 +291,9 @@ a.portBox:hover{
     transition-duration: 1.5s;
     transition-timing-function: ease;
 }
-
+.red-disp-btn{
+    background-color: #FF0000;
+}
 .red-disp-btn:hover{
     background-color: #c60101;
     color: var(--GrayishWhite);
@@ -325,5 +325,25 @@ a.portBox:hover{
     display: flex;
 }
 
+
+.email{
+    background-color: var(--MediumGray);
+}
+.email:hover{
+    background-color: darkblue;
+    color: var(--GrayishWhite);
+    transition-duration: 1.5s;
+    transition-timing-function: ease;
+}
+
+.telefone{
+    background-color: var(--MediumGray);
+}
+.telefone:hover{
+    background-color: #076301;
+    color: var(--GrayishWhite);
+    transition-duration: 1.5s;
+    transition-timing-function: ease;
+}
 
 
