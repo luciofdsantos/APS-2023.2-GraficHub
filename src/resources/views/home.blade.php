@@ -21,12 +21,12 @@
 
 <header class="nav-bar-wrapper mainshadowdown">
     <div class="logo-wrapper">
-        <a href="{{ route('home') }}"> <img class="logo-img" src="/img/logo.png" alt="grafic hub logo"/> </a>
-        <a href="{{ route('home') }}"> <img class="logo-text-img" src="/img/logo_text.png" alt="grafic hub logo"/> </a>
+        <a onclick="setOut()" href="{{ route('home') }}"> <img class="logo-img" src="/img/logo.png" alt="grafic hub logo"/> </a>
+        <a onclick="setOut()" href="{{ route('home') }}"> <img class="logo-text-img" src="/img/logo_text.png" alt="grafic hub logo"/> </a>
     </div>
     <div class="profile-wrapper">
         <img class="search-icon" src="/img/search-img.png" alt="search-icon" />
-        <a href="{{ auth()->check() ? route('user.perfil', auth()->user()->apelido) : route('auth.loginForm') }}" class = "text">
+        <a onclick="setOut()" href="{{ auth()->check() ? route('user.perfil', auth()->user()->apelido) : route('auth.loginForm') }}" class = "text">
             <div class="profile-pic-wrapper">
                 <div class="profile-pic-wrapper">
                     @if(auth()->check() && auth()->user()->foto != null)
@@ -61,7 +61,7 @@
     @foreach($projects as $project)
         <div class=" mainshadowdown card">
             <img src="{{ asset('storage/arquivos/'. $project->user_id . '/' . $project->id . '/' . $project->imagem_capa)}}">
-            <a href="{{ route('project.show', $project->id) }}" class="card__content">
+            <a onclick="setOut()" href="{{ route('project.show', $project->id) }}" class="card__content">
                 <p class="card__title "><heavy>{{ Str::limit(Str::title($project->titulo), 25) }}</heavy></p>
                 <div class="block-with-text"><p class="card__description">{{ Str::limit(Str::title($project->descricao), 80) }}</p></div>
                 <div class="card__description"><p>Curtidas 000 Salvos 000</p></div>

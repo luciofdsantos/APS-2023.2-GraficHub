@@ -81,7 +81,7 @@
         <div class="carousel-container">
             <div class="carousel">
                 <div class="item active">
-                    <img src = "{{ asset('storage/arquivos/'. $project->user_id . '/' . $project->id . '/' . $project->imagem_capa) }}" alt="">
+                    <imgsrc = "{{ asset('storage/arquivos/'. $project->user_id . '/' . $project->id . '/' . $project->imagem_capa) }}" alt="">
                     <p class="caption">Imagem de Capa</p>
                 </div>
                 @foreach($images as $image)
