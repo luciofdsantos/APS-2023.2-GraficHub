@@ -352,7 +352,7 @@ a.portBox:hover{
     border: none;
     border-radius: .5rem;
     box-shadow: 0 0 1em rgb(0 0 0 /.3);
-    width: 300px;
+    width: 400px;
     height: 200px;
     min-width: 300px;
     min-height: 200px;
@@ -361,7 +361,7 @@ a.portBox:hover{
     border: none;
     border-radius: .5rem;
     box-shadow: 0 0 1em rgb(0 0 0 /.3);
-    width: 300px;
+    width: 400px;
     height: 200px;
     min-width: 300px;
     min-height: 200px;
@@ -381,7 +381,7 @@ a.portBox:hover{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 240px;
+    width: 320px;
     height: 40px;
     background-color: var(--SoftGray);
     border-radius: 20px;
@@ -390,4 +390,6 @@ a.portBox:hover{
 .text{
     margin-top:10px;
     align-self: center;
+    font-size: 100%;
+    max-font-size: 80%; 
 }

@@ -82,8 +82,13 @@
             <div id="disp-info-text">
             </div>
         </form>
+        @else
+            @if($user['disponivel'])
+                <button  class="disp-btn green-disp-btn">Disponível <img class="disp-info-icon" src="/img/info-icon.png" onmouseover="showMessage()" onmouseout="hideMessage()"></button>
+            @else
+                <button   class="disp-btn red-disp-btn">Indisponível <img class="disp-info-icon" src="/img/info-icon.png"  onmouseover="showMessage()" onmouseout="hideMessage()"> </button>
+            @endif
         @endif
-
 
 
         <div class="mainperfil options">
@@ -366,7 +371,7 @@
         <div>
             <div class="follow-box">
                 <div class="header-modal">
-                    <a  class="close-modal" href="{{ route('user.perfil', auth()->user()->apelido) }}">Sair</a>
+                    <a  class="close-modal" href="javascript:history.go(0)">Sair</a>
                     <p class="title-box"><heavy>Seguidores</heavy></p>
                 </div>
                 @foreach($seguidores as $follower)
@@ -405,7 +410,7 @@
         <div>
             <div class="follow-box">
                 <div class="header-modal">
-                    <a  class="close-modal" href="{{ route('user.perfil', auth()->user()->apelido) }}">Sair</a>
+                    <a  class="close-modal" href="javascript:history.go(0)">Sair</a>
                     <p class="title-box"><heavy>Seguindo</heavy></p>
                 </div>
 
@@ -442,7 +447,7 @@
         </div>
     </dialog>
     <dialog id="box-fone">
-        <div><a  class="close-modal" href="{{ route('user.perfil', $user->apelido) }}">Sair</a></div>
+        <div><a  class="close-modal" href="javascript:history.go(0)">Sair</a></div>
         <div class="contact-container">
             <div class="content-contact">
                 <img class="icon" src="/img/fone.png" alt="fone icon">
@@ -452,7 +457,7 @@
     </dialog>
 
     <dialog id="box-email">
-        <div><a  class="close-modal" href="{{ route('user.perfil', $user->apelido) }}" >Sair</a></div>
+        <div><a  class="close-modal" href="javascript:history.go(0)">Sair</a></div>
         <div class="contact-container">
             <div class="content-contact">
                 <img class="icon" src="/img/email.png" alt="fone icon">

@@ -17,7 +17,6 @@
 </head>
 <header>
     <div class="header-container">
-
         <img class="img-fluid" src = "{{ asset('storage/arquivos/'. $project->user_id . '/' . $project->id . '/' . $project->imagem_capa) }}" alt="Logo"  >
         <h2><strong>{{ Str::title($project->titulo) }}</strong> </h2>
         <p><strong> Curtidas 0000 Salvos 0000</strong> </p>
