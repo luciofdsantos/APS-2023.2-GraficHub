@@ -60,11 +60,12 @@
         <div class="descript">
             <p><strong>Tags:</strong> </p>
         </div>
-        @if($project->arquivo != null)
-            <a class="file-holder" href="{{ asset('storage/arquivos/'. $project->user_id . '/' . $project->id . '/' . $project->arquivo)}}" download="FileProject"><img class="icon-pasta" src="/img/pasta-aberta.png" alt="pasta"></a>
-        @endif
+
 
         @if(auth()->id() == $project->user_id)
+            @if($project->arquivo != null)
+                <a class="file-holder" href="{{ asset('storage/arquivos/'. $project->user_id . '/' . $project->id . '/' . $project->arquivo)}}" download="FileProject"><img class="icon-pasta" src="/img/pasta-aberta.png" alt="pasta"></a>
+            @endif
             <button onclick="openModal('box-edit-project')" id="btn-edit-project" class="edit-project" >Editar</button>
 
             <form  id="deleteForm" method="post" action="{{ route('project.delete', $project->id) }}" >
@@ -72,6 +73,10 @@
                 @method('DELETE')
                 <button type="button" class="delete" onclick="confirmDeletion()">Excluir</button>
             </form>
+            @else
+            @if($project->arquivo != null && $project->arquivo_publico)
+                <a class="file-holder" href="{{ asset('storage/arquivos/'. $project->user_id . '/' . $project->id . '/' . $project->arquivo)}}" download="FileProject"><img class="icon-pasta" src="/img/pasta-aberta.png" alt="pasta"></a>
+            @endif
         @endif
 
     </div>
@@ -81,7 +86,7 @@
         <div class="carousel-container">
             <div class="carousel">
                 <div class="item active">
-                    <imgsrc = "{{ asset('storage/arquivos/'. $project->user_id . '/' . $project->id . '/' . $project->imagem_capa) }}" alt="">
+                    <img src = "{{ asset('storage/arquivos/'. $project->user_id . '/' . $project->id . '/' . $project->imagem_capa) }}" alt="">
                     <p class="caption">Imagem de Capa</p>
                 </div>
                 @foreach($images as $image)
@@ -89,8 +94,6 @@
                         <img src="{{ asset('storage/arquivos/'. $project->user_id . '/' . $project->id . '/' .'imgs'.'/'.$image->name)}}" alt="">
                     </div>
                 @endforeach
-
-
             </div>
             <button class="btn prev"><</button>
             <button class="btn next"> ></button>
