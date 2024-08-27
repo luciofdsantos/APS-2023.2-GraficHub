@@ -34,7 +34,7 @@
     <div class = "sideBar">
         <div class="user main-user">
             @if(auth()->id() != $project->user_id)
-                <a class="user" href="{{ route('user.perfil', $project->user->apelido) }}">
+                <a class="user mainperfil" href="{{ route('user.perfil', $project->user->apelido) }}">
                     @if($project->user->foto != null)
                         <img class="img-profile main-user" src="{{ asset('storage/arquivos/'. $project->user_id . '/' . $project->user->foto)}}">
                     @else

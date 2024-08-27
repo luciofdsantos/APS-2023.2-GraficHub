@@ -14,8 +14,4 @@ document.getElementById("btn-show-followers").onclick = function (){
     document.getElementById("box-show-followers").showModal();
 }
 
-function exibeContato(elemento, texto){
 
-    document.getElementById(elemento).innerHTML = `<div  onmouseover="showMessage()" onmouseout="hideMessage()" style=" padding: 20px"></div>`
-
-}

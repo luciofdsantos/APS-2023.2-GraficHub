@@ -93,8 +93,8 @@
         <a class="logout mainshadowdown" onclick="confirmLogout(event)" href ="{{route('auth.logout')}}">LogOut</a>
 
         @else
-            <button class="disp-btn telefone"> Telefone </button>
-            <button class="disp-btn email"> Email </button>
+            <button id="btn-telefone" class="disp-btn telefone"> Telefone </button>
+            <button id="btn-email" class="disp-btn email"> Email </button>
             @if(!auth()->check() || !auth()->user()->isSeguindo($user['id']))
                 <form id="follow" method="post" action="{{ route('user.follow', $user['id']) }}" >
                     @csrf
@@ -129,6 +129,7 @@
     <script src="/js/functions.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.all.min.js"></script>
         <script src="/js/perfil.js"></script>
+        <script src="/js/contact.js"></script>
 
     </div>
     <dialog id="box-create-project">
@@ -440,7 +441,25 @@
             </div>
         </div>
     </dialog>
+    <dialog id="box-fone">
+        <div><a  class="close-modal" href="{{ route('user.perfil', $user->apelido) }}">Sair</a></div>
+        <div class="contact-container">
+            <div class="content-contact">
+                <img class="icon" src="/img/fone.png" alt="fone icon">
+                <div class="text-box"><p class="text"> {{ $user->numero_telefone }}</p></div>
+            </div>
+        </div>
+    </dialog>
 
+    <dialog id="box-email">
+        <div><a  class="close-modal" href="{{ route('user.perfil', $user->apelido) }}" >Sair</a></div>
+        <div class="contact-container">
+            <div class="content-contact">
+                <img class="icon" src="/img/email.png" alt="fone icon">
+                <div class="text-box"><p class="text"> {{$user->email}}</p></div>
+            </div>
+        </div>
+    </dialog>
     </body>
 
 </html>
