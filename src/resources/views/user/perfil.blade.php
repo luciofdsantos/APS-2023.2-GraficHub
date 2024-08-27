@@ -27,9 +27,10 @@
         <a href="{{ route('home') }}"> <img class="logo-text-img" src="/img/logo_text.png" alt="grafic hub logo"/> </a>
     </div>
     <div class="profile-wrapper">
-        <img class="search-icon" src="/img/search-img.png" alt="search-icon" />
+        <div class="search-icon-wrapper" ><img class="search-icon" src="/img/search-img.png" alt="search-icon" /></div>
         <a href="{{ auth()->check() ? route('user.perfil', auth()->user()->apelido) : route('auth.loginForm') }}" class = "text">
             <div class="profile-pic-wrapper">
+
                 <div class="profile-pic-wrapper">
                     @if(auth()->check() && auth()->user()->foto != null)
                         <img class="profile-pic" src="{{ asset('storage/arquivos/'. auth()->id() . '/' . auth()->user()->foto) }}" alt="profile pic" />
