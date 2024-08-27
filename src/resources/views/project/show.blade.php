@@ -76,19 +76,33 @@
 
     </div>
     </div>
-    <div class="imagens">
-        <div class="posts">
-            @foreach($images as $image)
-                <div class="photo-holder">
-                    <img src="{{ asset('storage/arquivos/'. $project->user_id . '/' . $project->id . '/' .'imgs'.'/'.$image->name)}}" alt="">
+
+    <div class="imagens maincaro">
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="item active">
+                    <img src = "{{ asset('storage/arquivos/'. $project->user_id . '/' . $project->id . '/' . $project->imagem_capa) }}" alt="">
+                    <p class="caption">Imagem de Capa</p>
                 </div>
-            @endforeach
-            {{ $images->links() }}
+                @foreach($images as $image)
+                    <div class="item">
+                        <img src="{{ asset('storage/arquivos/'. $project->user_id . '/' . $project->id . '/' .'imgs'.'/'.$image->name)}}" alt="">
+                    </div>
+                @endforeach
+
+
+            </div>
+            <button class="btn prev"><</button>
+            <button class="btn next"> ></button>
+            <div class="dots"></div>
         </div>
+
     </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.all.min.js"></script>
 <script src="{{ asset('js/functions.js') }}"></script>
+<script src="{{ asset('js/carousel.js') }}"></script>
+
 
 <dialog id="box-edit-project">
     <div class="project-form-container">
@@ -309,7 +323,5 @@
     </script>
 </dialog>
 </body>
-
 </html>
-
 
