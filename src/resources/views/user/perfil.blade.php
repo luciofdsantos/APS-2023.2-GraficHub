@@ -99,12 +99,12 @@
             @if(!auth()->check() || !auth()->user()->isSeguindo($user['id']))
                 <form id="follow" method="post" action="{{ route('user.follow', $user['id']) }}" >
                     @csrf
-                   <button class="follow-btn unfollow" type="submit">Follow</button>
+                   <button class="follow-btn unfollow" type="submit">Seguir</button>
                 </form>
             @else
                 <form id="unfollow" method="post" action="{{ route('user.unfollow', $user['id']) }}" >
                     @csrf
-                    <button class="follow-btn follow" type="submit">Unfollow</button>
+                    <button class="follow-btn follow" type="submit">Seguindo</button>
                 </form>
             @endif
         @endif
@@ -383,13 +383,13 @@
                             @if(!auth()->check() || !auth()->user()->isSeguindo($follower->id))
                                 <form action="{{ route('user.follow', $follower->id) }}" method="post">
                                     @csrf
-                                    <button class= "follow-btn unfollow" type="submit">Follow</button>
+                                    <button class= "follow-btn unfollow" type="submit">Seguir</button>
                                 </form>
                             @else
 
                                 <form action="{{ route('user.unfollow', $follower->id) }}" method="post">
                                     @csrf
-                                    <button class="follow-btn follow" type="submit">Unfollow</button>
+                                    <button class="follow-btn follow" type="submit">Seguindo</button>
                                 </form>
                             @endif
                         @endif
@@ -422,12 +422,12 @@
                             @if(!auth()->check() || !auth()->user()->isSeguindo($follower->id))
                                 <form action="{{ route('user.follow', $follower->id) }}" method="post">
                                     @csrf
-                                    <button class= "follow-btn unfollow" type="submit">Follow</button>
+                                    <button class= "follow-btn unfollow" type="submit">Seguir</button>
                                 </form>
                             @else
                                 <form action="{{ route('user.unfollow', $follower->id) }}" method="post">
                                     @csrf
-                                    <button class="follow-btn follow" type="submit">Unfollow</button>
+                                    <button class="follow-btn follow" type="submit">Seguindo</button>
                                 </form>
                             @endif
                         @endif
