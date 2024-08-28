@@ -129,6 +129,7 @@ input[type="file"] {
 
 .error-message{
     margin: 0 0 10px 0;
+    color: red;
 }
 
 .custom-check{
