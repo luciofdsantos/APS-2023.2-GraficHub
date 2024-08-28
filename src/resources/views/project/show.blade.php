@@ -189,7 +189,7 @@
                 @enderror
 
                 <button type="submit">Atualizar</button>
-                <p class="message"><a href="{{route("project.show", $project->id)}}">Voltar para o Projeto</a></p>
+                <p class="message"><a href="" onclick="closeModal('box-edit-project')">Voltar para o Projeto</a></p>
             </form>
         </div>
     </div>

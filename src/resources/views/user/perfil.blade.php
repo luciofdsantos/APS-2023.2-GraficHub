@@ -207,7 +207,7 @@
                 @enderror
 
                 <button id="create-project-btn" type="submit">Criar projeto</button>
-                <p class="message"><a href="{{ route('user.perfil', $user->apelido) }}">Voltar para o Perfil</a></p>
+                <p class="message"><a href="" onclick="closeModal('box-create-project')">Voltar para o Perfil</a></p>
             </form>
         </div>
     </div>
@@ -355,7 +355,7 @@
                 </span>
                     @enderror
                     <button class="mainshadowdown" type="submit">Atualizar</button>
-                    <p class="message"><a href="{{ route('user.perfil', $user['apelido']) }}">Voltar para o Perfil</a></p>
+                    <p class="message"><a href="" onclick="closeModal('box-edit-profile')">Voltar para o Perfil</a></p>
                 </form>
             </div>
         </div>
