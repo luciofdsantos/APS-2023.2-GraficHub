@@ -366,8 +366,8 @@
         <div>
             <div class="follow-box">
                 <div class="header-modal">
-                    <a onclick="closeModal('box-show-followeds')" class="close-modal" >Sair</a>
                     <p class="title-box"><heavy>Seguidores</heavy></p>
+                    <a onclick="closeModal('box-show-followeds')" class="close-modal" ><img class="close-modal-img" src="/img/cruz.png"></a>
                 </div>
                 @foreach($seguidores as $follower)
                     <div class="content-contaneir" style="margin-bottom: 10px;">
@@ -405,8 +405,8 @@
         <div>
             <div class="follow-box">
                 <div class="header-modal">
-                    <a onclick="closeModal('box-show-followers')" class="close-modal" >Sair</a>
                     <p class="title-box"><heavy>Seguindo</heavy></p>
+                    <a onclick="closeModal('box-show-followers')" class="close-modal" ><img class="close-modal-img" src="/img/cruz.png"></a>
                 </div>
 
                 @foreach($seguindo as $follower)

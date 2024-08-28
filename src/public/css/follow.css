@@ -73,18 +73,16 @@
     color: var(--Black);
 }
 .close-modal{
-    font-size: 20px;
     position: absolute;
-    left: 30px;
-    background-color: transparent;
-    color: red;
-    text-decoration: none;
+    right: 16px;
+    top: 8px;
+    cursor: pointer;
 
 }
-.close-modal:hover{
-    text-decoration: none;
-    color: red;
+.close-modal-img{
+    width: 12px;
 }
+
 .header-modal{
     display: flex;
     justify-content: center;
