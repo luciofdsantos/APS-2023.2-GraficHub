@@ -439,7 +439,7 @@
         </div>
     </dialog>
     <dialog id="box-fone">
-        <div><a  class="close-modal" onclick="closeModal('box-fone')">Sair</a></div>
+        <div><a  class="close-modal" onclick="closeModal('box-fone')"><img class="close-modal-img" src="/img/cruz.png"></a></div>
         <div class="contact-container">
             <div class="content-contact">
                 <img class="icon" src="/img/fone.png" alt="fone icon">
@@ -449,7 +449,7 @@
     </dialog>
 
     <dialog id="box-email">
-        <div><a  class="close-modal" onclick="closeModal('box-email')">Sair</a></div>
+        <div><a  class="close-modal" onclick="closeModal('box-email')"><img class="close-modal-img" src="/img/cruz.png"></a></div>
         <div class="contact-container">
             <div class="content-contact">
                 <img class="icon" src="/img/email.png" alt="fone icon">
