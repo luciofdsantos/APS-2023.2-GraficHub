@@ -30,6 +30,14 @@
 
 <body>
 <div class="containerss">
+
+        @if($errors->any())
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    openModal('box-edit-project');
+                });
+            </script>
+        @endif
     <div class = "sideBar">
         <div class="user main-user">
             @if(auth()->id() != $project->user_id)

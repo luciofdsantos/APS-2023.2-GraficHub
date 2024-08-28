@@ -55,5 +55,7 @@ function closeModal(name){
     document.getElementById(name).close();
 }
 
-
+function setModal(name){
+    localStorage.setItem('lastModal',name);
+}
 

@@ -91,7 +91,7 @@
             @if($errors->any())
                 <script>
                     document.addEventListener('DOMContentLoaded', function() {
-                        openModal('box-edit-profile');
+                        openModal(localStorage.getItem('lastModal'));
                     });
                 </script>
             @endif
@@ -211,7 +211,7 @@
             </span>
                 @enderror
 
-                <button id="create-project-btn" type="submit">Criar projeto</button>
+                <button  onclick="setModal('box-create-project')" id="create-project-btn" type="submit">Criar projeto</button>
                 <p class="message"><a href="" onclick="closeModal('box-create-project')">Voltar para o Perfil</a></p>
             </form>
         </div>
@@ -359,7 +359,7 @@
                     {{ $message }}
                 </span>
                     @enderror
-                    <button class="mainshadowdown" type="submit">Atualizar</button>
+                    <button onclick="setModal('box-edit-profile')" class="mainshadowdown" type="submit">Atualizar</button>
                     <p class="message"><a href="" onclick="closeModal('box-edit-profile')">Voltar para o Perfil</a></p>
                 </form>
             </div>
