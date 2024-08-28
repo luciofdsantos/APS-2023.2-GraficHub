@@ -69,8 +69,6 @@
 
         <button onclick="openModal('box-show-followers')" class="userFollowers" type="submit"> Seguindo {{ $user->seguindo()->count() }}</button>
 
-
-
         @if(auth()->id() == $user['id'])
         <form action="{{route('user.updateDisp', $user['id'])}}" method="post">
             @csrf
@@ -90,6 +88,13 @@
         <div class="mainperfil options">
         </div>
         @if(auth()->id() == $user['id'])
+            @if($errors->any())
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        openModal('box-edit-profile');
+                    });
+                </script>
+            @endif
         <button id = "btn-edit-profile" onclick="openModal('box-edit-profile')" class="edit mainshadowdown">Editar Perfil</button>
         <a class="logout mainshadowdown" onclick="confirmLogout(event)" href ="{{route('auth.logout')}}">LogOut</a>
 
