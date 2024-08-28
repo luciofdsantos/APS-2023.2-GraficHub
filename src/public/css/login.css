@@ -359,3 +359,6 @@ input[type="file"] {
 #create-project-btn{
     margin-top: 12px;
 }
+span p{
+    color: red;
+}
