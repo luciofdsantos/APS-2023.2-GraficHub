@@ -66,6 +66,15 @@ class User extends Authenticatable
         return $this->belongsToMany(User::class, 'followers', 'seguidor_id', 'seguindo_id');
     }
 
+    public function projetosFavoritos(): BelongsToMany
+    {
+        return $this->belongsToMany(Project::class, 'favorites','user_id', 'project_id');
+    }
+
+    public function isFavoritado(int $project_id): bool
+    {
+        return $this->projetosFavoritos()->where('project_id', $project_id)->exists();
+    }
 
     /**
      * Get the attributes that should be cast.

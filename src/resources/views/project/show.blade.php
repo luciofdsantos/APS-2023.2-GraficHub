@@ -84,6 +84,20 @@
             @else
             @if($project->arquivo != null && $project->arquivo_publico)
                 <a class="file-holder" href="{{ asset('storage/arquivos/'. $project->user_id . '/' . $project->id . '/' . $project->arquivo)}}" download="FileProject"><img class="icon-pasta" src="/img/pasta-aberta.png" alt="pasta"></a>
+                <div>
+                    @if(auth()->user()->isFavoritado($project->id))
+                        <form id="favoritarForm" method="post" action="{{ route('project.desfavoritar', $project->id) }}" >
+                            @csrf
+                            <button type="submit">Desfavoritar</button>
+                        </form>
+                    @else
+                        <form id="favoritarForm" method="post" action="{{ route('project.favoritar', $project->id) }}" >
+                            @csrf
+                            <button type="submit">Favoritar</button>
+                        </form>
+                    @endif
+
+                </div>
             @endif
         @endif
 

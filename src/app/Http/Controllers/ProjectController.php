@@ -85,7 +85,7 @@ class ProjectController extends Controller
         if ($project == null) {
             abort(404);
         }
-        $images = $project->imagesProjects()->get();;
+        $images = $project->imagesProjects()->get();
         return view('project.show', compact('project', 'images'));
     }
 
@@ -122,7 +122,7 @@ class ProjectController extends Controller
 
         $project = Project::find($id);
 
-        if($request->apagar_arquivo){
+        if ($request->apagar_arquivo) {
             File::delete('storage/arquivos/' . $project->user_id . '/' . $project->id . '/' . $project->arquivo);
             $project->arquivo = null;
         }
@@ -177,5 +177,29 @@ class ProjectController extends Controller
         $project->delete();
 
         return redirect()->route('user.perfil', auth()->user()->apelido);
+    }
+
+    /**
+     * @param int $id id do projeto a ser favoritado
+     */
+    public function favoritar(int $id)
+    {
+        if (!auth()->check()) {
+            return redirect()->route('user.login');
+        }
+        auth()->user()->projetosFavoritos()->attach($id);
+        return redirect()->back();
+    }
+
+    /**
+     * @param int $id id do projeto a ser desfavoritado
+     */
+    public function desfavoritar(int $id)
+    {
+        if (!auth()->check()) {
+            return redirect()->route('user.login');
+        }
+        auth()->user()->projetosFavoritos()->detach($id);
+        return redirect()->back();
     }
 }

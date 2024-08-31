@@ -37,4 +37,6 @@ Route::controller(ProjectController::class)->group(function () {
     Route::get('/project/{id}/edit', 'edit')->name('project.edit');
     Route::put('/project/{id}', 'update')->name('project.update');
     Route::delete('/project/{id}', 'destroy')->name('project.delete');
+    Route::post('/project/favoritar/{id}', 'favoritar')->name('project.favoritar');
+    Route::post('/project/desfavoritar/{id}', 'desfavoritar')->name('project.desfavoritar');
 });
