@@ -34,7 +34,7 @@ A área de Design Gráfico é conhecida pela dificuldade de divulgar os detalhes
 4. <a href="https://github.com/luciofdsantos/APS-2023.2-GraficHub/blob/main/docs/DiagramaSequenciaGarficHub_V2.0.pdf"> Diagrama de Sequência de Sistema </a>
 5. <a href="https://docs.google.com/document/d/1NjF7zlD2AvE4ktO4_VolI5ZyxTQtzE0iEfYrboMrtBM/edit?usp=sharing"> Diagrama de Classe </a>
 6. <a href="https://www.figma.com/design/lSw1nwXL9T9n7GuZ42Fia2/screens?node-id=0-1&t=ZdsOIVDWxEmqBbBd-1"> Projeto de Interfaces </a>
-7. <a href=""> Projeto de Arquitetura </a>
+7. <a href="https://docs.google.com/document/d/1lW6PVjsNT204Yrur9oq8cDyEceBrIOgh/edit?usp=sharing&ouid=108465865928910272519&rtpof=true&sd=true"> Projeto de Arquitetura de Software</a>
 8. <a href=""> FeedBack sobre o Desenvolvimento </a>
 
 
