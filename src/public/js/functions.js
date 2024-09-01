@@ -59,3 +59,60 @@ function setModal(name){
     localStorage.setItem('lastModal',name);
 }
 
+function setFavoritado() {
+    let favoriteWrapper = document.getElementById('favorite-wrapper');
+    favoriteWrapper.innerHTML =
+        `<form id="form-desfavoritar" class="favorite-form" id="favoritarForm">
+            <button class="favorite-btn" type="submit"><img src="/img/marca-paginas-full.png"/></button>
+        </form>`;
+    document.getElementById('form-desfavoritar').addEventListener('submit', () => {
+        event.preventDefault();
+        let id = favoriteWrapper.title;
+        axios.get(`http://localhost:8000/project/desfavoritar/${id}`)
+            .then()
+            .catch((err) => console.log(err));
+        setDesfavoritado();
+    });
+}
+
+function setDesfavoritado() {
+    let favoriteWrapper = document.getElementById('favorite-wrapper');
+    favoriteWrapper.innerHTML =
+        `<form id="form-favoritar" class="favorite-form" id="favoritarForm">
+            <button class="favorite-btn" type="submit"><img src="/img/marca-paginas.png"/></button>
+        </form>`;
+    document.getElementById('form-favoritar').addEventListener('submit', () =>{
+        event.preventDefault();
+        let id = favoriteWrapper.title;
+        axios.get(`http://localhost:8000/project/favoritar/${id}`)
+            .then()
+            .catch((err) => console.log(err));
+        setFavoritado();
+    });
+}
+
+let formDesfavoritar = document.getElementById('form-desfavoritar');
+
+if (formDesfavoritar) {
+    formDesfavoritar.addEventListener('submit', () => {
+        event.preventDefault();
+        let id = event.target.name;
+        axios.get(`http://localhost:8000/project/desfavoritar/${id}`)
+            .then()
+            .catch((err) => console.log(err));
+        setDesfavoritado();
+    });
+}
+
+let formFavoritar = document.getElementById('form-favoritar')
+
+if (formFavoritar){
+    formFavoritar.addEventListener('submit', () =>{
+        event.preventDefault();
+        let id = event.target.name;
+        axios.get(`http://localhost:8000/project/favoritar/${id}`)
+            .then()
+            .catch((err) => console.log(err));
+        setFavoritado();
+    });
+}
