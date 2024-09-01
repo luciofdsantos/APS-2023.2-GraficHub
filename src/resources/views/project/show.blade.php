@@ -24,12 +24,12 @@
             });
         </script>
     @endif
-    <x-banner-projeto :project="$project"/>
-    <x-project :project="$project" :images="$images"/>
+    <x-projeto.banner-projeto :project="$project"/>
+    <x-projeto.project :project="$project" :images="$images"/>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.all.min.js"></script>
     <script src="{{ asset('js/functions.js') }}"></script>
     <script src="{{ asset('js/carousel.js') }}"></script>
-    <x-modal-editar-projeto :project="$project"/>
+    <x-projeto.modal-editar-projeto :project="$project"/>
 
 </body>
 </html>

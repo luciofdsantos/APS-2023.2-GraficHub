@@ -19,7 +19,7 @@
     @if (auth()->check())
         Usuario logado, {{ auth()->user()->nome }} <a href="{{ route('auth.logout') }}"> Logout </a>
     @else
-        <x-form-cadastro />
+        <x-usuario.form-cadastro />
     @endif
 
 </body>
