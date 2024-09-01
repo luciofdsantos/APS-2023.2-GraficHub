@@ -11,9 +11,9 @@
         </div>
     </div>
 
-    <button onclick="openModal('box-show-followeds')" class="userFollowers" type="submit"> Seguidores {{ $user->seguidores()->count() }}</button>
+    <button onclick="openModal('box-show-followeds')" class="userFollowers" type="submit"> Seguidores {{ $user->num_seguidores }}</button>
 
-    <button onclick="openModal('box-show-followers')" class="userFollowers" type="submit"> Seguindo {{ $user->seguindo()->count() }}</button>
+    <button onclick="openModal('box-show-followers')" class="userFollowers" type="submit"> Seguindo {{ $user->num_seguindo }}</button>
 
     <x-perfil.disponibilidade :user="$user" />
 

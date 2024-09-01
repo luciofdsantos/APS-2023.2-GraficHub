@@ -25,6 +25,8 @@ class User extends Authenticatable
         'email',
         'password',
         'foto',
+        'num_seguidores',
+        'num_seguindo'
     ];
 
     use HasFactory, Notifiable;
@@ -87,13 +89,5 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
-    }
-
-    public function follow(int $id){
-        $this->seguindo()->attach($id);
-    }
-
-    public function unfollow(int $id){
-        $this->seguindo()->detach($id);
     }
 }

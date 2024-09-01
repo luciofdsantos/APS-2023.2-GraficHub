@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('password');
             $table->string('foto')->nullable();
             $table->boolean('disponivel')->default(false);
+            $table->unsignedInteger('num_seguidores')->default(0);
+            $table->unsignedInteger('num_seguindo')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });
