@@ -57,7 +57,7 @@ body{
     top: 10%;
     left: 5%;
 }
-.containerss{
+.project-main-content{
     display: flex;
 }
 
@@ -98,17 +98,6 @@ body{
 }
 
 .sideContent form{
-    width: 100%;
-}
-
-.imagens{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 25px;
-    min-height: 100vh;
-    min-width: 800px;
-    height: 100%;
     width: 100%;
 }
 
@@ -247,10 +236,15 @@ body{
     text-decoration: none;
 }
 
-.maincaro {
-    min-height: 100dvh;
+.project-images {
+    min-height: 100vh;
+    min-width: 800px;
+    height: 100%;
+    width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     font-family: "Satoshi", sans-serif;
     font-size: var(--lx-text-01);
     font-weight: 500;
@@ -259,7 +253,7 @@ body{
 
 .carousel-container {
     width: 80%;
-    margin: auto;
+    /*margin: 60px auto 30px 200px;*/
     position: relative;
     display: flex;
     flex-direction: column;
@@ -356,4 +350,19 @@ body{
             }
         }
     }
+}
+
+.favorite-form{
+    align-self: start;
+}
+
+.favorite-btn{
+    background-color: transparent;
+    padding: 0px;
+    border: none;
+    height: 40px;
+}
+
+.favorite-btn img{
+    height: 100%;
 }
