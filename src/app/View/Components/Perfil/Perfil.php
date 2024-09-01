@@ -1,17 +1,17 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Perfil;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class ModalSeguidos extends Component
+class Perfil extends Component
 {
     /**
      * Create a new component instance.
      */
-    public function __construct(public $seguindo)
+    public function __construct(public $user, public $projects)
     {
         //
     }
@@ -21,6 +21,6 @@ class ModalSeguidos extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.modal-seguidos');
+        return view('components.perfil.perfil');
     }
 }

@@ -10,28 +10,26 @@
     <title>Grafic Hub</title>
 
     <link href="/img/logo.png" rel ="icon">
-    <link href="/css/navbar.css" rel ="stylesheet">
     <link href="/css/follow.css" rel ="stylesheet">
     <link href="/css/login.css" rel ="stylesheet">
     <link href="/css/dialog.css" rel ="stylesheet">
     <link href="/css/perfil.css" rel ="stylesheet">
     <link href="/css/project.css" rel ="stylesheet">
+    <link href="/css/navbar.css" rel ="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.min.css" rel="stylesheet">
 
 </head>
-
     <body>
         <x-nav-bar/>
-        <x-perfil :user="$user" :projects="$projects"/>
-        <x-modal-criar-projeto />
-        <x-modal-editar-perfil :user="$user"/>
-        <x-modal-seguidores :seguidores="$seguidores"/>
-        <x-modal-seguidos :seguindo="$seguindo"/>
-        <x-modal-fone-usuario :user="$user"/>
-        <x-modal-email-usuario :user="$user"/>
+        <x-perfil.perfil :user="$user" :projects="$projects"/>
+        <x-perfil.modal-criar-projeto />
+        <x-perfil.modal-editar-perfil :user="$user"/>
+        <x-perfil.modal-seguidores :seguidores="$seguidores"/>
+        <x-perfil.modal-seguidos :seguindo="$seguindo"/>
+        <x-perfil.modal-fone-usuario :user="$user"/>
+        <x-perfil.modal-email-usuario :user="$user"/>
     </body>
-
 </html>
 
 

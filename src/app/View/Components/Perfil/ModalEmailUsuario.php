@@ -1,12 +1,12 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Perfil;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class ModalEditarPerfil extends Component
+class ModalEmailUsuario extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +21,6 @@ class ModalEditarPerfil extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.modal-editar-perfil');
+        return view('components.perfil.modal-email-usuario');
     }
 }

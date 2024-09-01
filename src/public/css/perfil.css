@@ -387,7 +387,13 @@ a.portBox:hover{
     border-radius: 20px;
 
 }
-.text{
+.email-text{
+    margin-top:10px;
+    align-self: center;
+    font-size: 100%;
+    max-font-size: 80%;
+}
+.fone-text{
     margin-top:10px;
     align-self: center;
     font-size: 100%;

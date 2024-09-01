@@ -1,17 +1,17 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Perfil;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class PerfilInfo extends Component
+class Portfolio extends Component
 {
     /**
      * Create a new component instance.
      */
-    public function __construct(public $user)
+    public function __construct(public $user, public $projects)
     {
         //
     }
@@ -21,6 +21,6 @@ class PerfilInfo extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.perfil-info');
+        return view('components.perfil.portfolio');
     }
 }

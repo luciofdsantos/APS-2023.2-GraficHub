@@ -1,17 +1,17 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Perfil;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class Portfolio extends Component
+class ModalCriarProjeto extends Component
 {
     /**
      * Create a new component instance.
      */
-    public function __construct(public $user, public $projects)
+    public function __construct()
     {
         //
     }
@@ -21,6 +21,6 @@ class Portfolio extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.portfolio');
+        return view('components.perfil.modal-criar-projeto');
     }
 }

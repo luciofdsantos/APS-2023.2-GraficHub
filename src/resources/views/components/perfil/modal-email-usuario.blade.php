@@ -3,7 +3,7 @@
     <div class="contact-container">
         <div class="content-contact">
             <img class="icon" src="/img/email.png" alt="fone icon">
-            <div class="text-box"><p class="text"> {{$user->email}}</p></div>
+            <div class="text-box"><p class="email-text"> {{$user->email}}</p></div>
         </div>
     </div>
 </dialog>
