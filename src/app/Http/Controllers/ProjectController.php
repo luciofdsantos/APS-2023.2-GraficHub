@@ -184,9 +184,6 @@ class ProjectController extends Controller
      */
     public function favoritar(int $id)
     {
-        if (!auth()->check()) {
-            return redirect()->route('auth.login');
-        }
         auth()->user()->projetosFavoritos()->attach($id);
         return redirect()->back();
     }

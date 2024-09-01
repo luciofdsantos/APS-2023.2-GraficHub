@@ -20,12 +20,12 @@
             <button class="btn next"> ></button>
             <div class="dots"></div>
             @if(auth()->check() && auth()->user()->isFavoritado($project->id))
-                <form class="favorite-form" id="favoritarForm" method="post" action="{{ route('project.desfavoritar', $project->id) }}" >
+                <form class="favorite-form" id="favoritarForm" method="get" action="{{ route('project.desfavoritar', $project->id) }}" >
                     @csrf
                     <button class="favorite-btn" type="submit"><img  src="/img/marca-paginas-full.png"/></button>
                 </form>
             @else
-                <form class="favorite-form" id="favoritarForm" method="post" action="{{ route('project.favoritar', $project->id) }}" >
+                <form class="favorite-form" id="favoritarForm" method="get" action="{{ route('project.favoritar', $project->id) }}" >
                     @csrf
                     <button class="favorite-btn" type="submit"><img  src="/img/marca-paginas.png"/></button>
                 </form>

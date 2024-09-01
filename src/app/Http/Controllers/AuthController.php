@@ -18,7 +18,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($request->only('email', 'password'))) {
             $request->session()->regenerate();
-            return redirect()->route('home')->with('sucess', 'logado com sucesso!');
+            return redirect()->intended();
         }
 
         return redirect()->route('auth.loginForm')->withErrors(['error' => 'Credenciais Inválidas.']);
