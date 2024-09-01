@@ -5,7 +5,7 @@
     </div>
     <div class="profile-wrapper">
         <img class="search-icon" src="/img/search-img.png" alt="search-icon" />
-        <a onclick="setOut()" href="{{ auth()->check() ? route('user.perfil', auth()->user()->apelido) : route('auth.loginForm') }}" class = "text">
+        <a onclick="setOut()" href="{{ auth()->check() ? route('user.perfil', auth()->user()->apelido) : route('auth.loginForm') }}" class = "profile-wrapper-text">
             <div class="profile-pic-wrapper">
                 <div class="profile-pic-wrapper">
                     @if(auth()->check() && auth()->user()->foto != null)
