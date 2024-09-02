@@ -86,6 +86,7 @@ class ProjectController extends Controller
             abort(404);
         }
         $images = $project->imagesProjects()->get();
+
         return view('project.show', compact('project', 'images'));
     }
 

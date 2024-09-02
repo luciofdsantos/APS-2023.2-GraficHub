@@ -48,6 +48,5 @@ Route::controller(ProjectController::class)->group(function () {
 
 Route::controller(CommentController::class)->group(function () {
     Route::post('/project/comment', 'store')->name('comment.store');
-    Route::get('/project/comment/{project_id}', 'show')->name('comment.show');
     Route::delete('/project/comment/{comment_id}', 'destroy')->name('comment.delete');
 });
