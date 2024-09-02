@@ -9,6 +9,7 @@ body{
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
 }
+
 .userImg{
     width: 78px;
     height: 78px;
@@ -115,9 +116,6 @@ body{
     font-size: 140%;
     color: var(--MediumGray);
 }
-
-
-
 
 .contactBox p{
     color: var(--GrayishWhite);
@@ -398,4 +396,26 @@ a.portBox:hover{
     align-self: center;
     font-size: 100%;
     max-font-size: 80%;
+}
+
+.list-favorites-btn{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 20px;
+    justify-content: center;
+    margin-top: 10px;
+    min-width: 190px;
+    padding: 20px 0 20px 0;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    background-color: var(--MediumGray);
+    color: var(--GrayishWhite);
+}
+
+.projetos-favoritos-label{
+    margin: 0 0 16px 30px;
+    font-size: 30px;
+    font-weight: 600;
 }

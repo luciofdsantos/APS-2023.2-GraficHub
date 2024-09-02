@@ -14,6 +14,15 @@
     <button onclick="openModal('box-show-followeds')" class="userFollowers" type="submit"> Seguidores {{ $user->seguidores()->count() }}</button>
 
     <button onclick="openModal('box-show-followers')" class="userFollowers" type="submit"> Seguindo {{ $user->seguindo()->count() }}</button>
+    @if($favoritos)
+        <form action="{{route('user.perfil', $user->apelido)}}" method="get">
+            <button class="list-favorites-btn" type="submit">Meus Projetos</button>
+        </form>
+    @else
+        <form action="{{route('user.favoritos', $user->apelido)}}" method="get">
+            <button class="list-favorites-btn" type="submit">Favoritos</button>
+        </form>
+    @endif
 
     <x-perfil.disponibilidade :user="$user" />
 

@@ -22,7 +22,7 @@
 </head>
     <body>
         <x-nav-bar/>
-        <x-perfil.perfil :user="$user" :projects="$projects"/>
+        <x-perfil.perfil :user="$user" :projects="$projects" :favoritos="$favoritos"/>
         <x-perfil.modal-criar-projeto />
         <x-perfil.modal-editar-perfil :user="$user"/>
         <x-perfil.modal-seguidores :seguidores="$seguidores"/>

@@ -29,6 +29,7 @@ Route::controller(UserController::class)->group(function () {
     Route::post('/user/unfollow/{id}', 'unfollow')->name('user.unfollow');
     Route::get('/user/{apelido}/seguidores', 'seguidores')->middleware(Authenticate::class)->name('user.seguidores');
     Route::get('/user/{apelido}/seguindo', 'seguindo')->middleware(Authenticate::class)->name('user.seguindo');
+    Route::get('/user/{apelido}/favoritos', 'favoritos')->middleware(Authenticate::class)->name('user.favoritos');
 });
 
 Route::controller(ProjectController::class)->group(function () {

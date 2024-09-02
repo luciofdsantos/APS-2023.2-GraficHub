@@ -21,7 +21,8 @@ class UserController extends Controller
         $projects = Project::where('user_id', $user->id)->orderBy('created_at', 'desc')->paginate(6);
         $seguidores = $user->seguidores()->orderBy('created_at', 'desc')->paginate(2);
         $seguindo = $user->seguindo()->orderBy('created_at', 'desc')->paginate(2);
-        return view('user.perfil', compact('user', 'projects', 'seguidores', 'seguindo'));
+        $favoritos = false;
+        return view('user.perfil', compact('user', 'projects', 'seguidores', 'seguindo', 'favoritos'));
     }
 
     /**
@@ -146,6 +147,21 @@ class UserController extends Controller
             auth()->user()->seguindo()->detach($user_id);
         }
         return redirect()->back();
+    }
+
+    public function favoritos(string $apelido)
+    {
+        $user = User::where('apelido', $apelido)->first();
+        if($user == null) {
+            abort(404);
+        }
+
+        $projects = $user->projetosFavoritos()->orderBy('created_at', 'desc')->paginate(6);
+        $seguidores = $user->seguidores()->orderBy('created_at', 'desc')->paginate(2);
+        $seguindo = $user->seguindo()->orderBy('created_at', 'desc')->paginate(2);
+        $favoritos = true;
+
+        return view('user.perfil', compact('user', 'projects', 'seguidores', 'seguindo', 'favoritos'));
     }
 
     /**

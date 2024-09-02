@@ -11,7 +11,7 @@ class Perfil extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct(public $user, public $projects)
+    public function __construct(public $user, public $projects, public $favoritos)
     {
         //
     }
