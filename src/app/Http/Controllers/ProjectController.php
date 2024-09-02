@@ -199,4 +199,23 @@ class ProjectController extends Controller
         auth()->user()->projetosFavoritos()->detach($id);
         return redirect()->back();
     }
+
+    public function curtir(int $project_id)
+    {
+        $project = Project::find($project_id);
+        if (!auth()->user()->isCurtido($project_id)) {
+            auth()->user()->curtidos()->attach($project_id);
+            $project->increment('n_curtidas');
+        }
+
+        return redirect()->route('project.show', $project_id);
+    }
+
+    public function descurtir(int $project_id)
+    {
+        $project = Project::find($project_id);
+        auth()->user()->curtidos()->detach($project_id);
+        $project->decrement('n_curtidas');
+        return redirect()->route('project.show', $project_id);
+    }
 }
