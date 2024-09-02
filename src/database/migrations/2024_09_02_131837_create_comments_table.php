@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->foreignId('comentario_pai')->nullable()->constrained('comments')->onDelete('CASCADE');
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('project_id')->constrained('projects')->onDelete('CASCADE');
+            $table->boolean('apagado')->default(false);
             $table->timestamps();
         });
     }

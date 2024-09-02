@@ -15,7 +15,8 @@ class Comment extends Model
         'comentario',
         'project_id',
         'user_id',
-        'comentario_pai'
+        'comentario_pai',
+        'apagado'
     ];
 
     public function respostas(): HasMany

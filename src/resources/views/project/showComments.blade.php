@@ -31,9 +31,21 @@
         <ul class="list-group">
             @foreach($comentarios as $comment)
                 <li class="list-group-item">
-                    <p><strong>{{ $comment->comentario }}</strong></p>
-                    <small>Por: {{ $comment->user->apelido }}</small>
-                    <small>{{ $comment->updated_at->format('d/m/Y H:i:s') }}</small>
+                    @if($comment->apagado)
+                        <p><strong> comentário apagado </strong></p>
+                    @else
+                        <p><strong>{{ $comment->comentario }}</strong></p>
+                        <small>Por: {{ $comment->user->apelido }}</small>
+                        <small>{{ $comment->updated_at->format('d/m/Y H:i:s') }}</small>
+
+                        @if(auth()->check() && auth()->id() == $comment->user_id)
+                            <form  method="post" action="{{ route('comment.delete', $comment->id) }}" >
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" >Excluir</button>
+                            </form>
+                        @endif
+                    @endif
 
                     <form class="forms" action="{{ route('comment.store') }}" method="post">
                         @csrf
@@ -58,6 +70,15 @@
                                     <p><strong>{{ $resposta->comentario }}</strong></p>
                                     <small>Por: {{ $resposta->user->apelido }}</small>
                                     <small>{{ $resposta->updated_at->format('d/m/Y H:i:s') }}</small>
+
+                                    @if(auth()->check() && auth()->id() == $resposta->user_id && !$resposta->apagado)
+                                        <form  method="post" action="{{ route('comment.delete', $resposta->id) }}" >
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" >Excluir</button>
+                                        </form>
+                                    @endif
+
                                 </li>
                             @endforeach
                         </ul>

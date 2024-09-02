@@ -41,4 +41,20 @@ class CommentController extends Controller
 
         return redirect()->route('comment.show', $comentario->project_id);
     }
+
+    public function destroy(int $comment_id){
+
+        $comment = Comment::find($comment_id);
+        if (!auth()->check() || auth()->id() != $comment->user_id) {
+            abort(401);
+        }
+
+        if ($comment->respostas()->exists()) {
+            $comment->apagado = true;
+            $comment->save();
+        } else {
+            $comment->delete();
+        }
+        return redirect()->route('comment.show', $comment->project_id);
+    }
 }
