@@ -180,24 +180,28 @@ class ProjectController extends Controller
     }
 
     /**
-     * @param int $id id do projeto a ser favoritado
+     * @param int $project_id id do projeto a ser favoritado
      */
-    public function favoritar(int $id)
+    public function favoritar(int $project_id)
     {
-        auth()->user()->projetosFavoritos()->attach($id);
-        return redirect()->back();
+        $project = Project::find($project_id);
+        if (!auth()->user()->isFavoritado($project_id)) {
+            auth()->user()->projetosFavoritos()->attach($project_id);
+            $project->increment('n_favoritos');
+        }
+
+        return redirect()->route('project.show', $project_id);
     }
 
     /**
-     * @param int $id id do projeto a ser desfavoritado
+     * @param int $project_id id do projeto a ser desfavoritado
      */
-    public function desfavoritar(int $id)
+    public function desfavoritar(int $project_id)
     {
-        if (!auth()->check()) {
-            return redirect()->route('auth.login');
-        }
-        auth()->user()->projetosFavoritos()->detach($id);
-        return redirect()->back();
+        $project = Project::find($project_id);
+        auth()->user()->projetosFavoritos()->detach($project_id);
+        $project->decrement('n_favoritos');
+        return redirect()->route('project.show', $project_id);
     }
 
     public function curtir(int $project_id)
