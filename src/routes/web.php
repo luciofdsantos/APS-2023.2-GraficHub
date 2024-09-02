@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\UserController;
@@ -43,4 +44,9 @@ Route::controller(ProjectController::class)->group(function () {
     Route::get('/project/desfavoritar/{id}', 'desfavoritar')->middleware(Authenticate::class)->name('project.desfavoritar');
     Route::get('/project/curtir/{id}', 'curtir')->middleware(Authenticate::class)->name('project.curtir');
     Route::get('/project/descurtir/{id}', 'descurtir')->middleware(Authenticate::class)->name('project.descurtir');
+});
+
+Route::controller(CommentController::class)->group(function () {
+    Route::post('/project/comment', 'store')->name('comment.store');
+    Route::get('/project/comment/{project_id}', 'show')->name('comment.show');
 });

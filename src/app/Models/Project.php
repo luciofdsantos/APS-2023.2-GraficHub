@@ -32,6 +32,11 @@ class Project extends Model
         return $this->hasMany(ImagesProject::class);
     }
 
+    public function comentarios(): HasMany
+    {
+        return $this->hasMany(Comment::class)->where('comentario_pai', null);
+    }
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

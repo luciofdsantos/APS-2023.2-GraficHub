@@ -47,5 +47,7 @@
             @endif
         @endif
 
+        <a class="sd" href="{{ route('comment.show', $project->id) }}">Commentarios</a>
+
     </div>
 </div>
