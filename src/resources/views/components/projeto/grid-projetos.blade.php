@@ -5,7 +5,7 @@
             <a onclick="setOut()" href="{{ route('project.show', $project->id) }}" class="card__content">
                 <p class="card__title "><heavy>{{ Str::limit(Str::title($project->titulo), 25) }}</heavy></p>
                 <div class="block-with-text"><p class="card__description">{{ Str::limit(Str::title($project->descricao), 80) }}</p></div>
-                <div class="card__description"><p>Curtidas 000 Salvos 000</p></div>
+                <div class="card__description"><p>Curtidas {{ str_pad($project->n_curtidas, 3, 0,STR_PAD_LEFT) }} Salvos {{ str_pad($project->n_favoritos, 3, 0,STR_PAD_LEFT) }}</p></div>
             </a>
         </div>
     @endforeach
