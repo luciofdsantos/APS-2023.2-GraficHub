@@ -21,6 +21,21 @@
 
 </head>
     <body>
+    <script >
+        if(getDirectionFollow() == 'seguidores'){
+            document.addEventListener('DOMContentLoaded', function() {
+                resetDirectionFollow();
+                openModal('box-show-followeds');
+            });
+        }
+        else if(getDirectionFollow() == 'seguindo'){
+            document.addEventListener('DOMContentLoaded', function() {
+                resetDirectionFollow();
+                openModal('box-show-followers');
+            });
+        }
+
+    </script>
         <x-nav-bar/>
         <x-perfil.perfil :user="$user" :projects="$projects" :favoritos="$favoritos"/>
         <x-perfil.modal-criar-projeto />
