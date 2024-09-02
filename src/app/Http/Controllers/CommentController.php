@@ -19,7 +19,7 @@ class CommentController extends Controller
         $request->validated();
 
         if (!auth()->check()) {
-            abort(401);
+            return redirect()->route('auth.login');
         }
 
         $comentario = Comment::create([
@@ -37,7 +37,7 @@ class CommentController extends Controller
 
         $comment = Comment::find($comment_id);
         if (!auth()->check() || auth()->id() != $comment->user_id) {
-            return redirect()->route('auth.login');
+            abort(401);
         }
 
         if ($comment->respostas()->exists()) {
