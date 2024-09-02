@@ -37,7 +37,7 @@ class CommentController extends Controller
 
         $comment = Comment::find($comment_id);
         if (!auth()->check() || auth()->id() != $comment->user_id) {
-            abort(401);
+            return redirect()->route('auth.login');
         }
 
         if ($comment->respostas()->exists()) {
