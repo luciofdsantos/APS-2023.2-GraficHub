@@ -25,8 +25,8 @@ Route::controller(UserController::class)->group(function () {
     Route::get('/user/{apelido}/edit', 'edit')->name('user.edit');
     Route::put('/user/{apelido}', 'update')->name('user.update');
     Route::post('/user/{id}', 'updateDisponibility')->name('user.updateDisp');
-    Route::post('/user/follow/{id}', 'follow')->name('user.follow');
-    Route::post('/user/unfollow/{id}', 'unfollow')->name('user.unfollow');
+    Route::get('/user/follow/{id}', 'follow')->middleware(Authenticate::class)->name('user.follow');
+    Route::get('/user/unfollow/{id}', 'unfollow')->middleware(Authenticate::class)->name('user.unfollow');
     Route::get('/user/{apelido}/seguidores', 'seguidores')->middleware(Authenticate::class)->name('user.seguidores');
     Route::get('/user/{apelido}/seguindo', 'seguindo')->middleware(Authenticate::class)->name('user.seguindo');
     Route::get('/user/{apelido}/favoritos', 'favoritos')->middleware(Authenticate::class)->name('user.favoritos');
@@ -41,4 +41,6 @@ Route::controller(ProjectController::class)->group(function () {
     Route::delete('/project/{id}', 'destroy')->name('project.delete');
     Route::get('/project/favoritar/{id}', 'favoritar')->middleware(Authenticate::class)->name('project.favoritar');
     Route::get('/project/desfavoritar/{id}', 'desfavoritar')->middleware(Authenticate::class)->name('project.desfavoritar');
+    Route::get('/project/curtir/{id}', 'curtir')->middleware(Authenticate::class)->name('project.curtir');
+    Route::get('/project/descurtir/{id}', 'descurtir')->middleware(Authenticate::class)->name('project.descurtir');
 });

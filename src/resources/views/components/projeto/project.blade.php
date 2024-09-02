@@ -29,6 +29,17 @@
                     <button class="favorite-btn" type="submit"><img  src="/img/marca-paginas.png"/></button>
                 </form>
             @endif
+                @if(auth()->check() && auth()->user()->isCurtido($project->id))
+                    <form  id="liro" method="get" action="{{ route('project.descurtir', $project->id) }}" >
+                        @csrf
+                        <button type="submit">Deslike num: {{ $project->n_curtidas }}</button>
+                    </form>
+                @else
+                    <form  id="liro" method="get" action="{{ route('project.curtir', $project->id) }}" >
+                        @csrf
+                        <button type="submit">Like num: {{ $project->n_curtidas }}</button>
+                    </form>
+                @endif
             </div>
         </div>
 

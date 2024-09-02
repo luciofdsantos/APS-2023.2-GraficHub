@@ -25,6 +25,8 @@ class User extends Authenticatable
         'email',
         'password',
         'foto',
+        'num_seguidores',
+        'num_seguindo'
     ];
 
     use HasFactory, Notifiable;
@@ -76,6 +78,16 @@ class User extends Authenticatable
         return $this->projetosFavoritos()->where('project_id', $project_id)->exists();
     }
 
+    public function curtidos(): BelongsToMany
+    {
+        return $this->belongsToMany(Project::class, 'likes','user_id', 'project_id');
+    }
+
+    public function isCurtido(int $project_id): bool
+    {
+        return $this->curtidos()->where('project_id', $project_id)->exists();
+    }
+
     /**
      * Get the attributes that should be cast.
      *
@@ -87,13 +99,5 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
-    }
-
-    public function follow(int $id){
-        $this->seguindo()->attach($id);
-    }
-
-    public function unfollow(int $id){
-        $this->seguindo()->detach($id);
     }
 }

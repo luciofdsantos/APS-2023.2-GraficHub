@@ -22,7 +22,9 @@ class Project extends Model
         'tags',
         'arquivo',
         'arquivo_publico',
-        'created_at'
+        'created_at',
+        'n_curtidas',
+        'n_favoritos'
     ];
 
     public function imagesProjects(): HasMany

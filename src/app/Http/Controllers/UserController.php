@@ -25,6 +25,26 @@ class UserController extends Controller
         return view('user.perfil', compact('user', 'projects', 'seguidores', 'seguindo', 'favoritos'));
     }
 
+    public function seguidores(string $apelido)
+    {
+        $user = User::where('apelido', $apelido)->first();
+        if ($user == null) {
+            abort(404);
+        }
+        $followers = $user->seguidores()->orderBy('created_at', 'desc')->paginate(2);
+        return view('user.showFollowers', compact('user', 'followers'));
+    }
+
+    public function seguindo(string $apelido)
+    {
+        $user = User::where('apelido', $apelido)->first();
+        if ($user == null) {
+            abort(404);
+        }
+        $followers = $user->seguindo()->orderBy('created_at', 'desc')->paginate(2);
+        return view('user.showFollowers', compact('user', 'followers'));
+    }
+
     /**
      * atualizar disponibilidade
      * @param int $id
@@ -123,30 +143,18 @@ class UserController extends Controller
 
     public function follow(int $user_id)
     {
-        if (auth()->check() && auth()->id() != $user_id) {
+        $user = User::find($user_id);
+        if (auth()->id() == $user_id) {
+            abort(403);
+        } elseif (!auth()->user()->isSeguindo($user_id)) {
             auth()->user()->seguindo()->attach($user_id);
-        } else {
-            return redirect()->route('auth.loginForm');
-        }
-        return redirect()->back();
-    }
 
-    public function seguindo(string $apelido)
-    {
-        $user = User::where('apelido', $apelido)->first();
-        if ($user == null) {
-            abort(404);
-        }
-        $followers = $user->seguindo()->orderBy('created_at', 'desc')->paginate(2);
-        return view('user.showFollowers', compact('user', 'followers'));
-    }
+            auth()->user()->increment('num_seguindo');
 
-    public function unfollow(int $user_id)
-    {
-        if (auth()->check() && auth()->id() != $user_id) {
-            auth()->user()->seguindo()->detach($user_id);
+            $user->increment('num_seguidores');
         }
-        return redirect()->back();
+
+        return redirect()->route('user.perfil', $user->apelido);
     }
 
     public function favoritos(string $apelido)
@@ -164,21 +172,16 @@ class UserController extends Controller
         return view('user.perfil', compact('user', 'projects', 'seguidores', 'seguindo', 'favoritos'));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function unfollow(int $user_id)
     {
-        //
-    }
-
-    public function seguidores(string $apelido)
-    {
-        $user = User::where('apelido', $apelido)->first();
-        if ($user == null) {
-            abort(404);
+        if (auth()->id() == $user_id) {
+            abort(403);
         }
-        $followers = $user->seguidores()->orderBy('created_at', 'desc')->paginate(2);
-        return view('user.showFollowers', compact('user', 'followers'));
+        auth()->user()->seguindo()->detach($user_id);
+        auth()->user()->decrement('num_seguindo');
+
+        $user = User::find($user_id);
+        $user->decrement('num_seguidores');
+        return redirect()->route('user.perfil', $user->apelido);
     }
 }
