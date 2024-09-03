@@ -446,3 +446,74 @@ span{
     margin: 0 0 10px 0;
     color: red;
 }
+
+.like-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.like-container {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    margin: 0 0 0 4px;
+}
+
+.like-container svg {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: 50px;
+    transition: all 0.3s;
+    fill: #666;
+}
+
+.grow-on-hover svg:hover {
+    transform: scale(1.1);
+}
+
+.like-container input:checked ~ svg {
+    fill: #E3474F;
+}
+
+.favorite-container {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    margin: 8px 0 0 0 ;
+}
+
+.favorite-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+
+.favorite-container svg {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: 50px;
+    transition: all 0.3s;
+    fill: #666;
+}
+
+.favorite-container input:checked ~ svg {
+    fill: #ffe366;
+}
+
+.favorite-like-wrapper{
+    display: flex;
+    align-items: center;
+}
+

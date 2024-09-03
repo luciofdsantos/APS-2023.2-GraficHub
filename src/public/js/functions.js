@@ -59,60 +59,47 @@ function setModal(name){
     localStorage.setItem('lastModal',name);
 }
 
-function setFavoritado() {
-    let favoriteWrapper = document.getElementById('favorite-wrapper');
-    favoriteWrapper.innerHTML =
-        `<form id="form-desfavoritar" class="favorite-form" id="favoritarForm">
-            <button class="favorite-btn" type="submit"><img src="/img/marca-paginas-full.png"/></button>
-        </form>`;
-    document.getElementById('form-desfavoritar').addEventListener('submit', () => {
-        event.preventDefault();
-        let id = favoriteWrapper.title;
-        axios.get(`http://localhost:8000/project/desfavoritar/${id}`)
-            .then()
-            .catch((err) => console.log(err));
-        setDesfavoritado();
-    });
-}
+window.addEventListener('load', () => {
+    let favoriteBox = document.getElementById('favorite-checkbox');
+    axios.get(`http://localhost:8000/project/favorito/${favoriteBox.name}`)
+        .then(response => {
+            if(response.data === 1){
+                favoriteBox.checked = true;
+            }
+        })
+        .catch((err) => console.log(err));
+    let likeBox = document.getElementById('like-checkbox');
+    axios.get(`http://localhost:8000/project/curtido/${likeBox.name}`)
+        .then(response => {
+            if(response.data === 1){
+                likeBox.checked = true;
+            }
+        })
+        .catch(err => console.log(err));
+})
 
-function setDesfavoritado() {
-    let favoriteWrapper = document.getElementById('favorite-wrapper');
-    favoriteWrapper.innerHTML =
-        `<form id="form-favoritar" class="favorite-form" id="favoritarForm">
-            <button class="favorite-btn" type="submit"><img src="/img/marca-paginas.png"/></button>
-        </form>`;
-    document.getElementById('form-favoritar').addEventListener('submit', () =>{
-        event.preventDefault();
-        let id = favoriteWrapper.title;
+document.getElementById('favorite-checkbox').addEventListener('change', () => {
+    let id = event.target.name;
+    if(event.target.checked){
         axios.get(`http://localhost:8000/project/favoritar/${id}`)
             .then()
             .catch((err) => console.log(err));
-        setFavoritado();
-    });
-}
-
-let formDesfavoritar = document.getElementById('form-desfavoritar');
-
-if (formDesfavoritar) {
-    formDesfavoritar.addEventListener('submit', () => {
-        event.preventDefault();
-        let id = event.target.name;
+    }else{
         axios.get(`http://localhost:8000/project/desfavoritar/${id}`)
             .then()
             .catch((err) => console.log(err));
-        setDesfavoritado();
-    });
-}
+    }
+})
 
-let formFavoritar = document.getElementById('form-favoritar')
-
-if (formFavoritar){
-    formFavoritar.addEventListener('submit', () =>{
-        event.preventDefault();
-        let id = event.target.name;
-        axios.get(`http://localhost:8000/project/favoritar/${id}`)
+document.getElementById('like-checkbox').addEventListener('change', () => {
+    let id = event.target.name;
+    if(event.target.checked){
+        axios.get(`http://localhost:8000/project/curtir/${id}`)
             .then()
             .catch((err) => console.log(err));
-        setFavoritado();
-    });
-}
+    }else{
+        axios.get(`http://localhost:8000/project/descurtir/${id}`)
+            .then()
+            .catch((err) => console.log(err));
+    }
+})

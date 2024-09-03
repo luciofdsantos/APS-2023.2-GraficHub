@@ -222,4 +222,14 @@ class ProjectController extends Controller
         $project->decrement('n_curtidas');
         return redirect()->route('project.show', $project_id);
     }
+
+    public function favorito(int $project_id)
+    {
+        return auth()->user()->isFavoritado($project_id);
+    }
+
+    public function curtido(int $project_id)
+    {
+        return auth()->user()->isCurtido($project_id);
+    }
 }

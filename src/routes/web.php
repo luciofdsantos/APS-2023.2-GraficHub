@@ -44,6 +44,8 @@ Route::controller(ProjectController::class)->group(function () {
     Route::get('/project/desfavoritar/{id}', 'desfavoritar')->middleware(Authenticate::class)->name('project.desfavoritar');
     Route::get('/project/curtir/{id}', 'curtir')->middleware(Authenticate::class)->name('project.curtir');
     Route::get('/project/descurtir/{id}', 'descurtir')->middleware(Authenticate::class)->name('project.descurtir');
+    Route::get('/project/favorito/{id}', 'favorito')->name('project.favorito');
+    Route::get('/project/curtido/{id}', 'curtido')->name('project.curtido');
 });
 
 Route::controller(CommentController::class)->group(function () {
