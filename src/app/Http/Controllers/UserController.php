@@ -22,6 +22,9 @@ class UserController extends Controller
         $seguidores = $user->seguidores()->orderBy('created_at', 'desc')->paginate(2);
         $seguindo = $user->seguindo()->orderBy('created_at', 'desc')->paginate(2);
         $favoritos = false;
+
+        session(['goBack' => url()->current() ]);
+
         return view('user.perfil', compact('user', 'projects', 'seguidores', 'seguindo', 'favoritos'));
     }
 
