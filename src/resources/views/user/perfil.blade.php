@@ -31,7 +31,7 @@
         }
         else if(localStorage.getItem('followdirection') == 'follower'){
             document.addEventListener('DOMContentLoaded', function() {
-                
+
                 openModal('box-show-followers');
             });
             console.log( localStorage.getItem('followdirection'));
@@ -45,6 +45,7 @@
         <x-perfil.modal-seguidos :seguindo="$seguindo" :userPerfil="$user"/>
         <x-perfil.modal-fone-usuario :user="$user"/>
         <x-perfil.modal-email-usuario :user="$user"/>
+
     </body>
 </html>
 

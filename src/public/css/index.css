@@ -1,0 +1,46 @@
+/*NavBar*/
+.login-button{
+    background-color: #434343;
+    color: #d1cece;
+    font-size: 14px;
+    padding: 8px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.3s background-color;
+}
+
+.login-button:hover{
+    background-color: #252525;
+}
+
+.navbar-toggler{
+    border: none;
+    font-size: 1.25rem;
+
+}
+
+.navbar-toggler:focus, .btn-close:focus{
+
+    box-shadow: none;
+    outline: none;
+}
+.nav-link{
+    color: #1a202c;
+    font-weight: 500;
+}
+.profile-button{
+    background-color: #434343;
+
+    font-size: 14px;
+    padding: 8px 20px;
+    border-radius: 50px;
+    transition: 0.3s background-color;
+}
+.profile-button a{
+    text-decoration: none;
+    color: #d1cece;
+}
+.profile-pic{
+    height: 24px;
+    border-radius: 100px;
+}
