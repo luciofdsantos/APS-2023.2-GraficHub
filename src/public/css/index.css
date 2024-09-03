@@ -1,4 +1,5 @@
 /*NavBar*/
+
 .login-button{
     background-color: #434343;
     color: #d1cece;
@@ -13,21 +14,17 @@
     background-color: #252525;
 }
 
-.navbar-toggler{
-    border: none;
+#nav-toggler{
+    border: 1px transparent;
     font-size: 1.25rem;
-
 }
 
-.navbar-toggler:focus, .btn-close:focus{
-
+#nav-toggler:focus, #btn-closs:focus{
     box-shadow: none;
     outline: none;
 }
-.nav-link{
-    color: #1a202c;
-    font-weight: 500;
-}
+
+
 .profile-button{
     cursor: pointer;
     background-color: #434343;
@@ -45,3 +42,31 @@
     height: 24px;
     border-radius: 100px;
 }
+.nav-link{
+    color: #434343;
+    font-weight: 500;
+    position: relative;
+}
+.nav-link:hover, .nav-link.active{
+    color: #171717;
+}
+@media(min-width:991px ){
+    .nav-link:before{
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left:50%;
+        transform:translateX(-50%);
+        width: 0;
+        height: 2px;
+        background-color:#434343;
+        visibility: hidden;
+        transition: 0.3s ease-in-out;
+    }
+
+    .nav-link:hover:before, .nav-link.active:before{
+        width: 100%;
+        visibility: visible;
+    }
+}
+

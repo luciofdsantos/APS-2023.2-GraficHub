@@ -36,7 +36,7 @@
 
             <div class="offcanvas-header">
                 <img style="width: 35px;" src="/img/grafichub.png"> <h5 class="offcanvas-title" id="offcanvasNavbarLabel"> GraficHub</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                <button id="btn-closs"type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
 
             <div class="offcanvas-body">
@@ -67,7 +67,7 @@
         @else
             <a class="login-button" href="{{route('auth.loginForm')}}">Login</a>
         @endif
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <button id="nav-toggler" class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
     </div>
