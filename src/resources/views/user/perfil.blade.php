@@ -41,8 +41,8 @@
         <x-perfil.perfil :user="$user" :projects="$projects" :favoritos="$favoritos"/>
         <x-perfil.modal-criar-projeto />
         <x-perfil.modal-editar-perfil :user="$user"/>
-        <x-perfil.modal-seguidores :seguidores="$seguidores"/>
-        <x-perfil.modal-seguidos :seguindo="$seguindo"/>
+        <x-perfil.modal-seguidores :seguidores="$seguidores" :userPerfil="$user"/>
+        <x-perfil.modal-seguidos :seguindo="$seguindo" :userPerfil="$user"/>
         <x-perfil.modal-fone-usuario :user="$user"/>
         <x-perfil.modal-email-usuario :user="$user"/>
     </body>

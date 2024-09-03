@@ -7,7 +7,7 @@
             </div>
 
             @foreach($seguindo as $follower)
-                <x-usuario.mini-view-usuario :user="$follower" />
+                <x-usuario.mini-view-usuario :user="$follower"  :userPerfil="$userPerfil"/>
             @endforeach
             {{ $seguindo->links() }}
         </div>

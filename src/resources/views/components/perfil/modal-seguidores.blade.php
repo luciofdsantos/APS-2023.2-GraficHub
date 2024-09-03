@@ -7,7 +7,7 @@
                 <a onclick="closeModal('box-show-followeds');resetDirectionFollow()" class="close-modal" ><img class="close-modal-img" src="/img/cruz.png"></a>
             </div>
             @foreach($seguidores as $seguidor)
-                <x-usuario.mini-view-usuario :user="$seguidor" />
+                <x-usuario.mini-view-usuario :user="$seguidor" :userPerfil="$userPerfil"/>
             @endforeach
             {{ $seguidores->links() }}
         </div>

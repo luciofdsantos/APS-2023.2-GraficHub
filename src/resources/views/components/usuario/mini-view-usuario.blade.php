@@ -8,12 +8,12 @@
         <p class="apelidof">{{ $user->apelido }}</p>
         @if(auth()->id() != $user->id)
             @if(!auth()->check() || !auth()->user()->isSeguindo($user->id))
-                <form action="{{ route('user.follow', $user->id) }}" method="get">
+                <form action="{{ route('user.follow', ['apelido' => $userPerfil->apelido, 'id' => $user->id]) }}" method="get">
                     @csrf
                     <button class= "follow-btn unfollow" type="submit">Seguir</button>
                 </form>
             @else
-                <form action="{{ route('user.unfollow', $user->id) }}" method="get">
+                <form action="{{ route('user.unfollow', ['apelido' => $userPerfil->apelido, 'id' => $user->id]) }}" method="get">
                     @csrf
                     <button class="follow-btn follow" type="submit">Seguindo</button>
                 </form>
