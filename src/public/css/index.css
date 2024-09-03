@@ -9,7 +9,7 @@
     transition: 0.3s background-color;
 }
 
-.login-button:hover{
+.login-button:hover, .profile-button:hover{
     background-color: #252525;
 }
 
@@ -29,6 +29,7 @@
     font-weight: 500;
 }
 .profile-button{
+    cursor: pointer;
     background-color: #434343;
 
     font-size: 14px;
