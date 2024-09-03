@@ -1,13 +1,3 @@
-function setDirectionFollow(followdirect){
-    localStorage.setItem('followdirection',followdirect);
-}
-function getDirectionFollow(){
-    return localStorage.getItem('followdirection');
-}
-
-function resetDirectionFollow(){
-    localStorage.setItem('followdirection','null');
-}
 
 function showMessage(){
 
@@ -128,3 +118,10 @@ if (formFavoritar){
 }
 
 
+function setDirectionFollow(followdirect){
+    localStorage.setItem('followdirection',followdirect);
+    console.log( localStorage.getItem('followdirection'));
+}
+function resetDirectionFollow(){
+    localStorage.setItem('followdirection','null');
+}

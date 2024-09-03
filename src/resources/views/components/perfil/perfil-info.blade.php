@@ -11,9 +11,9 @@
         </div>
     </div>
 
-    <button onclick="openModal('box-show-followeds')" class="userFollowers" type="submit"> Seguidores {{ $user->num_seguidores }}</button>
+    <button onclick="openModal('box-show-followeds'); setDirectionFollow('followed');" class="userFollowers" type="submit"> Seguidores {{ $user->num_seguidores }}</button>
 
-    <button onclick="openModal('box-show-followers')" class="userFollowers" type="submit"> Seguindo {{ $user->num_seguindo }}</button>
+    <button onclick="openModal('box-show-followers'); setDirectionFollow('follower');" class="userFollowers" type="submit"> Seguindo {{ $user->num_seguindo }}</button>
 
     @if($favoritos)
         <form action="{{route('user.perfil', $user->apelido)}}" method="get">

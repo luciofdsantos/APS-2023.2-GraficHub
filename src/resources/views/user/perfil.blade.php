@@ -22,19 +22,20 @@
 </head>
     <body>
     <script >
-        if(getDirectionFollow() == 'seguidores'){
+        if( localStorage.getItem('followdirection') == 'followed'){
             document.addEventListener('DOMContentLoaded', function() {
                 resetDirectionFollow();
                 openModal('box-show-followeds');
             });
+            console.log( localStorage.getItem('followdirection'));
         }
-        else if(getDirectionFollow() == 'seguindo'){
+        else if(localStorage.getItem('followdirection') == 'follower'){
             document.addEventListener('DOMContentLoaded', function() {
                 resetDirectionFollow();
                 openModal('box-show-followers');
             });
+            console.log( localStorage.getItem('followdirection'));
         }
-
     </script>
         <x-nav-bar/>
         <x-perfil.perfil :user="$user" :projects="$projects" :favoritos="$favoritos"/>

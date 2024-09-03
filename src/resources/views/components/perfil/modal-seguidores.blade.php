@@ -1,4 +1,4 @@
-<dialog onload="setDirectionFollow('seguidores')" id="box-show-followeds">
+<dialog  id="box-show-followeds">
 
     <div>
         <div class="follow-box">
