@@ -29,6 +29,7 @@
             <p><strong>Tags:</strong> </p>
         </div>
 
+        <button onclick="openModal('comment-modal')" class="edit-project" >Comentários </button>
 
         @if(auth()->id() == $project->user_id)
             @if($project->arquivo != null)
@@ -47,7 +48,7 @@
             @endif
         @endif
 
-        <a class="sd" href="{{ route('comment.show', $project->id) }}">Commentarios</a>
+
 
     </div>
 </div>

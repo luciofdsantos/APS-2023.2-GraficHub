@@ -103,3 +103,11 @@ document.getElementById('like-checkbox').addEventListener('change', () => {
             .catch((err) => console.log(err));
     }
 })
+
+function setDirectionFollow(followdirect){
+    localStorage.setItem('followdirection',followdirect);
+    console.log( localStorage.getItem('followdirection'));
+}
+function resetDirectionFollow(){
+    localStorage.setItem('followdirection','null');
+}

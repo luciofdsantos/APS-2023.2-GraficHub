@@ -11,15 +11,7 @@ class CommentController extends Controller
     /**
      * Exibe todos os comentarios de um projeto
      */
-    public function show(int $project_id)
-    {
-        $project = Project::find($project_id);
-        if ($project == null) {
-            abort(404);
-        }
-        $comentarios = $project->comentarios()->orderBy('created_at', 'desc')->get();
-        return view('project.showComments', compact('comentarios', 'project'));
-    }
+
 
     public function store(CommentRequest $request)
     {
@@ -27,7 +19,7 @@ class CommentController extends Controller
         $request->validated();
 
         if (!auth()->check()) {
-            abort(401);
+            return redirect()->route('auth.login');
         }
 
         $comentario = Comment::create([
@@ -38,8 +30,7 @@ class CommentController extends Controller
         ]);
 
         $comentario->save();
-
-        return redirect()->route('comment.show', $comentario->project_id);
+        return redirect()->route('project.show', $comentario->project_id);
     }
 
     public function destroy(int $comment_id){
@@ -55,6 +46,6 @@ class CommentController extends Controller
         } else {
             $comment->delete();
         }
-        return redirect()->route('comment.show', $comment->project_id);
+        return redirect()->route('project.show', $comment->project_id);
     }
 }

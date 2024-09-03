@@ -21,12 +21,28 @@
 
 </head>
     <body>
+    <script >
+        if( localStorage.getItem('followdirection') == 'followed'){
+            document.addEventListener('DOMContentLoaded', function() {
+
+                openModal('box-show-followeds');
+            });
+            console.log( localStorage.getItem('followdirection'));
+        }
+        else if(localStorage.getItem('followdirection') == 'follower'){
+            document.addEventListener('DOMContentLoaded', function() {
+                
+                openModal('box-show-followers');
+            });
+            console.log( localStorage.getItem('followdirection'));
+        }
+    </script>
         <x-nav-bar/>
         <x-perfil.perfil :user="$user" :projects="$projects" :favoritos="$favoritos"/>
         <x-perfil.modal-criar-projeto />
         <x-perfil.modal-editar-perfil :user="$user"/>
-        <x-perfil.modal-seguidores :seguidores="$seguidores"/>
-        <x-perfil.modal-seguidos :seguindo="$seguindo"/>
+        <x-perfil.modal-seguidores :seguidores="$seguidores" :userPerfil="$user"/>
+        <x-perfil.modal-seguidos :seguindo="$seguindo" :userPerfil="$user"/>
         <x-perfil.modal-fone-usuario :user="$user"/>
         <x-perfil.modal-email-usuario :user="$user"/>
     </body>

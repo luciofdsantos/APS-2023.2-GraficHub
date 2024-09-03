@@ -412,6 +412,7 @@ body{
     width: 20px;
     max-width: 50%;
     min-width: 120px;
+    margin-bottom: 5px;
 }
 
 .forms button:hover {
@@ -515,5 +516,22 @@ span{
 .favorite-like-wrapper{
     display: flex;
     align-items: center;
+}
+
+.close-modal{
+    position: absolute;
+    right: 16px;
+    top: 8px;
+    cursor: pointer;
+
+}
+.close-modal-img{
+    width: 12px;
+}
+
+.list-group-item-main p{
+
+    max-width: 400px;
+
 }
 

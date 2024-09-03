@@ -16,21 +16,41 @@
 
 </head>
 <body>
-
+  <script src="/js/show.js"></script>
+  <script >
+      if(getComment()){
+          document.addEventListener('DOMContentLoaded', function() {
+              localStorage.setItem('comment', 'false');
+              openModal('comment-modal');
+          });
+      }
+  </script>
     @if($errors->any())
         <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                openModal('box-edit-project');
-            });
+            if(!getComment()){
+                document.addEventListener('DOMContentLoaded', function() {
+                    openModal('box-edit-project');
+                });
+            }
+            else{
+                document.addEventListener('DOMContentLoaded', function() {
+                    comment= false;
+                    openModal('comment-modal');
+                });
+            }
         </script>
     @endif
-    <x-projeto.banner-projeto :project="$project"/>
-    <x-projeto.project :project="$project" :images="$images"/>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.all.min.js"></script>
-    <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"></script>
-    <script src="{{ asset('js/functions.js') }}"></script>
-    <script src="{{ asset('js/carousel.js') }}"></script>
-    <x-projeto.modal-editar-projeto :project="$project"/>
+
+
+        <x-projeto.banner-projeto :project="$project"/>
+        <x-projeto.project :project="$project" :images="$images"/>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.all.min.js"></script>
+        <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"></script>
+        <script src="{{ asset('js/functions.js') }}"></script>
+        <script src="{{ asset('js/carousel.js') }}"></script>
+         <x-projeto.modal-show-comments :project="$project"/>
+        <x-projeto.modal-editar-projeto :project="$project"/>
+
 
 </body>
 </html>
