@@ -226,11 +226,13 @@ class ProjectController extends Controller
 
     public function favorito(int $project_id)
     {
-        return auth()->user()->isFavoritado($project_id);
+        $projectFavorites = Project::find($project_id)->n_favoritos;
+        return ['isFavorito' => auth()->user()->isFavoritado($project_id), 'favorites' => $projectFavorites];
     }
 
     public function curtido(int $project_id)
     {
-        return auth()->user()->isCurtido($project_id);
+        $projectLikes = Project::find($project_id)->n_curtidas;
+        return ['isCurtido' => auth()->user()->isCurtido($project_id), 'likes' => $projectLikes];
     }
 }

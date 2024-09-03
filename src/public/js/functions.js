@@ -59,21 +59,45 @@ function setModal(name){
     localStorage.setItem('lastModal',name);
 }
 
+function setFavoritos(response){
+    let favorites = response.data.favorites;
+    let favoriteFormatted = favorites;
+    if(favorites/1000000 >= 1){
+        favoriteFormatted = (favorites/1000000)%1 ? (favorites/1000000).toFixed(1) : favorites/1000000;
+        favoriteFormatted += 'M';
+    }else if(favorites/1000 >= 1){
+        favoriteFormatted = (favorites/1000)%1 ? (favorites/1000).toFixed(1) : favorites/1000;
+        favoriteFormatted += 'K';
+    }
+    document.getElementById('favorites-number').innerText = `${favoriteFormatted}`;
+}
+
+function setLikes(response){
+    let likes = response.data.likes;
+    let likesFormatted = likes;
+    if(likes/1000000 >= 1){
+        likesFormatted = (likes/1000000)%1 ? (likes/1000000).toFixed(1) : likes/1000000;
+        likesFormatted += 'M';
+    }else if(likes/1000 >= 1){
+        likesFormatted = (likes/1000)%1 ? (likes/1000).toFixed(1) : likes/1000;
+        likesFormatted += 'K';
+    }
+    document.getElementById('likes-number').innerText = `${likesFormatted}`;
+}
+
 window.addEventListener('load', () => {
     let favoriteBox = document.getElementById('favorite-checkbox');
     axios.get(`http://localhost:8000/project/favorito/${favoriteBox.name}`)
         .then(response => {
-            if(response.data === 1){
-                favoriteBox.checked = true;
-            }
+            favoriteBox.checked = response.data.isFavorito;
+            setFavoritos(response);
         })
         .catch((err) => console.log(err));
     let likeBox = document.getElementById('like-checkbox');
     axios.get(`http://localhost:8000/project/curtido/${likeBox.name}`)
         .then(response => {
-            if(response.data === 1){
-                likeBox.checked = true;
-            }
+            likeBox.checked = response.data.isCurtido;
+            setLikes(response);
         })
         .catch(err => console.log(err));
 })
@@ -89,6 +113,12 @@ document.getElementById('favorite-checkbox').addEventListener('change', () => {
             .then()
             .catch((err) => console.log(err));
     }
+    let favoriteBox = document.getElementById('favorite-checkbox');
+    axios.get(`http://localhost:8000/project/favorito/${favoriteBox.name}`)
+        .then(response => {
+            setFavoritos(response);
+        })
+        .catch((err) => console.log(err));
 })
 
 document.getElementById('like-checkbox').addEventListener('change', () => {
@@ -102,6 +132,12 @@ document.getElementById('like-checkbox').addEventListener('change', () => {
             .then()
             .catch((err) => console.log(err));
     }
+    let likeBox = document.getElementById('like-checkbox');
+    axios.get(`http://localhost:8000/project/curtido/${likeBox.name}`)
+        .then(response => {
+            setLikes(response);
+        })
+        .catch(err => console.log(err));
 })
 
 function setDirectionFollow(followdirect){

@@ -461,7 +461,6 @@ span{
     position: relative;
     cursor: pointer;
     user-select: none;
-    margin: 0 0 0 4px;
 }
 
 .like-container svg {
@@ -535,3 +534,14 @@ span{
 
 }
 
+#favorites-number{
+    font-size: 50px;
+    color: var(--Gray);
+    margin: 0 16px 0 0px;
+}
+
+#likes-number{
+    font-size: 50px;
+    color: var(--Gray);
+    margin: 0 8px 0 4px
+}
