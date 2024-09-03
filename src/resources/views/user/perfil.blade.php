@@ -24,14 +24,14 @@
     <script >
         if( localStorage.getItem('followdirection') == 'followed'){
             document.addEventListener('DOMContentLoaded', function() {
-                resetDirectionFollow();
+
                 openModal('box-show-followeds');
             });
             console.log( localStorage.getItem('followdirection'));
         }
         else if(localStorage.getItem('followdirection') == 'follower'){
             document.addEventListener('DOMContentLoaded', function() {
-                resetDirectionFollow();
+                
                 openModal('box-show-followers');
             });
             console.log( localStorage.getItem('followdirection'));
