@@ -18,7 +18,7 @@
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.min.css" rel="stylesheet">
 
 </head>
-    <body class="perfil-section" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(../img/homebck.jpg)  center ;">
+    <body class="perfil-section" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(../img/perfil-bc.jpg)  center ;">
     <script >
         if( localStorage.getItem('followdirection') == 'followed'){
             document.addEventListener('DOMContentLoaded', function() {
