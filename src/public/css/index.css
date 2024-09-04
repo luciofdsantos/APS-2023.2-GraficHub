@@ -1,5 +1,16 @@
-/*NavBar*/
 
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
+/*NavBar*/
+.navbar{
+    background-color: #e6e4e4;
+    height: 60px;
+    margin: 20px;
+    border-radius:16px ;
+    padding: 0.5rem;
+    font-family: "Heebo", sans-serif;
+    font-weight: 800;
+}
 .login-button{
     background-color: #434343;
     color: #d1cece;
@@ -28,7 +39,6 @@
 .profile-button{
     cursor: pointer;
     background-color: #434343;
-
     font-size: 14px;
     padding: 8px 20px;
     border-radius: 50px;
@@ -69,4 +79,74 @@
         visibility: visible;
     }
 }
+
+/*hero section*/
+
+.hero-section{
+    background: url(../img/homebck.jpg) no-repeat center;
+    background-size: cover;
+    width: 100%;
+    height: 40vh;
+    min-height: 400px;
+}
+
+.hero-section:before{
+    background-color: rgba(0,0,0,0.6);
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 40vh;
+    min-height: 400px;
+}
+.hero-section .container{
+    min-height: 400px;
+    height: 45vh;
+    z-index: 1;
+    position: relative;
+    font-family: "Heebo", sans-serif;
+    font-weight: 1000;
+}
+
+/*feed(home)*/
+.btn-group .btn-primary{
+    background-color: transparent;
+    color: #6a6a6a;
+    font-size: 18px;
+    border:none;
+}
+a.btn.btn-primary.active{
+    background: transparent;
+    color: #171717;
+    font-size: 18px;
+    border:none;
+}
+
+.btn-primary.active:hover,.btn-group .btn-primary:hover {
+    background-color: transparent;
+    color: #171717;
+}
+
+
+.btn-primary:before{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left:50%;
+    transform:translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color:#434343;
+    visibility: hidden;
+    transition: 0.3s ease-in-out;
+}
+
+.btn-primary:hover:before, .btn-primary.active:before{
+    width: 100%;
+    visibility: visible;
+}
+
+/*Projeto(Card)*/
 
