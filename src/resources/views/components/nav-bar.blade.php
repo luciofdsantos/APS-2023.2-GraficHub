@@ -40,10 +40,10 @@
             </div>
 
             <div class="offcanvas-body">
-                <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                <ul class="navbar-nav justify-content-center ">
 
                     <li class="nav-item">
-                        <a class="nav-link mx-lg-2 active" aria-current="page" href="{{ route('home')}}"> Home </a>
+                        <a class="nav-link mx-lg-4 active" aria-current="page" href="{{ route('home')}}"> Home </a>
                     </li>
 
                     <li class= "nav-item">
