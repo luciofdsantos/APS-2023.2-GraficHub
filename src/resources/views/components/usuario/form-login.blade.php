@@ -1,36 +1,9 @@
-<!--<div class="login-form-container">
-    <div class="main">
-        <form class="forms" action="{{ route('auth.login') }}" method="post">
-            <a href="{{ route('home')}}"> <img class="logo-img" alt="logo" src="/img/logo.png"/> </a>
-            <p class="title"> Login </p>
-            @csrf
-            <input class="mainshadowdown" type="text"  placeholder="Email" name="email">
-            @error('email')
-            <span class="error-message">
-                       {{ $message }}
-                        </span>
-            @enderror
-            <input class="mainshadowdown" type="password" placeholder="Senha" name="password">
-            @error('password')
-            <span class="error-message">
-                        {{ $message }}
-                        </span>
-            @enderror
-            @error('error')
-            <span class="error-message">{{ $message }}</span>
-            @enderror
-            <button class="mainshadowdown" type="submit">Login</button>
-            <p class="message">Não possui uma conta? <a href="{{ route('user.create') }}"> Cadastre-se</a></p>
 
-        </form>
-    </div>
-</div>
--->
 
 <div class="container" id="main">
 
     <div class="sing-up">
-        <form action="{{ route('user.store') }}">
+        <form class="forms" action="{{ route('user.store') }}" method="post" enctype="multipart/form-data">
             <h1>Registrar</h1>
             @csrf
             <input  type="text" placeholder="nome" name="nome" value="{{ old('nome') }}">
@@ -77,6 +50,7 @@
         </form>
     </div>
     <div class="sing-in">
+        <form class="forms" action="{{ route('auth.login') }}" method="post">
         <h1 class="title"> Login </h1>
         @csrf
         <input  type="text"  placeholder="Email" name="email">
@@ -95,5 +69,7 @@
         @enderror
         <button class="mainshadowdown" type="submit">Login</button>
         <p class="message">Não possui uma conta? <a href="{{ route('user.create') }}"> Cadastre-se</a></p>
+        </form>
     </div>
+    <div class="ove"></div>
 </div>
