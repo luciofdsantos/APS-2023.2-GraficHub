@@ -55,8 +55,8 @@
                    </div>
                    <div class="row d-flex">
                        <div class="container d-flex justify-content-center align-items-center">
-                           <button onclick="openModal('box-show-followeds'); setDirectionFollow('followed');" class=" btn btn-outline" type="submit">  <heavy style ="font-weight: 600"> Seguidores</heavy> {{ $user->num_seguidores }}</button>
-                           <button onclick="openModal('box-show-followers'); setDirectionFollow('follower');" class="btn btn-outline" type="submit"> <heavy style ="font-weight: 600"> Seguindo</heavy>  {{ $user->num_seguindo }}  </button>
+                           <button onclick="openModal('box-show-followeds'); setDirectionFollow('followed');" class=" btn btn-outline" type="submit"> {{ $user->num_seguidores }} <heavy style ="font-weight: 600"> @if(  $user->num_seguidores ==1)Seguidor @else Seguidores @endif </heavy> </button>
+                           <button onclick="openModal('box-show-followers'); setDirectionFollow('follower');" class="btn btn-outline" type="submit"> {{ $user->num_seguindo }} <heavy style ="font-weight: 600"> Seguindo</heavy>   </button>
                        </div>
                    </div>
                    <div class="row d-flex">

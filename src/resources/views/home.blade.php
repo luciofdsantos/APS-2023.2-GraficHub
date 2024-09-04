@@ -15,7 +15,7 @@
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.min.css" rel="stylesheet">
 </head>
 
-<body class="mainhome" style="background-color: var(--GrayishWhite)">
+<body class="mainhome" style="background: var(--GrayishWhite)">
 
     <script src="/js/home.js"></script>
     <x-nav-bar/>
