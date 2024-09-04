@@ -48,6 +48,10 @@
     text-decoration: none;
     color: #d1cece;
 }
+.profile-button a:hover{
+    text-decoration: none;
+    color: #d1cece;
+}
 .profile-pic{
     height: 24px;
     border-radius: 100px;
@@ -305,4 +309,32 @@ html, body {
     top: 140px;
     border-radius: 8px;
     text-align: justify;
+}
+#remove-color{
+    border-color: black;
+    color: black;
+}
+#remove-color:hover{
+    border-color: transparent;
+    color: white;
+}
+#edt-btn{
+    border-color: black;
+    color: black;
+}
+#edt-btn:hover{
+    border-color: transparent;
+}
+
+#follow-btn{
+    border-color: black;
+    color: black;
+}
+#unfollow-btn{
+    border-color: black;
+    color: black;
+}
+#follow-btn:hover,#unfollow-btn:hover{
+    border-color: transparent;
+    color: white;
 }

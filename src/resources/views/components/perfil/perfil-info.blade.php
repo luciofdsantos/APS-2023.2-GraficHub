@@ -48,22 +48,26 @@
             </div>
         <div  class="col-sm-8 col-md-10">
                <div class="container">
+
                    <div class="row d-flex">
                        <div class="container d-flex justify-content-end align-items-center">
                            <x-perfil.options-perfil :user="$user" />
                        </div>
                    </div>
+
                    <div class="row d-flex">
                        <div class="container d-flex justify-content-center align-items-center">
                            <button onclick="openModal('box-show-followeds'); setDirectionFollow('followed');" class=" btn btn-outline" type="submit"> {{ $user->num_seguidores }} <heavy style ="font-weight: 600"> @if(  $user->num_seguidores ==1)Seguidor @else Seguidores @endif </heavy> </button>
                            <button onclick="openModal('box-show-followers'); setDirectionFollow('follower');" class="btn btn-outline" type="submit"> {{ $user->num_seguindo }} <heavy style ="font-weight: 600"> Seguindo</heavy>   </button>
                        </div>
                    </div>
+
                    <div class="row d-flex">
                        <div class="container d-flex justify-content-center align-items-center">
                            <x-perfil.disponibilidade :user="$user" />
                        </div>
                    </div>
+
                    <div class="row d-flex">
                        <div class="container d-flex justify-content-center align-items-center">
                            @if(auth()->id() != $user['id'])

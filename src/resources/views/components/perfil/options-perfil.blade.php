@@ -1,5 +1,5 @@
 <div>
-    @if(auth()->id() == $user['id'])
+        @if(auth()->id() == $user['id'])
         @if($errors->any())
             <script>
                 document.addEventListener('DOMContentLoaded', function() {
@@ -9,8 +9,8 @@
         @endif
 
 
-        <button id = "btn-edit-profile" onclick="openModal('box-edit-profile')" class="btn btn-outline-warning">Editar Perfil</button>
-        <a class="btn btn-outline-danger" onclick="confirmLogout(event)" href ="{{route('auth.logout')}}">LogOut</a>
+        <button id = "edt-btn" onclick="openModal('box-edit-profile')" class="btn btn-outline-warning">Editar Perfil</button>
+        <a  id="remove-color" class="btn btn-outline-danger" onclick="confirmLogout(event)" href ="{{route('auth.logout')}}">LogOut</a>
 
     @else
 
@@ -18,12 +18,12 @@
         @if(!auth()->check() || !auth()->user()->isSeguindo($user['id']))
             <form id="follow" method="get" action="{{ route('user.follow', ['apelido' => $user['apelido'], 'id' => $user['id']]) }}" >
                 @csrf
-                <button class="btn btn-outline-success" type="submit">Seguir</button>
+                <button id="follow-btn" class="btn btn-outline-success" type="submit">Seguir</button>
             </form>
         @else
             <form id="unfollow" method="get" action="{{ route('user.unfollow', ['apelido' => $user['apelido'], 'id' => $user['id']]) }}" >
                 @csrf
-                <button class="btn btn-outline-danger" type="submit">Seguindo</button>
+                <button id="unfollow-btn" class="btn btn-outline-danger" type="submit">Seguindo</button>
             </form>
         @endif
         </div>
