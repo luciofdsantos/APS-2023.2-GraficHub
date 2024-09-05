@@ -41,6 +41,7 @@
                 @else
                     <img class="img-holder" src="/img/profile-img.png" alt="profile pic" />
                 @endif
+
                 <div>
                     <h1 class="nickname" >{{ $user['apelido']}}</h1>
                     <h1 class="name" >  {{ $user['nome'] }}</h1>
@@ -69,7 +70,7 @@
                    </div>
 
                    <div class="row d-flex">
-                       <div class="container d-flex justify-content-center align-items-center">
+                       <div class="container d-flex justify-content-center align-items-center ">
                            @if(auth()->id() != $user['id'])
                                <button onclick="openModal('box-fone')"  class="btn btn-outline"> <i class="bi bi-telephone"> </i> </button>
                                <button onclick="openModal('box-email')" class="btn btn-outline"> <i class="bi bi-envelope"></i> </button>
@@ -83,7 +84,7 @@
     </div>
 </section>
 <section>
-    <div  class="container d-flex flex-column justify-content-center align-items-center pt-3 ">
+    <div  class="container d-flex flex-column justify-content-center align-items-center pt-3 pb-3 ">
     <div class="d-flex">
         <form action="{{route('user.perfil', $user->apelido)}}" method="get">
             <button id="my-project" class="btn btn-primary active" type="submit">Meus Projetos <i style="justify-self: auto" class="bi bi-person-badge"></i></button>

@@ -9,11 +9,13 @@
                         <div class="card-description ">
                             <h2> <i class="bi bi-heart-fill"></i> {{ str_pad($project->n_curtidas, 3, 0,STR_PAD_LEFT) }} <i class="bi bi-bookmark-fill"></i> {{ str_pad($project->n_favoritos, 3, 0,STR_PAD_LEFT) }}</h2>
                         </div>
+                        <div style="height: 40px; width: 40px">
                         @if($project->user['foto'] != null)
                             <img class="card-user avatar avatar-large" src="{{ asset('storage/arquivos/'. $project->user['id'] . '/' .$project->user['foto']) }}" alt="foto perfil">
                         @else
                             <img class="card-user avatar avatar-large" src="/img/profile-img.png" alt="profile pic" />
                         @endif
+                        </div>
                     </div>
                             </a>
                 @endforeach

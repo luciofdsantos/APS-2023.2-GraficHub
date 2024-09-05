@@ -389,6 +389,10 @@ html, body {
     position: absolute;
     right: 10px;
     top: 10px;
+    width: 40px; /* width of container */
+    height: 40px; /* height of container */
+    object-fit: cover;
+    border-radius: 100px;
 }
 .card-category {
     position: absolute;
@@ -433,13 +437,41 @@ html, body {
 .carousel-inner, .carousel-item{
     width: 50vh;
     height: 62.5vh;
+    min-width: 625px;
+    min-height: 732px;
+
+
 }
 .img-feed{
+    min-width: 625px;
+    min-height: 732px;
     width: 50vh;
     height: 62.5vh;
     object-fit: cover;
     object-position: 15% 40%; /* try 20px 10px */
 }
-.carousel-control-next{
+
+.info-feed-top{
+    border-radius: 10px 10px 0 0  ;
+    padding: 10px;
 
 }
+
+.info-feed-bot{
+    border-radius: 0 0 10px 10px ;
+    padding: 10px;
+}
+
+.info-feed-bot,.info-feed-top{
+    width: 50vh;
+    min-width: 625px;
+}
+
+.card-user-feed{
+    width: 40px; /* width of container */
+    height: 40px; /* height of container */
+    object-fit: cover;
+    border-radius: 100px;
+}
+
+

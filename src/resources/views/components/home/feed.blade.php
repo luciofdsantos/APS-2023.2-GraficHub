@@ -20,11 +20,20 @@
 <section class="container">
     @foreach($projects as $project)
     <div id="carouselExample{{$project->id}}" class="carousel slide d-flex flex-column justify-content-center align-items-center">
-        <div style="width: 50vh" class="info-feed container ">
-            <div class="row">
+        <div style=" width: 50vh; min-width: 625px;" class="border info-feed-top container ">
+            <div class="container d-flex align-items-center ">
+                <div class="row g-0">
+                    <div  class=" border d-flex flex-column col-4 col-md-2 align-items-center gap-2 ">
+                        <div style="width: 40px; height: 40px">
+                            @if($project->user['foto'] != null)
+                                <img class="card-user-feed avatar avatar-large" src="{{ asset('storage/arquivos/'. $project->user['id'] . '/' .$project->user['foto']) }}" alt="foto perfil">
+                            @else
+                                <img class="card-user-feed avatar avatar-large" src="/img/profile-img.png" alt="profile pic" />
+                           @endif
+                        </div>
+                    </div>
+                </div>
 
-                    foto
-                    nome
             </div>
         </div>
         <div  style="width: 50vh;height: 62.5vh;" class=" d-flex border carousel-inner">
@@ -32,7 +41,6 @@
                 <img src="{{ asset('storage/arquivos/' . $project->user_id . '/' . $project->id . '/' . $project->imagem_capa) }}" class="d-block  img-feed" alt="...">
             </div>
             @foreach($project->imagesProjects()->get() as $image)
-
                 <div class=" carousel-item">
                     <img class="img-feed d-block  img-feed" src="{{ asset('storage/arquivos/'. $project->user_id . '/' . $project->id . '/' .'imgs'.'/'.$image->name)}}" alt="">
                 </div>
@@ -47,7 +55,7 @@
 
             @endforeach
         </div>
-        <div style="width: 50vh" class="info-feed container ">
+        <div style=" width: 50vh; min-width: 625px;" class="border info-feed-bot container ">
             <div class="row">
                 titulo
             </div>
