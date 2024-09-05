@@ -23,15 +23,18 @@
         <div style=" width: 50vh; min-width: 625px;" class="border info-feed-top container ">
             <div class="container d-flex align-items-center ">
                 <div class="row g-0">
-                    <div  class=" border d-flex flex-column col-4 col-md-2 align-items-center gap-2 ">
+                    <a href=""  class=" d-flex col-4 col-md-2 align-items-center gap-2 ">
                         <div style="width: 40px; height: 40px">
                             @if($project->user['foto'] != null)
                                 <img class="card-user-feed avatar avatar-large" src="{{ asset('storage/arquivos/'. $project->user['id'] . '/' .$project->user['foto']) }}" alt="foto perfil">
                             @else
                                 <img class="card-user-feed avatar avatar-large" src="/img/profile-img.png" alt="profile pic" />
                            @endif
+                        </div >
+                        <div class="name align-items-center">
+                            <p style="font-size: 16px; font-weight: 600; padding-top: 12px; padding-left: 6px;color: black">{{$project->user->apelido}}</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
 
             </div>
