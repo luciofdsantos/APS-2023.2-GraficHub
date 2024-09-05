@@ -107,7 +107,7 @@
 }
 
 .hero-section .container{
-    min-height: 400px;
+    min-height: 300px;
     height: 45vh;
     z-index: 1;
     position: relative;
@@ -344,13 +344,12 @@ html, body {
     border-radius: 0;
     border: none;
 }
-#my-project.active{
-    background-color: rgba(0, 0, 0, 0.51);
+#fav.active,#my-project.active{
+    background-color: rgba(122, 119, 119, 0.34);
 }
 #my-project.btn.btn-primary.active:before{
     visibility: hidden;
 }
-
 #fav{
     background-color: rgba(0, 0, 0, 0.08);
     color: white;
@@ -430,3 +429,17 @@ html, body {
     font-weight: lighter;
 }
 
+/*Feed*/
+.carousel-inner, .carousel-item{
+    width: 50vh;
+    height: 62.5vh;
+}
+.img-feed{
+    width: 50vh;
+    height: 62.5vh;
+    object-fit: cover;
+    object-position: 15% 40%; /* try 20px 10px */
+}
+.carousel-control-next{
+
+}
