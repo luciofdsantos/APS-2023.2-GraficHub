@@ -377,6 +377,7 @@ html, body {
 
 
 .cards {
+    min-width: 25%;
     height: 250px;
     text-shadow: 0 1px 3px rgba(0,0,0,0.6);
     background-size: cover !important;
@@ -389,6 +390,7 @@ html, body {
     position: absolute;
     right: 10px;
     top: 10px;
+
     width: 40px; /* width of container */
     height: 40px; /* height of container */
     object-fit: cover;
@@ -414,6 +416,7 @@ html, body {
     position: relative;
     top: 0;
     bottom: 0;
+    min-width: 40px;
     width: 100%;
     z-index:2;
     background: black;
@@ -432,15 +435,15 @@ html, body {
     font-size: 15px;
     font-weight: lighter;
 }
-
+#btn-create-project{
+    width: 30%;
+}
 /*Feed*/
 .carousel-inner, .carousel-item{
     width: 50vh;
     height: 62.5vh;
     min-width: 625px;
     min-height: 732px;
-
-
 }
 .img-feed{
     min-width: 625px;
@@ -475,8 +478,9 @@ html, body {
 }
 
 
-.info-feed-top a{
+.info-feed-top a, .option-feed a{
     text-decoration: none;
 }
+
 
 

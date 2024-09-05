@@ -23,7 +23,7 @@
         <div style=" width: 50vh; min-width: 625px;" class="border info-feed-top container ">
             <div class="container d-flex align-items-center ">
                 <div class="row g-0">
-                    <a href=""  class=" d-flex col-4 col-md-2 align-items-center gap-2 ">
+                    <a href="{{ route('user.perfil', $project->user->apelido) }}"  class=" d-flex col-4 col-md-2 align-items-center gap-2 ">
                         <div style="width: 40px; height: 40px">
                             @if($project->user['foto'] != null)
                                 <img class="card-user-feed avatar avatar-large" src="{{ asset('storage/arquivos/'. $project->user['id'] . '/' .$project->user['foto']) }}" alt="foto perfil">
@@ -39,7 +39,7 @@
 
             </div>
         </div>
-        <div  style="width: 50vh;height: 62.5vh;" class=" d-flex border carousel-inner">
+        <div  style="width: 50vh;height: 62.5vh;" class=" d-flex  carousel-inner">
             <div class=" carousel-item  active">
                 <img src="{{ asset('storage/arquivos/' . $project->user_id . '/' . $project->id . '/' . $project->imagem_capa) }}" class="d-block  img-feed" alt="...">
             </div>
@@ -60,14 +60,18 @@
         </div>
         <div style=" width: 50vh; min-width: 625px;" class="border info-feed-bot container ">
             <div class="row">
-                titulo
+                <h1 style="font-size: 20px">{{$project->titulo}}</h1>
+            </div>
+            <div class="row ">
+                <div class="d-flex gap-2 option-feed">
+                                <i class="bi bi-heart"></i>
+                                <i class="bi bi-bookmark"></i>
+                </div>
             </div>
             <div class="row">
-                curtir favoritar
+                <p style="font-size: 14px">{{$project->descricao}}</p>
             </div>
-            <div class="row">
-                descrição
-            </div>
+
         </div>
 
     </div>
