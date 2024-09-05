@@ -40,11 +40,11 @@
             </div>
         </div>
         <div  style="width: 50vh;height: 62.5vh;" class=" d-flex  carousel-inner">
-            <div class=" carousel-item  active">
+            <div class="border carousel-item  active">
                 <img src="{{ asset('storage/arquivos/' . $project->user_id . '/' . $project->id . '/' . $project->imagem_capa) }}" class="d-block  img-feed" alt="...">
             </div>
             @foreach($project->imagesProjects()->get() as $image)
-                <div class=" carousel-item">
+                <div class=" border carousel-item">
                     <img class="img-feed d-block  img-feed" src="{{ asset('storage/arquivos/'. $project->user_id . '/' . $project->id . '/' .'imgs'.'/'.$image->name)}}" alt="">
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample{{$project->id}}" data-bs-slide="prev">
@@ -58,7 +58,7 @@
 
             @endforeach
         </div>
-        <div style=" width: 50vh; min-width: 625px;" class="border info-feed-bot container ">
+        <div style=" width: 50vh; min-width: 625px;" class="border info-feed-bot container mb-4">
             <div class="row">
                 <h1 style="font-size: 20px">{{$project->titulo}}</h1>
             </div>

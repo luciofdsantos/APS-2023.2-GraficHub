@@ -437,6 +437,7 @@ html, body {
 }
 #btn-create-project{
     width: 30%;
+    background-color: rgba(143, 143, 143, 0.58);
 }
 /*Feed*/
 .carousel-inner, .carousel-item{
@@ -444,6 +445,9 @@ html, body {
     height: 62.5vh;
     min-width: 625px;
     min-height: 732px;
+}
+.carousel-item{
+
 }
 .img-feed{
     min-width: 625px;

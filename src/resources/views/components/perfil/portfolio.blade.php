@@ -1,8 +1,8 @@
 
 <section>
-    <div class="d-flex flex-column align-items-center justify-content-center pb-2">
+    <div class="d-flex flex-column align-items-center justify-content-center pb-3">
         @if(auth()->id() == $user['id'] && !$favoritos)
-            <button id="btn-create-project" class="btn btn-secondary btn-lg" onclick="openModal('box-create-project')" >+</button>
+            <button id="btn-create-project" class="btn btn-secondary btn-lg" onclick="openModal('box-create-project')" ><i class="bi bi-file-earmark-plus-fill"></i></button>
         @endif
     </div>
 
