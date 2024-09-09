@@ -40,7 +40,6 @@ Button with data-bs-target
 
 <div class=" d-flex flex-column flex-shrink-0 p-3  text-bg-dark"  style=" overflow-y: auto;height: 100vh;width: 280px;">
     <div style="margin-top:70px;">
-
     </div>
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
@@ -98,10 +97,11 @@ Button with data-bs-target
                 <button style="width: 100%; margin-top: 5px; border-color: white; color: white" type="button" id="remove-color" class="btn btn-outline-danger" onclick="confirmDeletion()">Excluir</button>
             </form>
         @else
-            <button style="width: 100%; margin-top: 5px; border-color: white; color: white" type="button"  class="btn btn-outline"  data-bs-toggle="modal" data-bs-target="#exampleModal" >Comentários </button>
+
             @if($project->arquivo != null && $project->arquivo_publico)
-                <a class="file-holder" href="{{ asset('storage/arquivos/'. $project->user_id . '/' . $project->id . '/' . $project->arquivo)}}" download="FileProject"><img class="icon-pasta" src="/img/pasta-aberta.png" alt="pasta"></a>
+                <a class="nav-link text-white" href="{{ asset('storage/arquivos/'. $project->user_id . '/' . $project->id . '/' . $project->arquivo)}}" download="FileProject">Arquivo do projeto</a>
             @endif
+                <button style="width: 100%; margin-top: 5px; border-color: white; color: white" type="button"  class="btn btn-outline"  data-bs-toggle="modal" data-bs-target="#exampleModal" >Comentários </button>
         @endif
 
 
