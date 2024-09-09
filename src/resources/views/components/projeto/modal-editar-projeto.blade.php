@@ -1,89 +1,123 @@
 <dialog id="box-edit-project">
     <div class="project-form-container">
         <div class="main">
-            <form  class="forms" action="{{ route('project.update', $project->id) }}" method="post" enctype="multipart/form-data">
-                <a href="{{ route('home')}}"> <img class="logo-img" alt="logo" src="/img/logo.png"/> </a>
-                <p class="title"> Atualizar Projeto</p>
-                @csrf
-                @method('PUT')
-                <input type="hidden" name="id" value="{{ $project->id }}">
-                <input type="text" placeholder="Título" name="titulo" value="{{ old('titulo', $project->titulo) }}">
-                @error('titulo')
-                <span class="error-message">
-                    {{$message}}
-                </span>
-                @enderror
-                <label class="custom-file-upload" for="cover-file-upload">Capa do projeto
-                    <div id="cover-preview-wrapper"></div>
-                </label>
-                <input id="cover-file-upload" type="file" placeholder="Imagem da capa do projeto" name="imagem_capa">
-                @error('imagem_capa')
-                <span class="error-message">
-                    {{$message}}
-                </span>
-                @enderror
-                <label class="custom-file-upload" for="body-imgs-upload"><div id="body-imgs-upload-label-text">Imagens do corpo do projeto</div><div id="images-preview-wrapper"></div>
-                </label>
-                <input id="body-imgs-upload" type="file" name="imagens[]"  multiple>
-                @error('imagens')
-                <span class="error-message">
-                    {{$message}}
-                </span>
-                @enderror
-                @error('imagens.*')
-                <span class="error-message">
-                    {{$message}}
-                </span>
-                @enderror
-                <input type="text" placeholder="Ferramentas" name="ferramentas"
-                       value="{{ old('ferramentas', $project->ferramentas) }}">
-                @error('ferramentas')
-                <span class="error-message">
-                    {{$message}}
-                </span>
-                @enderror
-                <textarea class="textar" placeholder="Descricao"
-                          name="descricao">{{ old('descricao', $project->descricao) }}</textarea>
-                @error('descricao')
-                <span class="error-message">
-                    {{$message}}
-                </span>
-                @enderror
-                <input type="text" placeholder="Tags" name="tags" value="{{ old('tags', $project->tags) }}">
-                @error('tags')
-                <span class="error-message">
-                    {{$message}}
-                </span>
-                @enderror
-                <label id="project-file-upload-label" class="custom-file-project-upload" for="file-upload">Arquivo do projeto</label>
-                <input id="file-upload" type="file" placeholder="Arquivo do projeto" name="arquivo">
-                @error('arquivo')
-                <span class="error-message">
-                    {{$message}}
-                </span>
-                @enderror
-                <input id="delete-file-project" type="hidden" name="apagar_arquivo" value=''>
-                <div class="custom-check">
-                    <p>Tornar arquivo privado?</p>
-                    <div class="checkbox-wrapper-55">
-                        <label class="rocker rocker-small">
-                            <input type="checkbox" name="arquivo_publico" {{ $project->arquivo_publico ? 'checked' : '' }} >
-                            <span class="switch-left">Yes</span>
-                            <span class="switch-right">No</span>
-                        </label>
-                    </div>
-                </div>
-                @error('arquivo_publico')
-                <span class="error-message">
-                    {{$message}}
-                </span>
-                @enderror
 
-                <button type="submit">Atualizar</button>
-                <p class="message"><a href="" onclick="closeModal('box-edit-project')">Voltar para o Projeto</a></p>
-            </form>
         </div>
     </div>
+
+</dialog>
+
+<div class="modal fade" id="editProjectModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Projeto</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form  class="forms" action="{{ route('project.update', $project->id) }}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+
+                    <input type="hidden" name="id" value="{{ $project->id }}">
+                    <div class="input-group mb-3">
+                        <input class="form-control form-control-lg bg-light fs-6 custom-file-upload" type="text" placeholder="Título" name="titulo" value="{{ old('titulo', $project->titulo) }}">
+                    </div>
+                    @error('titulo')
+                    <span class="error-message">
+                    {{$message}}
+                </span>
+                    @enderror
+                    <div class="input-group">
+                        <label class="form-control form-control-lg bg-light fs-6 custom-file-upload" for="cover-file-upload">Capa do projeto
+                            <div id="cover-preview-wrapper"> </div>
+                        </label>
+                    </div>
+
+                    <input  style="visibility: hidden" id="cover-file-upload" type="file" placeholder="Imagem da capa do projeto" name="imagem_capa">
+                    @error('imagem_capa')
+                    <span class="error-message">
+                    {{$message}}
+                </span>
+                    @enderror
+                    <div class="input-group">
+                        <label class="form-control form-control-lg bg-light fs-6 custom-file-upload" for="body-imgs-upload"><div id="body-imgs-upload-label-text">Imagens do corpo do projeto</div><div id="images-preview-wrapper"></div>
+                        </label>
+                    </div>
+
+                    <input style="visibility: hidden" id="body-imgs-upload" type="file" name="imagens[]"  multiple>
+                    @error('imagens')
+                    <span class="error-message">
+                    {{$message}}
+                </span>
+                    @enderror
+                    @error('imagens.*')
+                    <span class="error-message">
+                    {{$message}}
+                </span>
+                    @enderror
+                    <div class="input-group mb-3">
+                        <input class="form-control form-control-lg bg-light fs-6 custom-file-upload" type="text" placeholder="Ferramentas" name="ferramentas" value="{{ old('ferramentas', $project->ferramentas) }}">
+                    </div>
+
+                    @error('ferramentas')
+                    <span class="error-message">
+                    {{$message}}
+                </span>
+                    @enderror
+                    <div class="input-group mb-3">
+                        <textarea class="form-control form-control-lg bg-light fs-6 custom-file-upload" type="text" placeholder="Descricao" name="descricao">{{ old('descricao', $project->descricao) }}</textarea>
+                    </div>
+
+                    @error('descricao')
+                    <span class="error-message">
+                    {{$message}}
+                </span>
+                    @enderror
+                    <div class="input-group mb-3">
+                        <input  class="form-control form-control-lg bg-light fs-6 custom-file-upload" type="text" placeholder="Tags" name="tags" value="{{ old('tags', $project->tags) }}">
+                    </div>
+
+                    @error('tags')
+                    <span class="error-message">
+                    {{$message}}
+                </span>
+                    @enderror
+
+                    <div class="input-group mb-3">
+                        <label id="project-file-upload-label"  class="form-control form-control-lg bg-light fs-6 custom-file-upload" for="file-upload">Arquivo do projeto</label>
+                    </div>
+                        <input style="visibility: hidden"  id="file-upload" type="file" placeholder="Arquivo do projeto" name="arquivo">
+                    @error('arquivo')
+                    <span class="error-message">
+                    {{$message}}
+                </span>
+                    @enderror
+                    <input id="delete-file-project" type="hidden" name="apagar_arquivo" value=''>
+                    <div class="input-group d-flex justify-content-center">
+                        <div class="form-check form-switch ">
+                            <input id="flexSwitchCheckDefault" class="form-check-input"  type="checkbox" name="arquivo_publico" {{ $project->arquivo_publico ? 'checked' : '' }} >
+                            <label class="form-check-label" for="flexSwitchCheckDefault">Visibilidade do Arquivo</label>
+                        </div>
+                    </div>
+
+                    @error('arquivo_publico')
+                    <span class="error-message">
+                    {{$message}}
+                </span>
+                    @enderror
+                    <div class="modal-footer">
+                        <button  class="btn btn-secondary"  type="submit">Atualizar</button>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+
     <script>
         let project
         let savedImages
@@ -105,7 +139,7 @@
             //         <input id="file-upload" type="file" placeholder="Arquivo do projeto" name="arquivo">`
             let projectName = `${project.arquivo}`.slice(11)
             if(project.arquivo){
-                document.getElementById('project-file-upload-label').innerHTML = `<div id="project-file-upload-label-text">Arquivo do projeto</div><div id="file-preview" onmouseover="showFileDeleteMessage()" onmouseout="hideFileDeleteMessage()"><img class="file-icon-create-project" src="/img/file-icon.png">${projectName}</div>`
+                document.getElementById('project-file-upload-label').innerHTML = `<div id="project-file-upload-label-text">Arquivo do projeto</div><div id="file-preview" onmouseover="showFileDeleteMessage()" onmouseout="hideFileDeleteMessage()">${projectName}</div>`
             }
             let filePreview = document.getElementById('file-preview');
             filePreview.addEventListener('click', () => {
@@ -196,7 +230,7 @@
         let fileInput = document.getElementById("file-upload");
         fileInput.addEventListener('change', () => {
             if(fileInput.files.length > 0) {
-                document.getElementById('project-file-upload-label').innerHTML = `<div id="project-file-upload-label-text">Arquivo do projeto</div><div id="file-preview" onmouseover="showFileDeleteMessage()" onmouseout="hideFileDeleteMessage()"><img class="file-icon-create-project" src="/img/file-icon.png">${fileInput.files[0].name}</div>`
+                document.getElementById('project-file-upload-label').innerHTML = `<div id="project-file-upload-label-text">Arquivo do projeto</div><div id="file-preview" onmouseover="showFileDeleteMessage()" onmouseout="hideFileDeleteMessage()">${fileInput.files[0].name}</div>`
             }
             let filePreview = document.getElementById('file-preview');
             filePreview.addEventListener('click', () => {
@@ -215,4 +249,4 @@
             document.getElementById("project-file-upload-label-text").innerText = "Arquivo do projeto"
         }
     </script>
-</dialog>
+</div>

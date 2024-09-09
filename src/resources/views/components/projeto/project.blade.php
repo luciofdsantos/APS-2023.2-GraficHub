@@ -1,7 +1,8 @@
+<!--
 <div class="project-main-content">
 
 
-    <x-projeto.side-bar-projeto :project="$project"/>
+
 
     <div class="project-images">
         <div class="carousel-container">
@@ -53,3 +54,7 @@
 
     </div>
 </div>
+-->
+<body>
+ <x-projeto.side-bar-projeto :project="$project"/>
+</body>
