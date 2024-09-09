@@ -13,7 +13,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.min.css" rel="stylesheet">
 </head>
-<body>
+<body style="background:  url(/img/homebck.jpg) no-repeat center;
+    background-size: cover;
+    width: 100%;
+    height: 40vh;
+    min-height: 400px;">
 <x-nav-bar/>
     @if (session()->has('success'))
         {{ session()->get('sucess') }}
