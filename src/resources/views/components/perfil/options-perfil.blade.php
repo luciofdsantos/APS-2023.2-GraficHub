@@ -9,7 +9,7 @@
         @endif
 
 
-        <button id = "edt-btn" onclick="openModal('box-edit-profile')" class="btn btn-outline-warning">Editar Perfil</button>
+        <button id = "edt-btn"  class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#EditProfileModal">Editar Perfil</button>
         <a  id="remove-color" class="btn btn-outline-danger" onclick="confirmLogout(event)" href ="{{route('auth.logout')}}">LogOut</a>
 
     @else
