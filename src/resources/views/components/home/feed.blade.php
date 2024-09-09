@@ -58,20 +58,19 @@
 
             @endforeach
         </div>
-        <div style=" width: 50vh; min-width: 625px;" class="border info-feed-bot container mb-4">
+        <div style=" width: 50vh; min-width: 625px;" class="border info-feed-bot container mb-4 p-10">
             <div class="row">
-                <h1 style="font-size: 20px">{{$project->titulo}}</h1>
+                <strong> <a href="{{ route('project.show', $project->id) }}" style="color: black; text-decoration:none;font-size: 20px">{{$project->titulo}}</a></strong>
             </div>
             <div class="row ">
                 <div class="d-flex gap-2 option-feed">
-                                <i class="bi bi-heart"></i>
-                                <i class="bi bi-bookmark"></i>
+                    <i class="bi bi-heart"></i>
+                    <i class="bi bi-bookmark"></i>
                 </div>
             </div>
             <div class="row">
-                <p style="font-size: 14px">{{$project->descricao}}</p>
+                <p style="font-size: 14px; text-align: justify">{{$project->descricao}}</p>
             </div>
-
         </div>
 
     </div>

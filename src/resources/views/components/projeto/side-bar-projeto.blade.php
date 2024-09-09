@@ -97,7 +97,6 @@ Button with data-bs-target
                 <button style="width: 100%; margin-top: 5px; border-color: white; color: white" type="button" id="remove-color" class="btn btn-outline-danger" onclick="confirmDeletion()">Excluir</button>
             </form>
         @else
-
             @if($project->arquivo != null && $project->arquivo_publico)
                 <a class="nav-link text-white" href="{{ asset('storage/arquivos/'. $project->user_id . '/' . $project->id . '/' . $project->arquivo)}}" download="FileProject">Arquivo do projeto</a>
             @endif
