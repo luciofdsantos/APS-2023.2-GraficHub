@@ -1,9 +1,13 @@
-<dialog id="box-fone">
-    <div><a  class="close-modal" onclick="closeModal('box-fone')"><img class="close-modal-img" src="/img/cruz.png"></a></div>
-    <div class="contact-container">
-        <div class="content-contact">
-            <img class="icon" src="/img/fone.png" alt="fone icon">
-            <div class="text-box"><p class="fone-text"> {{ $user->numero_telefone }}</p></div>
+<div class="modal fade" id="foneModal" tabindex="-1" aria-labelledby="foneModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Telefone</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                {{ $user->numero_telefone }}
+            </div>
         </div>
     </div>
-</dialog>
+</div>

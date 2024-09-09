@@ -72,8 +72,8 @@
                    <div class="row d-flex">
                        <div class="container d-flex justify-content-center align-items-center ">
                            @if(auth()->id() != $user['id'])
-                               <button onclick="openModal('box-fone')"  class="btn btn-outline"> <i class="bi bi-telephone"> </i> </button>
-                               <button onclick="openModal('box-email')" class="btn btn-outline"> <i class="bi bi-envelope"></i> </button>
+                               <button  class="btn btn-outline" data-bs-toggle="modal" data-bs-target="#foneModal"> <i class="bi bi-telephone"> </i> </button>
+                               <button  class="btn btn-outline" data-bs-toggle="modal" data-bs-target="#mailModal"> <i class="bi bi-envelope"></i> </button>
                            @endif
                        </div>
                    </div>
