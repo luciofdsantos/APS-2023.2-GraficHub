@@ -1,17 +1,10 @@
-<dialog id ="box-edit-profile">
-    <div class="user-form-container">
-        <div class="main">
-
-        </div>
-    </div>
-</dialog>
 
 <!-- Modal -->
-<div class="modal fade" id="EditProfileModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="EditProfileModal" tabindex="-1" aria-labelledby="EditProfileModal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Atualizar Dados</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Criar Projeto</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -75,7 +68,6 @@
                     <div class="modal-footer">
                         <button onclick="setModal('box-edit-profile')" class="btn btn-secondary" type="submit">Atualizar</button>
                     </div>
-
                 </form>
             </div>
 

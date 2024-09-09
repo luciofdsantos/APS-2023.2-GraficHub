@@ -521,3 +521,27 @@ html, body {
 span {
     color: red;
 }
+
+/*Modal create project*/
+#images-preview-wrapper div{
+    margin-top: 20px;
+    width: 100%;
+}
+
+#cover-preview-wrapper div{
+    margin-top: 20px;
+    width: 100%;
+}
+
+.img-preview-wrapper{
+    position: relative;
+    height: 100px;
+    width: 100px;
+}
+
+.img-preview{
+    height:100px;
+}
+#body-project-img{
+    margin-bottom: 100px;
+}
