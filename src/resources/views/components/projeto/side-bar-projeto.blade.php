@@ -109,9 +109,9 @@ Button with data-bs-target
     <div class="dropdown">
         <a href="{{ route('user.perfil', $project->user->apelido) }}" class="d-flex align-items-center text-white text-decoration-none " >
             @if($project->user->foto != null)
-                <img  alt="" width="32" height="32" class="rounded-circle me-2" src="{{ asset('storage/arquivos/'. $project->user_id . '/' . $project->user->foto)}}">
+                <img  alt="" width="32" height="32" class="img-comment me-2" src="{{ asset('storage/arquivos/'. $project->user_id . '/' . $project->user->foto)}}">
             @else
-                <img  alt="" width="32" height="32" class="rounded-circle me-2" src="/img/profile-img.png" alt="profile pic" />
+                <img  alt="" width="32" height="32" class="img-comment me-2" src="/img/profile-img.png" alt="profile pic" />
             @endif
             <strong>{{ $project->user->apelido }}</strong>
         </a>
