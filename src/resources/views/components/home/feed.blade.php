@@ -64,8 +64,8 @@
             </div>
             <div class="row ">
                 <div class="d-flex gap-2 option-feed">
-                    <i class="bi bi-heart"></i>
-                    <i class="bi bi-bookmark"></i>
+                    <a style="text-decoration: none" href="/" onclick="btnFavChangeColor('fav',)"><i style="background-color: transparent" id="fav" class="bi bi-heart  text-danger"></i></a>
+                    <a style="text-decoration: none" href="/" onclick="btnSaveChangeColor('save')"><i style="background-color: transparent" id="save" class="bi bi-bookmark text-warning"></i></a>
                 </div>
             </div>
             <div class="row">

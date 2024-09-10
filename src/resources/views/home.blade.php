@@ -18,6 +18,7 @@
 <body class="mainhome" style="background: var(--GrayishWhite)">
 
     <script src="/js/home.js"></script>
+    <script src="/js/functions.js"></script>
     <x-nav-bar/>
     <section class="hero-section">
         <div class="container d-flex  justify-content-center fs-1 text-white flex-column">

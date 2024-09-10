@@ -143,3 +143,19 @@ function setDirectionFollow(followdirect){
 function resetDirectionFollow(){
     localStorage.setItem('followdirection','null');
 }
+
+function btnFavChangeColor(btn){
+    if(document.getElementById(btn).classList.contains('hold')){
+        document.getElementById(btn).className = "bi bi-heart text-danger";
+    }else{
+        document.getElementById(btn).className = "bi bi-heart-fill text-danger hold";
+    }
+}
+
+function btnSaveChangeColor(btn){
+    if(document.getElementById(btn).classList.contains('hold')){
+        document.getElementById(btn).className = "bi bi-bookmark text-warning";
+    }else{
+        document.getElementById(btn).className = "bi bi-bookmark-fill text-warning hold";
+    }
+}
