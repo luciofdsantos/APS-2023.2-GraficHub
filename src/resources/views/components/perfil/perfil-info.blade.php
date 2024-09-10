@@ -58,8 +58,8 @@
 
                    <div class="row d-flex">
                        <div class="container d-flex justify-content-center align-items-center">
-                           <button onclick="openModal('box-show-followeds'); setDirectionFollow('followed');" class=" btn btn-outline" type="submit"> {{ $user->num_seguidores }} <heavy style ="font-weight: 600"> @if(  $user->num_seguidores ==1)Seguidor @else Seguidores @endif </heavy> </button>
-                           <button onclick="openModal('box-show-followers'); setDirectionFollow('follower');" class="btn btn-outline" type="submit"> {{ $user->num_seguindo }} <heavy style ="font-weight: 600"> Seguindo</heavy>   </button>
+                           <button data-bs-toggle="modal" data-bs-target="#seguidoresModal" onclick=" setDirectionFollow('followed');" class=" btn btn-outline" type="submit"> {{ $user->num_seguidores }} <heavy style ="font-weight: 600"> @if(  $user->num_seguidores ==1)Seguidor @else Seguidores @endif </heavy> </button>
+                           <button data-bs-toggle="modal" data-bs-target="#seguindoModal" onclick=" setDirectionFollow('follower');" class="btn btn-outline" type="submit"> {{ $user->num_seguindo }} <heavy style ="font-weight: 600"> Seguindo</heavy>   </button>
                        </div>
                    </div>
 
@@ -91,7 +91,7 @@
         </form>
 
         <form action="{{route('user.favoritos', $user->apelido)}}" method="get">
-            <button  id="fav" class="btn btn-primary" type="submit">Favoritos <i style="justify-self: auto" class="bi bi-bookmark"></i></button>
+            <button  id="fav" class="btn btn-outline-danger" type="submit">Favoritos <i style="justify-self: auto" class="bi bi-bookmark"></i></button>
         </form>
     </div>
     </div>
