@@ -545,3 +545,12 @@ span {
 #body-project-img{
     margin-bottom: 100px;
 }
+
+/* Project coments*/
+.img-comment{
+    width: 30px; /* width of container */
+    height: 30px; /* height of container */
+    object-fit: cover;
+    object-position: 15% 40%; /* try 20px 10px */
+    border-radius: 100px;
+}

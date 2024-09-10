@@ -84,9 +84,8 @@ Button with data-bs-target
                 <li>
                     <a class="nav-link text-white" href="{{ asset('storage/arquivos/'. $project->user_id . '/' . $project->id . '/' . $project->arquivo)}}" download="FileProject">Arquivo do projeto</a>
                 </li>
-                <button style="width: 100%; margin-top: 5px; border-color: white; color: white" type="button"  class="btn btn-outline"  data-bs-toggle="modal" data-bs-target="#exampleModal" >Comentários </button>
             @endif
-
+                <button style="width: 100%; margin-top: 5px; border-color: white; color: white" type="button"  class="btn btn-outline"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasComments" >Comentários </button>
                 <button  style="width: 100%; margin-top: 5px; border-color: white; color: white" type="button" id = "edt-btn"  class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#editProjectModal">
                     Editar
                 </button>
@@ -100,7 +99,7 @@ Button with data-bs-target
             @if($project->arquivo != null && $project->arquivo_publico)
                 <a class="nav-link text-white" href="{{ asset('storage/arquivos/'. $project->user_id . '/' . $project->id . '/' . $project->arquivo)}}" download="FileProject">Arquivo do projeto</a>
             @endif
-                <button style="width: 100%; margin-top: 5px; border-color: white; color: white" type="button"  class="btn btn-outline"  data-bs-toggle="modal" data-bs-target="#exampleModal" >Comentários </button>
+                <button style="width: 100%; margin-top: 5px; border-color: white; color: white" type="button"  class="btn btn-outline"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasComments" >Comentários </button>
         @endif
 
 

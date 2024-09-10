@@ -37,7 +37,7 @@
         <div class="row g-0 text-center">
             <div  class=" d-flex flex-column col-4 col-md-2 align-items-center gap-2 ">
                 @if($user['foto'] != null)
-                    <img class="img-holder " src="{{ asset('storage/arquivos/'. $user['id'] . '/' . $user['foto']) }}" alt="foto perfil">
+                    <img class="img-holder" src="{{ asset('storage/arquivos/'. $user['id'] . '/' . $user['foto']) }}" alt="foto perfil">
                 @else
                     <img class="img-holder" src="/img/profile-img.png" alt="profile pic" />
                 @endif
