@@ -38,7 +38,7 @@ Button with data-bs-target
 </div>
 -->
 
-<div class=" d-flex flex-column flex-shrink-0 p-3  text-bg-dark"  style=" overflow-y: auto;height: 100vh;width: 280px;">
+<div class=" d-flex flex-column flex-shrink-0 p-3  text-bg-dark"  style=" overflow-y: auto;min-height: 900px; height: 100vh;width: 280px;">
     <div style="margin-top:70px;">
     </div>
     <hr>
@@ -82,7 +82,7 @@ Button with data-bs-target
         @if(auth()->id() == $project->user_id)
             @if($project->arquivo != null)
                 <li>
-                    <a class="nav-link text-white" href="{{ asset('storage/arquivos/'. $project->user_id . '/' . $project->id . '/' . $project->arquivo)}}" download="FileProject">Arquivo do projeto</a>
+                    <a class="nav-link text-white" href="{{ asset('storage/arquivos/'. $project->user_id . '/' . $project->id . '/' . $project->arquivo)}}" download="FileProject"><i style="font-size: 20px" class=" bi bi-file-earmark-arrow-down"></i> Arquivo do projeto </a>
                 </li>
             @endif
                 <button style="width: 100%; margin-top: 5px; border-color: white; color: white" type="button"  class="btn btn-outline"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasComments" >Comentários </button>
@@ -97,7 +97,7 @@ Button with data-bs-target
             </form>
         @else
             @if($project->arquivo != null && $project->arquivo_publico)
-                <a class="nav-link text-white" href="{{ asset('storage/arquivos/'. $project->user_id . '/' . $project->id . '/' . $project->arquivo)}}" download="FileProject">Arquivo do projeto</a>
+                <a class="nav-link text-white" href="{{ asset('storage/arquivos/'. $project->user_id . '/' . $project->id . '/' . $project->arquivo)}}" download="FileProject"><i style="font-size: 20px" class=" bi bi-file-earmark-arrow-down"></i> Arquivo do projeto </a>
             @endif
                 <button style="width: 100%; margin-top: 5px; border-color: white; color: white" type="button"  class="btn btn-outline"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasComments" >Comentários </button>
         @endif
