@@ -1,18 +1,15 @@
-<dialog id="box-edit-project">
-    <div class="project-form-container">
-        <div class="main">
-
-        </div>
-    </div>
-
-</dialog>
 
 <div class="modal fade" id="editProjectModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <script>
+        function closeModal() {
+            $('#editProjectModal').modal('hide');  // Hides the modal
+        }
+    </script>
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Projeto</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button onclick="closeModal(); resetModal();" type="button" class="btn-close" data-dismiss="modal"></button>
             </div>
             <div class="modal-body">
                 <form  class="forms" action="{{ route('project.update', $project->id) }}" method="post" enctype="multipart/form-data">
@@ -30,7 +27,7 @@
                     @enderror
                     <div class="input-group">
                         <label class="form-control form-control-lg bg-light fs-6 custom-file-upload" for="cover-file-upload">Capa do projeto
-                            <div id="cover-preview-wrapper"> </div>
+                            <div style="margin-top: 20px" id="cover-preview-wrapper"> </div>
                         </label>
                     </div>
 
@@ -40,7 +37,7 @@
                     {{$message}}
                 </span>
                     @enderror
-                    <div class="input-group">
+                    <div   class="input-group">
                         <label class="form-control form-control-lg bg-light fs-6 custom-file-upload" for="body-imgs-upload"><div id="body-imgs-upload-label-text">Imagens do corpo do projeto</div><div id="images-preview-wrapper"></div>
                         </label>
                     </div>

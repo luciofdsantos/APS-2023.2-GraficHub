@@ -8,7 +8,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Criar projeto</h1>
                 <button onclick="closeModal(); resetModal();" type="button" class="btn-close" data-dismiss="modal"></button>
             </div>
             <div class="modal-body">

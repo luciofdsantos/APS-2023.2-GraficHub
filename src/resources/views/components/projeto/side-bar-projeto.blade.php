@@ -85,8 +85,8 @@ Button with data-bs-target
                     <a class="nav-link text-white" href="{{ asset('storage/arquivos/'. $project->user_id . '/' . $project->id . '/' . $project->arquivo)}}" download="FileProject"><i style="font-size: 20px" class=" bi bi-file-earmark-arrow-down"></i> Arquivo do projeto </a>
                 </li>
             @endif
-                <button style="width: 100%; margin-top: 5px; border-color: white; color: white" type="button"  class="btn btn-outline"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasComments" >Comentários </button>
-                <button  style="width: 100%; margin-top: 5px; border-color: white; color: white" type="button" id = "edt-btn"  class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#editProjectModal">
+                <button  onclick="setModal('offcanvasComments')" style="width: 100%; margin-top: 5px; border-color: white; color: white" type="button"  class="btn btn-outline"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasComments" >Comentários </button>
+                <button  onclick="setModal('editProjectModal')" style="width: 100%; margin-top: 5px; border-color: white; color: white" type="button" id = "edt-btn"  class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#editProjectModal">
                     Editar
                 </button>
 
@@ -99,7 +99,7 @@ Button with data-bs-target
             @if($project->arquivo != null && $project->arquivo_publico)
                 <a class="nav-link text-white" href="{{ asset('storage/arquivos/'. $project->user_id . '/' . $project->id . '/' . $project->arquivo)}}" download="FileProject"><i style="font-size: 20px" class=" bi bi-file-earmark-arrow-down"></i> Arquivo do projeto </a>
             @endif
-                <button style="width: 100%; margin-top: 5px; border-color: white; color: white" type="button"  class="btn btn-outline"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasComments" >Comentários </button>
+                <button onclick="setModal('offcanvasComments')" style="width: 100%; margin-top: 5px; border-color: white; color: white" type="button"  class="btn btn-outline"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasComments" >Comentários </button>
         @endif
 
 

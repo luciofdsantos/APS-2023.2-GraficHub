@@ -14,14 +14,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.min.css" rel="stylesheet">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap 5 CSS -->
+
+
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.min.css" rel="stylesheet">
 
 </head>
     <body @if(!$errors->any())  onload="resetModal()" @endif class="perfil-section" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(../img/perfil-bc.jpg)  center ;">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script >
         document.addEventListener('DOMContentLoaded', function() {
             if (localStorage.getItem('lastModal') == 'seguidoresModal') {
@@ -31,13 +32,12 @@
                 $('#seguindoModal').modal('show');
             } else if (localStorage.getItem('lastModal') == 'EditProfileModal') {
                 @if($errors->any())  onload="resetModal()"
-                    $('#EditProfileModal').modal('show');
+                $('#EditProfileModal').modal('show');
                 @endif
             } else if (localStorage.getItem('lastModal') == 'createProjectModal') {
                 @if($errors->any())  onload="resetModal()"
-                    $('#createProjectModal').modal('show');
+                $('#createProjectModal').modal('show');
                 @endif
-
             }
         });
 
@@ -53,7 +53,6 @@
         <x-perfil.modal-fone-usuario :user="$user"/>
         <x-perfil.modal-email-usuario :user="$user"/>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     </body>
 </html>
 
