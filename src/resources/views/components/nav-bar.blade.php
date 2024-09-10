@@ -57,9 +57,9 @@
             <a href="{{ route('user.perfil', auth()->user()->apelido)  }}">
             <div class="profile-button">
                 @if(auth()->check() && auth()->user()->foto != null)
-                    <img class="profile-pic" src="{{ asset('storage/arquivos/'. auth()->id() . '/' . auth()->user()->foto) }}" alt="profile pic" />
+                    <img style="height: 26px; width: 24px" class="img-comment" src="{{ asset('storage/arquivos/'. auth()->id() . '/' . auth()->user()->foto) }}" alt="profile pic" />
                 @else
-                    <img class="profile-pic" src="/img/profile-img.png" alt="profile pic" />
+                    <img style="height: 26px; width: 24px"  class="img-comment" src="/img/profile-img.png" alt="profile pic" />
                @endif
                     <a  href="{{ route('user.perfil', auth()->user()->apelido)  }}">{{ auth()->user()->apelido }}</a>
             </div>
