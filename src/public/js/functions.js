@@ -47,16 +47,15 @@ function confirmLogout(event) {
         }
     });
 }
+function closeModal(id){
 
-function openModal(name){
-    document.getElementById(name).showModal();
-}
-function closeModal(name){
-    document.getElementById(name).close();
 }
 
 function setModal(name){
     localStorage.setItem('lastModal',name);
+}
+function resetModal(){
+    localStorage.setItem('lastModal','null');
 }
 
 function setFavoritos(response){

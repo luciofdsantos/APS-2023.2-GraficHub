@@ -1,10 +1,15 @@
 
 <div class="modal fade" id="createProjectModal" tabindex="-1" aria-labelledby="createProjectModal" aria-hidden="true">
+    <script>
+        function closeModal() {
+            $('#createProjectModal').modal('hide');  // Hides the modal
+        }
+    </script>
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button onclick="closeModal(); resetModal();" type="button" class="btn-close" data-dismiss="modal"></button>
             </div>
             <div class="modal-body">
                 <form  class="forms" action="{{route('project.store')}}" method="post" enctype="multipart/form-data">
@@ -87,7 +92,7 @@
             </span>
                     @enderror
                     <div class="modal-footer">
-                        <button  class="btn btn-secondary" onclick="setModal('box-create-project')" id="create-project-btn" type="submit">Criar projeto</button>
+                        <button  class="btn btn-secondary" id="create-project-btn" type="submit">Criar projeto</button>
                     </div>
                 </form>
             </div>

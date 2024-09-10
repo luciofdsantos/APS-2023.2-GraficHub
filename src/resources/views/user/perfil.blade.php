@@ -18,22 +18,29 @@
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.min.css" rel="stylesheet">
 
 </head>
-    <body class="perfil-section" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(../img/perfil-bc.jpg)  center ;">
+    <body @if(!$errors->any())  onload="resetModal()" @endif class="perfil-section" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(../img/perfil-bc.jpg)  center ;">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script >
-        if( localStorage.getItem('followdirection') == 'followed'){
-            document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function() {
+            if (localStorage.getItem('lastModal') == 'seguidoresModal') {
+                $('#seguidoresModal').modal('show');
 
-                openModal('box-show-followeds');
-            });
-            console.log( localStorage.getItem('followdirection'));
-        }
-        else if(localStorage.getItem('followdirection') == 'follower'){
-            document.addEventListener('DOMContentLoaded', function() {
+            } else if (localStorage.getItem('lastModal') == 'seguindoModal') {
+                $('#seguindoModal').modal('show');
+            } else if (localStorage.getItem('lastModal') == 'EditProfileModal') {
+                @if($errors->any())  onload="resetModal()"
+                    $('#EditProfileModal').modal('show');
+                @endif
+            } else if (localStorage.getItem('lastModal') == 'createProjectModal') {
+                @if($errors->any())  onload="resetModal()"
+                    $('#createProjectModal').modal('show');
+                @endif
 
-                openModal('box-show-followers');
-            });
-            console.log( localStorage.getItem('followdirection'));
-        }
+            }
+        });
+
     </script>
         <section class="navbar-section">
             <x-nav-bar/>
@@ -45,6 +52,7 @@
         <x-perfil.modal-seguidos :seguindo="$seguindo" :userPerfil="$user"/>
         <x-perfil.modal-fone-usuario :user="$user"/>
         <x-perfil.modal-email-usuario :user="$user"/>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     </body>
 </html>

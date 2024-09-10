@@ -11,12 +11,17 @@
     </div>
 </dialog>
 
-<div class="modal fade" id="seguindoModal" tabindex="-1" aria-labelledby="seguindoModallabel" aria-hidden="true">
+<div class="modal fade" id="seguindoModal" tabindex="-1" aria-labelledby="seguindoModallabel" aria-hidden="true">    <script>
+        function closeModal() {
+            $('#seguindoModal').modal('hide');  // Hides the modal
+        }
+    </script>
+
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Seguindo</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button onclick="closeModal(); resetModal();" type="button" class="btn-close" data-dismiss="modal"></button>
             </div>
             <div class="modal-body">
                 @foreach($seguindo as $follower)

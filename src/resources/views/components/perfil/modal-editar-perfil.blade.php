@@ -1,11 +1,16 @@
 
 <!-- Modal -->
 <div class="modal fade" id="EditProfileModal" tabindex="-1" aria-labelledby="EditProfileModal" aria-hidden="true">
+    <script>
+        function closeModal() {
+            $('#EditProfileModal').modal('hide');  // Hides the modal
+        }
+    </script>
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Criar Projeto</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button onclick="closeModal(); resetModal();" type="button" class="btn-close" data-dismiss="modal"></button>
             </div>
             <div class="modal-body">
                 <form class="forms" action="{{ route('user.update', $user['apelido']) }}" method="post" enctype="multipart/form-data">
@@ -66,7 +71,7 @@
                 </span>
                     @enderror
                     <div class="modal-footer">
-                        <button onclick="setModal('box-edit-profile')" class="btn btn-secondary" type="submit">Atualizar</button>
+                        <button  class="btn btn-secondary" type="submit">Atualizar</button>
                     </div>
                 </form>
             </div>

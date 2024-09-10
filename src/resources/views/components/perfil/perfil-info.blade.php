@@ -58,8 +58,8 @@
 
                    <div class="row d-flex">
                        <div class="container d-flex justify-content-center align-items-center">
-                           <button data-bs-toggle="modal" data-bs-target="#seguidoresModal" onclick=" setDirectionFollow('followed');" class=" btn btn-outline" type="submit"> {{ $user->num_seguidores }} <heavy style ="font-weight: 600"> @if(  $user->num_seguidores ==1)Seguidor @else Seguidores @endif </heavy> </button>
-                           <button data-bs-toggle="modal" data-bs-target="#seguindoModal" onclick=" setDirectionFollow('follower');" class="btn btn-outline" type="submit"> {{ $user->num_seguindo }} <heavy style ="font-weight: 600"> Seguindo</heavy>   </button>
+                           <button data-bs-toggle="modal" data-bs-target="#seguidoresModal" onclick="setModal('seguidoresModal');" class=" btn btn-outline" type="submit"> {{ $user->num_seguidores }} <heavy style ="font-weight: 600"> @if(  $user->num_seguidores ==1)Seguidor @else Seguidores @endif </heavy> </button>
+                           <button data-bs-toggle="modal" data-bs-target="#seguindoModal" onclick=" setModal('seguindoModal');" class="btn btn-outline" type="submit"> {{ $user->num_seguindo }} <heavy style ="font-weight: 600"> Seguindo</heavy>   </button>
                        </div>
                    </div>
 
