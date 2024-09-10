@@ -55,6 +55,60 @@
     </div>
 </div>
 -->
-<body>
+<body  style="min-width: 1350px" class="d-flex">
  <x-projeto.side-bar-projeto :project="$project"/>
-</body>
+
+ <div style="margin-top:90px;" class="container justify-content-center align-items-center ">
+         <div id="carouselExample{{$project->id}}" class="carousel slide d-flex flex-column justify-content-center align-items-center">
+              <div  style="width: 50vh;height: 62.5vh;" class=" d-flex  carousel-inner">
+                 <div class="border carousel-item  active">
+                     <img src="{{ asset('storage/arquivos/' . $project->user_id . '/' . $project->id . '/' . $project->imagem_capa) }}" class="d-block  img-feed" alt="...">
+                 </div>
+                 @foreach($project->imagesProjects()->get() as $image)
+                     <div class=" border carousel-item">
+                         <img class="img-feed d-block  img-feed" src="{{ asset('storage/arquivos/'. $project->user_id . '/' . $project->id . '/' .'imgs'.'/'.$image->name)}}" alt="">
+                     </div>
+                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample{{$project->id}}" data-bs-slide="prev">
+                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                         <span class="visually-hidden">Previous</span>
+                     </button>
+                     <button class="carousel-control-next" type="button" data-bs-target="#carouselExample{{$project->id}}" data-bs-slide="next">
+                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                         <span class="visually-hidden">Next</span>
+                     </button>
+                 @endforeach
+             </div>
+             <div style=" width: 50vh; min-width: 625px;" class="border info-feed-bot container mb-4 p-10">
+                 <div class="row">
+                     <div class="d-flex gap-2 option-feed">
+                         <i class="bi bi-heart"></i>
+                         <i class="bi bi-bookmark"></i>
+                     </div>
+                 </div>
+             </div>
+         </div>
+
+</div>
+
+ <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+     Launch demo modal
+ </button>
+
+ <!-- Modal -->
+ <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+             </div>
+             <div class="modal-body">
+                 ...
+             </div>
+             <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                 <button type="button" class="btn btn-primary">Save changes</button>
+             </div>
+         </div>
+     </div>
+ </div>
