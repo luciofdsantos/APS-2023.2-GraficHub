@@ -47,9 +47,6 @@ function confirmLogout(event) {
         }
     });
 }
-function closeModal(id){
-
-}
 
 function setModal(name){
     localStorage.setItem('lastModal',name);

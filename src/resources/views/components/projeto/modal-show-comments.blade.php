@@ -1,12 +1,12 @@
 <div style=" overflow-y: auto;height: 100vh;" class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasComments" aria-labelledby="offcanvasCommentsLabel">
     <script>
-        function closeModal() {
+        function closeOff() {
             $('#offcanvasComments').offcanvas('hide');  // Hides the modal
         }
     </script>
     <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasExampleLabel">Comentários</h5>
-        <button onclick="closeModal();resetModal()" type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <button onclick="closeOff();resetModal()" type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body" >
         <form class="forms" action="{{ route('comment.store')}}" method="post">

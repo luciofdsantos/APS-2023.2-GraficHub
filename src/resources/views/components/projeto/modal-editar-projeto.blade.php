@@ -1,15 +1,16 @@
 
 <div class="modal fade" id="editProjectModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <script>
-        function closeModal() {
-            $('#editProjectModal').modal('hide');  // Hides the modal
-        }
+            function closeModal1() {
+                $('#editProjectModal').modal('hide');
+            }
     </script>
+
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Projeto</h1>
-                <button onclick="closeModal(); resetModal();" type="button" class="btn-close" data-dismiss="modal"></button>
+                <button onclick="closeModal1(); resetModal();" type="button" class="btn-close" data-dismiss="modal"></button>
             </div>
             <div class="modal-body">
                 <form  class="forms" action="{{ route('project.update', $project->id) }}" method="post" enctype="multipart/form-data">

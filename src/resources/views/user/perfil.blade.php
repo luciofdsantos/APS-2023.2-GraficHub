@@ -20,8 +20,10 @@
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.min.css" rel="stylesheet">
 
 </head>
-    <body @if(!$errors->any())  onload="resetModal()" @endif class="perfil-section" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(../img/perfil-bc.jpg)  center ;">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> 
+    <body class="perfil-section" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(../img/perfil-bc.jpg)  center ;">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script >
         document.addEventListener('DOMContentLoaded', function() {
@@ -46,6 +48,7 @@
             <x-nav-bar/>
         </section>
         <x-perfil.perfil :user="$user" :projects="$projects" :favoritos="$favoritos"/>
+    <script src="{{ asset('js/functions.js') }}"></script>
         <x-perfil.modal-criar-projeto />
         <x-perfil.modal-editar-perfil :user="$user"/>
         <x-perfil.modal-seguidores :seguidores="$seguidores" :userPerfil="$user"/>

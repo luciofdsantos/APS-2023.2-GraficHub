@@ -1,27 +1,30 @@
 
-<div class="modal fade" id="createProjectModal" tabindex="-1" aria-labelledby="createProjectModal" aria-hidden="true">
-    <script>
-        function closeModal() {
-            $('#createProjectModal').modal('hide');  // Hides the modal
-        }
-    </script>
+<div class="modal fade" id="createProjectModal" tabindex="-1" aria-labelledby="createProjectModallabel" aria-hidden="true">
+
+
+
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Criar projeto</h1>
-                <button onclick="closeModal(); resetModal();" type="button" class="btn-close" data-dismiss="modal"></button>
+                <script>
+                    function closeModal1() {
+                        $('#createProjectModal').modal('hide');
+                    }
+                </script>
+                <button onclick="closeModal1(); resetModal();" type="button" class="btn-close" data-dismiss="modal"></button>
             </div>
             <div class="modal-body">
                 <form  class="forms" action="{{route('project.store')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="input-group mb-3">
                         <input class="form-control form-control-lg bg-light fs-6 custom-file-upload" type="text" placeholder="Título" name="titulo" value="{{ old('titulo') }}">
-                        @error('titulo')
-                            <span class="error-message">{{$message}}</span>
-                        @enderror
-                    </div>
 
-                    <div id ="body-project-img" class="input-group">
+                    </div>
+                    @error('titulo')
+                    <span class="error-message">{{$message}}</span>
+                    @enderror
+                    <div id ="body-project-img" class="input-group mb-3">
                         <label class="form-control form-control-lg bg-light fs-6 custom-file-upload" for="cover-file-upload">Capa do projeto<div id="cover-preview-wrapper"></div></label>
                     </div>
                      <input style="visibility: hidden" id="cover-file-upload" type="file" placeholder="Imagem da capa do projeto" name="imagem_capa">
@@ -30,7 +33,7 @@
                 {{$message}}
             </span>
                     @enderror
-                    <div id ="body-project-img" class="input-group ">
+                    <div id ="body-project-img" class="input-group mb-3 ">
                         <label  class="form-control form-control-lg bg-light fs-6 custom-file-upload"  for="body-imgs-upload"> <div id="body-imgs-upload-label-text">Imagens do corpo do projeto</div><div id="images-preview-wrapper"></div></label>
                     </div>
                      <input style="visibility: hidden" id="body-imgs-upload" type="file" name="imagens[]" multiple>
