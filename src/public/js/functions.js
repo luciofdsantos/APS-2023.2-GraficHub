@@ -2,14 +2,11 @@
 function showMessage(){
 
     document.getElementById("disp-info-text").innerHTML = `<div  onmouseover="showMessage()" onmouseout="hideMessage()" style=" padding: 20px">O estado de disponibilidade informa a outros usuários a sua disponibilidade em aceitar trabalhos. Clique para alterar.</div>`
-
 }
 
 function hideMessage(){
 
     document.getElementById("disp-info-text").innerHTML = ""
-
-
 }
 
 function confirmDeletion() {
@@ -55,87 +52,6 @@ function resetModal(){
     localStorage.setItem('lastModal','null');
 }
 
-function setFavoritos(response){
-    let favorites = response.data.favorites;
-    let favoriteFormatted = favorites;
-    if(favorites/1000000 >= 1){
-        favoriteFormatted = (favorites/1000000)%1 ? (favorites/1000000).toFixed(1) : favorites/1000000;
-        favoriteFormatted += 'M';
-    }else if(favorites/1000 >= 1){
-        favoriteFormatted = (favorites/1000)%1 ? (favorites/1000).toFixed(1) : favorites/1000;
-        favoriteFormatted += 'K';
-    }
-    document.getElementById('favorites-number').innerText = `${favoriteFormatted}`;
-}
-
-function setLikes(response){
-    let likes = response.data.likes;
-    let likesFormatted = likes;
-    if(likes/1000000 >= 1){
-        likesFormatted = (likes/1000000)%1 ? (likes/1000000).toFixed(1) : likes/1000000;
-        likesFormatted += 'M';
-    }else if(likes/1000 >= 1){
-        likesFormatted = (likes/1000)%1 ? (likes/1000).toFixed(1) : likes/1000;
-        likesFormatted += 'K';
-    }
-    document.getElementById('likes-number').innerText = `${likesFormatted}`;
-}
-
-window.addEventListener('load', () => {
-    let favoriteBox = document.getElementById('favorite-checkbox');
-    axios.get(`http://localhost:8000/project/favorito/${favoriteBox.name}`)
-        .then(response => {
-            favoriteBox.checked = response.data.isFavorito;
-            setFavoritos(response);
-        })
-        .catch((err) => console.log(err));
-    let likeBox = document.getElementById('like-checkbox');
-    axios.get(`http://localhost:8000/project/curtido/${likeBox.name}`)
-        .then(response => {
-            likeBox.checked = response.data.isCurtido;
-            setLikes(response);
-        })
-        .catch(err => console.log(err));
-})
-
-document.getElementById('favorite-checkbox').addEventListener('change', () => {
-    let id = event.target.name;
-    if(event.target.checked){
-        axios.get(`http://localhost:8000/project/favoritar/${id}`)
-            .then()
-            .catch((err) => console.log(err));
-    }else{
-        axios.get(`http://localhost:8000/project/desfavoritar/${id}`)
-            .then()
-            .catch((err) => console.log(err));
-    }
-    let favoriteBox = document.getElementById('favorite-checkbox');
-    axios.get(`http://localhost:8000/project/favorito/${favoriteBox.name}`)
-        .then(response => {
-            setFavoritos(response);
-        })
-        .catch((err) => console.log(err));
-})
-
-document.getElementById('like-checkbox').addEventListener('change', () => {
-    let id = event.target.name;
-    if(event.target.checked){
-        axios.get(`http://localhost:8000/project/curtir/${id}`)
-            .then()
-            .catch((err) => console.log(err));
-    }else{
-        axios.get(`http://localhost:8000/project/descurtir/${id}`)
-            .then()
-            .catch((err) => console.log(err));
-    }
-    let likeBox = document.getElementById('like-checkbox');
-    axios.get(`http://localhost:8000/project/curtido/${likeBox.name}`)
-        .then(response => {
-            setLikes(response);
-        })
-        .catch(err => console.log(err));
-})
-
 function setDirectionFollow(followdirect){
     localStorage.setItem('followdirection',followdirect);
     console.log( localStorage.getItem('followdirection'));
@@ -144,18 +60,3 @@ function resetDirectionFollow(){
     localStorage.setItem('followdirection','null');
 }
 
-function btnFavChangeColor(btn){
-    if(document.getElementById(btn).classList.contains('hold')){
-        document.getElementById(btn).className = "bi bi-heart text-danger";
-    }else{
-        document.getElementById(btn).className = "bi bi-heart-fill text-danger hold";
-    }
-}
-
-function btnSaveChangeColor(btn){
-    if(document.getElementById(btn).classList.contains('hold')){
-        document.getElementById(btn).className = "bi bi-bookmark text-warning";
-    }else{
-        document.getElementById(btn).className = "bi bi-bookmark-fill text-warning hold";
-    }
-}
