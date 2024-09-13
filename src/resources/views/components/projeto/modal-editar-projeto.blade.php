@@ -64,6 +64,7 @@
                     {{$message}}
                 </span>
                     @enderror
+                    <label style="color: red"> Separe as Tags por espaço</label>
                     <div class="input-group mb-3">
                         <input  class="form-control form-control-lg bg-light fs-6 custom-file-upload" type="text" placeholder="Tags" name="tags" value="{{ old('tags', $project->tags) }}">
                     </div>
