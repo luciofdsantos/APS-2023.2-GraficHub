@@ -43,6 +43,7 @@
             }
         });
 
+        
     </script>
         <section class="navbar-section">
             <x-nav-bar/>
@@ -58,6 +59,5 @@
 
     </body>
 </html>
-
 
 
