@@ -51,7 +51,30 @@ function setModal(name){
 function resetModal(){
     localStorage.setItem('lastModal','null');
 }
+function getCurrentURL () {
+    return window.location.href
+}
+function setNavbar(activate){
+    let elH =document.getElementById('homeSelect');
+    let elS =document.getElementById('searchSelect');
+    if(activate == 'home'){
+        elH.classList.add('active');
+        elS.classList.remove('active');
+    } else if(activate == 'pesquisar'){
+        elS.classList.add('active');
+        elH.classList.remove('active');
 
+    }else if(activate == 'none'){
+        elH.classList.remove('active');
+        elS.classList.remove('active');
+    }
+
+}
+function setPerfil(feedaAcess){
+
+}
 function getPage(){
-
+    if(getCurrentURL().indexOf('favoritos') != -1){
+        setNavbar('none');
+    }
 }

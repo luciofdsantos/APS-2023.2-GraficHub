@@ -42,12 +42,12 @@
             <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-center ">
 
-                    <li class="nav-item">
-                        <a class="nav-link mx-lg-4 active" aria-current="page" href="{{ route('home')}}"> Home </a>
+                    <li  class="nav-item">
+                        <a id="homeSelect" class="nav-link mx-lg-4 active" aria-current="page" href="{{ route('home')}}"> Home </a>
                     </li>
 
-                    <li class= "nav-item">
-                        <a class="nav-link mx-lg-2 " aria-current="page" href="#">Pesquisar</a>
+                    <li  class= "nav-item">
+                        <a id="searchSelect" class="nav-link mx-lg-2 " aria-current="page" href="#">Pesquisar</a>
                     </li>
                 </ul>
             </div>

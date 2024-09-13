@@ -20,7 +20,7 @@
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.min.css" rel="stylesheet">
 
 </head>
-    <body class="perfil-body" >
+    <body onload="getPage()" class="perfil-body" >
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <!-- Bootstrap JS -->
