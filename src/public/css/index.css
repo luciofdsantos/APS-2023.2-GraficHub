@@ -227,6 +227,9 @@ html, body {
     margin: 0;
 }
 /*Perfil*/
+.perfil-body{
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(../img/perfil-bc.jpg)  center ;
+}
 .navbar-section{
     min-height: 90px;
 }

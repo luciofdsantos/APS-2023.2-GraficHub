@@ -20,7 +20,7 @@
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.min.css" rel="stylesheet">
 
 </head>
-    <body class="perfil-section" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(../img/perfil-bc.jpg)  center ;">
+    <body class="perfil-body" >
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <!-- Bootstrap JS -->
@@ -43,8 +43,9 @@
             }
         });
 
-        
+
     </script>
+
         <section class="navbar-section">
             <x-nav-bar/>
         </section>

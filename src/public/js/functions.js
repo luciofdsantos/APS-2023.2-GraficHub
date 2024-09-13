@@ -52,11 +52,6 @@ function resetModal(){
     localStorage.setItem('lastModal','null');
 }
 
-function setDirectionFollow(followdirect){
-    localStorage.setItem('followdirection',followdirect);
-    console.log( localStorage.getItem('followdirection'));
-}
-function resetDirectionFollow(){
-    localStorage.setItem('followdirection','null');
-}
+function getPage(){
 
+}
