@@ -59,6 +59,7 @@
  <x-projeto.side-bar-projeto :project="$project"/>
 
  <div style="margin-top:90px;" class="container justify-content-center align-items-center ">
+
          <div id="carouselExample{{$project->id}}" class="carousel slide d-flex flex-column justify-content-center align-items-center"  >
               <div  style="width: 50vh;height: 62.5vh;" class=" d-flex  carousel-inner">
                  <div class="border carousel-item  active">
