@@ -15,7 +15,7 @@
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.min.css" rel="stylesheet">
 </head>
 
-<body class="mainhome" style="background: var(--GrayishWhite)">
+<body onload="getPage()" class="mainhome" style="background: var(--GrayishWhite)">
     <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"></script>
     <script src="/js/home.js"></script>
     <script src="/js/functions.js"></script>
