@@ -47,7 +47,7 @@
                     </li>
 
                     <li  class= "nav-item">
-                        <a id="searchSelect" class="nav-link mx-lg-2 " aria-current="page" href="#">Pesquisar</a>
+                        <a id="searchSelect" class="nav-link mx-lg-2" aria-current="page" href="#">Pesquisar</a>
                     </li>
                 </ul>
             </div>

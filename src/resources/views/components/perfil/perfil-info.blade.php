@@ -87,7 +87,7 @@
     <div  class="container d-flex flex-column justify-content-center align-items-center pt-3 pb-3 ">
     <div class="d-flex">
         <form action="{{route('user.perfil', $user->apelido)}}" method="get">
-            <button id="my-project" class="btn btn-primary active" type="submit">Meus Projetos <i style="justify-self: auto" class="bi bi-person-badge"></i></button>
+            <button id="my-project" class="btn btn-primary" type="submit">Meus Projetos <i style="justify-self: auto" class="bi bi-person-badge"></i></button>
         </form>
 
         <form action="{{route('user.favoritos', $user->apelido)}}" method="get">

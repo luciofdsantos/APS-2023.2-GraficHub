@@ -68,13 +68,27 @@ function setNavbar(activate){
         elH.classList.remove('active');
         elS.classList.remove('active');
     }
-
 }
 function setPerfil(feedaAcess){
 
 }
 function getPage(){
-    if(getCurrentURL().indexOf('favoritos') != -1){
-        setNavbar('none');
+    // home
+    if(getCurrentURL())
+    else if(getCurrentURL().indexOf('user')!= -1){
+        let elP =document.getElementById('my-project');
+        let elF =document.getElementById('fav');
+        if(getCurrentURL().indexOf('favoritos') != -1){
+            setNavbar('none');
+            elP.classList.remove('active');
+            elF.classList.add('active');
+        }
+        else{
+            setNavbar('none');
+            elF.classList.remove('active');
+            elP.classList.add('active');
+        }
     }
+
+
 }
