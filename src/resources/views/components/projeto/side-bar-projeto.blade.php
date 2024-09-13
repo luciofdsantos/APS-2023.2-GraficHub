@@ -76,21 +76,9 @@ Button with data-bs-target
             <div class="collapse" id="collapsetags">
                 <div style="background: transparent" class="card card-body text-black">
                     <ul class=" d-flex flex-column tags">
-                        <li>CSS</li>
-                        <li>HTML</li>
-                        <li>Mohit</li>
-                        <li>Vashishtha</li>
-                        <li>SharePoint</li>
-                        <li>CSS</li>
-                        <li>HTML</li>
-                        <li>Mohit</li>
-                        <li>Vashishtha</li>
-                        <li>SharePoint</li>
-                        <li>CSS</li>
-                        <li>HTML</li>
-                        <li>Mohit</li>
-                        <li>Vashishtha</li>
-                        <li>SharePoint</li>
+                        @foreach($project->tags as $tag)
+                            <li>{{ $tag->nome }}</li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
