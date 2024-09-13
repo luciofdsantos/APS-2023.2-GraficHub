@@ -64,8 +64,13 @@
             </div>
             <div class="row ">
                 <div class="d-flex gap-2 option-feed">
-                    <a style="text-decoration: none" href="/" onclick="btnFavChangeColor('fav',)"><i style="background-color: transparent" id="fav" class="bi bi-heart  text-danger"></i></a>
-                    <a style="text-decoration: none" href="/" onclick="btnSaveChangeColor('save')"><i style="background-color: transparent" id="save" class="bi bi-bookmark text-warning"></i></a>
+                    @if(auth()->check())
+                        <a style="text-decoration: none" href="#" onclick="likeHandlerFeed(this)" title="{{$project->id}}"><i style="background-color: transparent" id="like-icon-{{$project->id}}" class="like-icon bi bi-heart text-danger" title="{{$project->id}}" ></i></a><div id="likes-number-{{$project->id}}" title="0" >0</div>
+                        <a style="text-decoration: none" href="#" onclick="favoriteHandlerFeed(this)" title="{{$project->id}}"><i style="background-color: transparent" id="favorite-icon-{{$project->id}}" class="fav-icon bi bi-bookmark text-warning" title="{{$project->id}}"></i></a><div id="favorites-number-{{$project->id}}" title="0" >0</div>
+                    @else
+                        <a style="text-decoration: none" href="{{route('project.curtir', $project->id)}}"><i style="background-color: transparent" id="like-icon" class="bi bi-heart  text-danger"></i></a>
+                        <a style="text-decoration: none" href="{{route('project.favoritar', $project->id)}}"><i style="background-color: transparent" id="favorite-icon" class="bi bi-bookmark text-warning"></i></a>
+                    @endif
                 </div>
             </div>
             <div class="row">

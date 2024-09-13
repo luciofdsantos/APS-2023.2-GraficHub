@@ -16,7 +16,7 @@
 </head>
 
 <body class="mainhome" style="background: var(--GrayishWhite)">
-
+    <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"></script>
     <script src="/js/home.js"></script>
     <script src="/js/functions.js"></script>
     <x-nav-bar/>
