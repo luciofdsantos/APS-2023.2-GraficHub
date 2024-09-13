@@ -23,7 +23,7 @@
                     @error('titulo')
                         <span style="position:relative;" class="error-message">{{$message}}</span>
                     @enderror
-                    <label style="color: red"> Proporção da imagem 1350px X 1080px (outras proporções irão ocasionar desfiguração na imagem)</label>
+                    <label style="color: blue"> *Proporção da imagem 1350px X 1080px (outras proporções irão ocasionar desfiguração na imagem)</label>
                     <div id ="body-project-img" class="input-group mb-3">
 
                         <label class="form-control form-control-lg bg-light fs-6 custom-file-upload" for="cover-file-upload">Capa do projeto<div id="cover-preview-wrapper"></div></label>
@@ -34,7 +34,7 @@
                         @enderror
                     </div>
                      <input style="visibility: hidden" id="cover-file-upload" type="file" placeholder="Imagem da capa do projeto" name="imagem_capa">
-                    <label style="color: red"> Proporção da imagem 1350px X 1080px (outras proporções irão ocasionar desfiguração na imagem)</label>
+                    <label style="color: blue"> *Proporção da imagem 1350px X 1080px (outras proporções irão ocasionar desfiguração na imagem)</label>
 
                     <div id ="body-project-img" class="input-group mb-3 ">
                         <label  class="form-control form-control-lg bg-light fs-6 custom-file-upload"  for="body-imgs-upload"> <div id="body-imgs-upload-label-text">Imagens do corpo do projeto</div><div id="images-preview-wrapper"></div></label>
@@ -63,7 +63,7 @@
                 {{$message}}
             </span>
                     @enderror
-                    <label style="color: red"> Separe as Tags por espaço</label>
+                    <label style="color: blue"> *Separe as Tags por espaço</label>
                     <div class="input-group mb-3">
                         <input class="form-control form-control-lg bg-light fs-6 custom-file-upload" type="text" placeholder="Tags" name="tags" value="{{ old('tags') }}">
                     </div>
