@@ -175,19 +175,19 @@
             document.getElementById("body-imgs-upload-label-text").innerText = "Imagens do corpo do projeto"
         }
 
-        let fileInput = document.getElementById("file-upload");
-        fileInput.addEventListener('change', () => {
-            if(fileInput.files.length > 0) {
-                document.getElementById('project-file-upload-label').innerHTML = `<div id="project-file-upload-label-text">Arquivo do projeto</div><div id="file-preview" onmouseover="showFileDeleteMessage()" onmouseout="hideFileDeleteMessage()"><img class="file-icon-create-project" src="/img/file-icon.png">${fileInput.files[0].name}</div>`
-            }
-            let filePreview = document.getElementById('file-preview');
-            filePreview.addEventListener('click', () => {
-                event.preventDefault();
-                let dataTransfer = new DataTransfer();
-                fileInput.files = dataTransfer.files;
-                document.getElementById('project-file-upload-label').innerHTML = `Arquivo do projeto`
-            })
-        })
+        // let fileInput = document.getElementById("file-upload");
+        // fileInput.addEventListener('change', () => {
+        //     if(fileInput.files.length > 0) {
+        //         document.getElementById('project-file-upload-label').innerHTML = `<div id="project-file-upload-label-text">Arquivo do projeto</div><div id="file-preview" onmouseover="showFileDeleteMessage()" onmouseout="hideFileDeleteMessage()"><img class="file-icon-create-project" src="/img/file-icon.png">${fileInput.files[0].name}</div>`
+        //     }
+        //     let filePreview = document.getElementById('file-preview');
+        //     filePreview.addEventListener('click', () => {
+        //         event.preventDefault();
+        //         let dataTransfer = new DataTransfer();
+        //         fileInput.files = dataTransfer.files;
+        //         document.getElementById('project-file-upload-label').innerHTML = `Arquivo do projeto`
+        //     })
+        // })
 
         function showFileDeleteMessage(){
             document.getElementById("project-file-upload-label-text").innerText = "Clique para remover o arquivo"
