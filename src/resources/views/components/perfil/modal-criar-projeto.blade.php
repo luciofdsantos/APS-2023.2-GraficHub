@@ -71,6 +71,11 @@
                 {{$message}}
             </span>
                     @enderror
+                    @error('tags.*')
+                    <span class="error-message">
+                {{$message}}
+            </span>
+                    @enderror
 
                     <div class="input-group mb-3">
                         <input type="file" class="form-control" id="inputGroupFile02" name="arquivo">
