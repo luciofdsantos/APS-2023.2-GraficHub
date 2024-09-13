@@ -74,19 +74,40 @@ function setPerfil(feedaAcess){
 }
 function getPage(){
     // home
-    if(getCurrentURL())
-    else if(getCurrentURL().indexOf('user')!= -1){
+    console.log(getCurrentURL());
+    if(getCurrentURL().indexOf('user')!= -1){
+        setNavbar('none');
         let elP =document.getElementById('my-project');
         let elF =document.getElementById('fav');
         if(getCurrentURL().indexOf('favoritos') != -1){
-            setNavbar('none');
+
             elP.classList.remove('active');
             elF.classList.add('active');
         }
         else{
-            setNavbar('none');
             elF.classList.remove('active');
             elP.classList.add('active');
+        }
+    }
+    else if(getCurrentURL().indexOf('project')!= -1){
+        setNavbar('none');
+    }
+    else if(getCurrentURL().indexOf('login')!= -1){
+        setNavbar('none');
+    }
+    else if(getCurrentURL().indexOf('pesquisar')!= -1){
+        setNavbar('pesquisar');
+    }
+    else{
+        let elS =document.getElementById('postseguidos');
+        let elD =document.getElementById('descobrir');
+        if(getCurrentURL().indexOf('seguindo')!= -1){
+            elD.classList.remove('active');
+            elS.classList.add('active');
+        }
+        else{
+            elS.classList.remove('active');
+            elD.classList.add('active');
         }
     }
 
