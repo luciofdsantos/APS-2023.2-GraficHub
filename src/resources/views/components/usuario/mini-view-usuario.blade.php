@@ -1,5 +1,5 @@
 <div class="d-flex" style="margin-bottom: 10px;">
-        <a style=" text-decoration: none; color: #1e1e1e" href="{{ route('user.perfil', $user->apelido) }}" class=" d-flex  align-items-center gap-1">
+        <a onclick="resetModal()" style=" text-decoration: none; color: #1e1e1e" href="{{ route('user.perfil', $user->apelido) }}" class=" d-flex  align-items-center gap-1">
             @if($user['foto'] != null)
                 <img class="img-comment" src="{{asset('storage/arquivos/'. $user['id'] . '/' . $user['foto']) }}" alt="profile-pic">
             @else
