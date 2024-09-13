@@ -34,9 +34,6 @@ class ProjectUpdateRequest extends FormRequest
         if ($this->input('ferramentas') != $oldData->ferramentas) {
             $rules['ferramentas'] = ['required'];
         }
-        if ($this->input('tags') != $oldData->tags) {
-            $rules['tags'] = ['required'];
-        }
         if($this->file('imagem_capa') != null){
             $rules['imagem_capa'] = ['image', 'max:5120'];
         }
@@ -46,7 +43,7 @@ class ProjectUpdateRequest extends FormRequest
         if($this->file('imagens') != null){
             $rules['imagens'] = ['max:6'];
         }
-
+        $rules['tags'] = ['required', 'max:255'];
         return $rules;
     }
 
@@ -71,7 +68,8 @@ class ProjectUpdateRequest extends FormRequest
                 'required' => 'Preencha este campo'
             ],
             'tags' => [
-                'required' => 'Digite pelo menos uma tag'
+                'required' => 'Digite pelo menos uma tag',
+                'max' => 'O tamanho máximo das tags é de :max caracteres.'
             ],
             'arquivo' => [
                 'file' => 'O upload precisa ser de um arquivo'
