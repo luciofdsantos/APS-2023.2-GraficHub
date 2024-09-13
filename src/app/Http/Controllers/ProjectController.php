@@ -6,6 +6,7 @@ use App\Http\Requests\ProjectRequest;
 use App\Http\Requests\ProjectUpdateRequest;
 use App\Models\ImagesProject;
 use App\Models\Project;
+use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Support\Facades\File;
 
@@ -16,13 +17,22 @@ class ProjectController extends Controller
      */
     public function store(ProjectRequest $request)
     {
+
         $request->validated();
+
+        $tags = explode(' ', $request->get('tags'));
+
+        $request->merge([
+            'tags' => $tags
+        ]);
 
         $request->validate([
             'imagens.*' => ['mimes:jpg,png,jpeg,webp,svg', 'max:5120'],
+            'tags.*' => ['max:30']
         ], [
             'imagens.*.mimes' => 'O arquivo deve ser uma imagem (jpg, jpeg, webp, svg ou png).',
-            'imagens.*.max' => 'O tamanho máximo do arquivo é :max KB.'
+            'imagens.*.max' => 'O tamanho máximo do arquivo é :max KB.',
+            'tags.*.max' => 'O tamanho máximo da tag é :max caracteres.'
         ]);
 
         $user = auth()->user();
@@ -40,10 +50,14 @@ class ProjectController extends Controller
             'imagem_capa' => $coverImgName,
             'ferramentas' => $request->ferramentas,
             'descricao' => $request->descricao,
-            'tags' => $request->tags,
+            'tags' => '',
             'arquivo' => $projectFileName,
             'arquivo_publico' => $request->arquivo_publico == 'on' ? 1 : 0
         ]);
+
+        foreach ($tags as $tag){
+            $project->tags()->attach(Tag::verificaTag($tag));
+        }
 
         $request->file('imagem_capa')->move(public_path('storage/arquivos/' . $user->id . '/' . $project->id), $coverImgName);
         if ($request->file('arquivo') != null) {
