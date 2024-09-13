@@ -86,8 +86,8 @@
                              <a style="text-decoration: none" href="#" onclick="likeHandler()"><i style="background-color: transparent" id="like-icon" class="bi bi-heart text-danger" title="{{$project->id}}" ></i></a><div id="likes-number">0</div>
                              <a style="text-decoration: none" href="#" onclick="favoriteHandler()"><i style="background-color: transparent" id="favorite-icon" class="bi bi-bookmark text-warning" title="{{$project->id}}"></i></a><div id="favorites-number">0</div>
                          @else
-                            <a style="text-decoration: none" href="{{route('project.curtir', $project->id)}}"><i style="background-color: transparent" id="like-icon" class="bi bi-heart  text-danger"></i></a>
-                            <a style="text-decoration: none" href="{{route('project.favoritar', $project->id)}}"><i style="background-color: transparent" id="favorite-icon" class="bi bi-bookmark text-warning"></i></a>
+                            <a style="text-decoration: none" href="{{route('project.curtir', $project->id)}}"><i style="background-color: transparent" id="like-icon" class="bi bi-heart  text-danger" title="{{$project->id}}"></i></a><div id="likes-number">0</div>
+                            <a style="text-decoration: none" href="{{route('project.favoritar', $project->id)}}"><i style="background-color: transparent" id="favorite-icon" class="bi bi-bookmark text-warning" title="{{$project->id}}"></i></a><div id="favorites-number">0</div>
                          @endif
 
                      </div>

@@ -17,20 +17,20 @@ function setOut(){
     out = true;
 }
 
-window.onload = function() {
-    const corSalvaS = localStorage.getItem('corDeFundof');
-    const corSalvaD = localStorage.getItem('corDeFundod');
-    const out = localStorage.getItem('out');
-    if (corSalvaS && corSalvaD && !out) {
-        document.getElementById("seguindo-box").style.backgroundColor = corSalvaS;
-        document.getElementById("descobrir-box").style.backgroundColor = corSalvaD;
-    }else{
-        document.getElementById("seguindo-box").style.backgroundColor = "#f6f6f6";
-        document.getElementById("descobrir-box").style.backgroundColor = "#D9D9D9";
-    }
-    localStorage.setItem('corDeFundod', "#D9D9D9");
-    localStorage.setItem('corDeFundof', "#f6f6f6");
-};
+// window.onload = function() {
+//     const corSalvaS = localStorage.getItem('corDeFundof');
+//     const corSalvaD = localStorage.getItem('corDeFundod');
+//     const out = localStorage.getItem('out');
+//     if (corSalvaS && corSalvaD && !out) {
+//         document.getElementById("seguindo-box").style.backgroundColor = corSalvaS;
+//         document.getElementById("descobrir-box").style.backgroundColor = corSalvaD;
+//     }else{
+//         document.getElementById("seguindo-box").style.backgroundColor = "#f6f6f6";
+//         document.getElementById("descobrir-box").style.backgroundColor = "#D9D9D9";
+//     }
+//     localStorage.setItem('corDeFundod', "#D9D9D9");
+//     localStorage.setItem('corDeFundof', "#f6f6f6");
+// };
 
 // This is "probably" IE9 compatible but will need some fallbacks for IE8
 // - (event listeners, forEach loop)
@@ -99,6 +99,7 @@ window.addEventListener('load', () => {
         let projectId = favIcons[i].title;
         axios.get(`http://localhost:8000/project/favorito/${projectId}`)
             .then(response => {
+                console.log(response)
                 if(response.data.isFavorito){
                     favIcons[i].className = "fav-icon bi bi-bookmark-fill text-warning hold";
                 }
@@ -118,25 +119,6 @@ window.addEventListener('load', () => {
             })
             .catch((err) => console.log(err));
     }
-    // axios.get(`http://localhost:8000/project/favorito/${favIcon.title}`)
-    //     .then(response => {
-    //         if(response.data.isFavorito){
-    //             favIcon.className = "bi bi-bookmark-fill text-warning hold";
-    //         }
-    //         favoritesNumber = response.data.favorites;
-    //         setFavorites(response);
-    //     })
-    //     .catch((err) => console.log(err));
-    // let likeIcon = document.getElementById('like-icon');
-    // axios.get(`http://localhost:8000/project/curtido/${likeIcon.title}`)
-    //     .then(response => {
-    //         if(response.data.isCurtido){
-    //             likeIcon.className = "bi bi-heart-fill text-danger hold";
-    //         }
-    //         likesNumber = response.data.likes;
-    //         setLikes();
-    //     })
-    //     .catch(err => console.log(err));
 })
 
 function favoriteHandlerFeed(target){
