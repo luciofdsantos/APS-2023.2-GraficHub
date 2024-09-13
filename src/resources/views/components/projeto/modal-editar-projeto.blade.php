@@ -26,34 +26,26 @@
                     {{$message}}
                 </span>
                     @enderror
+                    <label style="color: red"> Proporção da imagem 1350px X 1080px (outras proporções irão ocasionar desfiguração na imagem)</label>
                     <div class="input-group">
-                        <label class="form-control form-control-lg bg-light fs-6 custom-file-upload" for="cover-file-upload">Capa do projeto
+                         <label class="form-control form-control-lg bg-light fs-6 custom-file-upload" for="cover-file-upload">Capa do projeto
                             <div style="margin-top: 20px" id="cover-preview-wrapper"> </div>
                         </label>
+                        @error('imagem_capa')<span class="error-message input-group">{{$message}}</span>@enderror
                     </div>
 
                     <input  style="visibility: hidden" id="cover-file-upload" type="file" placeholder="Imagem da capa do projeto" name="imagem_capa">
-                    @error('imagem_capa')
-                    <span class="error-message">
-                    {{$message}}
-                </span>
-                    @enderror
+                    <label style="color: red"> Proporção da imagem 1350px X 1080px (outras proporções irão ocasionar desfiguração na imagem)</label>
+
                     <div   class="input-group">
-                        <label class="form-control form-control-lg bg-light fs-6 custom-file-upload" for="body-imgs-upload"><div id="body-imgs-upload-label-text">Imagens do corpo do projeto</div><div id="images-preview-wrapper"></div>
+                         <label class="form-control form-control-lg bg-light fs-6 custom-file-upload" for="body-imgs-upload"><div id="body-imgs-upload-label-text">Imagens do corpo do projeto</div><div id="images-preview-wrapper"></div>
                         </label>
+                        @error('imagens')<span class="error-message input-group">{{$message}}</span>@enderror
+                        @error('imagens.*')<span class="error-message input-group">{{$message}}</span>@enderror
                     </div>
 
                     <input style="visibility: hidden" id="body-imgs-upload" type="file" name="imagens[]"  multiple>
-                    @error('imagens')
-                    <span class="error-message">
-                    {{$message}}
-                </span>
-                    @enderror
-                    @error('imagens.*')
-                    <span class="error-message">
-                    {{$message}}
-                </span>
-                    @enderror
+
                     <div class="input-group mb-3">
                         <input class="form-control form-control-lg bg-light fs-6 custom-file-upload" type="text" placeholder="Ferramentas" name="ferramentas" value="{{ old('ferramentas', $project->ferramentas) }}">
                     </div>
