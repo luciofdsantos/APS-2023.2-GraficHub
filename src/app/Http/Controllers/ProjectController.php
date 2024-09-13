@@ -32,7 +32,7 @@ class ProjectController extends Controller
         ], [
             'imagens.*.mimes' => 'O arquivo deve ser uma imagem (jpg, jpeg, webp, svg ou png).',
             'imagens.*.max' => 'O tamanho máximo do arquivo é :max KB.',
-            'tags.*.max' => 'O tamanho máximo da tag é :max caracteres.'
+            'tags.*.max' => 'O tamanho máximo de cada tag é :max caracteres.'
         ]);
 
         $user = auth()->user();
@@ -50,7 +50,6 @@ class ProjectController extends Controller
             'imagem_capa' => $coverImgName,
             'ferramentas' => $request->ferramentas,
             'descricao' => $request->descricao,
-            'tags' => '',
             'arquivo' => $projectFileName,
             'arquivo_publico' => $request->arquivo_publico == 'on' ? 1 : 0
         ]);
@@ -126,6 +125,18 @@ class ProjectController extends Controller
     {
         $request->validated();
 
+        $tags = explode(' ', $request->get('tags'));
+
+        $request->merge([
+            'tags' => $tags
+        ]);
+
+        $request->validate([
+            'tags.*' => ['max:30']
+        ], [
+            'tags.*.max' => 'O tamanho máximo de cada tag é :max caracteres.'
+        ]);
+
         if ($request->file('imagens') != null) {
             $request->validate([
                 'imagens.*' => ['mimes:jpg,png,jpeg,webp,svg', 'max:5120'],
@@ -137,12 +148,27 @@ class ProjectController extends Controller
 
         $project = Project::find($id);
 
+        $oldTags = $project->tags()->pluck('nome');
+
+        foreach($oldTags as $tag){
+            if( !in_array($tag, $tags) ){
+                $project->tags()->detach(Tag::verificaTag($tag));
+            }else{
+                $indice = array_search($tag, $tags);
+                unset($tags[$indice]);
+            }
+        }
+
+        foreach($tags as $tag){
+            $project->tags()->attach(Tag::verificaTag($tag));
+        }
+
         if ($request->apagar_arquivo) {
             File::delete('storage/arquivos/' . $project->user_id . '/' . $project->id . '/' . $project->arquivo);
             $project->arquivo = null;
         }
 
-        $project->fill($request->only('titulo', 'descricao', 'tags', 'ferramentas'));
+        $project->fill($request->only('titulo', 'descricao', 'ferramentas'));
         $project->arquivo_publico = $request->input('arquivo_publico') ? 1 : 0;
 
         if ($request->file('imagem_capa') != null) {
