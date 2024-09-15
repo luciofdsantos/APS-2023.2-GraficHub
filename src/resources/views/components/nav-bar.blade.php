@@ -47,7 +47,12 @@
                     </li>
 
                     <li  class= "nav-item">
-                        <a id="searchSelect" class="nav-link mx-lg-2" aria-current="page" href="#">Pesquisar</a>
+                        <div class="d-flex justify-content-center h-10">
+                            <div class="searchbar">
+                                <input class="search_input" type="text" name="" placeholder="Search...">
+                                <a id="searchSelect"   class="search_icon nav-link mx-lg-2" aria-current="page" href="#">Pesquisar</a>
+                            </div>
+                        </div>
                     </li>
                 </ul>
             </div>
