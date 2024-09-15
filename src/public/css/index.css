@@ -106,18 +106,18 @@
     transition: width 0.4s linear;
 }
 .searchbar:hover{
-    background-color:#434343
+    border: solid #434343 1px;
 }
 .searchbar:hover > .search_input{
     padding: 0 10px;
     width: 250px;
-    caret-color:white;
+    caret-color:#434343;
     transition: width 0.4s linear;
 
 }
 
 .searchbar:hover > .search_icon{
-    color: white;
+    color: #434343;
 }
 
 .search_icon{
