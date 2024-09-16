@@ -48,10 +48,12 @@
 
                     <li  class= "nav-item">
                         <div class="d-flex justify-content-center h-10">
-                            <div class="searchbar">
-                                <input class="search_input" type="text" name="" placeholder="">
-                                <a id="searchSelect"   class="search_icon nav-link mx-lg-2" aria-current="page" href="#">Pesquisar</a>
-                            </div>
+                            <form action="{{ route('home.busca') }}" method="GET" class="searchbar">
+                                <input type="hidden" name="filtro" value="created_at">
+                                <input type="hidden" name="ordem" value="desc">
+                                <input id="search" class="search_input" type="text" name="string" placeholder="Digite a busca" value="{{ isset($string) ? $string:null }}">
+                                <button id="searchSelect" type="submit" class="search_icon nav-link mx-lg-2" onclick="setSearch()">Pesquisar</button>
+                            </form>
                         </div>
                     </li>
                 </ul>
