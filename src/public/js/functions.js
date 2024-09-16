@@ -111,5 +111,13 @@ function getPage(){
         }
     }
 
+}
 
+function setSearch(){
+    localStorage.setItem('lastsearch',document.getElementById('search').value);
+    console.log(getSearch());
+}
+
+function getSearch(){
+    return localStorage.getItem('lastsearch');
 }

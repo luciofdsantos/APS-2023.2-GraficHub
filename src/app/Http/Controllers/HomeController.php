@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use Illuminate\Contracts\Database\Eloquent\Builder;
+use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -22,5 +24,21 @@ class HomeController extends Controller
         } else {
             return redirect()->route('auth.loginForm');
         }
+    }
+
+    public function busca(Request $request){
+        $string = $request->query('string');
+        $vetorTags = explode(' ', $string);
+
+        $projects = Project::whereHas('tags', function (Builder $query) use ($vetorTags) {
+            $query->whereIn('tags.nome', $vetorTags);
+        })
+            ->where('user_id', '<>', auth()->id())
+            ->orderBy($request->query('filtro'), $request->query('ordem'))
+            ->cursorPaginate(6);
+
+        session(['goBack' => url()->current()]);
+        return view('homeBusca', compact('projects', 'string'));
+
     }
 }
