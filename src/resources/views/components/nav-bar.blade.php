@@ -27,7 +27,9 @@
 </header>
 
 -->
+<style>
 
+</style>
 <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand me-auto" href="{{ route('home') }}"> <img style="width: 35px;" src="/img/grafichub.png" alt=""></a>
@@ -51,7 +53,7 @@
                             <form action="{{ route('home.busca') }}" method="GET" class="searchbar">
                                 <input type="hidden" name="filtro" value="created_at">
                                 <input type="hidden" name="ordem" value="desc">
-                                <input id="search" class="search_input" type="text" name="string" placeholder="Digite a busca" value="{{ isset($string) ? $string:null }}">
+                                <input id="search"  style="background-color: transparent" class="search_input" type="text" name="string" placeholder="Digite a busca" value="{{ isset($string) ? $string:null }}">
                                 <button id="searchSelect" type="submit" class="search_icon nav-link mx-lg-2" onclick="setSearch()">Pesquisar</button>
                             </form>
                         </div>

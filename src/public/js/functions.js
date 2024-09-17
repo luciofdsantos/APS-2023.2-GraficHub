@@ -95,7 +95,7 @@ function getPage(){
     else if(getCurrentURL().indexOf('login')!= -1){
         setNavbar('none');
     }
-    else if(getCurrentURL().indexOf('pesquisar')!= -1){
+    else if(getCurrentURL().indexOf('busca')!= -1){
         setNavbar('pesquisar');
     }
     else{

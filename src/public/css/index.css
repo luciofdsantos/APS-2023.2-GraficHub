@@ -96,7 +96,7 @@
 }
 
 .search_input{
-    color: white;
+    color: #434343;
     border: 0;
     outline: 0;
     background: none;
@@ -108,6 +108,8 @@
 .searchbar:hover{
     border: solid #434343 1px;
 }
+
+
 .searchbar:hover > .search_input{
     padding: 0 10px;
     width: 250px;
@@ -115,18 +117,12 @@
     transition: width 0.4s linear;
 
 }
-
 .searchbar:hover > .search_icon{
     color: #434343;
 }
 
-.search_icon{
-    float: right;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration:none;
-}
+
+
 /*hero section*/
 
 .hero-section{
@@ -652,3 +648,11 @@ span {
     -webkit-box-shadow: -1px -1px 2px #343435;
     box-shadow: -1px -1px 2px #343435;
 }
+#search-btn{
+    background-color: #505050;
+    border: none;
+}
+#search-btn:hover{
+    background-color:#343435;
+}
+
