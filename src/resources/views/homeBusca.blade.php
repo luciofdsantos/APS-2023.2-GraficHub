@@ -15,13 +15,13 @@
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.min.css" rel="stylesheet">
 </head>
 
-<body onload="getPage()" class="mainhome" style="background: var(--GrayishWhite)">
+<body onload="getPage()" class="mainhome" style=" min-width:2000px;background: var(--GrayishWhite)">
     <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"></script>
     <script src="/js/home.js"></script>
     <script src="/js/functions.js"></script>
     <x-nav-bar :string="$string" />
 
-    <form style=" min-width: 500px; justify-content: end; margin-top: 100px; margin-right: 30px; " class=" d-flex gap-4" action="{{ route('home.busca') }}" method="GET">
+    <form style=" margin-bottom: 40px;min-width: 500px; justify-content: end; margin-top: 100px; margin-right: 30px; " class=" d-flex gap-4" action="{{ route('home.busca') }}" method="GET">
         @csrf
         <input type="hidden" name="string" value="{{ $string }}">
         <div class="form-group d-flex gap-4">
