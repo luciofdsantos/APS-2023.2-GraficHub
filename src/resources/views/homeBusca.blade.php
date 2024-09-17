@@ -43,6 +43,14 @@
                 <option value="desc" <?= $filtros['ordem'] == 'desc' ? 'selected' : '' ?>>Decrescente</option>
             </select>
         </div>
+        <div class="d-flex flex-column">
+            <label for="decision">Apenas designers disponíveis?</label>
+                <input type="radio" id="sim" name="disponivel" value="sim" <?= $filtros['disponivel'] == 'sim' ? 'checked' : '' ?>>
+                <label for="sim">Sim</label>
+
+                <input type="radio" id="nao" name="disponivel" value="nao" <?= $filtros['disponivel'] == 'nao' ? 'checked' : '' ?>>
+                <label for="nao">Não</label>
+        </div>
         <div class="d-flex align-items-end">
             <button id="search-btn" style="width: 100px; height: 40px; " type="submit" class="btn btn-primary">Filtrar
             </button>
