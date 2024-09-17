@@ -7,7 +7,7 @@
                     <div class="cards" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('{{ asset('storage/arquivos/' . $project->user_id . '/' . $project->id . '/' . $project->imagem_capa) }}');">
                         <div class="card-category">{{ Str::limit(Str::title($project->titulo), 25) }}</div>
                         <div class="card-description ">
-                            <h2> <i class="bi bi-heart-fill"></i> {{ str_pad($project->n_curtidas, 3, 0,STR_PAD_LEFT) }} <i class="bi bi-bookmark-fill"></i> {{ str_pad($project->n_favoritos, 3, 0,STR_PAD_LEFT) }}</h2>
+                            <h2 class="d-flex"> <i class="bi bi-heart-fill"></i> <div style="margin: 0 4px 0 8px" class="text-white project-likes-number" title="{{$project->n_curtidas}}">0</div> <i class="bi bi-bookmark-fill"></i> <div style="margin: 0 4px 0 8px" class="text-white project-favorites-number" title="{{$project->n_favoritos}}">0</div></h2>
                         </div>
                         <div style="height: 40px; width: 40px">
                         @if($project->user['foto'] != null)

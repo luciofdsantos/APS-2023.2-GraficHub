@@ -45,6 +45,7 @@
 
 
     </script>
+    <script src="{{ asset('js/perfil.js') }}"></script>
 
         <section class="navbar-section">
             <x-nav-bar/>
