@@ -1,0 +1,658 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
+/*NavBar*/
+.navbar{
+    background-color: #e6e4e4;
+    height: 60px;
+    margin: 20px;
+    border-radius:16px ;
+    padding: 0.5rem;
+    font-family: "Heebo", sans-serif;
+    font-weight: 800;
+}
+.login-button{
+    background-color: #434343;
+    color: #d1cece;
+    font-size: 14px;
+    padding: 8px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.3s background-color;
+}
+
+.login-button:hover, .profile-button:hover{
+    background-color: #252525;
+}
+
+#nav-toggler{
+    border: 1px transparent;
+    font-size: 1.25rem;
+}
+
+#nav-toggler:focus, #btn-closs:focus{
+    box-shadow: none;
+    outline: none;
+}
+
+
+.profile-button{
+    cursor: pointer;
+    background-color: #434343;
+    font-size: 14px;
+    padding: 8px 20px;
+    border-radius: 50px;
+    transition: 0.3s background-color;
+}
+.profile-button a{
+    text-decoration: none;
+    color: #d1cece;
+}
+.profile-button a:hover{
+    text-decoration: none;
+    color: #d1cece;
+}
+.profile-pic{
+    height: 24px;
+    border-radius: 100px;
+}
+.nav-link{
+    color: #434343;
+    font-weight: 500;
+    position: relative;
+}
+.nav-link:hover, .nav-link.active{
+    color: #171717;
+}
+@media(min-width:991px ){
+    .nav-link:before{
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left:50%;
+        transform:translateX(-50%);
+        width: 0;
+        height: 2px;
+        background-color:#434343;
+        visibility: hidden;
+        transition: 0.3s ease-in-out;
+    }
+
+    .nav-link:hover:before, .nav-link.active:before{
+        width: 100%;
+        visibility: visible;
+    }
+}
+
+.searchbar{
+    margin-bottom: auto;
+    margin-top: auto;
+    height: 40px;
+    background-color: transparent;
+    border-radius: 30px;
+    padding: 10px;
+    align-items: center;
+    display: flex;
+}
+
+.search_input{
+    color: #434343;
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 0;
+    caret-color:transparent;
+    line-height: 40px;
+    transition: width 0.4s linear;
+}
+.searchbar:hover{
+    border: solid #434343 1px;
+}
+
+
+.searchbar:hover > .search_input{
+    padding: 0 10px;
+    width: 250px;
+    caret-color:#434343;
+    transition: width 0.4s linear;
+
+}
+.searchbar:hover > .search_icon{
+    color: #434343;
+}
+
+
+
+/*hero section*/
+
+.hero-section{
+    background: url(../img/homebck.jpg) no-repeat center;
+    background-size: cover;
+    width: 100%;
+    height: 40vh;
+    min-height: 400px;
+}
+
+.hero-section:before{
+    background-color: rgba(0,0,0,0.6);
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 40vh;
+    min-height: 400px;
+}
+
+.hero-section .container{
+    min-height: 300px;
+    height: 45vh;
+    z-index: 1;
+    position: relative;
+    font-family: "Heebo", sans-serif;
+    font-weight: 1000;
+}
+
+/*feed(home)*/
+.btn-group .btn-primary{
+    background-color: transparent;
+    color: #6a6a6a;
+    font-size: 18px;
+    border:none;
+}
+a.btn.btn-primary.active{
+    background: transparent;
+    color: #171717;
+    font-size: 18px;
+    border:none;
+}
+
+.btn-primary.active:hover,.btn-group .btn-primary:hover {
+    background-color: transparent;
+    color: #171717;
+}
+
+
+.btn-primary:before{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left:50%;
+    transform:translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color:#434343;
+    visibility: hidden;
+    transition: 0.3s ease-in-out;
+}
+
+.btn-primary:hover:before, .btn-primary.active:before{
+    width: 100%;
+    visibility: visible;
+}
+
+/*Projeto(Card)*/
+.card-image {
+    display: block;
+    min-height: 20rem; /* layout hack */
+    background: #fff center center no-repeat;
+    background-size: cover;
+    filter: blur(3px); /* blur the lowres image */
+    overflow: hidden;
+}
+
+.card-image > img {
+    display: block;
+    width: 100%;
+    opacity: 0; /* visually hide the img element */
+}
+
+.card-image.is-loaded {
+    filter: none; /* remove the blur on fullres image */
+    transition: filter 1s;
+}
+
+
+
+
+/* Layout Styles */
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-size: 16px;
+    font-family: sans-serif;
+}
+
+.card-list {
+    display: block;
+    margin: 1rem auto;
+    padding: 0;
+    font-size: 0;
+    text-align: center;
+    list-style: none;
+}
+
+.card {
+    display: inline-block;
+    width: 90%;
+    max-width: 20rem;
+    margin: 1rem;
+    font-size: 1rem;
+    text-decoration: none;
+    overflow: hidden;
+    box-shadow: 0 0 3rem -1rem rgba(0,0,0,0.5);
+    transition: transform 0.1s ease-in-out, box-shadow 0.1s;
+}
+
+.card:hover {
+    transform: translateY(-0.5rem) scale(1.0125);
+    box-shadow: 0 0.5em 3rem -1rem rgba(0,0,0,0.5);
+}
+
+.card-description {
+    display: block;
+    padding: 1em 0.5em;
+    color: #515151;
+    text-decoration: none;
+}
+
+.card-description > h2 {
+    margin: 0 0 0.5em;
+}
+
+.card-description > p {
+    margin: 0;
+}
+/*Perfil*/
+.perfil-body{
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(../img/perfil-bc.jpg)  center ;
+}
+.navbar-section{
+    min-height: 90px;
+}
+.main-perfil{
+    width: 100vh;
+    height: 100%;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #e6e4e4;
+    font-family: "Heebo", sans-serif;
+}
+.img-holder{
+    width: 100px; /* width of container */
+    height: 100px; /* height of container */
+    object-fit: cover;
+    object-position: 15% 40%; /* try 20px 10px */
+    border-radius: 100px;
+}
+.nickname{
+    font-weight: 800;
+    font-size: 18px;
+}
+.name{
+    font-weight: 400;
+    font-size: 14px;
+}
+
+/*disp button*/
+.disp-btn{
+    display: flex;
+    align-items: center;
+    width: 80vh;
+    height: 20px;
+    justify-content: center;
+    margin-top: 10px;
+    border-radius: 20px;
+    min-width: 190px;
+    color: white;
+    padding: 20px 0 20px 0;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.green-disp-btn{
+    background-color: #03A814;
+}
+
+
+
+.green-disp-btn:hover{
+    background: #028e0d;
+    color: white;
+    transition-duration: 1.5s;
+    transition-timing-function: ease;
+}
+.red-disp-btn{
+    background-color: #FF0000;
+}
+.red-disp-btn:hover{
+    background-color: #c60101;
+    color: white;
+    transition-duration: 1.5s;
+    transition-timing-function: ease;
+}
+
+.disp-info-icon{
+    height: 20px;
+    left: 40px;
+    position: relative;
+}
+
+#disp-info-text{
+    position: absolute;
+    background-color: #d1d1d1;
+    width: 90vh;
+    top: 140px;
+    border-radius: 8px;
+    text-align: justify;
+}
+#remove-color{
+    border-color: black;
+    color: black;
+}
+#remove-color:hover{
+    border-color: transparent;
+    color: white;
+}
+#edt-btn{
+    border-color: black;
+    color: black;
+}
+#edt-btn:hover{
+    border-color: transparent;
+    color: white;
+}
+
+#follow-btn{
+    border-color: black;
+    color: black;
+}
+#unfollow-btn{
+    border-color: black;
+    color: black;
+}
+#follow-btn:hover,#unfollow-btn:hover{
+    border-color: transparent;
+    color: white;
+}
+/*My projects/favoritos - perfil*/
+
+#my-project {
+    background-color: rgba(0, 0, 0, 0.08);
+    color: white;
+    border-radius: 0;
+    border: none;
+}
+#fav.active,#my-project.active{
+    background-color: rgba(122, 119, 119, 0.34);
+}
+#my-project.btn.btn-primary.active:before{
+    visibility: hidden;
+}
+#fav{
+    background-color: rgba(0, 0, 0, 0.08);
+    color: white;
+    border-radius: 0;
+    border: none;
+}
+/*Portifolio perfil*/
+.padded {
+    padding: 100px 0;
+}
+.wrapper-grey {
+    background: #F4F4F4;
+}
+.avatar {
+    width: 30px;
+    border-radius: 50%;
+}
+.avatar-bordered {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    border: white 1px solid;
+}
+.avatar-large {
+    width: 50px;
+}
+
+
+.cards {
+    min-width: 25%;
+    height: 250px;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+    background-size: cover !important;
+    color: white;
+    position: relative;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+.card-user {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+
+    width: 40px; /* width of container */
+    height: 40px; /* height of container */
+    object-fit: cover;
+    border-radius: 100px;
+}
+.card-category {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 20px;
+}
+.card-description {
+    position: absolute;
+    bottom: 1px;
+    left: 10px;
+}
+.card-description h2 {
+    font-size: 22px;
+    color: white;
+}
+
+.card-link {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    min-width: 40px;
+    width: 100%;
+    z-index:2;
+    background: black;
+    opacity: 0;
+}
+.card-link:hover{
+    opacity: 0.1;
+}
+.features img {
+    width: 100px;
+}
+.features h2 {
+    font-size: 20px;
+}
+.features p {
+    font-size: 15px;
+    font-weight: lighter;
+}
+#btn-create-project{
+    width: 30%;
+    background-color: rgba(143, 143, 143, 0.58);
+}
+/*Seguidores - seguidos modal perfil*/
+
+/*Feed*/
+.carousel-inner, .carousel-item{
+    width: 50vh;
+    height: 62.5vh;
+    min-width: 625px;
+    min-height: 732px;
+}
+.carousel-item{
+
+}
+.img-feed{
+    min-width: 625px;
+    min-height: 732px;
+    width: 50vh;
+    height: 62.5vh;
+    object-fit: cover;
+    object-position: 15% 40%; /* try 20px 10px */
+}
+
+.info-feed-top{
+    border-radius: 10px 10px 0 0  ;
+    padding: 10px;
+
+}
+
+.info-feed-bot{
+    border-radius: 0 0 10px 10px ;
+    padding: 10px;
+}
+
+.info-feed-bot,.info-feed-top{
+    width: 50vh;
+    min-width: 625px;
+}
+
+.card-user-feed{
+    width: 40px; /* width of container */
+    height: 40px; /* height of container */
+    object-fit: cover;
+    border-radius: 100px;
+}
+
+
+.info-feed-top a, .option-feed a{
+    text-decoration: none;
+}
+
+/*Login*/
+/*------------ Login container ------------*/
+.box-area{
+    width: 930px;
+}
+/*------------ Right box ------------*/
+.right-box{
+    padding: 40px 30px 40px 40px;
+}
+/*------------ Custom Placeholder ------------*/
+::placeholder{
+    font-size: 16px;
+}
+.rounded-4{
+    border-radius: 20px;
+}
+.rounded-5{
+    border-radius: 30px;
+}
+/*------------ For small screens------------*/
+@media only screen and (max-width: 768px){
+    .box-area{
+        margin: 0 10px;
+    }
+    .left-box{
+        height: 100px;
+        overflow: hidden;
+    }
+    .right-box{
+        padding: 20px;
+    }
+}
+span {
+    color: red;
+}
+
+/*Modal create project*/
+#images-preview-wrapper div{
+    margin-top: 20px;
+    width: 100%;
+}
+
+#cover-preview-wrapper div{
+    margin-top: 20px;
+    width: 100%;
+}
+
+.img-preview-wrapper{
+    position: relative;
+    height: 100px;
+    width: 100px;
+}
+
+.img-preview{
+    height:100px;
+}
+
+
+/* Project coments*/
+.img-comment{
+    width: 30px; /* width of container */
+    height: 30px; /* height of container */
+    object-fit: cover;
+    object-position: 15% 40%; /* try 20px 10px */
+    border-radius: 100px;
+}
+.tags{
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+.tags li{
+    float: left;
+    height: 24px;
+    line-height: 24px;
+    position: relative;
+    font-size: 11px;
+    margin: 2px 5px 2px 12px;
+    padding: 0 10px 0 12px;
+    background: #4b4b4c;
+    color: #fff;
+    text-decoration: none;
+    -moz-border-radius-bottomright: 4px;
+    -webkit-border-bottom-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    -moz-border-radius-topright: 4px;
+    -webkit-border-top-right-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.tags li:before {
+    content: "";
+    float: left;
+    position: absolute;
+    top: 0;
+    left: -12px;
+    width: 0;
+    height: 0;
+    border-color: transparent #4b4b4c transparent transparent;
+    border-style: solid;
+    border-width: 12px 12px 12px 0;
+}
+
+.tags li:after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 0;
+    float: left;
+    width: 4px;
+    height: 4px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    background: #222222;
+    -moz-box-shadow: -1px -1px 2px #343435;
+    -webkit-box-shadow: -1px -1px 2px #343435;
+    box-shadow: -1px -1px 2px #343435;
+}
+#search-btn{
+    background-color: #505050;
+    border: none;
+}
+#search-btn:hover{
+    background-color:#343435;
+}
+

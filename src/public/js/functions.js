@@ -2,14 +2,11 @@
 function showMessage(){
 
     document.getElementById("disp-info-text").innerHTML = `<div  onmouseover="showMessage()" onmouseout="hideMessage()" style=" padding: 20px">O estado de disponibilidade informa a outros usuários a sua disponibilidade em aceitar trabalhos. Clique para alterar.</div>`
-
 }
 
 function hideMessage(){
 
     document.getElementById("disp-info-text").innerHTML = ""
-
-
 }
 
 function confirmDeletion() {
@@ -48,102 +45,80 @@ function confirmLogout(event) {
     });
 }
 
-function openModal(name){
-    document.getElementById(name).showModal();
-}
-function closeModal(name){
-    document.getElementById(name).close();
-}
-
 function setModal(name){
     localStorage.setItem('lastModal',name);
 }
+function resetModal(){
+    localStorage.setItem('lastModal','null');
+}
+function getCurrentURL () {
+    return window.location.href
+}
+function setNavbar(activate){
+    let elH =document.getElementById('homeSelect');
+    let elS =document.getElementById('searchSelect');
+    if(activate == 'home'){
+        elH.classList.add('active');
+        elS.classList.remove('active');
+    } else if(activate == 'pesquisar'){
+        elS.classList.add('active');
+        elH.classList.remove('active');
 
-function setFavoritos(response){
-    let favorites = response.data.favorites;
-    let favoriteFormatted = favorites;
-    if(favorites/1000000 >= 1){
-        favoriteFormatted = (favorites/1000000)%1 ? (favorites/1000000).toFixed(1) : favorites/1000000;
-        favoriteFormatted += 'M';
-    }else if(favorites/1000 >= 1){
-        favoriteFormatted = (favorites/1000)%1 ? (favorites/1000).toFixed(1) : favorites/1000;
-        favoriteFormatted += 'K';
+    }else if(activate == 'none'){
+        elH.classList.remove('active');
+        elS.classList.remove('active');
     }
-    document.getElementById('favorites-number').innerText = `${favoriteFormatted}`;
+}
+function setPerfil(feedaAcess){
+
+}
+function getPage(){
+    // home
+    console.log(getCurrentURL());
+    if(getCurrentURL().indexOf('user')!= -1){
+        setNavbar('none');
+        let elP =document.getElementById('my-project');
+        let elF =document.getElementById('fav');
+        if(getCurrentURL().indexOf('favoritos') != -1){
+
+            elP.classList.remove('active');
+            elF.classList.add('active');
+        }
+        else{
+            elF.classList.remove('active');
+            elP.classList.add('active');
+        }
+    }
+    else if(getCurrentURL().indexOf('project')!= -1){
+        setNavbar('none');
+    }
+    else if(getCurrentURL().indexOf('login')!= -1){
+        setNavbar('none');
+    }
+    else if(getCurrentURL().indexOf('busca')!= -1){
+        setNavbar('pesquisar');
+    }
+    else{
+        let elS =document.getElementById('postseguidos');
+        let elD =document.getElementById('descobrir');
+        if(getCurrentURL().indexOf('seguindo')!= -1){
+            elD.classList.remove('active');
+            elS.classList.add('active');
+        }
+        else{
+            elS.classList.remove('active');
+            elD.classList.add('active');
+        }
+    }
+
 }
 
-function setLikes(response){
-    let likes = response.data.likes;
-    let likesFormatted = likes;
-    if(likes/1000000 >= 1){
-        likesFormatted = (likes/1000000)%1 ? (likes/1000000).toFixed(1) : likes/1000000;
-        likesFormatted += 'M';
-    }else if(likes/1000 >= 1){
-        likesFormatted = (likes/1000)%1 ? (likes/1000).toFixed(1) : likes/1000;
-        likesFormatted += 'K';
-    }
-    document.getElementById('likes-number').innerText = `${likesFormatted}`;
+function setSearch(){
+    localStorage.setItem('lastsearch',document.getElementById('search').value);
+    console.log(getSearch());
 }
 
-window.addEventListener('load', () => {
-    let favoriteBox = document.getElementById('favorite-checkbox');
-    axios.get(`http://localhost:8000/project/favorito/${favoriteBox.name}`)
-        .then(response => {
-            favoriteBox.checked = response.data.isFavorito;
-            setFavoritos(response);
-        })
-        .catch((err) => console.log(err));
-    let likeBox = document.getElementById('like-checkbox');
-    axios.get(`http://localhost:8000/project/curtido/${likeBox.name}`)
-        .then(response => {
-            likeBox.checked = response.data.isCurtido;
-            setLikes(response);
-        })
-        .catch(err => console.log(err));
-})
 
-document.getElementById('favorite-checkbox').addEventListener('change', () => {
-    let id = event.target.name;
-    if(event.target.checked){
-        axios.get(`http://localhost:8000/project/favoritar/${id}`)
-            .then()
-            .catch((err) => console.log(err));
-    }else{
-        axios.get(`http://localhost:8000/project/desfavoritar/${id}`)
-            .then()
-            .catch((err) => console.log(err));
-    }
-    let favoriteBox = document.getElementById('favorite-checkbox');
-    axios.get(`http://localhost:8000/project/favorito/${favoriteBox.name}`)
-        .then(response => {
-            setFavoritos(response);
-        })
-        .catch((err) => console.log(err));
-})
 
-document.getElementById('like-checkbox').addEventListener('change', () => {
-    let id = event.target.name;
-    if(event.target.checked){
-        axios.get(`http://localhost:8000/project/curtir/${id}`)
-            .then()
-            .catch((err) => console.log(err));
-    }else{
-        axios.get(`http://localhost:8000/project/descurtir/${id}`)
-            .then()
-            .catch((err) => console.log(err));
-    }
-    let likeBox = document.getElementById('like-checkbox');
-    axios.get(`http://localhost:8000/project/curtido/${likeBox.name}`)
-        .then(response => {
-            setLikes(response);
-        })
-        .catch(err => console.log(err));
-})
 
-function setDirectionFollow(followdirect){
-    localStorage.setItem('followdirection',followdirect);
-    console.log( localStorage.getItem('followdirection'));
-}
-function resetDirectionFollow(){
-    localStorage.setItem('followdirection','null');
-}
+

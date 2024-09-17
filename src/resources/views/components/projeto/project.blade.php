@@ -1,7 +1,8 @@
+<!--
 <div class="project-main-content">
 
 
-    <x-projeto.side-bar-projeto :project="$project"/>
+
 
     <div class="project-images">
         <div class="carousel-container">
@@ -53,3 +54,47 @@
 
     </div>
 </div>
+-->
+<body  style="min-width: 1350px" class="d-flex">
+ <x-projeto.side-bar-projeto :project="$project"/>
+
+ <div style="margin-top:90px;" class="container justify-content-center align-items-center ">
+
+         <div id="carouselExample{{$project->id}}" class="carousel slide d-flex flex-column justify-content-center align-items-center"  >
+              <div  style="width: 50vh;height: 62.5vh;" class=" d-flex  carousel-inner">
+                 <div class="border carousel-item  active">
+                     <img src="{{ asset('storage/arquivos/' . $project->user_id . '/' . $project->id . '/' . $project->imagem_capa) }}" class="d-block  img-feed" alt="...">
+                 </div>
+                 @foreach($project->imagesProjects()->get() as $image)
+                     <div class=" border carousel-item">
+                         <img class="img-feed d-block  img-feed" src="{{ asset('storage/arquivos/'. $project->user_id . '/' . $project->id . '/' .'imgs'.'/'.$image->name)}}" alt="">
+                     </div>
+                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample{{$project->id}}" data-bs-slide="prev">
+                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                         <span class="visually-hidden">Previous</span>
+                     </button>
+                     <button class="carousel-control-next" type="button" data-bs-target="#carouselExample{{$project->id}}" data-bs-slide="next">
+                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                         <span class="visually-hidden">Next</span>
+                     </button>
+                 @endforeach
+             </div>
+             <div style=" width: 50vh; min-width: 625px;" class="border info-feed-bot container mb-4 p-10">
+                 <div class="row">
+                     <div class="d-flex gap-2 option-feed">
+                         @if(auth()->check())
+                             <a style="text-decoration: none" href="#" onclick="likeHandler()"><i style="background-color: transparent" id="like-icon" class="bi bi-heart text-danger" title="{{$project->id}}" ></i></a><div id="likes-number">0</div>
+                             <a style="text-decoration: none" href="#" onclick="favoriteHandler()"><i style="background-color: transparent" id="favorite-icon" class="bi bi-bookmark text-warning" title="{{$project->id}}"></i></a><div id="favorites-number">0</div>
+                         @else
+                            <a style="text-decoration: none" href="{{route('project.curtir', $project->id)}}"><i style="background-color: transparent" id="like-icon" class="bi bi-heart  text-danger" title="{{$project->id}}"></i></a><div id="likes-number">0</div>
+                            <a style="text-decoration: none" href="{{route('project.favoritar', $project->id)}}"><i style="background-color: transparent" id="favorite-icon" class="bi bi-bookmark text-warning" title="{{$project->id}}"></i></a><div id="favorites-number">0</div>
+                         @endif
+
+                     </div>
+                 </div>
+             </div>
+         </div>
+
+</div>
+
+

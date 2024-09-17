@@ -28,7 +28,7 @@ class ProjectRequest extends FormRequest
             'imagens' => ['required', 'array', 'min:1', 'max:6', 'nullable'],
             'ferramentas' => ['required'],
             'descricao' => ['required'],
-            'tags' => ['required'],
+            'tags' => ['required', 'max:255'],
             'arquivo' => ['file'],
             'arquivo_publico' => []
         ];
@@ -58,7 +58,8 @@ class ProjectRequest extends FormRequest
                 'required' => 'Preencha este campo'
             ],
             'tags' => [
-                'required' => 'Digite pelo menos uma tag'
+                'required' => 'Digite pelo menos uma tag',
+                'max' => 'O tamanho máximo das tags é de :max caracteres.'
             ],
             'arquivo' => [
                 'file' => 'O upload precisa ser de um arquivo'

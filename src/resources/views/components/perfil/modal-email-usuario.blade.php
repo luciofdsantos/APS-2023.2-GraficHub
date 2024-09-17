@@ -1,10 +1,14 @@
-<dialog id="box-email">
-    <div><a  class="close-modal" onclick="closeModal('box-email')"><img class="close-modal-img" src="/img/cruz.png"></a></div>
-    <div class="contact-container">
-        <div class="content-contact">
-            <img class="icon" src="/img/email.png" alt="fone icon">
-            <div class="text-box"><p class="email-text"> {{$user->email}}</p></div>
+<div class="modal fade" id="mailModal" tabindex="-1" aria-labelledby="mailModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Email</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                {{$user->email}}
+            </div>
         </div>
     </div>
-</dialog>
-</body>
+</div>
+

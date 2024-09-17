@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('imagem_capa');
             $table->string('ferramentas');
             $table->text('descricao');
-            $table->string('tags');
             $table->string('arquivo')->nullable();
             $table->boolean('arquivo_publico')->default(true);
             $table->unsignedInteger('n_curtidas')->default(0);
