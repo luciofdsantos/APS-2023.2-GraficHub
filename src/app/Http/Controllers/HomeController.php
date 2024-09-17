@@ -38,7 +38,12 @@ class HomeController extends Controller
             ->cursorPaginate(6);
 
         session(['goBack' => url()->current()]);
-        return view('homeBusca', compact('projects', 'string'));
+        $filtros = [
+            'busca' => $request->query('string'),
+            'filtro' => $request->query('filtro'),
+            'ordem' => $request->query('ordem'),
+        ];
+        return view('homeBusca', compact('projects', 'filtros'));
 
     }
 }
