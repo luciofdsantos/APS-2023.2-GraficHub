@@ -10,7 +10,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $projects = Project::where('user_id', '<>', auth()->id())->orderBy('created_at', 'desc')->cursorPaginate(6);
+        $projects = Project::where('user_id', '<>', auth()->id())->orderBy('created_at', 'desc')->cursorPaginate(10);
         session(['goBack' => url()->current()]);
         return view('home', compact('projects'));
     }
@@ -20,7 +20,7 @@ class HomeController extends Controller
         session(['goBack' => url()->current()]);
         if (auth()->check()) {
             $seguindo = auth()->user()->seguindo()->pluck('users.id')->toArray();
-            $projects = Project::whereIn('user_id', $seguindo)->orderBy('created_at', 'desc')->cursorPaginate(9);
+            $projects = Project::whereIn('user_id', $seguindo)->orderBy('created_at', 'desc')->cursorPaginate(10);
             return view('home', ['projects' => $projects, 'personalizado' => true]);
         } else {
             return redirect()->route('auth.loginForm');
@@ -43,7 +43,7 @@ class HomeController extends Controller
             });
         }
         $projects = $consulta->orderBy($request->query('filtro'), $request->query('ordem'))
-            ->cursorPaginate(6);
+            ->cursorPaginate(10);
         session(['goBack' => url()->current()]);
         $filtros = [
             'busca' => $request->query('string'),

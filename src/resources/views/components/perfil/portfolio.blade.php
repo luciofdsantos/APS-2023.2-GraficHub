@@ -8,5 +8,5 @@
 
 
     <x-projeto.grid-projetos :projects="$projects"/>
-    <div> {{ $projects->links() }} </div>
+
 </section>

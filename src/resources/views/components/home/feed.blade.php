@@ -75,6 +75,12 @@
 
     </div>
     @endforeach
+    <div>
+        <div class="custom-pagination">
+            {{$projects->links()}}
+        </div>
+
+    </div>
 </section>
 
 

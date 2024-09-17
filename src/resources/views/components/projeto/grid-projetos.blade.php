@@ -20,6 +20,12 @@
                             </a>
                 @endforeach
             </div>
+
         </div>
+
+    </div>
+    <div class="d-flex  justify-content-center">
+        <div class="custom-pagination "> {{ $projects->links() }} </div>
     </div>
 </section>
+
