@@ -16,7 +16,7 @@
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.min.css" rel="stylesheet">
 </head>
 
-<body onload="getPage()" class="mainhome" style=" min-width:2000px;background: var(--GrayishWhite)">
+<body onload="getPage()" class="mainhome" style=" min-width:800px;background: var(--GrayishWhite)">
 <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"></script>
 <script src="/js/home.js"></script>
 <script src="/js/functions.js"></script>
@@ -43,13 +43,17 @@
                 <option value="desc" <?= $filtros['ordem'] == 'desc' ? 'selected' : '' ?>>Decrescente</option>
             </select>
         </div>
-        <div class="d-flex flex-column">
-            <label for="decision">Apenas designers disponíveis?</label>
-                <input type="radio" id="sim" name="disponivel" value="sim" <?= $filtros['disponivel'] == 'sim' ? 'checked' : '' ?>>
-                <label for="sim">Sim</label>
+        <div style="justify-content: end" class="d-flex flex-column form-check">
 
-                <input type="radio" id="nao" name="disponivel" value="nao" <?= $filtros['disponivel'] == 'nao' ? 'checked' : '' ?>>
-                <label for="nao">Não</label>
+            <div class="d-flex">
+                <input class="form-check-input" type="radio" id="sim" name="disponivel" value="sim" <?= $filtros['disponivel'] == 'sim' ? 'checked' : '' ?>>
+                <label  class="form-check-label" for="sim">Designer Disponível</label>
+            </div>
+            <div class="d-flex">
+                <input class="form-check-input" type="radio" id="nao" name="disponivel" value="nao" <?= $filtros['disponivel'] == 'nao' ? 'checked' : '' ?>>
+                <label  class="form-check-label" for="nao">Designer Indisponível</label>
+            </div>
+
         </div>
         <div class="d-flex align-items-end">
             <button id="search-btn" style="width: 100px; height: 40px; " type="submit" class="btn btn-primary">Filtrar
@@ -57,37 +61,7 @@
         </div>
     </div>
 </form>
-<script>
-    // Função para salvar as seleções no localStorage
-    function saveSelections() {
-        const filtroValue = document.getElementById('filtro').value;
-        const ordemValue = document.getElementById('ordem').value;
 
-        // Salva os valores dos selects no localStorage
-        localStorage.setItem('filtroSelecionado', filtroValue);
-        localStorage.setItem('ordemSelecionada', ordemValue);
-    }
-
-    // Função para restaurar as seleções salvas no localStorage
-    function restoreSelections() {
-        const savedFiltro = localStorage.getItem('filtroSelecionado');
-        const savedOrdem = localStorage.getItem('ordemSelecionada');
-
-        if (savedFiltro) {
-            document.getElementById('filtro').value = savedFiltro;
-        }
-
-        if (savedOrdem) {
-            document.getElementById('ordem').value = savedOrdem;
-        }
-    }
-
-    // Restaura as seleções ao carregar a página
-    window.onload = restoreSelections;
-
-    // Salva as seleções ao enviar o formulário (você pode modificar isso para o envio do formulário se for necessário)
-    document.getElementById('search-btn').addEventListener('click', saveSelections);
-</script>
 <section>
     <x-home.feed :projects="$projects"/>
 </section>
