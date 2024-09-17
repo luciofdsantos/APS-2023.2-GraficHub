@@ -11,12 +11,7 @@
 
 </div>
 -->
-<div class="d-flex justify-content-center align-items-center pt-3 ">
-    <div class="btn-group pb-3">
-        <a id="descobrir"  href="{{ route('home') }}" class="btn btn-primary" aria-current="page"  onclick="discBGcolor()"> <i class="bi bi-globe"></i> Descobrir </a>
-        <a id="postseguidos" href="{{ route('home.personalizado') }}"  class="btn btn-primary"  @if(auth()->check())onclick="followBGcolor()" @else  onclick="setOut()" @endif> <i class="bi bi-box"></i> Seguindo </a>
-    </div>
-</div>
+
 <section class="container">
     @foreach($projects as $project)
     <div id="carouselExample{{$project->id}}" class="carousel slide d-flex flex-column justify-content-center align-items-center">

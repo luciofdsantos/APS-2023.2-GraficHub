@@ -20,21 +20,19 @@
     <script src="/js/home.js"></script>
     <script src="/js/functions.js"></script>
     <x-nav-bar :string="$string" />
-    <section>
-        <x-home.feed :projects="$projects"/>
-    </section>
-    <form style=" min-width: 500px; justify-content: end; margin-top: 70px; margin-right: 30px; " class=" d-flex gap-4" action="{{ route('home.busca') }}" method="GET">
+
+    <form style=" min-width: 500px; justify-content: end; margin-top: 100px; margin-right: 30px; " class=" d-flex gap-4" action="{{ route('home.busca') }}" method="GET">
         @csrf
         <input type="hidden" name="string" value="{{ $string }}">
-
         <div class="form-group d-flex gap-4">
             <div class="d-flex flex-column">
             <label style="width: 100px; " for="filtro">Filtrar por:</label>
-            <select style="width: 180px; height: 40px" id="filtro " name="filtro" class="form-control ">
+            <select style="width: 180px; height: 40px" id="filtro" name="filtro" class="form-control ">
                 <option value="n_curtidas">Curtidas</option>
-                <option value="n_favoritos">Salvos</option>
-                <option value="created_at">Data de Postagem</option>
+                <option   value="n_favoritos">Salvos</option>
+                <option  value="created_at">Data de Postagem</option>
             </select>
+
             </div>
 
             <div  class="d-flex flex-column ">
@@ -48,9 +46,41 @@
                 <button id="search-btn" style="width: 100px; height: 40px; " type="submit" class="btn btn-primary">Filtrar</button>
             </div>
         </div>
-
-
     </form>
+    <script>
+        // Função para salvar as seleções no localStorage
+        function saveSelections() {
+            const filtroValue = document.getElementById('filtro').value;
+            const ordemValue = document.getElementById('ordem').value;
+
+            // Salva os valores dos selects no localStorage
+            localStorage.setItem('filtroSelecionado', filtroValue);
+            localStorage.setItem('ordemSelecionada', ordemValue);
+        }
+
+        // Função para restaurar as seleções salvas no localStorage
+        function restoreSelections() {
+            const savedFiltro = localStorage.getItem('filtroSelecionado');
+            const savedOrdem = localStorage.getItem('ordemSelecionada');
+
+            if (savedFiltro) {
+                document.getElementById('filtro').value = savedFiltro;
+            }
+
+            if (savedOrdem) {
+                document.getElementById('ordem').value = savedOrdem;
+            }
+        }
+
+        // Restaura as seleções ao carregar a página
+        window.onload = restoreSelections;
+
+        // Salva as seleções ao enviar o formulário (você pode modificar isso para o envio do formulário se for necessário)
+        document.getElementById('search-btn').addEventListener('click', saveSelections);
+    </script>
+    <section>
+        <x-home.feed :projects="$projects"/>
+    </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 

@@ -30,7 +30,7 @@
 <style>
 
 </style>
-<nav class="navbar navbar-expand-lg fixed-top">
+<nav  class="navbar navbar-expand-lg fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand me-auto" href="{{ route('home') }}"> <img style="width: 35px;" src="/img/grafichub.png" alt=""></a>
 

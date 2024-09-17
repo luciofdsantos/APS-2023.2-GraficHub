@@ -27,6 +27,12 @@
         </div>
     </section>
     <section>
+        <div class="d-flex justify-content-center align-items-center pt-3 ">
+            <div class="btn-group pb-3">
+                <a id="descobrir"  href="{{ route('home') }}" class="btn btn-primary" aria-current="page"  onclick="discBGcolor()"> <i class="bi bi-globe"></i> Descobrir </a>
+                <a id="postseguidos" href="{{ route('home.personalizado') }}"  class="btn btn-primary"  @if(auth()->check())onclick="followBGcolor()" @else  onclick="setOut()" @endif> <i class="bi bi-box"></i> Seguindo </a>
+            </div>
+        </div>
         <x-home.feed :projects="$projects"/>
     </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

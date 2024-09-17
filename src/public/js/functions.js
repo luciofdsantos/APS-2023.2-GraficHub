@@ -118,6 +118,7 @@ function setSearch(){
     console.log(getSearch());
 }
 
-function getSearch(){
-    return localStorage.getItem('lastsearch');
-}
+
+
+
+
