@@ -47,4 +47,14 @@ class Project extends Model
     {
         return $this->belongsToMany(Tag::class, 'project_tags', 'project_id', 'tag_id');
     }
+
+    public function likes(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'likes', 'project_id', 'user_id');
+    }
+
+    public function favorites(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'favorites', 'project_id', 'user_id');
+    }
 }
