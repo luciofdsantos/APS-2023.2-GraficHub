@@ -7,8 +7,12 @@
         @else
             <button  type="submit" class="disp-btn red-disp-btn">Indisponível <img class="disp-info-icon" src="/img/info-icon.png"  onmouseover="showMessage()" onmouseout="hideMessage()"> </button>
         @endif
-        <div id="disp-info-text">
-        </div>
         @if(auth()->id() == $user['id'])
+        <div id="disp-info-text" title="self">
+        </div>
     </form>
+
+@else
+    <div id="disp-info-text" title="">
+    </div>
 @endif
