@@ -21,5 +21,6 @@ class DatabaseSeeder extends Seeder
             'password' => 'adm',
         ]);
         $this->call(ReacoesSeeder::class);
+        $this->call(SeguidoresSeeder::Seeder::class);
     }
 }
