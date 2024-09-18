@@ -29,8 +29,6 @@ Route::controller(UserController::class)->group(function () {
     Route::post('/user/{id}', 'updateDisponibility')->name('user.updateDisp');
     Route::get('/user/follow/{apelido}/{id}', 'follow')->middleware(Authenticate::class)->name('user.follow');
     Route::get('/user/unfollow/{apelido}/{id}', 'unfollow')->middleware(Authenticate::class)->name('user.unfollow');
-    Route::get('/user/{apelido}/seguidores', 'seguidores')->middleware(Authenticate::class)->name('user.seguidores');
-    Route::get('/user/{apelido}/seguindo', 'seguindo')->middleware(Authenticate::class)->name('user.seguindo');
     Route::get('/user/{apelido}/favoritos', 'favoritos')->middleware(Authenticate::class)->name('user.favoritos');
 });
 

@@ -28,26 +28,6 @@ class UserController extends Controller
         return view('user.perfil', compact('user', 'projects', 'seguidores', 'seguindo', 'favoritos'));
     }
 
-    public function seguidores(string $apelido)
-    {
-        $user = User::where('apelido', $apelido)->first();
-        if ($user == null) {
-            abort(404);
-        }
-        $followers = $user->seguidores()->orderBy('created_at', 'desc')->paginate(2);
-        return view('user.showFollowers', compact('user', 'followers'));
-    }
-
-    public function seguindo(string $apelido)
-    {
-        $user = User::where('apelido', $apelido)->first();
-        if ($user == null) {
-            abort(404);
-        }
-        $followers = $user->seguindo()->orderBy('created_at', 'desc')->paginate(2);
-        return view('user.showFollowers', compact('user', 'followers'));
-    }
-
     /**
      * atualizar disponibilidade
      * @param int $id
