@@ -74,6 +74,8 @@ function setPerfil(feedaAcess){
 
 }
 function getPage(){
+    const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]');
+    const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl));
     // home
     console.log(getCurrentURL());
     if(getCurrentURL().indexOf('user')!= -1){
