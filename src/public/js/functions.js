@@ -2,7 +2,7 @@
 function showMessage(){
     let dispInfoText = document.getElementById("disp-info-text");
 
-    dispInfoText.innerHTML = `<div  onmouseover="showMessage()" onmouseout="hideMessage()" style=" padding: 20px">O estado de disponibilidade informa a outros usuários a sua disponibilidade em aceitar trabalhos.${ dispInfoText.title === "self" ? 'Clique para alterar.' : ''}</div>`
+    dispInfoText.innerHTML = `<div  onmouseover="showMessage()" onmouseout="hideMessage()" style=" padding: 20px">O estado de disponibilidade informa a outros usuários a ${ dispInfoText.title === "self" ? 'sua disponibilidade em aceitar trabalhos. Clique para alterar.' : 'disponibilidade deste usuário em aceitar trabalhos.'}</div>`
 }
 
 function hideMessage(){
