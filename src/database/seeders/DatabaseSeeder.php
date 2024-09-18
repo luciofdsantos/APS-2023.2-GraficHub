@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+
         User::create([
             'nome' => 'admin',
             'apelido' => 'admin',
@@ -21,6 +22,6 @@ class DatabaseSeeder extends Seeder
             'password' => 'adm',
         ]);
         $this->call(ReacoesSeeder::class);
-        $this->call(SeguidoresSeeder::Seeder::class);
+        $this->call(SeguidoresSeeder::class);
     }
 }

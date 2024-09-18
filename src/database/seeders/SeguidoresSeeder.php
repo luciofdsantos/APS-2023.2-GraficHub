@@ -29,7 +29,7 @@ class SeguidoresSeeder extends Seeder
 
         foreach ($users as $user) {
             $user->num_seguidores = $user->seguidores()->count();
-            $user->num_seguidos = $user->seguindo()->count();
+            $user->num_seguindo = $user->seguindo()->count();
             $user->save();
         }
     }
