@@ -51,7 +51,7 @@
             </div>
             <div class="d-flex">
                 <input class="form-check-input" type="radio" id="nao" name="disponivel" value="nao" <?= $filtros['disponivel'] == 'nao' ? 'checked' : '' ?>>
-                <label  class="form-check-label" for="nao">Designer Indisponível</label>
+                <label  class="form-check-label" for="nao">Todos Designers</label>
             </div>
 
         </div>
