@@ -27,7 +27,7 @@
     <input type="hidden" name="string" value="{{ $filtros['busca'] }}">
     <div class="form-group d-flex gap-4">
         <div class="d-flex flex-column">
-            <label style="width: 100px; " for="filtro">Filtrar por:</label>
+            <label style="width: 100px; " for="filtro">Ordernar por:</label>
             <select style="width: 180px; height: 40px" id="filtro" name="filtro" class="form-control ">
                 <option value="n_curtidas" <?= $filtros['filtro'] == 'n_curtidas' ? 'selected' : '' ?>>Curtidas</option>
                 <option value="n_favoritos" <?= $filtros['filtro'] == 'n_favoritos' ? 'selected' : '' ?>>Salvos</option>
