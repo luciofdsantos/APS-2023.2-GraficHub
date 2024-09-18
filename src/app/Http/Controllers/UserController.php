@@ -147,9 +147,9 @@ class UserController extends Controller
             abort(404);
         }
 
-        $projects = $user->projetosFavoritos()->orderBy('created_at', 'desc')->paginate(6);
-        $seguidores = $user->seguidores()->orderBy('created_at', 'desc')->paginate(2);
-        $seguindo = $user->seguindo()->orderBy('created_at', 'desc')->paginate(2);
+        $projects = $user->projetosFavoritos()->orderBy('created_at', 'desc')->paginate(12);
+        $seguidores = $user->seguidores()->orderBy('created_at', 'desc')->paginate(10);
+        $seguindo = $user->seguindo()->orderBy('created_at', 'desc')->paginate(10);
         $favoritos = true;
 
         return view('user.perfil', compact('user', 'projects', 'seguidores', 'seguindo', 'favoritos'));
