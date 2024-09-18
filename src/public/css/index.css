@@ -305,12 +305,13 @@ html, body {
     justify-content: center;
     margin-top: 10px;
     border-radius: 20px;
-    min-width: 190px;
+    min-width: 40px;
     color: white;
     padding: 20px 0 20px 0;
     border: none;
     cursor: pointer;
     font-weight: bold;
+    max-width: 240px;
 }
 
 .green-disp-btn{
@@ -671,4 +672,16 @@ span {
 
 .custom-pagination .summary {
     display: none;
+}
+a.page-link, a.page-link:hover{
+    color: black;
+    text-decoration: none;
+}
+li.page-item.active{
+  background-color: #2e2e2e  ;
+}
+.pagination .page-item.active .page-link {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: #fff;
 }

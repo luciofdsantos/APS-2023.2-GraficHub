@@ -18,7 +18,7 @@ class UserController extends Controller
             abort(404);
         }
 
-        $projects = Project::where('user_id', $user->id)->orderBy('created_at', 'desc')->paginate(1);
+        $projects = Project::where('user_id', $user->id)->orderBy('created_at', 'desc')->paginate(8);
         $seguidores = $user->seguidores()->orderBy('created_at', 'desc')->paginate(10);
         $seguindo = $user->seguindo()->orderBy('created_at', 'desc')->paginate(10);
         $favoritos = false;
