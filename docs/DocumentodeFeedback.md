@@ -11,7 +11,7 @@ A construção do front-end tornou-se desafiadora nesse momento. Entretanto, foi
 
 Com o aprofundamento das habilidades, conhecemos o Bootstrap, e toda a parte visual do site foi repaginada, trazendo um aspecto mais moderno, fluido e intuitivo. Refatorar todas as views e refazer o trabalho foi novamente desafiador. Porém, isso proporcionou um conhecimento muito maior em relação à estilização de sites, e a nova tecnologia se mostrou poderosa e prática.
 
-- [Ivanderlei](https://github.com/Filinho) 
+- [Ivanderlei](https://github.com/Filinho) - O design final do projeto atende plenamente às expectativas iniciais. Como um site voltado para apoiar designers, ele consegue não ofuscar a visibilidade dos projetos. Além disso, o site oferece uma experiência visual agradável e não compromete a usabilidade.
 - [Flávio](https://github.com/flaviorss)
 - [Pedro](https://github.com/pedrogabdias)
 - [Maicon](https://github.com/maiconpml)
@@ -19,14 +19,14 @@ Com o aprofundamento das habilidades, conhecemos o Bootstrap, e toda a parte vis
 ### B. Cumprimento de Prazos
 Os prazos não foram um problema, mesmo com as dificuldades enfrentadas durante o projeto. A divisão de tarefas, cooperação e bom entrosamento entre os membros da equipe foram fatores cruciais para a entrega dentro do prazo.
 
-- [Ivanderlei](https://github.com/Filinho) 
+- [Ivanderlei](https://github.com/Filinho) - A falta de conhecimento sobre as ferramentas utilizadas fez com que o desenvolvimento ocorresse junto ao aprendizado, tornando o processo difícil, entretanto, sem afetar os prazos.
 - [Flávio](https://github.com/flaviorss)
 - [Pedro](https://github.com/pedrogabdias)
 - [Maicon](https://github.com/maiconpml)
 
 ### C. Colaboração e Comunicação
 Quanto a colaboração e comunicação, foram os pontos mais fortes da equipe, ela foi precisamente escolhida com membros que já possuíam amizade e já haviam trabalhado juntos anteriormente. Esse fator tornou todo o processo tranquilo, permitindo continuar com as demandas de outras matérias tranquilamente durante o desenvolvimento do projeto.
-- [Ivanderlei](https://github.com/Filinho) 
+- [Ivanderlei](https://github.com/Filinho) - Trabalhar com uma equipe entrosada foi uma experiência prazerosa. As tarefas foram distribuídas da melhor forma possível e, nas ocasiões em que surgiam indisponibilidades, as demandas eram ajustadas nas interações seguintes, sem sobrecarregar nenhum membro em relação aos demais.
 - [Flávio](https://github.com/flaviorss)
 - [Pedro](https://github.com/pedrogabdias)
 - [Maicon](https://github.com/maiconpml)
@@ -36,12 +36,11 @@ Quanto a colaboração e comunicação, foram os pontos mais fortes da equipe, e
 A seguir algumas melhorias que cada membro da equipe julga possível e relevante para o desenvolvimento do projeto:
 
 ### A. Testes/Código Software
-- [Ivanderlei](https://github.com/Filinho) 
+- [Ivanderlei](https://github.com/Filinho) - Utilizar usuários externos ao projeto para realizar testes seria uma alternativa interessante para melhorar a usabilidade.
 - [Flávio](https://github.com/flaviorss)
 - [Pedro](https://github.com/pedrogabdias)
 - [Maicon](https://github.com/maiconpml)
 ### B. Documentação do Código
-- [Ivanderlei](https://github.com/Filinho) 
 - [Flávio](https://github.com/flaviorss)
 - [Pedro](https://github.com/pedrogabdias)
 - [Maicon](https://github.com/maiconpml)
@@ -49,12 +48,12 @@ A seguir algumas melhorias que cada membro da equipe julga possível e relevante
 ## 3. Próximos Passos
 A seguir algumas melhorias que cada membro da equipe julga possível e relevante para o projeto final:
 ###A. Possíveis melhorias
-- [Ivanderlei](https://github.com/Filinho) 
+- [Ivanderlei](https://github.com/Filinho) - Adicionar comunicação entre os usuários na plataforma.
 - [Flávio](https://github.com/flaviorss)
 - [Pedro](https://github.com/pedrogabdias)
 - [Maicon](https://github.com/maiconpml)
 ## 4. Sugestões e Feedback Individual
-- [Ivanderlei](https://github.com/Filinho) 
+- [Ivanderlei](https://github.com/Filinho) - A experiência completa de desenvolver um projeto foi fundamental para orientar os próximos passos na área de aplicação do curso. O processo de desenvolvimento foi divertido e muito enriquecedor, proporcionando uma excelente oportunidade para entender como estudar novas tecnologias enquanto as aplicava, além de entender melhor o trabalho em equipe, quando se trata de código. Com certeza, o projeto deixou boas expectativas do que será o futuro na área.
 - [Flávio](https://github.com/flaviorss)
 - [Pedro](https://github.com/pedrogabdias)
 - [Maicon](https://github.com/maiconpml)
