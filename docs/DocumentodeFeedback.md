@@ -17,7 +17,7 @@ Com o aprofundamento das habilidades, conhecemos o Bootstrap, e toda a parte vis
 - [Maicon](https://github.com/maiconpml)
 
 ### B. Cumprimento de Prazos
-  Os prazos não foram um problema, mesmo com as dificuldades enfrentadas durante o projeto. A divisão de tarefas, cooperação e bom entrosamento entre os membros da equipe foram fatores cruciais para a entrega dentro do prazo.
+Os prazos não foram um problema, mesmo com as dificuldades enfrentadas durante o projeto. A divisão de tarefas, cooperação e bom entrosamento entre os membros da equipe foram fatores cruciais para a entrega dentro do prazo.
 
 - [Ivanderlei](https://github.com/Filinho) 
 - [Flávio](https://github.com/flaviorss)
@@ -25,7 +25,7 @@ Com o aprofundamento das habilidades, conhecemos o Bootstrap, e toda a parte vis
 - [Maicon](https://github.com/maiconpml)
 
 ### C. Colaboração e Comunicação
-  Quando a colaboração e comunicação foram o ponto forte da equipe, ela foi precisamente escolhida com membros que já possuíam amizade e já haviam trabalhado juntos anteriormente. Esse fator tornou todo o processo tranquilo, permitindo continuar com as demandas de outras matérias tranquilamente durante o desenvolvimento do projeto.
+Quanto a colaboração e comunicação, foram os pontos mais fortes da equipe, ela foi precisamente escolhida com membros que já possuíam amizade e já haviam trabalhado juntos anteriormente. Esse fator tornou todo o processo tranquilo, permitindo continuar com as demandas de outras matérias tranquilamente durante o desenvolvimento do projeto.
 - [Ivanderlei](https://github.com/Filinho) 
 - [Flávio](https://github.com/flaviorss)
 - [Pedro](https://github.com/pedrogabdias)
@@ -33,10 +33,28 @@ Com o aprofundamento das habilidades, conhecemos o Bootstrap, e toda a parte vis
 
 
 ## 2. Áreas de Melhoria
+A seguir algumas melhorias que cada membro da equipe julga possível e relevante para o desenvolvimento do projeto:
 
 ### A. Testes/Código Software
+- [Ivanderlei](https://github.com/Filinho) 
+- [Flávio](https://github.com/flaviorss)
+- [Pedro](https://github.com/pedrogabdias)
+- [Maicon](https://github.com/maiconpml)
 ### B. Documentação do Código
+- [Ivanderlei](https://github.com/Filinho) 
+- [Flávio](https://github.com/flaviorss)
+- [Pedro](https://github.com/pedrogabdias)
+- [Maicon](https://github.com/maiconpml)
 
 ## 3. Próximos Passos
+A seguir algumas melhorias que cada membro da equipe julga possível e relevante para o projeto final:
+###A. Possíveis melhorias
+- [Ivanderlei](https://github.com/Filinho) 
+- [Flávio](https://github.com/flaviorss)
+- [Pedro](https://github.com/pedrogabdias)
+- [Maicon](https://github.com/maiconpml)
 ## 4. Sugestões e Feedback Individual
-### A. Possíveis melhorias
+- [Ivanderlei](https://github.com/Filinho) 
+- [Flávio](https://github.com/flaviorss)
+- [Pedro](https://github.com/pedrogabdias)
+- [Maicon](https://github.com/maiconpml)
